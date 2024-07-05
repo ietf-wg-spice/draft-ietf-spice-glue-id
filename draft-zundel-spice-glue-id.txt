@@ -72,7 +72,7 @@ Table of Contents
    2.  Conventions and Definitions
    3.  Core Concepts
    4.  Text Encoding of glue URIs
-     4.1.  glue URI Sceme Text Syntax
+     4.1.  glue URI Scheme Text Syntax
    5.  DIDs and glue
    6.  Security Considerations
    7.  IANA Considerations
@@ -136,7 +136,7 @@ Table of Contents
    External Number MUST be the identifier assigned to the company by the
    external authority under the identified scheme.
 
-4.1.  glue URI Sceme Text Syntax
+4.1.  glue URI Scheme Text Syntax
 
    TODO ABNF
 

@@ -37,18 +37,19 @@ informative:
 
 --- abstract
 
-This specification defines the `gci` URI scheme and the rules for encoding these
-URIs. It also establishes the registries necessary for management of this scheme.
+This specification defines the `glue` URI scheme and the rules for encoding
+these URIs. It also establishes the registries necessary for management of this
+scheme.
 
 
 --- middle
 
 # Introduction
 
-Company entity identifiers are myriad. With the increasing use of digitial
+Enterprise entity identifiers are myriad. With the increasing use of digitial
 credentials, there is a need for a common methodology for expressing these
-identifiers such that claims about and by companies can be made in a consistent
-manner.
+identifiers such that claims about and by such entities can be made in a
+consistent and interoperable manner.
 
 This specification defines a URI scheme that standardizes the expression of
 existing company entity identifers and establishes a registry for managing how
@@ -58,12 +59,12 @@ these existing identifiers relate to this scheme.
 
 {::boilerplate bcp14-tagged}
 
-For the remainder of this document, the term "gci URI" is used to refer to a URI
-that uses the gci scheme.
+For the remainder of this document, the term "glue URI" is used to refer to a
+URI that uses the glue scheme.
 
 # Core Concepts
 
-Every gci URI, whether expressed as a string or encoded in binary MUST be
+Every glue URI, whether expressed as a string or encoded in binary MUST be
 comprised of the following components:
 
 - The Authority Identifier
@@ -76,28 +77,28 @@ assigning the External Number and the scheme used to do so.
 The External Number is the identifier assigned to the company by the external
 authority.
 
-# Text Encoding of gci URIs
+# Text Encoding of glue URIs
 
-All gci URIs comply with {{-URI-syntax}} and are therefore represented by a
-scheme identifier and a scheme-specific part. The scheme identifier is: gci, and
+All glue URIs comply with {{-URI-syntax}} and are therefore represented by a
+scheme identifier and a scheme-specific part. The scheme identifier is: glue, and
 the scheme-specific parts are represented as a sequence of alphanumeric
 components separated by the '.' character. A formal definition is provided in
 the next section, but it can informally be considered as:
 
-gci:&lt;authority-identifier>.&lt;external-number>
+glue:&lt;authority-identifier>.&lt;external-number>
 
 The Authority Identifier MUST be an alphanumeric string from the "Scheme" field
-of the gci URI Authority Identifier registry. The External Number MUST be the
+of the glue URI Authority Identifier registry. The External Number MUST be the
 identifier assigned to the company by the external authority under the
 identified scheme.
 
-## gci URI Sceme Text Syntax
+## glue URI Sceme Text Syntax
 
 TODO ABNF
 
-# DIDs and gci
+# DIDs and glue
 
-TODO DIDs and gci
+TODO DIDs and glue
 
 # Security Considerations
 
@@ -109,9 +110,9 @@ TODO Security
 The following sections detail requests to IANA for the creation of a new
 registry.
 
-## 'gci' Scheme URI authority registry
+## 'glue' Scheme URI authority registry
 
-IANA is requested to create a new registry entitled "'gci Scheme URI Authority
+IANA is requested to create a new registry entitled "'glue' Scheme URI Authority
 Identifiers". The registration policy for this registry is Expert Review as
 defined in {{-IANA-guidelines}}.
 

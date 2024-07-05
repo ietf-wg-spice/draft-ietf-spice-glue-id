@@ -92,7 +92,7 @@ of the glue URI Authority Identifier registry. The External Number MUST be the
 identifier assigned to the company by the external authority under the
 identified scheme.
 
-## glue URI Sceme Text Syntax
+## glue URI Scheme Text Syntax
 
 TODO ABNF
 

@@ -7,8 +7,9 @@
 <title>SPICE GLUE: GLobal Unique Enterprise Identifiers</title>
 <meta content="Brent Zundel" name="author">
 <meta content="
-       This specification defines the  gci  URI scheme and the rules for encoding these
-URIs. It also establishes the registries necessary for management of this scheme. 
+       This specification defines the  glue  URI scheme and the rules for encoding
+these URIs. It also establishes the registries necessary for management of this
+scheme. 
     " name="description">
 <meta content="xml2rfc 3.22.0" name="generator">
 <meta content="next generation" name="keyword">
@@ -1062,8 +1063,9 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">SPICE GLUE: GLobal Unique Enterprise Identifiers</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">This specification defines the <code>gci</code> URI scheme and the rules for encoding these
-URIs. It also establishes the registries necessary for management of this scheme.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">This specification defines the <code>glue</code> URI scheme and the rules for encoding
+these URIs. It also establishes the registries necessary for management of this
+scheme.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1139,15 +1141,15 @@ URIs. It also establishes the registries necessary for management of this scheme
             <p id="section-toc.1-1.3.1" class="keepWithNext"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-core-concepts" class="internal xref">Core Concepts</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-text-encoding-of-gci-uris" class="internal xref">Text Encoding of gci URIs</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-text-encoding-of-glue-uris" class="internal xref">Text Encoding of glue URIs</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
-                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-gci-uri-sceme-text-syntax" class="internal xref">gci URI Sceme Text Syntax</a></p>
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-glue-uri-sceme-text-syntax" class="internal xref">glue URI Sceme Text Syntax</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-dids-and-gci" class="internal xref">DIDs and gci</a></p>
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-dids-and-glue" class="internal xref">DIDs and glue</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
             <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
@@ -1156,7 +1158,7 @@ URIs. It also establishes the registries necessary for management of this scheme
             <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
-                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-gci-scheme-uri-authority-re" class="internal xref">'gci' Scheme URI authority registry</a></p>
+                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-glue-scheme-uri-authority-r" class="internal xref">'glue' Scheme URI authority registry</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2">
                 <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="auto internal xref">7.2</a>.  <a href="#name-guidance-for-designated-exp" class="internal xref">Guidance for Designated Experts</a></p>
@@ -1181,10 +1183,10 @@ URIs. It also establishes the registries necessary for management of this scheme
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">Company entity identifiers are myriad. With the increasing use of digitial
+<p id="section-1-1">Enterprise entity identifiers are myriad. With the increasing use of digitial
 credentials, there is a need for a common methodology for expressing these
-identifiers such that claims about and by companies can be made in a consistent
-manner.<a href="#section-1-1" class="pilcrow">¶</a></p>
+identifiers such that claims about and by such entities can be made in a
+consistent and interoperable manner.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">This specification defines a URI scheme that standardizes the expression of
 existing company entity identifers and establishes a registry for managing how
 these existing identifiers relate to this scheme.<a href="#section-1-2" class="pilcrow">¶</a></p>
@@ -1199,8 +1201,8 @@ these existing identifiers relate to this scheme.<a href="#section-1-2" class="p
 "<span class="bcp14">MAY</span>", and "<span class="bcp14">OPTIONAL</span>" in this document are to be interpreted as
 described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="cite xref">RFC8174</a>]</span> when, and only when, they
 appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶</a></p>
-<p id="section-2-2">For the remainder of this document, the term "gci URI" is used to refer to a URI
-that uses the gci scheme.<a href="#section-2-2" class="pilcrow">¶</a></p>
+<p id="section-2-2">For the remainder of this document, the term "glue URI" is used to refer to a
+URI that uses the glue scheme.<a href="#section-2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="core-concepts">
@@ -1208,7 +1210,7 @@ that uses the gci scheme.<a href="#section-2-2" class="pilcrow">¶</a></p>
       <h2 id="name-core-concepts">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-core-concepts" class="section-name selfRef">Core Concepts</a>
       </h2>
-<p id="section-3-1">Every gci URI, whether expressed as a string or encoded in binary <span class="bcp14">MUST</span> be
+<p id="section-3-1">Every glue URI, whether expressed as a string or encoded in binary <span class="bcp14">MUST</span> be
 comprised of the following components:<a href="#section-3-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3-2.1">
@@ -1224,37 +1226,37 @@ assigning the External Number and the scheme used to do so.<a href="#section-3-3
 authority.<a href="#section-3-4" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="text-encoding-of-gci-uris">
+<div id="text-encoding-of-glue-uris">
 <section id="section-4">
-      <h2 id="name-text-encoding-of-gci-uris">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-text-encoding-of-gci-uris" class="section-name selfRef">Text Encoding of gci URIs</a>
+      <h2 id="name-text-encoding-of-glue-uris">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-text-encoding-of-glue-uris" class="section-name selfRef">Text Encoding of glue URIs</a>
       </h2>
-<p id="section-4-1">All gci URIs comply with <span>[<a href="#RFC3986" class="cite xref">RFC3986</a>]</span> and are therefore represented by a
-scheme identifier and a scheme-specific part. The scheme identifier is: gci, and
+<p id="section-4-1">All glue URIs comply with <span>[<a href="#RFC3986" class="cite xref">RFC3986</a>]</span> and are therefore represented by a
+scheme identifier and a scheme-specific part. The scheme identifier is: glue, and
 the scheme-specific parts are represented as a sequence of alphanumeric
 components separated by the '.' character. A formal definition is provided in
 the next section, but it can informally be considered as:<a href="#section-4-1" class="pilcrow">¶</a></p>
-<p id="section-4-2">gci:&lt;authority-identifier&gt;.&lt;external-number&gt;<a href="#section-4-2" class="pilcrow">¶</a></p>
+<p id="section-4-2">glue:&lt;authority-identifier&gt;.&lt;external-number&gt;<a href="#section-4-2" class="pilcrow">¶</a></p>
 <p id="section-4-3">The Authority Identifier <span class="bcp14">MUST</span> be an alphanumeric string from the "Scheme" field
-of the gci URI Authority Identifier registry. The External Number <span class="bcp14">MUST</span> be the
+of the glue URI Authority Identifier registry. The External Number <span class="bcp14">MUST</span> be the
 identifier assigned to the company by the external authority under the
 identified scheme.<a href="#section-4-3" class="pilcrow">¶</a></p>
-<div id="gci-uri-sceme-text-syntax">
+<div id="glue-uri-sceme-text-syntax">
 <section id="section-4.1">
-        <h3 id="name-gci-uri-sceme-text-syntax">
-<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-gci-uri-sceme-text-syntax" class="section-name selfRef">gci URI Sceme Text Syntax</a>
+        <h3 id="name-glue-uri-sceme-text-syntax">
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-glue-uri-sceme-text-syntax" class="section-name selfRef">glue URI Sceme Text Syntax</a>
         </h3>
 <p id="section-4.1-1">TODO ABNF<a href="#section-4.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
 </div>
-<div id="dids-and-gci">
+<div id="dids-and-glue">
 <section id="section-5">
-      <h2 id="name-dids-and-gci">
-<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-dids-and-gci" class="section-name selfRef">DIDs and gci</a>
+      <h2 id="name-dids-and-glue">
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-dids-and-glue" class="section-name selfRef">DIDs and glue</a>
       </h2>
-<p id="section-5-1">TODO DIDs and gci<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-1">TODO DIDs and glue<a href="#section-5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-considerations">
@@ -1272,12 +1274,12 @@ identified scheme.<a href="#section-4-3" class="pilcrow">¶</a></p>
       </h2>
 <p id="section-7-1">The following sections detail requests to IANA for the creation of a new
 registry.<a href="#section-7-1" class="pilcrow">¶</a></p>
-<div id="gci-scheme-uri-authority-registry">
+<div id="glue-scheme-uri-authority-registry">
 <section id="section-7.1">
-        <h3 id="name-gci-scheme-uri-authority-re">
-<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-gci-scheme-uri-authority-re" class="section-name selfRef">'gci' Scheme URI authority registry</a>
+        <h3 id="name-glue-scheme-uri-authority-r">
+<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-glue-scheme-uri-authority-r" class="section-name selfRef">'glue' Scheme URI authority registry</a>
         </h3>
-<p id="section-7.1-1">IANA is requested to create a new registry entitled "'gci Scheme URI Authority
+<p id="section-7.1-1">IANA is requested to create a new registry entitled "'glue' Scheme URI Authority
 Identifiers". The registration policy for this registry is Expert Review as
 defined in <span>[<a href="#RFC8126" class="cite xref">RFC8126</a>]</span>.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
 <p id="section-7.1-2">Each entry in this registry associates one or more Authority Identifiers with a

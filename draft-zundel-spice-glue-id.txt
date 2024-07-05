@@ -13,7 +13,7 @@ Expires: 6 January 2025
 
 Abstract
 
-   This specification defines the gci URI scheme and the rules for
+   This specification defines the glue URI scheme and the rules for
    encoding these URIs.  It also establishes the registries necessary
    for management of this scheme.
 
@@ -71,12 +71,12 @@ Table of Contents
    1.  Introduction
    2.  Conventions and Definitions
    3.  Core Concepts
-   4.  Text Encoding of gci URIs
-     4.1.  gci URI Sceme Text Syntax
-   5.  DIDs and gci
+   4.  Text Encoding of glue URIs
+     4.1.  glue URI Sceme Text Syntax
+   5.  DIDs and glue
    6.  Security Considerations
    7.  IANA Considerations
-     7.1.  'gci' Scheme URI authority registry
+     7.1.  'glue' Scheme URI authority registry
      7.2.  Guidance for Designated Experts
    8.  Normative References
    Acknowledgments
@@ -84,10 +84,10 @@ Table of Contents
 
 1.  Introduction
 
-   Company entity identifiers are myriad.  With the increasing use of
+   Enterprise entity identifiers are myriad.  With the increasing use of
    digitial credentials, there is a need for a common methodology for
-   expressing these identifiers such that claims about and by companies
-   can be made in a consistent manner.
+   expressing these identifiers such that claims about and by such
+   entities can be made in a consistent and interoperable manner.
 
    This specification defines a URI scheme that standardizes the
    expression of existing company entity identifers and establishes a
@@ -102,12 +102,12 @@ Table of Contents
    BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
-   For the remainder of this document, the term "gci URI" is used to
-   refer to a URI that uses the gci scheme.
+   For the remainder of this document, the term "glue URI" is used to
+   refer to a URI that uses the glue scheme.
 
 3.  Core Concepts
 
-   Every gci URI, whether expressed as a string or encoded in binary
+   Every glue URI, whether expressed as a string or encoded in binary
    MUST be comprised of the following components:
 
    *  The Authority Identifier
@@ -120,29 +120,29 @@ Table of Contents
    The External Number is the identifier assigned to the company by the
    external authority.
 
-4.  Text Encoding of gci URIs
+4.  Text Encoding of glue URIs
 
-   All gci URIs comply with [RFC3986] and are therefore represented by a
-   scheme identifier and a scheme-specific part.  The scheme identifier
-   is: gci, and the scheme-specific parts are represented as a sequence
-   of alphanumeric components separated by the '.' character.  A formal
-   definition is provided in the next section, but it can informally be
-   considered as:
+   All glue URIs comply with [RFC3986] and are therefore represented by
+   a scheme identifier and a scheme-specific part.  The scheme
+   identifier is: glue, and the scheme-specific parts are represented as
+   a sequence of alphanumeric components separated by the '.' character.
+   A formal definition is provided in the next section, but it can
+   informally be considered as:
 
-   gci:<authority-identifier>.<external-number>
+   glue:<authority-identifier>.<external-number>
 
    The Authority Identifier MUST be an alphanumeric string from the
-   "Scheme" field of the gci URI Authority Identifier registry.  The
+   "Scheme" field of the glue URI Authority Identifier registry.  The
    External Number MUST be the identifier assigned to the company by the
    external authority under the identified scheme.
 
-4.1.  gci URI Sceme Text Syntax
+4.1.  glue URI Sceme Text Syntax
 
    TODO ABNF
 
-5.  DIDs and gci
+5.  DIDs and glue
 
-   TODO DIDs and gci
+   TODO DIDs and glue
 
 6.  Security Considerations
 
@@ -153,11 +153,11 @@ Table of Contents
    The following sections detail requests to IANA for the creation of a
    new registry.
 
-7.1.  'gci' Scheme URI authority registry
+7.1.  'glue' Scheme URI authority registry
 
-   IANA is requested to create a new registry entitled "'gci Scheme URI
-   Authority Identifiers".  The registration policy for this registry is
-   Expert Review as defined in [RFC8126].
+   IANA is requested to create a new registry entitled "'glue' Scheme
+   URI Authority Identifiers".  The registration policy for this
+   registry is Expert Review as defined in [RFC8126].
 
    Each entry in this registry associates one or more Authority
    Identifiers with a single organization.  Within the registry, the

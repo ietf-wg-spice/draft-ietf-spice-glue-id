@@ -1,0 +1,97 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2024-07-07T00:26:18.280646+00:00",
+  "repo": "mesur-io/draft-zundel-spice-glue-id",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOMSfv0M50j3MV",
+      "title": "Fix minor typo in URI scheme syntax header",
+      "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/pull/1",
+      "state": "MERGED",
+      "author": "aj-stein-nist",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Looks good, so far, but it is hard to ignore once I saw it. \ud83d\ude04 ",
+      "createdAt": "2024-07-05T18:55:38Z",
+      "updatedAt": "2024-07-05T21:32:30Z",
+      "baseRepository": "mesur-io/draft-zundel-spice-glue-id",
+      "baseRefName": "main",
+      "baseRefOid": "1751adce216b5c74cf69a74d83496fb8373ac0b5",
+      "headRepository": "aj-stein-nist/draft-zundel-spice-glue-id",
+      "headRefName": "patch-1",
+      "headRefOid": "0388e8bef442d67df152cb2fe2ab4a70942409ac",
+      "closedAt": "2024-07-05T21:32:30Z",
+      "mergedAt": "2024-07-05T21:32:30Z",
+      "mergedBy": "brentzundel",
+      "mergeCommit": {
+        "oid": "b84e35336e577acdfa24e855c6d6f7c48a87ddff"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMSfv0M6A0nTp",
+          "commit": {
+            "abbreviatedOid": "0388e8b"
+          },
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Thanks for the catch!",
+          "createdAt": "2024-07-05T21:32:17Z",
+          "updatedAt": "2024-07-05T21:32:17Z",
+          "comments": []
+        }
+      ]
+    }
+  ]
+}

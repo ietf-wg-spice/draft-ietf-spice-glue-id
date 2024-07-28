@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-07-25T00:23:59.482882+00:00",
+  "timestamp": "2024-07-28T00:27:07.539269+00:00",
   "repo": "mesur-io/draft-zundel-spice-glue-id",
   "labels": [
     {
@@ -49,7 +49,40 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 2,
+      "id": "I_kwDOMSfv0M6Q6mIc",
+      "title": "Privacy concerns for not so public IDs?",
+      "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/2",
+      "state": "OPEN",
+      "author": "aj-stein-nist",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Not all identifiers have a simple security or privacy model where they can always be publicly shared. The current enumeration of identifiers do not include such an example, but they do exist. As discussed in Session II of the IETF 120 SPICE meeting, I had summarized how in US public healthcare the business identifier of sole proprietor for reimbursement in the Medicare and/or Medicaid system is a social security number for that individual. That must not be shared anywhere. For systems of record for that agency, this data was toxic and any leakage was an immediate incident. Details below.\r\n\r\nhttps://www.cms.gov/Medicare/Provider-Enrollment-and-Certification/MedicareProviderSupEnroll/downloads/EnrollmentNPI.pdf\r\n\r\nI am willing to help add to the draft and consider privacy considerations around this potentially.",
+      "createdAt": "2024-07-26T02:14:16Z",
+      "updatedAt": "2024-07-26T02:14:16Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 3,
+      "id": "I_kwDOMSfv0M6Q6nAl",
+      "title": "Feedback from US General Services Administration?",
+      "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/3",
+      "state": "OPEN",
+      "author": "aj-stein-nist",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Has anyone considered presenting this to staff in the [US General Services Administration](), particularly those may be directly or indirectly involved with the design and maintenance of sam.gov data store and supporting systems, perhaps the [Technology Transformation Services](https://www.gsa.gov/about-us/organization/federal-acquisition-service/technology-transformation-services/tts-solutions) or [Office of Government-Wide Policy (OGP)](https://www.gsa.gov/about-us/organization/office-of-governmentwide-policy)? The latter have experience building systems and supporting policy for such macro-scale solutions, so it may be worth reaching out the scope, content, and registry of identifiers are more complete and vetted.",
+      "createdAt": "2024-07-26T02:18:38Z",
+      "updatedAt": "2024-07-26T02:18:38Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": [
     {
       "number": 1,

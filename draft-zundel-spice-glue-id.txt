@@ -2,10 +2,10 @@
 
 
 
-Secure Patterns for Internet CrEdentials                       B. Zundel
-Internet-Draft                                                  mesur.io
-Intended status: Informational                               5 July 2024
-Expires: 6 January 2025
+Secure Patterns for Internet CrEdentials                       P. Dingle
+Internet-Draft                                     Microsoft Corporation
+Intended status: Informational                              29 July 2024
+Expires: 30 January 2025
 
 
             SPICE GLUE: GLobal Unique Enterprise Identifiers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 6 January 2025.
+   This Internet-Draft will expire on 30 January 2025.
 
 Copyright Notice
 
@@ -214,6 +214,6 @@ Acknowledgments
 
 Author's Address
 
-   Brent Zundel
-   mesur.io
-   Email: brent.zundel@gmail.com
+   Pamela Dingle
+   Microsoft Corporation
+   Email: pamela.dingle@microsoft.com

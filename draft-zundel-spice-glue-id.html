@@ -5,6 +5,7 @@
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
 <title>SPICE GLUE: GLobal Unique Enterprise Identifiers</title>
+<meta content="Brent Zundel" name="author">
 <meta content="Pamela Dingle" name="author">
 <meta content="
        This specification defines the  glue  URI scheme and the rules for encoding
@@ -1031,7 +1032,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <td class="right">July 2024</td>
 </tr></thead>
 <tfoot><tr>
-<td class="left">Dingle</td>
+<td class="left">Zundel &amp; Dingle</td>
 <td class="center">Expires 30 January 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
@@ -1051,8 +1052,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
 <dd class="expires"><time datetime="2025-01-30">30 January 2025</time></dd>
-<dt class="label-authors">Author:</dt>
+<dt class="label-authors">Authors:</dt>
 <dd class="authors">
+<div class="author">
+      <div class="author-name">B. Zundel</div>
+<div class="org">mesur.io</div>
+</div>
 <div class="author">
       <div class="author-name">P. Dingle</div>
 <div class="org">Microsoft Corporation</div>
@@ -1161,7 +1166,7 @@ scheme.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
                 <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-glue-scheme-uri-authority-r" class="internal xref">'glue' Scheme URI authority registry</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2">
-                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="auto internal xref">7.2</a>.  <a href="#name-guidance-for-designated-exp" class="internal xref">Guidance for Designated Experts</a></p>
+                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="auto internal xref">7.2</a>.  <a href="#name-uri-scheme-registration" class="internal xref">URI Scheme Registration</a></p>
 </li>
             </ul>
 </li>
@@ -1172,7 +1177,7 @@ scheme.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
             <p id="section-toc.1-1.9.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
+            <p id="section-toc.1-1.10.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1273,7 +1278,7 @@ identified scheme.<a href="#section-4-3" class="pilcrow">¶</a></p>
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
 <p id="section-7-1">The following sections detail requests to IANA for the creation of a new
-registry.<a href="#section-7-1" class="pilcrow">¶</a></p>
+registry and registration of the 'glue' URI scheme.<a href="#section-7-1" class="pilcrow">¶</a></p>
 <div id="glue-scheme-uri-authority-registry">
 <section id="section-7.1">
         <h3 id="name-glue-scheme-uri-authority-r">
@@ -1322,14 +1327,19 @@ registry.<a href="#section-7.1-2" class="pilcrow">¶</a></p>
             </svg><a href="#section-7.1-4.1" class="pilcrow">¶</a>
 </div>
 </div>
+<p id="section-7.1-5">### Guidance for Designated Experts<a href="#section-7.1-5" class="pilcrow">¶</a></p>
+<p id="section-7.1-6">TODO guidance for designated experts<a href="#section-7.1-6" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="guidance-for-designated-experts">
+<div id="uri-scheme-registration">
 <section id="section-7.2">
-        <h3 id="name-guidance-for-designated-exp">
-<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-guidance-for-designated-exp" class="section-name selfRef">Guidance for Designated Experts</a>
+        <h3 id="name-uri-scheme-registration">
+<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-uri-scheme-registration" class="section-name selfRef">URI Scheme Registration</a>
         </h3>
-<p id="section-7.2-1">TODO guidance for designated experts<a href="#section-7.2-1" class="pilcrow">¶</a></p>
+<p id="section-7.2-1">The "glue" URI scheme is requested to be registered in the provisional "URI Schemes" registry. The information below is provided according to the guidelines from RFC 4395:
+  * URI scheme name: glue
+  * Status: provisional
+  * URI scheme syntax: See <span><a href="#text-encoding-of-glue-uris" class="internal xref">Section 4.1 of Text Encoding of glue URIs</a> (<a href="#text-encoding-of-glue-uris" class="auto internal xref">Section 4</a>)</span><a href="#section-7.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1369,9 +1379,17 @@ registry.<a href="#section-7.1-2" class="pilcrow">¶</a></p>
 </div>
 <div id="authors-addresses">
 <section id="appendix-B">
-      <h2 id="name-authors-address">
-<a href="#name-authors-address" class="section-name selfRef">Author's Address</a>
+      <h2 id="name-authors-addresses">
+<a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
       </h2>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Brent Zundel</span></div>
+<div dir="auto" class="left"><span class="org">mesur.io</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:brent.zundel@gmail.com" class="email">brent.zundel@gmail.com</a>
+</div>
+</address>
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Pamela Dingle</span></div>
 <div dir="auto" class="left"><span class="org">Microsoft Corporation</span></div>

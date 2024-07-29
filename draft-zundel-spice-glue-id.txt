@@ -2,10 +2,11 @@
 
 
 
-Secure Patterns for Internet CrEdentials                       P. Dingle
-Internet-Draft                                     Microsoft Corporation
-Intended status: Informational                              29 July 2024
-Expires: 30 January 2025
+Secure Patterns for Internet CrEdentials                       B. Zundel
+Internet-Draft                                                  mesur.io
+Intended status: Informational                                 P. Dingle
+Expires: 30 January 2025                           Microsoft Corporation
+                                                            29 July 2024
 
 
             SPICE GLUE: GLobal Unique Enterprise Identifiers
@@ -77,10 +78,10 @@ Table of Contents
    6.  Security Considerations
    7.  IANA Considerations
      7.1.  'glue' Scheme URI authority registry
-     7.2.  Guidance for Designated Experts
+     7.2.  URI Scheme Registration
    8.  Normative References
    Acknowledgments
-   Author's Address
+   Authors' Addresses
 
 1.  Introduction
 
@@ -151,7 +152,7 @@ Table of Contents
 7.  IANA Considerations
 
    The following sections detail requests to IANA for the creation of a
-   new registry.
+   new registry and registration of the 'glue' URI scheme.
 
 7.1.  'glue' Scheme URI authority registry
 
@@ -183,9 +184,17 @@ Table of Contents
 |                  |        |                                           |
 +------------------+--------+-------------------------------------------+
 
-7.2.  Guidance for Designated Experts
+   ### Guidance for Designated Experts
 
    TODO guidance for designated experts
+
+7.2.  URI Scheme Registration
+
+   The "glue" URI scheme is requested to be registered in the
+   provisional "URI Schemes" registry.  The information below is
+   provided according to the guidelines from RFC 4395: * URI scheme
+   name: glue * Status: provisional * URI scheme syntax: See Section 4.1
+   of Text Encoding of glue URIs (Section 4)
 
 8.  Normative References
 
@@ -212,7 +221,12 @@ Acknowledgments
 
    TODO acknowledge.
 
-Author's Address
+Authors' Addresses
+
+   Brent Zundel
+   mesur.io
+   Email: brent.zundel@gmail.com
+
 
    Pamela Dingle
    Microsoft Corporation

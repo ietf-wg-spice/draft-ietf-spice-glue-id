@@ -27,7 +27,7 @@ author:
     fullname: Brent Zundel
     organization: mesur.io
     email: brent.zundel@gmail.com
-    
+
  -
     fullname: Pamela Dingle
     organization: Microsoft Corporation

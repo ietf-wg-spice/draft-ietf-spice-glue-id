@@ -28,6 +28,7 @@ author:
     organization: mesur.io
     email: brent.zundel@gmail.com
 
+ -
     fullname: Pamela Dingle
     organization: Microsoft Corporation
     email: pamela.dingle@microsoft.com
@@ -112,7 +113,7 @@ TODO Security
 # IANA Considerations
 
 The following sections detail requests to IANA for the creation of a new
-registry.
+registry and registration of the 'glue' URI scheme.
 
 ## 'glue' Scheme URI authority registry
 
@@ -146,10 +147,15 @@ The initial values for the registry are:
 +------------------+--------+-------------------------------------------+
 
 ~~~
-
-## Guidance for Designated Experts
+### Guidance for Designated Experts
 
 TODO guidance for designated experts
+
+## URI Scheme Registration
+The "glue" URI scheme is requested to be registered in the provisional "URI Schemes" registry. The information below is provided according to the guidelines from RFC 4395:
+  * URI scheme name: glue
+  * Status: provisional
+  * URI scheme syntax: See [Section 4.1 of Text Encoding of glue URIs](#text-encoding-of-glue-uris)
 
 --- back
 

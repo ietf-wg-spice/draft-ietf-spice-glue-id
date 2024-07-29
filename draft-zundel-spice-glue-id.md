@@ -28,6 +28,10 @@ author:
     organization: mesur.io
     email: brent.zundel@gmail.com
 
+    fullname: Pamela Dingle
+    organization: Microsoft Corporation
+    email: pamela.dingle@microsoft.com
+
 normative:
   RFC3986: URI-syntax
   RFC8126: IANA-guidelines

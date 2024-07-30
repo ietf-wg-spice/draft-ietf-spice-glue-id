@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-07-28T00:27:07.539269+00:00",
+  "timestamp": "2024-07-30T00:24:19.872451+00:00",
   "repo": "mesur-io/draft-zundel-spice-glue-id",
   "labels": [
     {
@@ -81,6 +81,22 @@
       "updatedAt": "2024-07-26T02:18:38Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 5,
+      "id": "I_kwDOMSfv0M6ROWrb",
+      "title": "Country name considerations",
+      "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/5",
+      "state": "OPEN",
+      "author": "brentzundel",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "We need to consider country codes for glue IDs, as referenced here: https://github.com/cabforum/smime/blob/main/SBR.md#a1-organizationidentifier",
+      "createdAt": "2024-07-29T22:04:19Z",
+      "updatedAt": "2024-07-29T22:04:19Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -122,6 +138,48 @@
           "body": "Thanks for the catch!",
           "createdAt": "2024-07-05T21:32:17Z",
           "updatedAt": "2024-07-05T21:32:17Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "id": "PR_kwDOMSfv0M52zThJ",
+      "title": "Added URI Scheme Registration",
+      "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/pull/4",
+      "state": "MERGED",
+      "author": "pamelatech",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixed author attribution and added a section based on RFC 6694 describing application for a new provisional URI scheme",
+      "createdAt": "2024-07-29T21:46:22Z",
+      "updatedAt": "2024-07-29T21:55:09Z",
+      "baseRepository": "mesur-io/draft-zundel-spice-glue-id",
+      "baseRefName": "main",
+      "baseRefOid": "49bb7c197ce71bf468d3ef21317f13ccde1f259b",
+      "headRepository": "mesur-io/draft-zundel-spice-glue-id",
+      "headRefName": "pamelatech-patch-1",
+      "headRefOid": "d52850d2e35f5bc68037134451a4b850cdd08f22",
+      "closedAt": "2024-07-29T21:55:09Z",
+      "mergedAt": "2024-07-29T21:55:09Z",
+      "mergedBy": "brentzundel",
+      "mergeCommit": {
+        "oid": "1c9d46814f51696c55380d17ecb919e0805bb1f2"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMSfv0M6Df2kF",
+          "commit": {
+            "abbreviatedOid": "d52850d"
+          },
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-07-29T21:55:02Z",
+          "updatedAt": "2024-07-29T21:55:02Z",
           "comments": []
         }
       ]

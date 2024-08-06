@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-08-04T00:26:59.729452+00:00",
+  "timestamp": "2024-08-06T00:24:16.400072+00:00",
   "repo": "mesur-io/draft-zundel-spice-glue-id",
   "labels": [
     {
@@ -62,9 +62,31 @@
       "labels": [],
       "body": "Not all identifiers have a simple security or privacy model where they can always be publicly shared. The current enumeration of identifiers do not include such an example, but they do exist. As discussed in Session II of the IETF 120 SPICE meeting, I had summarized how in US public healthcare the business identifier of sole proprietor for reimbursement in the Medicare and/or Medicaid system is a social security number for that individual. That must not be shared anywhere. For systems of record for that agency, this data was toxic and any leakage was an immediate incident. Details below.\r\n\r\nhttps://www.cms.gov/Medicare/Provider-Enrollment-and-Certification/MedicareProviderSupEnroll/downloads/EnrollmentNPI.pdf\r\n\r\nI am willing to help add to the draft and consider privacy considerations around this potentially.",
       "createdAt": "2024-07-26T02:14:16Z",
-      "updatedAt": "2024-07-26T02:14:16Z",
+      "updatedAt": "2024-08-05T20:14:12Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I agree this needs to be addressed. In general I don't think we can prohibit representation as a GLUE ID of any identifiers that also may contain personal data, but the privacy considerations section definitely needs to address this.",
+          "createdAt": "2024-08-05T19:29:51Z",
+          "updatedAt": "2024-08-05T19:29:51Z"
+        },
+        {
+          "author": "aj-stein-nist",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I am willing to pitch in and write something to that effect if you want me to. Let me now.",
+          "createdAt": "2024-08-05T19:59:07Z",
+          "updatedAt": "2024-08-05T19:59:07Z"
+        },
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "that would be fantastic",
+          "createdAt": "2024-08-05T20:14:11Z",
+          "updatedAt": "2024-08-05T20:14:11Z"
+        }
+      ]
     },
     {
       "number": 3,
@@ -95,6 +117,165 @@
       "body": "We need to consider country codes for glue IDs, as referenced here: https://github.com/cabforum/smime/blob/main/SBR.md#a1-organizationidentifier",
       "createdAt": "2024-07-29T22:04:19Z",
       "updatedAt": "2024-07-29T22:04:19Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 6,
+      "id": "I_kwDOMSfv0M6R-9cj",
+      "title": "IETF120 - Why is an IANA PEN not sufficient?",
+      "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/6",
+      "state": "OPEN",
+      "author": "pamelatech",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Question #1 from IETF 120 - copied from session notes (https://notes.ietf.org/notes-ietf-120-spice)\r\n\r\nAJ Stein: Why are existing identifiers like IANA\u2019s PENs not sufficient?\r\n- Roy Williams: the scope of identifiers needs to cover a wide range of entities, including those without U.S. entities or computers. The scheme needs to allow flexibility worldwide.\r\nAJ (Follow-up): If this requires registration with IANA, that might be a problem.\r\n- The Glue ID aims to provide a flexible and widely applicable solution, recognizing different authorities and their specific needs.",
+      "createdAt": "2024-08-05T18:22:01Z",
+      "updatedAt": "2024-08-05T19:15:14Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "GLUE ID is a common representation of issued identifiers, it is not of itself an issued identifier.\r\n\r\nWe should include PEN identifier examples and make sure they are a registered in the GLUE ID Registry\r\n",
+          "createdAt": "2024-08-05T19:15:12Z",
+          "updatedAt": "2024-08-05T19:15:12Z"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "id": "I_kwDOMSfv0M6R--hY",
+      "title": "IETF 120 - Scope of Enumerating Identifiers",
+      "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/7",
+      "state": "OPEN",
+      "author": "pamelatech",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Question Taken from the notes of the IETF 120 Vancouver plenary (https://notes.ietf.org/notes-ietf-120-spice)\r\nAJ: What is the scope of enumerating different identifiers?\r\n- Mike Prorock: Our system tracks over 200 million unique businesses, accounting for various identifiers required by different jurisdictions and regulatory purposes. \r\n\r\n\r\n\r\n",
+      "createdAt": "2024-08-05T18:24:23Z",
+      "updatedAt": "2024-08-05T19:25:54Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "We could add a section giving more detail about what an authority identifier means and discuss the scope of each identifier.\r\n\r\nAs far as the authority identifiers themselves, as many of them should be registered as folks need.",
+          "createdAt": "2024-08-05T19:25:53Z",
+          "updatedAt": "2024-08-05T19:25:53Z"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "id": "I_kwDOMSfv0M6R-_Lr",
+      "title": "IETF 120 - Privacy concerns with some identifiers",
+      "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/8",
+      "state": "CLOSED",
+      "author": "pamelatech",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Questions taken from IETF 120 Vancouver Plenary notes (https://notes.ietf.org/notes-ietf-120-spice)\r\n\r\nAJ: What about the privacy concerns associated with certain identifiers, such as taxpayer identifiers for sole proprietors?\r\n(Brent Zundel) Please raise the issue for further discussion, we need to address this",
+      "createdAt": "2024-08-05T18:25:46Z",
+      "updatedAt": "2024-08-05T19:31:09Z",
+      "closedAt": "2024-08-05T19:31:09Z",
+      "comments": [
+        {
+          "author": "pamelatech",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closing as a duplicate of [https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/2](https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/2) ",
+          "createdAt": "2024-08-05T19:27:33Z",
+          "updatedAt": "2024-08-05T19:27:33Z"
+        },
+        {
+          "author": "pamelatech",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Duplicate as noted above ",
+          "createdAt": "2024-08-05T19:31:09Z",
+          "updatedAt": "2024-08-05T19:31:09Z"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "id": "I_kwDOMSfv0M6R-_uJ",
+      "title": "IETF 120 - Nested Organizations & Subsidiary Relationships",
+      "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/9",
+      "state": "OPEN",
+      "author": "pamelatech",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Questions from IETF 120 Plenary in Vancouver (https://notes.ietf.org/notes-ietf-120-spice)\r\n\r\nAJ Stein: How does the system handle nested organizations and confidence in subsidiary relationships?\r\nThe draft describes a string identifier as a building block, with future layers handling more complex relationships and attestations.",
+      "createdAt": "2024-08-05T18:26:55Z",
+      "updatedAt": "2024-08-05T19:47:26Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "To me this points to the need for showing examples of how we imagine GLUE IDs could be used.\r\nIn a scenario where a subsidiary needs to be identified, then the authority identifier used in the GLUE ID needs to support identification of subsidiaries. Not all GLUE ID authority identifiers may support all circumstances.",
+          "createdAt": "2024-08-05T19:47:25Z",
+          "updatedAt": "2024-08-05T19:47:25Z"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "id": "I_kwDOMSfv0M6R_AN6",
+      "title": "IETF 120 - Who can mint a Glue ID",
+      "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/10",
+      "state": "OPEN",
+      "author": "pamelatech",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Questions from IETF 120 Plenary Vancouver (https://notes.ietf.org/notes-ietf-120-spice)\r\n\r\nAJ Stein: Can arbitrary organizations mint these identifiers?\r\nThe registry aims to include well-known organizations that identify businesses, but flexibility allows for new authorities to be recognized based on trust and context.",
+      "createdAt": "2024-08-05T18:28:00Z",
+      "updatedAt": "2024-08-05T19:50:15Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "We need to update the abstract to say that GLUE IDs are a representation format for existing issued identifiers.",
+          "createdAt": "2024-08-05T19:50:14Z",
+          "updatedAt": "2024-08-05T19:50:14Z"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "id": "I_kwDOMSfv0M6R_AsJ",
+      "title": "IETF 120 - Should Glue IDs be in SPICE?",
+      "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/11",
+      "state": "OPEN",
+      "author": "pamelatech",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Questions taken from IETF 120 Plenary Vancouver (https://notes.ietf.org/notes-ietf-120-spice)\r\n\r\nHeather Flanagan (chair) : How does this fit within SPICE?\r\nThe Glue ID provides a unified way to refer to companies, aligning with SPICE\u2019s goal of managing credentials and attestations about entities.",
+      "createdAt": "2024-08-05T18:29:09Z",
+      "updatedAt": "2024-08-05T18:29:09Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 12,
+      "id": "I_kwDOMSfv0M6R_iiz",
+      "title": "bikeshed for \"authority identifier scheme\"",
+      "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/12",
+      "state": "OPEN",
+      "author": "brentzundel",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "we could benefit from better words for \"authority identifier scheme\"",
+      "createdAt": "2024-08-05T19:48:58Z",
+      "updatedAt": "2024-08-05T19:48:58Z",
       "closedAt": null,
       "comments": []
     }

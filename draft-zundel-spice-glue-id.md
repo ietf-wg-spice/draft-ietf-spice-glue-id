@@ -116,7 +116,7 @@ TODO Security
 There are some corporate identifers which make use of personal identifiers. This
 is the case for registered sole-proprietor businesses in much of the United
 States, where the business identifier may be the same as the
-social-security-number of the business owner. 
+social-security-number of the business owner.
 
 It is possible for such identifers to be represented as glue URIs. An
 identifier's expression as a glue URI does not change the privacy

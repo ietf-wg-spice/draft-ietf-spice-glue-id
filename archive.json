@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-09-24T00:27:18.013904+00:00",
+  "timestamp": "2024-09-26T00:27:01.095104+00:00",
   "repo": "mesur-io/draft-zundel-spice-glue-id",
   "labels": [
     {
@@ -100,9 +100,17 @@
       "labels": [],
       "body": "Has anyone considered presenting this to staff in the [US General Services Administration](), particularly those may be directly or indirectly involved with the design and maintenance of sam.gov data store and supporting systems, perhaps the [Technology Transformation Services](https://www.gsa.gov/about-us/organization/federal-acquisition-service/technology-transformation-services/tts-solutions) or [Office of Government-Wide Policy (OGP)](https://www.gsa.gov/about-us/organization/office-of-governmentwide-policy)? The latter have experience building systems and supporting policy for such macro-scale solutions, so it may be worth reaching out the scope, content, and registry of identifiers are more complete and vetted.",
       "createdAt": "2024-07-26T02:18:38Z",
-      "updatedAt": "2024-07-26T02:18:38Z",
+      "updatedAt": "2024-09-25T16:02:59Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I'm not sure this matches what the intentions are for glue ids. My view is that Glue is a syntactic and semantic wrapper for existing company identification schemes, combined with a registry for convenient lookup of those schemes.",
+          "createdAt": "2024-09-25T16:02:58Z",
+          "updatedAt": "2024-09-25T16:02:58Z"
+        }
+      ]
     },
     {
       "number": 5,
@@ -278,6 +286,38 @@
       "updatedAt": "2024-08-05T19:48:58Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 13,
+      "id": "I_kwDOMSfv0M6X5Kbn",
+      "title": "Registry structure question from David Dong",
+      "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/13",
+      "state": "OPEN",
+      "author": "brentzundel",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "1) Where should the new \"\u2019glue\u2019 Scheme URI Authority Identifiers\" registry be located? Should this be placed in an existing registry group, or should we create a new registry group, and if so, what should this new registry group be titled?",
+      "createdAt": "2024-09-25T15:43:22Z",
+      "updatedAt": "2024-09-25T15:43:22Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 14,
+      "id": "I_kwDOMSfv0M6X5bPt",
+      "title": "Should a Glue ID have a fragment?",
+      "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/14",
+      "state": "OPEN",
+      "author": "pamelatech",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "I believe that there is a need for businesses to be able to add additional local identifiers or data to a glue id.    As an example,  we might want to say the business identifier is Dunn & Bradstreet company 12345, factor 52B.  For companies with many global business identities and many factories (for example), it may be important to say that a given factory is identified relative to a given business identifier.  In this case for example do we want the glue id for a factory certified in France under the french business identifier 12345 as 52B to be \"glue:dun.12345#52B\".  The guidance here would be for anyone resolving to remove the fragment prior to validating/resolving the number at Dunn & Bradstreet.  I do not think the fragment needs to be technically resolveable, it may be that only the business owner knows what 52B means, or it is also possible that the company's factory identifiers are public and available for further lookup.   Note that some business authorities have this kind of granularity already built into the identifier, but there still may be internal context that businesses want to add.  The obvious downside is that should we decide a fragment is a good idea, it would make the identifiers longer.",
+      "createdAt": "2024-09-25T16:14:23Z",
+      "updatedAt": "2024-09-25T16:14:24Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -364,6 +404,40 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 15,
+      "id": "PR_kwDOMSfv0M58rj1i",
+      "title": "Add privacy considerations around private IDs in glue URIs",
+      "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/pull/15",
+      "state": "OPEN",
+      "author": "brentzundel",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This PR introduces a privacy considerations section, and adds a subsection for considerations when private identifiers are used in corporate identifiers.",
+      "createdAt": "2024-09-25T16:17:02Z",
+      "updatedAt": "2024-09-25T16:21:29Z",
+      "baseRepository": "mesur-io/draft-zundel-spice-glue-id",
+      "baseRefName": "main",
+      "baseRefOid": "1c9d46814f51696c55380d17ecb919e0805bb1f2",
+      "headRepository": "mesur-io/draft-zundel-spice-glue-id",
+      "headRefName": "private-id",
+      "headRefOid": "d89aa5d4c98a208a5d643e2a78bb2244f395caf4",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "fixes #2 ",
+          "createdAt": "2024-09-25T16:21:27Z",
+          "updatedAt": "2024-09-25T16:21:27Z"
+        }
+      ],
+      "reviews": []
     }
   ]
 }

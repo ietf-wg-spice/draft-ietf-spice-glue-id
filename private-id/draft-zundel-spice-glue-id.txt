@@ -5,8 +5,8 @@
 Secure Patterns for Internet CrEdentials                       B. Zundel
 Internet-Draft                                                  mesur.io
 Intended status: Informational                                 P. Dingle
-Expires: 29 March 2025                             Microsoft Corporation
-                                                       25 September 2024
+Expires: 3 April 2025                              Microsoft Corporation
+                                                       30 September 2024
 
 
             SPICE GLUE: GLobal Unique Enterprise Identifiers
@@ -51,7 +51,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 29 March 2025.
+   This Internet-Draft will expire on 3 April 2025.
 
 Copyright Notice
 
@@ -78,10 +78,9 @@ Table of Contents
    6.  Security Considerations
    7.  Privacy Considerations
      7.1.  Private identifiers as corporate identifiers
-   8.  IANA Considerations
-     8.1.  'glue' Scheme URI authority registry
-     8.2.  URI Scheme Registration
-   9.  Normative References
+     7.2.  'glue' Scheme URI authority registry
+     7.3.  URI Scheme Registration
+   8.  Normative References
    Acknowledgments
    Authors' Addresses
 
@@ -165,14 +164,16 @@ Table of Contents
    An identifier's expression as a glue URI does not change the privacy
    characteristics of that identifier.  The same cautions and concerns
    need to be taken with the glue URI representation as with the
-   original identifier.
-
-8.  IANA Considerations
+   original identifier.  Implementers storing or evaluating glue ids are
+   encouraged to evaluate the privacy characteristics of each authority
+   potentially represented by authority identifiers and to appropriately
+   handle any glue id whose authority identifier format violates privacy
+   policies. # IANA Considerations
 
    The following sections detail requests to IANA for the creation of a
    new registry and registration of the 'glue' URI scheme.
 
-8.1.  'glue' Scheme URI authority registry
+7.2.  'glue' Scheme URI authority registry
 
    IANA is requested to create a new registry entitled "'glue' Scheme
    URI Authority Identifiers".  The registration policy for this
@@ -206,7 +207,7 @@ Table of Contents
 
    TODO guidance for designated experts
 
-8.2.  URI Scheme Registration
+7.3.  URI Scheme Registration
 
    The "glue" URI scheme is requested to be registered in the
    provisional "URI Schemes" registry.  The information below is
@@ -214,7 +215,7 @@ Table of Contents
    name: glue * Status: provisional * URI scheme syntax: See Section 4.1
    of Text Encoding of glue URIs (Section 4)
 
-9.  Normative References
+8.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,

@@ -122,9 +122,12 @@ It is possible for such identifers to be represented as glue URIs. An
 identifier's expression as a glue URI does not change the privacy
 characteristics of that identifier. The same cautions and concerns need to be
 taken with the glue URI representation as with the original identifier.
+
 Implementers storing or evaluating glue ids are encouraged to evaluate the
-privacy characteristics of each identification scheme represented by an authority
-identifier and to appropriately handle any glue id which violates privacy policies.
+privacy characteristics of each identification scheme represented by an
+authority identifier and to appropriately handle any glue id which violates
+privacy policies.
+
 # IANA Considerations
 
 The following sections detail requests to IANA for the creation of a new

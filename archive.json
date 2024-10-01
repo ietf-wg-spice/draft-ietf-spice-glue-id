@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-09-29T00:30:43.779092+00:00",
+  "timestamp": "2024-10-01T00:30:48.382085+00:00",
   "repo": "mesur-io/draft-zundel-spice-glue-id",
   "labels": [
     {
@@ -55,15 +55,15 @@
       "id": "I_kwDOMSfv0M6Q6mIc",
       "title": "Privacy concerns for not so public IDs?",
       "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/2",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "aj-stein-nist",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Not all identifiers have a simple security or privacy model where they can always be publicly shared. The current enumeration of identifiers do not include such an example, but they do exist. As discussed in Session II of the IETF 120 SPICE meeting, I had summarized how in US public healthcare the business identifier of sole proprietor for reimbursement in the Medicare and/or Medicaid system is a social security number for that individual. That must not be shared anywhere. For systems of record for that agency, this data was toxic and any leakage was an immediate incident. Details below.\r\n\r\nhttps://www.cms.gov/Medicare/Provider-Enrollment-and-Certification/MedicareProviderSupEnroll/downloads/EnrollmentNPI.pdf\r\n\r\nI am willing to help add to the draft and consider privacy considerations around this potentially.",
       "createdAt": "2024-07-26T02:14:16Z",
-      "updatedAt": "2024-08-05T20:14:12Z",
-      "closedAt": null,
+      "updatedAt": "2024-09-30T19:46:06Z",
+      "closedAt": "2024-09-30T19:46:06Z",
       "comments": [
         {
           "author": "brentzundel",
@@ -85,6 +85,13 @@
           "body": "that would be fantastic",
           "createdAt": "2024-08-05T20:14:11Z",
           "updatedAt": "2024-08-05T20:14:11Z"
+        },
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Addressed by #15, closing",
+          "createdAt": "2024-09-30T19:46:06Z",
+          "updatedAt": "2024-09-30T19:46:06Z"
         }
       ]
     },
@@ -100,15 +107,15 @@
       "labels": [],
       "body": "Has anyone considered presenting this to staff in the [US General Services Administration](), particularly those may be directly or indirectly involved with the design and maintenance of sam.gov data store and supporting systems, perhaps the [Technology Transformation Services](https://www.gsa.gov/about-us/organization/federal-acquisition-service/technology-transformation-services/tts-solutions) or [Office of Government-Wide Policy (OGP)](https://www.gsa.gov/about-us/organization/office-of-governmentwide-policy)? The latter have experience building systems and supporting policy for such macro-scale solutions, so it may be worth reaching out the scope, content, and registry of identifiers are more complete and vetted.",
       "createdAt": "2024-07-26T02:18:38Z",
-      "updatedAt": "2024-09-25T16:02:59Z",
+      "updatedAt": "2024-09-30T19:47:52Z",
       "closedAt": null,
       "comments": [
         {
           "author": "brentzundel",
           "authorAssociation": "COLLABORATOR",
-          "body": "I'm not sure this matches what the intentions are for glue ids. My view is that Glue is a syntactic and semantic wrapper for existing company identification schemes, combined with a registry for convenient lookup of those schemes.",
-          "createdAt": "2024-09-25T16:02:58Z",
-          "updatedAt": "2024-09-25T16:02:58Z"
+          "body": "I agree that this feedback should be sought once the scheme is more complete.",
+          "createdAt": "2024-09-30T19:47:51Z",
+          "updatedAt": "2024-09-30T19:47:51Z"
         }
       ]
     },
@@ -124,9 +131,17 @@
       "labels": [],
       "body": "We need to consider country codes for glue IDs, as referenced here: https://github.com/cabforum/smime/blob/main/SBR.md#a1-organizationidentifier",
       "createdAt": "2024-07-29T22:04:19Z",
-      "updatedAt": "2024-07-29T22:04:19Z",
+      "updatedAt": "2024-09-30T19:59:10Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Pam and I talked today about this.\r\nThe Authority Identifier combined with the External Number should be a unique value.\r\n\r\nIt is assumed that corporate identification schemes already handle any necessary namespacing as part of the external number. In the event that collisions are possible within the set of possible external identifiers for a scheme, then further namespacing might be necessary at the glue id level. If so, it should be done on the authority identifier as part of the registration process. That is, the different namespaces would be considered either different schemes operated by the same authority, or the same scheme operated by different authorities. In either case a unique authority identifier would be necessary for each.",
+          "createdAt": "2024-09-30T19:59:09Z",
+          "updatedAt": "2024-09-30T19:59:09Z"
+        }
+      ]
     },
     {
       "number": 6,
@@ -410,24 +425,26 @@
       "id": "PR_kwDOMSfv0M58rj1i",
       "title": "Add privacy considerations around private IDs in glue URIs",
       "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/pull/15",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "brentzundel",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "This PR introduces a privacy considerations section, and adds a subsection for considerations when private identifiers are used in corporate identifiers.",
       "createdAt": "2024-09-25T16:17:02Z",
-      "updatedAt": "2024-09-25T16:21:29Z",
+      "updatedAt": "2024-09-30T19:45:15Z",
       "baseRepository": "mesur-io/draft-zundel-spice-glue-id",
       "baseRefName": "main",
       "baseRefOid": "1c9d46814f51696c55380d17ecb919e0805bb1f2",
       "headRepository": "mesur-io/draft-zundel-spice-glue-id",
       "headRefName": "private-id",
-      "headRefOid": "d89aa5d4c98a208a5d643e2a78bb2244f395caf4",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "c0b0a5ba319c776bb906e6f3985fb9b731fe45c5",
+      "closedAt": "2024-09-30T19:45:15Z",
+      "mergedAt": "2024-09-30T19:45:15Z",
+      "mergedBy": "brentzundel",
+      "mergeCommit": {
+        "oid": "0fcf9593d2b866399a1c85ccccfbc3443a0b5375"
+      },
       "comments": [
         {
           "author": "brentzundel",
@@ -437,7 +454,48 @@
           "updatedAt": "2024-09-25T16:21:27Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOMSfv0M6LYWRq",
+          "commit": {
+            "abbreviatedOid": "d89aa5d"
+          },
+          "author": "pamelatech",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "I added a suggestion of text that speaks directly to implementers, please take a look. Otherwise I think this clarifies the issue raised.",
+          "createdAt": "2024-09-30T19:32:30Z",
+          "updatedAt": "2024-09-30T19:34:40Z",
+          "comments": [
+            {
+              "originalPosition": 17,
+              "body": "```suggestion\r\nImplementers storing or evaluating glue ids are encouraged to evaluate the privacy characteristics of each authority potentially represented by authority identifiers and to appropriately handle any glue id whose authority identifier format violates privacy policies.\r\n```",
+              "createdAt": "2024-09-30T19:32:30Z",
+              "updatedAt": "2024-09-30T19:34:40Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMSfv0M6LYZSO",
+          "commit": {
+            "abbreviatedOid": "e57428d"
+          },
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-09-30T19:40:08Z",
+          "updatedAt": "2024-09-30T19:40:08Z",
+          "comments": [
+            {
+              "originalPosition": 17,
+              "body": "```suggestion\r\nImplementers storing or evaluating glue ids are encouraged to evaluate the\r\nprivacy characteristics of each identification scheme represented by an authority\r\nidentifier and to appropriately handle any glue id which violates privacy policies.\r\n```",
+              "createdAt": "2024-09-30T19:40:08Z",
+              "updatedAt": "2024-09-30T19:40:08Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

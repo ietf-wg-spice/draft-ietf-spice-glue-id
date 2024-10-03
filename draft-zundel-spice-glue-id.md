@@ -57,15 +57,18 @@ identifiers such that claims about and by such entities can be made in a
 consistent and interoperable manner.
 
 This specification defines a URI scheme that standardizes the expression of
-existing company entity identifers and establishes a registry for managing how
-these existing identifiers relate to this scheme.
+existing company entity identifers by providing a common representation format.
+It also establishes a registry for managing how existing company entity
+identification mechanisms relate to this scheme.
+
+Any company entity identifier whose identification mechanism has been registered
+as an authority identifier in the registry may be represented as a glue URI.
 
 # Conventions and Definitions
 
 {::boilerplate bcp14-tagged}
 
-For the remainder of this document, the term "glue URI" is used to refer to a
-URI that uses the glue scheme.
+The term "glue URI" is used to refer to a URI that uses the glue scheme.
 
 # Core Concepts
 

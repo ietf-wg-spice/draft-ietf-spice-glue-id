@@ -82,6 +82,28 @@ assigning the External Number and the scheme used to do so.
 The External Number is the identifier assigned to the company by the external
 authority.
 
+## Uniqueness and Namespacing
+
+Each glue URI MUST be unique. It is assumed that most registered company entity
+identification schemes already handle any necessary namespacing as part of the
+external number. However, in the event that collisions are possible within the
+set of possible external identifiers for an authority identifier scheme, then
+further namespacing might be necessary at the glue id level. Such namespacing
+SHOULD be done on the authority identifier as part of the registration process.
+
+That is, the different namespaces would be considered either different schemes
+operated by the same authority, or the same scheme operated by different
+authorities. In either case a unique authority identifier would be necessary for
+each.
+
+For example, assume there is and external authority FEA that provides
+identifiers for company entities in USA and Canada. The identifiers in the USA
+are unique, and the identifiers in Canada are unique, but there is no guarantee
+that a company entity in Canada won't be assigned the same number as a company
+entity in the USA. Upon registration of FEA as an Authority Identifier, it would
+be necessary to seperately register FEA-USA and FEA-Can to provide
+differentiation between the two sets of external numbers.
+
 # Text Encoding of glue URIs
 
 All glue URIs comply with {{-URI-syntax}} and are therefore represented by a

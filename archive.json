@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-01T00:30:48.382085+00:00",
+  "timestamp": "2024-10-03T00:27:28.302361+00:00",
   "repo": "mesur-io/draft-zundel-spice-glue-id",
   "labels": [
     {
@@ -155,7 +155,7 @@
       "labels": [],
       "body": "Question #1 from IETF 120 - copied from session notes (https://notes.ietf.org/notes-ietf-120-spice)\r\n\r\nAJ Stein: Why are existing identifiers like IANA\u2019s PENs not sufficient?\r\n- Roy Williams: the scope of identifiers needs to cover a wide range of entities, including those without U.S. entities or computers. The scheme needs to allow flexibility worldwide.\r\nAJ (Follow-up): If this requires registration with IANA, that might be a problem.\r\n- The Glue ID aims to provide a flexible and widely applicable solution, recognizing different authorities and their specific needs.",
       "createdAt": "2024-08-05T18:22:01Z",
-      "updatedAt": "2024-08-05T19:15:14Z",
+      "updatedAt": "2024-10-02T22:24:06Z",
       "closedAt": null,
       "comments": [
         {
@@ -164,6 +164,13 @@
           "body": "GLUE ID is a common representation of issued identifiers, it is not of itself an issued identifier.\r\n\r\nWe should include PEN identifier examples and make sure they are a registered in the GLUE ID Registry\r\n",
           "createdAt": "2024-08-05T19:15:12Z",
           "updatedAt": "2024-08-05T19:15:12Z"
+        },
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Also, registration of the authority schemes shouldn't need to be done by the authorities themselves. Anyone who can point to the scheme and how to resolve could register it.",
+          "createdAt": "2024-10-02T22:24:05Z",
+          "updatedAt": "2024-10-02T22:24:05Z"
         }
       ]
     },

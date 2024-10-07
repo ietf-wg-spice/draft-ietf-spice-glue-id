@@ -95,9 +95,14 @@ Table of Contents
    entities can be made in a consistent and interoperable manner.
 
    This specification defines a URI scheme that standardizes the
-   expression of existing company entity identifers and establishes a
-   registry for managing how these existing identifiers relate to this
-   scheme.
+   expression of existing company entity identifers by providing a
+   common representation format.  It also establishes a registry for
+   managing how existing company entity identification mechanisms relate
+   to this scheme.
+
+   Any company entity identifier whose identification mechanism has been
+   registered as an authority identifier in the registry may be
+   represented as a glue URI.
 
 2.  Conventions and Definitions
 
@@ -107,8 +112,8 @@ Table of Contents
    BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
-   For the remainder of this document, the term "glue URI" is used to
-   refer to a URI that uses the glue scheme.
+   The term "glue URI" is used to refer to a URI that uses the glue
+   scheme.
 
    TODO: define external authority, company entity
 

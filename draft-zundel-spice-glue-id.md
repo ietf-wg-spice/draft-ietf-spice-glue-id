@@ -67,6 +67,8 @@ these existing identifiers relate to this scheme.
 For the remainder of this document, the term "glue URI" is used to refer to a
 URI that uses the glue scheme.
 
+TODO: define external authority, company entity
+
 # Core Concepts
 
 Every glue URI, whether expressed as a string or encoded in binary MUST be
@@ -133,6 +135,10 @@ privacy policies.
 The following sections detail requests to IANA for the creation of a new
 registry and registration of the 'glue' URI scheme.
 
+## 'glue' URI Scheme Registration
+
+TODO
+
 ## 'glue' Scheme URI authority registry
 
 IANA is requested to create a new registry entitled "'glue' Scheme URI Authority
@@ -163,11 +169,15 @@ The initial values for the registry are:
 | Dun & Bradstreet |  duns  | https://www.dnb.com/duns.html             |
 |                  |        |                                           |
 +------------------+--------+-------------------------------------------+
+| Private Enterprise Numbers | pen | https://www.iana.org/assignments/enterprise-numbers/ |
+|                            |     |                                                      |
++----------------------------+-----+------------------------------------------------------+
 
 ~~~
 ### Guidance for Designated Experts
 
-TODO guidance for designated experts
+It is not required that registration of an Authority Identifier be done by a
+representative of the external authority.
 
 ## URI Scheme Registration
 The "glue" URI scheme is requested to be registered in the provisional "URI Schemes" registry. The information below is provided according to the guidelines from RFC 4395:

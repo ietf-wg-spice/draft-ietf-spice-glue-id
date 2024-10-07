@@ -12,13 +12,13 @@
 these URIs. It also establishes the registries necessary for management of this
 scheme. 
     " name="description">
-<meta content="xml2rfc 3.23.1" name="generator">
+<meta content="xml2rfc 3.23.2" name="generator">
 <meta content="next generation" name="keyword">
 <meta content="unicorn" name="keyword">
 <meta content="sparkling distributed ledger" name="keyword">
 <meta content="draft-zundel-spice-glue-id-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.23.1
+  xml2rfc 3.23.2
     Python 3.12.6
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
@@ -1029,11 +1029,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">SPICE GLUE: GLobal Unique Enterprise Ide</td>
-<td class="right">September 2024</td>
+<td class="right">October 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Zundel &amp; Dingle</td>
-<td class="center">Expires 3 April 2025</td>
+<td class="center">Expires 10 April 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1046,12 +1046,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-zundel-spice-glue-id-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-09-30" class="published">30 September 2024</time>
+<time datetime="2024-10-07" class="published">7 October 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-04-03">3 April 2025</time></dd>
+<dd class="expires"><time datetime="2025-04-10">10 April 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1107,7 +1107,7 @@ scheme.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 3 April 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 10 April 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1171,10 +1171,13 @@ scheme.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
             <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.1">
-                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="auto internal xref">8.1</a>.  <a href="#name-glue-scheme-uri-authority-r" class="internal xref">'glue' Scheme URI authority registry</a></p>
+                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="auto internal xref">8.1</a>.  <a href="#name-glue-uri-scheme-registratio" class="internal xref">'glue' URI Scheme Registration</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.2">
-                <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="auto internal xref">8.2</a>.  <a href="#name-uri-scheme-registration" class="internal xref">URI Scheme Registration</a></p>
+                <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="auto internal xref">8.2</a>.  <a href="#name-glue-scheme-uri-authority-r" class="internal xref">'glue' Scheme URI authority registry</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.3">
+                <p id="section-toc.1-1.8.2.3.1"><a href="#section-8.3" class="auto internal xref">8.3</a>.  <a href="#name-uri-scheme-registration" class="internal xref">URI Scheme Registration</a></p>
 </li>
             </ul>
 </li>
@@ -1216,6 +1219,7 @@ described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</s
 appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶</a></p>
 <p id="section-2-2">For the remainder of this document, the term "glue URI" is used to refer to a
 URI that uses the glue scheme.<a href="#section-2-2" class="pilcrow">¶</a></p>
+<p id="section-2-3">TODO: define external authority, company entity<a href="#section-2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="core-concepts">
@@ -1313,28 +1317,39 @@ privacy policies.<a href="#section-7.1-3" class="pilcrow">¶</a></p>
       </h2>
 <p id="section-8-1">The following sections detail requests to IANA for the creation of a new
 registry and registration of the 'glue' URI scheme.<a href="#section-8-1" class="pilcrow">¶</a></p>
-<div id="glue-scheme-uri-authority-registry">
+<div id="glue-uri-scheme-registration">
 <section id="section-8.1">
-        <h3 id="name-glue-scheme-uri-authority-r">
-<a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-glue-scheme-uri-authority-r" class="section-name selfRef">'glue' Scheme URI authority registry</a>
+        <h3 id="name-glue-uri-scheme-registratio">
+<a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-glue-uri-scheme-registratio" class="section-name selfRef">'glue' URI Scheme Registration</a>
         </h3>
-<p id="section-8.1-1">IANA is requested to create a new registry entitled "'glue' Scheme URI Authority
+<p id="section-8.1-1">TODO<a href="#section-8.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="glue-scheme-uri-authority-registry">
+<section id="section-8.2">
+        <h3 id="name-glue-scheme-uri-authority-r">
+<a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-glue-scheme-uri-authority-r" class="section-name selfRef">'glue' Scheme URI authority registry</a>
+        </h3>
+<p id="section-8.2-1">IANA is requested to create a new registry entitled "'glue' Scheme URI Authority
 Identifiers". The registration policy for this registry is Expert Review as
-defined in <span>[<a href="#RFC8126" class="cite xref">RFC8126</a>]</span>.<a href="#section-8.1-1" class="pilcrow">¶</a></p>
-<p id="section-8.1-2">Each entry in this registry associates one or more Authority Identifiers with a
+defined in <span>[<a href="#RFC8126" class="cite xref">RFC8126</a>]</span>.<a href="#section-8.2-1" class="pilcrow">¶</a></p>
+<p id="section-8.2-2">Each entry in this registry associates one or more Authority Identifiers with a
 single organization. Within the registry, the organization is identified using
 the "Name" field. Each identified organization will be associated with one or
 more number of company identification schemes, which are listed in the "Scheme"
 field. A reference for each scheme is listed in the "Reference" field of the
-registry.<a href="#section-8.1-2" class="pilcrow">¶</a></p>
-<p id="section-8.1-3">The initial values for the registry are:<a href="#section-8.1-3" class="pilcrow">¶</a></p>
-<div id="section-8.1-4">
-          <div class="alignLeft art-svg artwork" id="section-8.1-4.1">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="256" width="592" viewBox="0 0 592 256" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
-              <path d="M 8,32 L 8,224" fill="none" stroke="black"></path>
+registry.<a href="#section-8.2-2" class="pilcrow">¶</a></p>
+<p id="section-8.2-3">The initial values for the registry are:<a href="#section-8.2-3" class="pilcrow">¶</a></p>
+<div id="section-8.2-4">
+          <div class="alignLeft art-svg artwork" id="section-8.2-4.1">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="304" width="736" viewBox="0 0 736 304" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+              <path d="M 8,32 L 8,272" fill="none" stroke="black"></path>
               <path d="M 160,32 L 160,224" fill="none" stroke="black"></path>
               <path d="M 232,32 L 232,224" fill="none" stroke="black"></path>
+              <path d="M 240,232 L 240,272" fill="none" stroke="black"></path>
+              <path d="M 288,232 L 288,272" fill="none" stroke="black"></path>
               <path d="M 584,32 L 584,224" fill="none" stroke="black"></path>
+              <path d="M 728,240 L 728,272" fill="none" stroke="black"></path>
               <path d="M 8,30 L 584,30" fill="none" stroke="black"></path>
               <path d="M 8,34 L 584,34" fill="none" stroke="black"></path>
               <path d="M 8,78 L 584,78" fill="none" stroke="black"></path>
@@ -1342,6 +1357,8 @@ registry.<a href="#section-8.1-2" class="pilcrow">¶</a></p>
               <path d="M 8,128 L 584,128" fill="none" stroke="black"></path>
               <path d="M 8,176 L 584,176" fill="none" stroke="black"></path>
               <path d="M 8,224 L 584,224" fill="none" stroke="black"></path>
+              <path d="M 8,272 L 728,272" fill="none" stroke="black"></path>
+              <path d="M 224,224 C 232.83064,224 240,231.16936 240,240" fill="none" stroke="black"></path>
               <g class="text">
                 <text x="36" y="52">Name</text>
                 <text x="196" y="52">Scheme</text>
@@ -1357,23 +1374,29 @@ registry.<a href="#section-8.1-2" class="pilcrow">¶</a></p>
                 <text x="108" y="196">Bradstreet</text>
                 <text x="196" y="196">duns</text>
                 <text x="360" y="196">https://www.dnb.com/duns.html</text>
+                <text x="48" y="244">Private</text>
+                <text x="124" y="244">Enterprise</text>
+                <text x="200" y="244">Numbers</text>
+                <text x="264" y="244">pen</text>
+                <text x="508" y="244">https://www.iana.org/assignments/enterprise-numbers/</text>
               </g>
-            </svg><a href="#section-8.1-4.1" class="pilcrow">¶</a>
+            </svg><a href="#section-8.2-4.1" class="pilcrow">¶</a>
 </div>
 </div>
-<p id="section-8.1-5">### Guidance for Designated Experts<a href="#section-8.1-5" class="pilcrow">¶</a></p>
-<p id="section-8.1-6">TODO guidance for designated experts<a href="#section-8.1-6" class="pilcrow">¶</a></p>
+<p id="section-8.2-5">### Guidance for Designated Experts<a href="#section-8.2-5" class="pilcrow">¶</a></p>
+<p id="section-8.2-6">It is not required that registration of an Authority Identifier be done by a
+representative of the external authority.<a href="#section-8.2-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="uri-scheme-registration">
-<section id="section-8.2">
+<section id="section-8.3">
         <h3 id="name-uri-scheme-registration">
-<a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-uri-scheme-registration" class="section-name selfRef">URI Scheme Registration</a>
+<a href="#section-8.3" class="section-number selfRef">8.3. </a><a href="#name-uri-scheme-registration" class="section-name selfRef">URI Scheme Registration</a>
         </h3>
-<p id="section-8.2-1">The "glue" URI scheme is requested to be registered in the provisional "URI Schemes" registry. The information below is provided according to the guidelines from RFC 4395:
+<p id="section-8.3-1">The "glue" URI scheme is requested to be registered in the provisional "URI Schemes" registry. The information below is provided according to the guidelines from RFC 4395:
   * URI scheme name: glue
   * Status: provisional
-  * URI scheme syntax: See <span><a href="#text-encoding-of-glue-uris" class="internal xref">Section 4.1 of Text Encoding of glue URIs</a> (<a href="#text-encoding-of-glue-uris" class="auto internal xref">Section 4</a>)</span><a href="#section-8.2-1" class="pilcrow">¶</a></p>
+  * URI scheme syntax: See <span><a href="#text-encoding-of-glue-uris" class="internal xref">Section 4.1 of Text Encoding of glue URIs</a> (<a href="#text-encoding-of-glue-uris" class="auto internal xref">Section 4</a>)</span><a href="#section-8.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>

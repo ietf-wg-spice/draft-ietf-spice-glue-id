@@ -5,8 +5,8 @@
 Secure Patterns for Internet CrEdentials                       B. Zundel
 Internet-Draft                                                  mesur.io
 Intended status: Informational                                 P. Dingle
-Expires: 3 April 2025                              Microsoft Corporation
-                                                       30 September 2024
+Expires: 10 April 2025                             Microsoft Corporation
+                                                          7 October 2024
 
 
             SPICE GLUE: GLobal Unique Enterprise Identifiers
@@ -51,7 +51,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 April 2025.
+   This Internet-Draft will expire on 10 April 2025.
 
 Copyright Notice
 
@@ -79,8 +79,9 @@ Table of Contents
    7.  Privacy Considerations
      7.1.  Private identifiers as corporate identifiers
    8.  IANA Considerations
-     8.1.  'glue' Scheme URI authority registry
-     8.2.  URI Scheme Registration
+     8.1.  'glue' URI Scheme Registration
+     8.2.  'glue' Scheme URI authority registry
+     8.3.  URI Scheme Registration
    9.  Normative References
    Acknowledgments
    Authors' Addresses
@@ -107,6 +108,8 @@ Table of Contents
 
    For the remainder of this document, the term "glue URI" is used to
    refer to a URI that uses the glue scheme.
+
+   TODO: define external authority, company entity
 
 3.  Core Concepts
 
@@ -177,7 +180,11 @@ Table of Contents
    The following sections detail requests to IANA for the creation of a
    new registry and registration of the 'glue' URI scheme.
 
-8.1.  'glue' Scheme URI authority registry
+8.1.  'glue' URI Scheme Registration
+
+   TODO
+
+8.2.  'glue' Scheme URI authority registry
 
    IANA is requested to create a new registry entitled "'glue' Scheme
    URI Authority Identifiers".  The registration policy for this
@@ -206,12 +213,16 @@ Table of Contents
 | Dun & Bradstreet |  duns  | https://www.dnb.com/duns.html             |
 |                  |        |                                           |
 +------------------+--------+-------------------------------------------+
+| Private Enterprise Numbers | pen | https://www.iana.org/assignments/enterprise-numbers/ |
+|                            |     |                                                      |
++----------------------------+-----+------------------------------------------------------+
 
    ### Guidance for Designated Experts
 
-   TODO guidance for designated experts
+   It is not required that registration of an Authority Identifier be
+   done by a representative of the external authority.
 
-8.2.  URI Scheme Registration
+8.3.  URI Scheme Registration
 
    The "glue" URI scheme is requested to be registered in the
    provisional "URI Schemes" registry.  The information below is

@@ -84,7 +84,7 @@ authority.
 
 ## Uniqueness and Namespacing
 
-Each glue URI MUST be unique. It is assumed that most registered company entity
+Each glue URI MUST be globally unique. It is assumed that most registered company entity
 identification schemes already handle any necessary namespacing as part of the
 external number. However, in the event that collisions are possible within the
 set of possible external identifiers for an authority identifier scheme, then
@@ -96,7 +96,7 @@ operated by the same authority, or the same scheme operated by different
 authorities. In either case a unique authority identifier would be necessary for
 each.
 
-For example, assume there is and external authority FEA that provides
+For example, assume there is an external authority FEA that provides
 identifiers for company entities in USA and Canada. The identifiers in the USA
 are unique, and the identifiers in Canada are unique, but there is no guarantee
 that a company entity in Canada won't be assigned the same number as a company

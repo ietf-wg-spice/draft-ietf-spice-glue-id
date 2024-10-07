@@ -5,8 +5,8 @@
 Secure Patterns for Internet CrEdentials                       B. Zundel
 Internet-Draft                                                  mesur.io
 Intended status: Informational                                 P. Dingle
-Expires: 6 April 2025                              Microsoft Corporation
-                                                          3 October 2024
+Expires: 10 April 2025                             Microsoft Corporation
+                                                          7 October 2024
 
 
             SPICE GLUE: GLobal Unique Enterprise Identifiers
@@ -51,7 +51,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 6 April 2025.
+   This Internet-Draft will expire on 10 April 2025.
 
 Copyright Notice
 
@@ -126,11 +126,11 @@ Table of Contents
 
 3.1.  Uniqueness and Namespacing
 
-   Each glue URI MUST be unique.  It is assumed that most registered
-   company entity identification schemes already handle any necessary
-   namespacing as part of the external number.  However, in the event
-   that collisions are possible within the set of possible external
-   identifiers for an authority identifier scheme, then further
+   Each glue URI MUST be globally unique.  It is assumed that most
+   registered company entity identification schemes already handle any
+   necessary namespacing as part of the external number.  However, in
+   the event that collisions are possible within the set of possible
+   external identifiers for an authority identifier scheme, then further
    namespacing might be necessary at the glue id level.  Such
    namespacing SHOULD be done on the authority identifier as part of the
    registration process.
@@ -140,7 +140,7 @@ Table of Contents
    operated by different authorities.  In either case a unique authority
    identifier would be necessary for each.
 
-   For example, assume there is and external authority FEA that provides
+   For example, assume there is an external authority FEA that provides
    identifiers for company entities in USA and Canada.  The identifiers
    in the USA are unique, and the identifiers in Canada are unique, but
    there is no guarantee that a company entity in Canada won't be

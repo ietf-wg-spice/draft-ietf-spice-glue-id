@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-06T00:30:02.439956+00:00",
+  "timestamp": "2024-10-08T00:27:12.150928+00:00",
   "repo": "mesur-io/draft-zundel-spice-glue-id",
   "labels": [
     {
@@ -57,6 +57,11 @@
       "name": "future",
       "description": "",
       "color": "60A028"
+    },
+    {
+      "name": "pending close",
+      "description": "",
+      "color": "69C9B2"
     }
   ],
   "issues": [
@@ -119,7 +124,7 @@
       ],
       "body": "Has anyone considered presenting this to staff in the [US General Services Administration](), particularly those may be directly or indirectly involved with the design and maintenance of sam.gov data store and supporting systems, perhaps the [Technology Transformation Services](https://www.gsa.gov/about-us/organization/federal-acquisition-service/technology-transformation-services/tts-solutions) or [Office of Government-Wide Policy (OGP)](https://www.gsa.gov/about-us/organization/office-of-governmentwide-policy)? The latter have experience building systems and supporting policy for such macro-scale solutions, so it may be worth reaching out the scope, content, and registry of identifiers are more complete and vetted.",
       "createdAt": "2024-07-26T02:18:38Z",
-      "updatedAt": "2024-10-03T22:15:36Z",
+      "updatedAt": "2024-10-07T19:39:07Z",
       "closedAt": null,
       "comments": [
         {
@@ -128,6 +133,20 @@
           "body": "I agree that this feedback should be sought once the scheme is more complete.",
           "createdAt": "2024-09-30T19:47:51Z",
           "updatedAt": "2024-09-30T19:47:51Z"
+        },
+        {
+          "author": "pamelatech",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Is SAM.gov a good example to put into the spec?  ",
+          "createdAt": "2024-10-07T19:37:42Z",
+          "updatedAt": "2024-10-07T19:37:42Z"
+        },
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Is SAM.gov a good example to put into the spec?\r\n\r\nI think in time we probably could, but for the initial set we should avoid country-specific authority schemes",
+          "createdAt": "2024-10-07T19:39:06Z",
+          "updatedAt": "2024-10-07T19:39:06Z"
         }
       ]
     },
@@ -136,7 +155,7 @@
       "id": "I_kwDOMSfv0M6ROWrb",
       "title": "Country name considerations",
       "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/5",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "brentzundel",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -145,8 +164,8 @@
       ],
       "body": "We need to consider country codes for glue IDs, as referenced here: https://github.com/cabforum/smime/blob/main/SBR.md#a1-organizationidentifier",
       "createdAt": "2024-07-29T22:04:19Z",
-      "updatedAt": "2024-10-03T22:39:04Z",
-      "closedAt": null,
+      "updatedAt": "2024-10-07T19:44:32Z",
+      "closedAt": "2024-10-07T19:44:32Z",
       "comments": [
         {
           "author": "brentzundel",
@@ -154,6 +173,13 @@
           "body": "Pam and I talked today about this.\r\nThe Authority Identifier combined with the External Number should be a unique value.\r\n\r\nIt is assumed that corporate identification schemes already handle any necessary namespacing as part of the external number. In the event that collisions are possible within the set of possible external identifiers for a scheme, then further namespacing might be necessary at the glue id level. If so, it should be done on the authority identifier as part of the registration process. That is, the different namespaces would be considered either different schemes operated by the same authority, or the same scheme operated by different authorities. In either case a unique authority identifier would be necessary for each.",
           "createdAt": "2024-09-30T19:59:09Z",
           "updatedAt": "2024-09-30T19:59:09Z"
+        },
+        {
+          "author": "pamelatech",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I believe we have addressed this concern with text in PR #17 -  closing as resolved",
+          "createdAt": "2024-10-07T19:43:18Z",
+          "updatedAt": "2024-10-07T19:43:18Z"
         }
       ]
     },
@@ -162,15 +188,15 @@
       "id": "I_kwDOMSfv0M6R-9cj",
       "title": "IETF120 - Why is an IANA PEN not sufficient?",
       "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/6",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "pamelatech",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Question #1 from IETF 120 - copied from session notes (https://notes.ietf.org/notes-ietf-120-spice)\r\n\r\nAJ Stein: Why are existing identifiers like IANA\u2019s PENs not sufficient?\r\n- Roy Williams: the scope of identifiers needs to cover a wide range of entities, including those without U.S. entities or computers. The scheme needs to allow flexibility worldwide.\r\nAJ (Follow-up): If this requires registration with IANA, that might be a problem.\r\n- The Glue ID aims to provide a flexible and widely applicable solution, recognizing different authorities and their specific needs.",
       "createdAt": "2024-08-05T18:22:01Z",
-      "updatedAt": "2024-10-02T22:24:06Z",
-      "closedAt": null,
+      "updatedAt": "2024-10-07T19:06:30Z",
+      "closedAt": "2024-10-07T19:06:29Z",
       "comments": [
         {
           "author": "brentzundel",
@@ -193,15 +219,15 @@
       "id": "I_kwDOMSfv0M6R--hY",
       "title": "IETF 120 - Scope of Enumerating Identifiers",
       "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/7",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "pamelatech",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Question Taken from the notes of the IETF 120 Vancouver plenary (https://notes.ietf.org/notes-ietf-120-spice)\r\nAJ: What is the scope of enumerating different identifiers?\r\n- Mike Prorock: Our system tracks over 200 million unique businesses, accounting for various identifiers required by different jurisdictions and regulatory purposes. \r\n\r\n\r\n\r\n",
       "createdAt": "2024-08-05T18:24:23Z",
-      "updatedAt": "2024-08-05T19:25:54Z",
-      "closedAt": null,
+      "updatedAt": "2024-10-07T19:15:15Z",
+      "closedAt": "2024-10-07T19:15:15Z",
       "comments": [
         {
           "author": "brentzundel",
@@ -255,7 +281,7 @@
       "labels": [],
       "body": "Questions from IETF 120 Plenary in Vancouver (https://notes.ietf.org/notes-ietf-120-spice)\r\n\r\nAJ Stein: How does the system handle nested organizations and confidence in subsidiary relationships?\r\nThe draft describes a string identifier as a building block, with future layers handling more complex relationships and attestations.",
       "createdAt": "2024-08-05T18:26:55Z",
-      "updatedAt": "2024-08-05T19:47:26Z",
+      "updatedAt": "2024-10-07T20:40:04Z",
       "closedAt": null,
       "comments": [
         {
@@ -264,6 +290,13 @@
           "body": "To me this points to the need for showing examples of how we imagine GLUE IDs could be used.\r\nIn a scenario where a subsidiary needs to be identified, then the authority identifier used in the GLUE ID needs to support identification of subsidiaries. Not all GLUE ID authority identifiers may support all circumstances.",
           "createdAt": "2024-08-05T19:47:25Z",
           "updatedAt": "2024-08-05T19:47:25Z"
+        },
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "related to #14 ",
+          "createdAt": "2024-10-07T20:40:03Z",
+          "updatedAt": "2024-10-07T20:40:03Z"
         }
       ]
     },
@@ -272,7 +305,7 @@
       "id": "I_kwDOMSfv0M6R_AN6",
       "title": "IETF 120 - Who can mint a Glue ID",
       "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/10",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "pamelatech",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -281,8 +314,8 @@
       ],
       "body": "Questions from IETF 120 Plenary Vancouver (https://notes.ietf.org/notes-ietf-120-spice)\r\n\r\nAJ Stein: Can arbitrary organizations mint these identifiers?\r\nThe registry aims to include well-known organizations that identify businesses, but flexibility allows for new authorities to be recognized based on trust and context.",
       "createdAt": "2024-08-05T18:28:00Z",
-      "updatedAt": "2024-10-03T22:09:29Z",
-      "closedAt": null,
+      "updatedAt": "2024-10-07T19:30:58Z",
+      "closedAt": "2024-10-07T19:30:58Z",
       "comments": [
         {
           "author": "brentzundel",
@@ -302,10 +335,12 @@
       "author": "pamelatech",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "pending close"
+      ],
       "body": "Questions taken from IETF 120 Plenary Vancouver (https://notes.ietf.org/notes-ietf-120-spice)\r\n\r\nHeather Flanagan (chair) : How does this fit within SPICE?\r\nThe Glue ID provides a unified way to refer to companies, aligning with SPICE\u2019s goal of managing credentials and attestations about entities.",
       "createdAt": "2024-08-05T18:29:09Z",
-      "updatedAt": "2024-10-03T22:14:13Z",
+      "updatedAt": "2024-10-07T20:39:12Z",
       "closedAt": null,
       "comments": [
         {
@@ -322,16 +357,24 @@
       "id": "I_kwDOMSfv0M6R_iiz",
       "title": "bikeshed for \"authority identifier scheme\"",
       "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/12",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "brentzundel",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "we could benefit from better words for \"authority identifier scheme\"",
       "createdAt": "2024-08-05T19:48:58Z",
-      "updatedAt": "2024-08-05T19:48:58Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2024-10-07T20:36:24Z",
+      "closedAt": "2024-10-07T20:36:24Z",
+      "comments": [
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I'm closing this, it's fine for now",
+          "createdAt": "2024-10-07T20:36:24Z",
+          "updatedAt": "2024-10-07T20:36:24Z"
+        }
+      ]
     },
     {
       "number": 13,
@@ -533,78 +576,166 @@
       "id": "PR_kwDOMSfv0M59jkNU",
       "title": "Clarify introduction to address #10",
       "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/pull/16",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "brentzundel",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "fixes #10 ",
       "createdAt": "2024-10-03T22:08:22Z",
-      "updatedAt": "2024-10-03T22:08:22Z",
+      "updatedAt": "2024-10-07T19:30:57Z",
       "baseRepository": "mesur-io/draft-zundel-spice-glue-id",
       "baseRefName": "main",
       "baseRefOid": "0fcf9593d2b866399a1c85ccccfbc3443a0b5375",
       "headRepository": "mesur-io/draft-zundel-spice-glue-id",
       "headRefName": "issue10",
       "headRefOid": "28cbe09ba4e133867d51d9e7b23bedf3a94ea3a1",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-10-07T19:30:57Z",
+      "mergedAt": "2024-10-07T19:30:57Z",
+      "mergedBy": "pamelatech",
+      "mergeCommit": {
+        "oid": "1e92b56d7e67ff3b91783e702a80bd47bb5c3f9a"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOMSfv0M6MPBFT",
+          "commit": {
+            "abbreviatedOid": "28cbe09"
+          },
+          "author": "pamelatech",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-10-07T19:16:49Z",
+          "updatedAt": "2024-10-07T19:16:49Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 17,
       "id": "PR_kwDOMSfv0M59jqUD",
       "title": "add section on namespacing to address #7",
       "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/pull/17",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "brentzundel",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "fixes #7 ",
       "createdAt": "2024-10-03T22:38:21Z",
-      "updatedAt": "2024-10-03T22:38:21Z",
+      "updatedAt": "2024-10-07T19:15:14Z",
       "baseRepository": "mesur-io/draft-zundel-spice-glue-id",
       "baseRefName": "main",
       "baseRefOid": "0fcf9593d2b866399a1c85ccccfbc3443a0b5375",
       "headRepository": "mesur-io/draft-zundel-spice-glue-id",
       "headRefName": "issue11",
-      "headRefOid": "9938a53b1fa6bff4bd4f84c31ac6f8890cc609d2",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "6f71c8b585206398064f81417c8805c71e636fe3",
+      "closedAt": "2024-10-07T19:15:14Z",
+      "mergedAt": "2024-10-07T19:15:14Z",
+      "mergedBy": "pamelatech",
+      "mergeCommit": {
+        "oid": "e4b1e2164f7debb242552514e799c34a0c835258"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOMSfv0M6MO_dB",
+          "commit": {
+            "abbreviatedOid": "9938a53"
+          },
+          "author": "pamelatech",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-07T19:12:57Z",
+          "updatedAt": "2024-10-07T19:12:58Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "```suggestion\r\nFor example, assume there is an external authority FEA that provides\r\n```",
+              "createdAt": "2024-10-07T19:12:57Z",
+              "updatedAt": "2024-10-07T19:12:58Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMSfv0M6MO_xg",
+          "commit": {
+            "abbreviatedOid": "9938a53"
+          },
+          "author": "pamelatech",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-10-07T19:13:45Z",
+          "updatedAt": "2024-10-07T19:13:45Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\r\nEach glue URI MUST be globally unique. It is assumed that most registered company entity\r\n```",
+              "createdAt": "2024-10-07T19:13:45Z",
+              "updatedAt": "2024-10-07T19:13:46Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMSfv0M6MPAJJ",
+          "commit": {
+            "abbreviatedOid": "6f71c8b"
+          },
+          "author": "pamelatech",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Found typos, made suggestions",
+          "createdAt": "2024-10-07T19:14:37Z",
+          "updatedAt": "2024-10-07T19:14:37Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 18,
       "id": "PR_kwDOMSfv0M59jscz",
       "title": "add PEN identifiers to the initial registry table",
       "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/pull/18",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "brentzundel",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "fixes #6 ",
       "createdAt": "2024-10-03T22:49:49Z",
-      "updatedAt": "2024-10-03T22:49:49Z",
+      "updatedAt": "2024-10-07T19:06:29Z",
       "baseRepository": "mesur-io/draft-zundel-spice-glue-id",
       "baseRefName": "main",
       "baseRefOid": "0fcf9593d2b866399a1c85ccccfbc3443a0b5375",
       "headRepository": "mesur-io/draft-zundel-spice-glue-id",
       "headRefName": "issue6",
       "headRefOid": "7538e4d8791264400e04af345ff7b1bc8a5585d6",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-10-07T19:06:29Z",
+      "mergedAt": "2024-10-07T19:06:29Z",
+      "mergedBy": "pamelatech",
+      "mergeCommit": {
+        "oid": "c65396e2f28ba6f4ba8a016a6574616d507344f7"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOMSfv0M6MO8cV",
+          "commit": {
+            "abbreviatedOid": "7538e4d"
+          },
+          "author": "pamelatech",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-10-07T19:06:18Z",
+          "updatedAt": "2024-10-07T19:06:18Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }

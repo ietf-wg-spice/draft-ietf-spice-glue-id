@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-20T00:30:33.981655+00:00",
+  "timestamp": "2024-10-22T00:28:03.782996+00:00",
   "repo": "mesur-io/draft-zundel-spice-glue-id",
   "labels": [
     {
@@ -331,7 +331,7 @@
       "id": "I_kwDOMSfv0M6R_AsJ",
       "title": "IETF 120 - Should Glue IDs be in SPICE?",
       "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/11",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "pamelatech",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -340,8 +340,8 @@
       ],
       "body": "Questions taken from IETF 120 Plenary Vancouver (https://notes.ietf.org/notes-ietf-120-spice)\r\n\r\nHeather Flanagan (chair) : How does this fit within SPICE?\r\nThe Glue ID provides a unified way to refer to companies, aligning with SPICE\u2019s goal of managing credentials and attestations about entities.",
       "createdAt": "2024-08-05T18:29:09Z",
-      "updatedAt": "2024-10-07T20:39:12Z",
-      "closedAt": null,
+      "updatedAt": "2024-10-21T19:12:09Z",
+      "closedAt": "2024-10-21T19:12:09Z",
       "comments": [
         {
           "author": "brentzundel",
@@ -349,6 +349,13 @@
           "body": "@pamelatech the introduction already has the text\r\n```\r\nEnterprise entity identifiers are myriad. With the increasing use of digitial\r\ncredentials, there is a need for a common methodology for expressing these\r\nidentifiers such that claims about and by such entities can be made in a\r\nconsistent and interoperable manner.\r\n```\r\n\r\ndo we need more than this to strengthen the claim that the spec belongs in SPICE?",
           "createdAt": "2024-10-03T22:13:36Z",
           "updatedAt": "2024-10-03T22:14:13Z"
+        },
+        {
+          "author": "pamelatech",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Let's leave it and see if others indicate confusion.",
+          "createdAt": "2024-10-21T19:11:54Z",
+          "updatedAt": "2024-10-21T19:11:54Z"
         }
       ]
     },

@@ -109,7 +109,7 @@ entity in the USA. Upon registration of FEA as an Authority Identifier, it would
 be necessary to seperately register FEA-USA and FEA-Can to provide
 differentiation between the two sets of external numbers.
 
-# Text Encoding of glue URIs
+# Text Encoding of glue URIs {#text-encoding}
 
 All glue URIs comply with {{-URI-syntax}} and are therefore represented by a
 scheme identifier and a scheme-specific part. The scheme identifier is: glue, and
@@ -179,36 +179,30 @@ registry.
 
 The initial values for the registry are:
 
-~~~ aasvg
-
-+==================+========+===========================================+
 | Name             | Scheme | Reference                                 |
-|                  |        |                                           |
-+==================+========+===========================================+
+|:-----------------|-:------|:------------------------------------------|
 | GS1              |  gln   | https://www.gs1.org/standards/id-keys/gln |
-|                  |        |                                           |
-+------------------+--------+-------------------------------------------+
 | GLEIF            |  lei   | https://www.iso.org/standard/78829.html   |
-|                  |        |                                           |
-+------------------+--------+-------------------------------------------+
 | Dun & Bradstreet |  duns  | https://www.dnb.com/duns.html             |
-|                  |        |                                           |
-+------------------+--------+-------------------------------------------+
 | Private Enterprise Numbers | pen | https://www.iana.org/assignments/enterprise-numbers/ |
-|                            |     |                                                      |
-+----------------------------+-----+------------------------------------------------------+
 
-~~~
 ### Guidance for Designated Experts
 
 It is not required that registration of an Authority Identifier be done by a
 representative of the external authority.
 
 ## URI Scheme Registration
+
 The "glue" URI scheme is requested to be registered in the provisional "URI Schemes" registry. The information below is provided according to the guidelines from RFC 4395:
-  * URI scheme name: glue
-  * Status: provisional
-  * URI scheme syntax: See [Section 4.1 of Text Encoding of glue URIs](#text-encoding-of-glue-uris)
+
+URI scheme name:
+: glue
+
+Status:
+: provisional
+
+URI scheme syntax:
+: See {{text-encoding}}
 
 --- back
 

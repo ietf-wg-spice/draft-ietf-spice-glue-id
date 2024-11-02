@@ -5,8 +5,8 @@
 Secure Patterns for Internet CrEdentials                       B. Zundel
 Internet-Draft                                                  mesur.io
 Intended status: Informational                                 P. Dingle
-Expires: 10 April 2025                             Microsoft Corporation
-                                                          7 October 2024
+Expires: 6 May 2025                                Microsoft Corporation
+                                                         2 November 2024
 
 
             SPICE GLUE: GLobal Unique Enterprise Identifiers
@@ -51,7 +51,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 April 2025.
+   This Internet-Draft will expire on 6 May 2025.
 
 Copyright Notice
 
@@ -82,6 +82,7 @@ Table of Contents
    8.  IANA Considerations
      8.1.  'glue' URI Scheme Registration
      8.2.  'glue' Scheme URI authority registry
+       8.2.1.  Guidance for Designated Experts
      8.3.  URI Scheme Registration
    9.  Normative References
    Acknowledgments
@@ -231,24 +232,24 @@ Table of Contents
 
    The initial values for the registry are:
 
-+==================+========+===========================================+
-| Name             | Scheme | Reference                                 |
-|                  |        |                                           |
-+==================+========+===========================================+
-| GS1              |  gln   | https://www.gs1.org/standards/id-keys/gln |
-|                  |        |                                           |
-+------------------+--------+-------------------------------------------+
-| GLEIF            |  lei   | https://www.iso.org/standard/78829.html   |
-|                  |        |                                           |
-+------------------+--------+-------------------------------------------+
-| Dun & Bradstreet |  duns  | https://www.dnb.com/duns.html             |
-|                  |        |                                           |
-+------------------+--------+-------------------------------------------+
-| Private Enterprise Numbers | pen | https://www.iana.org/assignments/enterprise-numbers/ |
-|                            |     |                                                      |
-+----------------------------+-----+------------------------------------------------------+
+    +====================+========+===================================+
+    | Name               | Scheme | Reference                         |
+    +====================+========+===================================+
+    | GS1                |    gln | https://www.gs1.org/standards/id- |
+    |                    |        | keys/gln                          |
+    +--------------------+--------+-----------------------------------+
+    | GLEIF              |    lei | https://www.iso.org/              |
+    |                    |        | standard/78829.html               |
+    +--------------------+--------+-----------------------------------+
+    | Dun & Bradstreet   |   duns | https://www.dnb.com/duns.html     |
+    +--------------------+--------+-----------------------------------+
+    | Private Enterprise |    pen | https://www.iana.org/assignments/ |
+    | Numbers            |        | enterprise-numbers/               |
+    +--------------------+--------+-----------------------------------+
 
-   ### Guidance for Designated Experts
+                                  Table 1
+
+8.2.1.  Guidance for Designated Experts
 
    It is not required that registration of an Authority Identifier be
    done by a representative of the external authority.
@@ -257,9 +258,13 @@ Table of Contents
 
    The "glue" URI scheme is requested to be registered in the
    provisional "URI Schemes" registry.  The information below is
-   provided according to the guidelines from RFC 4395: * URI scheme
-   name: glue * Status: provisional * URI scheme syntax: See Section 4.1
-   of Text Encoding of glue URIs (Section 4)
+   provided according to the guidelines from RFC 4395:
+
+   URI scheme name:  glue
+
+   Status:  provisional
+
+   URI scheme syntax:  See Section 4
 
 9.  Normative References
 

@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-31T00:28:17.121042+00:00",
+  "timestamp": "2024-11-03T00:30:41.549064+00:00",
   "repo": "mesur-io/draft-zundel-spice-glue-id",
   "labels": [
     {
@@ -749,26 +749,42 @@
       "id": "PR_kwDOMSfv0M5_hlSb",
       "title": "Formatting fixes",
       "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/pull/19",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "martinthomson",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Use labels where references are used.  Use tables for tables (aasvg is not the right tool).  Use definition lists.",
       "createdAt": "2024-10-22T23:23:35Z",
-      "updatedAt": "2024-10-22T23:23:35Z",
+      "updatedAt": "2024-11-02T17:56:45Z",
       "baseRepository": "mesur-io/draft-zundel-spice-glue-id",
       "baseRefName": "main",
       "baseRefOid": "1e92b56d7e67ff3b91783e702a80bd47bb5c3f9a",
       "headRepository": "martinthomson/draft-zundel-spice-glue-id",
       "headRefName": "patch-1",
       "headRefOid": "b707c920e04973ccdfc8f215177110a567d37932",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-11-02T17:56:45Z",
+      "mergedAt": "2024-11-02T17:56:45Z",
+      "mergedBy": "brentzundel",
+      "mergeCommit": {
+        "oid": "dd77db3a0e987bb2a888fdbc0059f8f402917d43"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOMSfv0M6PvH72",
+          "commit": {
+            "abbreviatedOid": "b707c92"
+          },
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Thanks @martinthomson !",
+          "createdAt": "2024-11-02T17:54:57Z",
+          "updatedAt": "2024-11-02T17:54:57Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }

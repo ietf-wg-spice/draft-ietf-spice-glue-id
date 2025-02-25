@@ -317,7 +317,7 @@ IANA "GLUE Authority Identifier URN" registry
 creating a URN namespace for Authority Identifiers for
 GLobal Unique Enterprise (GLUE) Identifiers.
 
-Each entry registers the URN for an Authority Identifier within the 
+Each entry registers the URN for an Authority Identifier within the
 "urn:ietf:spice:glue:" namespace.
 The organization responsible for the Authority Identifier is recorded.
 

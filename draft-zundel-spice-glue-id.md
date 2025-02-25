@@ -38,12 +38,13 @@ author:
     email: pamela.dingle@microsoft.com
     country: United States
 
-- fullname: Michael B. Jones
-  ins: M.B. Jones
-  organization: Self-Issued Consulting
-  email: michael_b_jones@hotmail.com
-  uri: https://self-issued.info/
-  country: United States
+ -
+    fullname: Michael B. Jones
+    ins: M.B. Jones
+    organization: Self-Issued Consulting
+    email: michael_b_jones@hotmail.com
+    uri: https://self-issued.info/
+    country: United States
 
 normative:
   RFC3986:

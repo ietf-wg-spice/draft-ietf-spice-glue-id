@@ -92,29 +92,29 @@ GLUE URI:
 : a URI that uses the GLUE URN namespace established in this specification.
 
 External Authority:
-: an organization that allocates External Numbers for GLUE URIs using the Authority Identifier(s) over which they have jurisdiction.
+: an organization that allocates External Identifiers for GLUE URIs using the Authority Identifier(s) over which they have jurisdiction.
 
 Authority Identifier:
-: identifier for the External Authority responsible for assigning the External Number used in GLUE URIs.
+: identifier for the External Authority responsible for assigning the External Identifier used in GLUE URIs.
 
-External Number:
-: number assigned by an External Authority to identify a particular organization within GLUE URNs over which it has jurisdiction.
+External Identifier:
+: identifier assigned by an External Authority to identify a particular organization within GLUE URNs over which it has jurisdiction.
 
 # Core Concepts
 
-Every GLUE URI, whether expressed as a string or encoded in binary MUST
+Every GLUE URI MUST
 contain the following components:
 
 - The Authority Identifier
 
-- The External Number
+- The External Identifier
 
 ## Uniqueness and Namespacing
 
 Each GLUE URI MUST be globally unique.
 It is assumed that most registered organizational entity identification schemes
 already handle any necessary namespacing as part of the
-External Number. However, if collisions are possible within the
+External Identifier. However, if collisions are possible within the
 set of possible external identifiers for an Authority Identifier scheme, then
 further namespacing might be necessary at the GLUE URI level. Such namespacing
 SHOULD be done on the Authority Identifier as part of the registration process.
@@ -127,16 +127,16 @@ each.
 For example, assume there is an External Authority FEA that provides
 identifiers for organizational entities in USA and Canada. The identifiers in the USA
 are unique, and the identifiers in Canada are unique, but there is no guarantee
-that an organizational entity in Canada will not be assigned the same number as an organizational
+that an organizational entity in Canada will not be assigned the same identifier as an organizational
 entity in the USA. Upon registration of FEA as an Authority Identifier, it would
 be necessary to separately register FEA-USA and FEA-Can to provide
-differentiation between the two sets of External Numbers.
+differentiation between the two sets of External Identifiers.
 
 # Text Encoding of GLUE URIs {#text-encoding}
 
 All GLUE URIs comply with [RFC3986].
 They begin with `urn:ietf:spice:glue:` and are followed by an Authority Identifier,
-a colon character (":"), and the External Number allocated by the authority.
+a colon character (":"), and the External Identifier allocated by the authority.
 
 Authority Identifiers consist of a sequence of characters beginning with a letter and
 followed by any combination of letters, digits, plus ("+"), period ("."), or hyphen ("-").
@@ -152,22 +152,29 @@ The ABNF [RFC5234] for Authority Identifiers is:
 authority-identifier = ALPHA *( ALPHA / DIGIT / "+" / "-" / "." )
 ```
 
-The external identifier is the decimal representation of the
-integer External Number value with no extra leading zeros.
-The ABNF [RFC5234] for external identifiers is:
+External Identifiers consist of a sequence of characters beginning with
+a letter or digit or hyphen ("-") and
+followed by any combination of letters, digits, plus ("+"), period ("."), or hyphen ("-").
+A digit or hyphen is allowed as the first character to permit the case where
+the External Identifier is the representation of a number.
+It is specific to the Authority Identifier whether the
+External Identifiers are case-insensitive or case-sensitive.
+When they are case-insensitive, the canonical form is lowercase
+and documents that specify External Identifiers must do so with lowercase letters.
+The ABNF [RFC5234] for External Identifiers is:
 
 ```
-external-identifier = ("-") DIGIT *DIGIT
+external-identifier = ( ALPHA / DIGIT / "-" ) *( ALPHA / DIGIT / "+" / "-" / "." )
 ```
 
 Combining these, the ABNF [RFC5234] for a GLUE URI is:
 
 ```
-glue-uri = "urn:ietf:spice:glue:" authority-identifier ":" external-number
+glue-uri = "urn:ietf:spice:glue:" authority-identifier ":" external-identifier
 ```
 
 For example, the following is a GLUE URI using the Authority Identifier "example"
-and the External Number "42":
+and the External Identifier "42":
 
 ```
 urn:ietf:spice:glue:example:42
@@ -175,7 +182,7 @@ urn:ietf:spice:glue:example:42
 
 The Authority Identifier MUST be registered in the GLUE URI Authority Identifier registry
 defined in {{GLUE-URN}}.
-The External Number MUST be the identifier assigned to the organization
+The External Identifier MUST be the identifier assigned to the organization
 by the External Authority.
 
 # GLUE Authority Identifiers Defined
@@ -325,7 +332,7 @@ The organization responsible for the Authority Identifier is recorded.
 ### Registration Template
 
 Authority Identifier:
-: identifier for the External Authority responsible for assigning the External Number used in GLUE URIs.
+: identifier for the External Authority responsible for assigning the External Identifier used in GLUE URIs.
 This identifier
 is not case sensitive and any letters MUST be expressed in lowercase characters.
 It MUST consist of a sequence of characters

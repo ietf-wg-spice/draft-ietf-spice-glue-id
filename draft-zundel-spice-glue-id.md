@@ -165,7 +165,7 @@ Combining these, the ABNF [RFC5234] for a GLUE URI is:
 glue-uri = "urn:ietf:spice:glue:" authority-identifier ":" external-number
 ```
 
-For example, the following is GLUE URI using the Authority Identifier "example"
+For example, the following is a GLUE URI using the Authority Identifier "example"
 and the External Number "42":
 
 ```

@@ -67,13 +67,13 @@ The GLUE URN namespace is within the SPICE URN namespace.
 
 # Introduction
 
-Enterprise entity identifiers are myriad. With the increasing use of digitial
+Enterprise entity identifiers are myriad. With the increasing use of digital
 credentials, there is a need for a common methodology for expressing these
 identifiers such that claims about and by such entities can be made in a
 consistent and interoperable manner.
 
 This specification defines an IETF URN namespace that standardizes the expression of
-existing organizational entity identifers by providing a common representation format.
+existing organizational entity identifiers by providing a common representation format.
 It also establishes a registry for managing how existing organizational entity
 identification mechanisms relate to this namespace.
 
@@ -114,7 +114,7 @@ contain the following components:
 Each GLUE URI MUST be globally unique.
 It is assumed that most registered organizational entity identification schemes
 already handle any necessary namespacing as part of the
-External Number. However, in the event that collisions are possible within the
+External Number. However, if collisions are possible within the
 set of possible external identifiers for an Authority Identifier scheme, then
 further namespacing might be necessary at the GLUE URI level. Such namespacing
 SHOULD be done on the Authority Identifier as part of the registration process.
@@ -127,9 +127,9 @@ each.
 For example, assume there is an External Authority FEA that provides
 identifiers for organizational entities in USA and Canada. The identifiers in the USA
 are unique, and the identifiers in Canada are unique, but there is no guarantee
-that a organizational entity in Canada won't be assigned the same number as a organizational
+that an organizational entity in Canada will not be assigned the same number as an organizational
 entity in the USA. Upon registration of FEA as an Authority Identifier, it would
-be necessary to seperately register FEA-USA and FEA-Can to provide
+be necessary to separately register FEA-USA and FEA-Can to provide
 differentiation between the two sets of External Numbers.
 
 # Text Encoding of GLUE URIs {#text-encoding}
@@ -183,7 +183,7 @@ by the External Authority.
 This specification defines the following GLUE Authority Identifiers.
 
 | Organization     | Authority Identifier | Specification Document      |
-|:-----------------|-:------|:------------------------------------------|
+|:-----------------|:-------|:------------------------------------------|
 | GS1              |  gln   | https://www.gs1.org/standards/id-keys/gln |
 | GLEIF            |  lei   | https://www.iso.org/standard/78829.html   |
 | Dun & Bradstreet |  duns  | https://www.dnb.com/duns.html             |
@@ -198,14 +198,14 @@ Security considerations for URNs can be found in [RFC2141].
 
 # Privacy Considerations
 
-## Private identifiers as corporate identifiers
+## Private Identifiers as Corporate Identifiers
 
-There are some corporate identifers which make use of personal identifiers. This
-is the case for registered sole-proprietor businesses in much of the United
+There are some corporate identifiers that make use of personal identifiers. This
+is the case for some registered sole-proprietor businesses in the United
 States, where the business identifier may be the same as the
 social-security-number of the business owner.
 
-It is possible for such identifers to be represented as GLUE URIs. An
+It is possible for such identifiers to be represented as GLUE URIs. An
 identifier's expression as a GLUE URI does not change the privacy
 characteristics of that identifier. The same cautions and concerns need to be
 taken with the GLUE URI representation as with the original identifier.

@@ -72,7 +72,7 @@ credentials, there is a need for a common methodology for expressing these
 identifiers such that claims about and by such entities can be made in a
 consistent and interoperable manner.
 
-This specification defines an IETF URN namespace that standardizes the expression of
+This specification establishes an IETF URN namespace that standardizes the expression of
 existing organizational entity identifiers by providing a common representation format.
 It also establishes a registry for managing how existing organizational entity
 identification mechanisms relate to this namespace.
@@ -132,7 +132,7 @@ entity in the USA. Upon registration of FEA as an Authority Identifier, it would
 be necessary to separately register FEA-USA and FEA-Can to provide
 differentiation between the two sets of External Identifiers.
 
-# Text Encoding of GLUE URIs {#text-encoding}
+# GLUE URIs {#glue-uris}
 
 All GLUE URIs comply with [RFC3986].
 They begin with `urn:ietf:spice:glue:` and are followed by an Authority Identifier,
@@ -185,11 +185,11 @@ defined in {{GLUE-URN}}.
 The External Identifier MUST be the identifier assigned to the organization
 by the External Authority.
 
-# GLUE Authority Identifiers Defined
+# GLUE Authority Identifiers {#authority-identifiers}
 
-This specification defines the following GLUE Authority Identifiers.
+This section defines the following GLUE Authority Identifiers.
 
-| Organization     | Authority Identifier | Specification Document      |
+| Organization     | Authority Identifier | External Authority Specification |
 |:-----------------|:-------|:------------------------------------------|
 | GS1              |  gln   | https://www.gs1.org/standards/id-keys/gln |
 | GLEIF            |  lei   | https://www.iso.org/standard/78829.html   |
@@ -313,10 +313,12 @@ An indication of the relevant sections may also be included, but is not required
 
 ### Initial Registry Contents
 
+#### urn:ietf:spice:glue
+
 * URN: urn:ietf:spice:glue
 * Description: GLUE URN namespace
 * Change Controller: IETF
-* Specification Document(s): [[ this specification ]]
+* Specification Document(s): {{glue-uris} of this specification
 
 ## GLUE Authority Identifier URN Registry {#GLUE-URN}
 
@@ -365,7 +367,7 @@ An indication of the relevant sections may also be included, but is not required
 * URN: urn:ietf:spice:glue:gln
 * Organization: GS1
 * Change Controller: IETF
-* Specification Document(s): https://www.gs1.org/standards/id-keys/gln
+* Specification Document(s): {{authority-identifiers}} of this specification
 
 #### lei
 
@@ -373,7 +375,7 @@ An indication of the relevant sections may also be included, but is not required
 * URN: urn:ietf:spice:glue:lei
 * Organization: GLEIF
 * Change Controller: IETF
-* Specification Document(s): https://www.iso.org/standard/78829.html
+* Specification Document(s): {{authority-identifiers}} of this specification
 
 #### duns
 
@@ -381,7 +383,7 @@ An indication of the relevant sections may also be included, but is not required
 * URN: urn:ietf:spice:glue:duns
 * Organization: Dun & Bradstreet
 * Change Controller: IETF
-* Specification Document(s): https://www.dnb.com/duns.html
+* Specification Document(s): {{authority-identifiers}} of this specification
 
 #### pen
 
@@ -389,7 +391,7 @@ An indication of the relevant sections may also be included, but is not required
 * URN: urn:ietf:spice:glue:pen
 * Organization: Private Enterprise Numbers
 * Change Controller: IETF
-* Specification Document(s): https://www.iana.org/assignments/enterprise-numbers
+* Specification Document(s): {{authority-identifiers}} of this specification
 
 --- back
 

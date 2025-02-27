@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-01-30T00:27:05.121296+00:00",
+  "timestamp": "2025-02-27T00:28:53.195800+00:00",
   "repo": "mesur-io/draft-zundel-spice-glue-id",
   "labels": [
     {
@@ -136,7 +136,7 @@
         },
         {
           "author": "pamelatech",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Is SAM.gov a good example to put into the spec?  ",
           "createdAt": "2024-10-07T19:37:42Z",
           "updatedAt": "2024-10-07T19:37:42Z"
@@ -176,7 +176,7 @@
         },
         {
           "author": "pamelatech",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "I believe we have addressed this concern with text in PR #17 -  closing as resolved",
           "createdAt": "2024-10-07T19:43:18Z",
           "updatedAt": "2024-10-07T19:43:18Z"
@@ -190,7 +190,7 @@
       "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/6",
       "state": "CLOSED",
       "author": "pamelatech",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Question #1 from IETF 120 - copied from session notes (https://notes.ietf.org/notes-ietf-120-spice)\r\n\r\nAJ Stein: Why are existing identifiers like IANA\u2019s PENs not sufficient?\r\n- Roy Williams: the scope of identifiers needs to cover a wide range of entities, including those without U.S. entities or computers. The scheme needs to allow flexibility worldwide.\r\nAJ (Follow-up): If this requires registration with IANA, that might be a problem.\r\n- The Glue ID aims to provide a flexible and widely applicable solution, recognizing different authorities and their specific needs.",
@@ -221,7 +221,7 @@
       "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/7",
       "state": "CLOSED",
       "author": "pamelatech",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Question Taken from the notes of the IETF 120 Vancouver plenary (https://notes.ietf.org/notes-ietf-120-spice)\r\nAJ: What is the scope of enumerating different identifiers?\r\n- Mike Prorock: Our system tracks over 200 million unique businesses, accounting for various identifiers required by different jurisdictions and regulatory purposes. \r\n\r\n\r\n\r\n",
@@ -245,7 +245,7 @@
       "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/8",
       "state": "CLOSED",
       "author": "pamelatech",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Questions taken from IETF 120 Vancouver Plenary notes (https://notes.ietf.org/notes-ietf-120-spice)\r\n\r\nAJ: What about the privacy concerns associated with certain identifiers, such as taxpayer identifiers for sole proprietors?\r\n(Brent Zundel) Please raise the issue for further discussion, we need to address this",
@@ -255,14 +255,14 @@
       "comments": [
         {
           "author": "pamelatech",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Closing as a duplicate of [https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/2](https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/2) ",
           "createdAt": "2024-08-05T19:27:33Z",
           "updatedAt": "2024-08-05T19:27:33Z"
         },
         {
           "author": "pamelatech",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Duplicate as noted above ",
           "createdAt": "2024-08-05T19:31:09Z",
           "updatedAt": "2024-08-05T19:31:09Z"
@@ -276,7 +276,7 @@
       "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/9",
       "state": "OPEN",
       "author": "pamelatech",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Questions from IETF 120 Plenary in Vancouver (https://notes.ietf.org/notes-ietf-120-spice)\r\n\r\nAJ Stein: How does the system handle nested organizations and confidence in subsidiary relationships?\r\nThe draft describes a string identifier as a building block, with future layers handling more complex relationships and attestations.",
@@ -307,7 +307,7 @@
       "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/10",
       "state": "CLOSED",
       "author": "pamelatech",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [
         "has PR"
@@ -333,7 +333,7 @@
       "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/11",
       "state": "CLOSED",
       "author": "pamelatech",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [
         "pending close"
@@ -352,7 +352,7 @@
         },
         {
           "author": "pamelatech",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Let's leave it and see if others indicate confusion.",
           "createdAt": "2024-10-21T19:11:54Z",
           "updatedAt": "2024-10-21T19:11:54Z"
@@ -388,16 +388,38 @@
       "id": "I_kwDOMSfv0M6X5Kbn",
       "title": "Registry structure question from David Dong",
       "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/13",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "brentzundel",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "1) Where should the new \"\u2019glue\u2019 Scheme URI Authority Identifiers\" registry be located? Should this be placed in an existing registry group, or should we create a new registry group, and if so, what should this new registry group be titled?",
       "createdAt": "2024-09-25T15:43:22Z",
-      "updatedAt": "2024-09-25T15:43:22Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-02-26T14:10:52Z",
+      "closedAt": "2025-02-26T14:10:07Z",
+      "comments": [
+        {
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I would place both registries being created in a new registry group at https://www.iana.org/assignments/spice/ titled \"Secure Patterns for Internet CrEdentials (SPICE)\".",
+          "createdAt": "2025-02-26T11:23:59Z",
+          "updatedAt": "2025-02-26T11:23:59Z"
+        },
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I agree",
+          "createdAt": "2025-02-26T14:10:07Z",
+          "updatedAt": "2025-02-26T14:10:07Z"
+        },
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Addressed with text in PR #20 ",
+          "createdAt": "2025-02-26T14:10:51Z",
+          "updatedAt": "2025-02-26T14:10:51Z"
+        }
+      ]
     },
     {
       "number": 14,
@@ -406,7 +428,7 @@
       "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/issues/14",
       "state": "OPEN",
       "author": "pamelatech",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "I believe that there is a need for businesses to be able to add additional local identifiers or data to a glue id.    As an example,  we might want to say the business identifier is Dunn & Bradstreet company 12345, factor 52B.  For companies with many global business identities and many factories (for example), it may be important to say that a given factory is identified relative to a given business identifier.  In this case for example do we want the glue id for a factory certified in France under the french business identifier 12345 as 52B to be \"glue:dun.12345#52B\".  The guidance here would be for anyone resolving to remove the fragment prior to validating/resolving the number at Dunn & Bradstreet.  I do not think the fragment needs to be technically resolveable, it may be that only the business owner knows what 52B means, or it is also possible that the company's factory identifiers are public and available for further lookup.   Note that some business authorities have this kind of granularity already built into the identifier, but there still may be internal context that businesses want to add.  The obvious downside is that should we decide a fragment is a good idea, it would make the identifiers longer.",
@@ -466,7 +488,7 @@
       "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/pull/4",
       "state": "MERGED",
       "author": "pamelatech",
-      "authorAssociation": "COLLABORATOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Fixed author attribution and added a section based on RFC 6694 describing application for a new provisional URI scheme",
@@ -542,7 +564,7 @@
             "abbreviatedOid": "d89aa5d"
           },
           "author": "pamelatech",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "APPROVED",
           "body": "I added a suggestion of text that speaks directly to implementers, please take a look. Otherwise I think this clarifies the issue raised.",
           "createdAt": "2024-09-30T19:32:30Z",
@@ -611,7 +633,7 @@
             "abbreviatedOid": "28cbe09"
           },
           "author": "pamelatech",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2024-10-07T19:16:49Z",
@@ -653,7 +675,7 @@
             "abbreviatedOid": "9938a53"
           },
           "author": "pamelatech",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2024-10-07T19:12:57Z",
@@ -673,7 +695,7 @@
             "abbreviatedOid": "9938a53"
           },
           "author": "pamelatech",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2024-10-07T19:13:45Z",
@@ -693,7 +715,7 @@
             "abbreviatedOid": "6f71c8b"
           },
           "author": "pamelatech",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "APPROVED",
           "body": "Found typos, made suggestions",
           "createdAt": "2024-10-07T19:14:37Z",
@@ -735,7 +757,7 @@
             "abbreviatedOid": "7538e4d"
           },
           "author": "pamelatech",
-          "authorAssociation": "COLLABORATOR",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2024-10-07T19:06:18Z",
@@ -785,6 +807,129 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 20,
+      "id": "PR_kwDOMSfv0M6MUaUL",
+      "title": "Use IETF URN namespaces",
+      "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/pull/20",
+      "state": "MERGED",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This should make the draft acceptable to the IETF.\r\n\r\n@brentzundel and @pamelatech please review.\r\n\r\nCc @OR13",
+      "createdAt": "2025-02-24T16:18:42Z",
+      "updatedAt": "2025-02-26T11:17:22Z",
+      "baseRepository": "mesur-io/draft-zundel-spice-glue-id",
+      "baseRefName": "main",
+      "baseRefOid": "39ec3aa3f94879f4c50230ea579bb847e7a8b511",
+      "headRepository": "selfissued/draft-zundel-spice-glue-id",
+      "headRefName": "mbj-ietf-urn-namespaces",
+      "headRefOid": "1333e597162d06dc901304d8098c0e705d423f0b",
+      "closedAt": "2025-02-26T11:17:22Z",
+      "mergedAt": "2025-02-26T11:17:22Z",
+      "mergedBy": "selfissued",
+      "mergeCommit": {
+        "oid": "6309815634996045382be824d91bc28c343ab261"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMSfv0M6dSj11",
+          "commit": {
+            "abbreviatedOid": "7018ddd"
+          },
+          "author": "OR13",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-25T01:36:34Z",
+          "updatedAt": "2025-02-25T01:36:34Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOMSfv0M6ddUN4",
+          "commit": {
+            "abbreviatedOid": "1debb2b"
+          },
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-02-25T16:22:53Z",
+          "updatedAt": "2025-02-25T16:22:54Z",
+          "comments": [
+            {
+              "originalPosition": 198,
+              "body": "The external identifier must allow alphanumeric characters, and should probably also allow dashes.",
+              "createdAt": "2025-02-25T16:22:54Z",
+              "updatedAt": "2025-02-25T16:22:54Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMSfv0M6ddYTV",
+          "commit": {
+            "abbreviatedOid": "1debb2b"
+          },
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-02-25T16:28:09Z",
+          "updatedAt": "2025-02-25T16:28:09Z",
+          "comments": [
+            {
+              "originalPosition": 198,
+              "body": "I wondered about that.  Other places in the spec it says that it must be a number.  I'll correct those too when I make the change to allow more general identifiers.",
+              "createdAt": "2025-02-25T16:28:09Z",
+              "updatedAt": "2025-02-25T16:28:09Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOMSfv0M6deocS",
+          "commit": {
+            "abbreviatedOid": "444db35"
+          },
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-25T18:20:51Z",
+          "updatedAt": "2025-02-25T18:20:51Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "id": "PR_kwDOMSfv0M6MdEzg",
+      "title": "Use actions/upload-artifact@v4 in workflows",
+      "url": "https://github.com/mesur-io/draft-zundel-spice-glue-id/pull/21",
+      "state": "MERGED",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Workflows are currently failing, as described in https://github.com/mesur-io/draft-zundel-spice-glue-id/actions/runs/13519972388/job/37776866455\r\n",
+      "createdAt": "2025-02-25T11:31:29Z",
+      "updatedAt": "2025-02-25T11:32:09Z",
+      "baseRepository": "mesur-io/draft-zundel-spice-glue-id",
+      "baseRefName": "main",
+      "baseRefOid": "dd77db3a0e987bb2a888fdbc0059f8f402917d43",
+      "headRepository": "selfissued/draft-zundel-spice-glue-id",
+      "headRefName": "mbj-upload-artifact-v4",
+      "headRefOid": "ff44e50b32d4f51068a6c5cb3018c714bbe605ef",
+      "closedAt": "2025-02-25T11:32:09Z",
+      "mergedAt": "2025-02-25T11:32:09Z",
+      "mergedBy": "selfissued",
+      "mergeCommit": {
+        "oid": "39ec3aa3f94879f4c50230ea579bb847e7a8b511"
+      },
+      "comments": [],
+      "reviews": []
     }
   ]
 }

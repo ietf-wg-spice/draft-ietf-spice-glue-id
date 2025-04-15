@@ -2,10 +2,9 @@
 
 This is the working area for the individual Internet-Draft, "SPICE GLUE: GLobal Unique Enterprise Identifiers".
 
-* [Editor's Copy](https://mesur-io.github.io/draft-zundel-spice-glue-id/#go.draft-zundel-spice-glue-id.html)
-* [Datatracker Page](https://datatracker.ietf.org/doc/draft-zundel-spice-glue-id)
-* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-zundel-spice-glue-id)
-* [Compare Editor's Copy to Individual Draft](https://mesur-io.github.io/draft-zundel-spice-glue-id/#go.draft-zundel-spice-glue-id.diff)
+* [Editor's Copy](https://mesur-io.github.io/draft-zundel-spice-glue-id/#go.draft-ietf-spice-glue-id.html)
+* [Datatracker Page](https://datatracker.ietf.org/doc/draft-ietf-spice-glue-id)
+* [Compare Editor's Copy to Working Group Draft](https://mesur-io.github.io/draft-zundel-spice-glue-id/#go.draft-ietf-spice-glue-id.diff)
 
 
 ## Contributing

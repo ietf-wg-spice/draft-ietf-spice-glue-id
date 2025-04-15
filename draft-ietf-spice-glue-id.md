@@ -23,7 +23,7 @@ venue:
   mail: "spice@ietf.org"
   arch: "https://mailarchive.ietf.org/arch/browse/spice/"
   github: "mesur-io/draft-zundel-spice-glue-id"
-  latest: "https://mesur-io.github.io/draft-ietf-spice-glue-id/draft-ietf-spice-glue-id.html"
+  latest: "https://mesur-io.github.io/draft-zundel-spice-glue-id/draft-ietf-spice-glue-id.html"
 
 author:
  -

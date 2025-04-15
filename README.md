@@ -2,15 +2,15 @@
 
 This is the working area for the individual Internet-Draft, "SPICE GLUE: GLobal Unique Enterprise Identifiers".
 
-* [Editor's Copy](https://mesur-io.github.io/draft-zundel-spice-glue-id/#go.draft-ietf-spice-glue-id.html)
+* [Editor's Copy](https://ietf-wg-spice.github.io/draft-ietf-spice-glue-id/#go.draft-ietf-spice-glue-id.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-ietf-spice-glue-id)
-* [Compare Editor's Copy to Working Group Draft](https://mesur-io.github.io/draft-zundel-spice-glue-id/#go.draft-ietf-spice-glue-id.diff)
+* [Compare Editor's Copy to Working Group Draft](https://ietf-wg-spice.github.io/draft-ietf-spice-glue-id/#go.draft-ietf-spice-glue-id.diff)
 
 
 ## Contributing
 
 See the
-[guidelines for contributions](https://github.com/mesur-io/draft-zundel-spice-glue-id/blob/main/CONTRIBUTING.md).
+[guidelines for contributions](https://github.com/ietf-wg-spice/draft-ietf-spice-glue-id/blob/main/CONTRIBUTING.md).
 
 Contributions can be made by creating pull requests.
 The GitHub interface supports creating pull requests using the Edit (✏) button.

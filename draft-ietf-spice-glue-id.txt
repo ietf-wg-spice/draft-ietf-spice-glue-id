@@ -26,8 +26,8 @@ About This Document
 
    This note is to be removed before publishing as an RFC.
 
-   The latest revision of this draft can be found at https://mesur-
-   io.github.io/draft-zundel-spice-glue-id/draft-ietf-spice-glue-
+   The latest revision of this draft can be found at https://ietf-wg-
+   spice.github.io/draft-ietf-spice-glue-id/draft-ietf-spice-glue-
    id.html.  Status information for this document may be found at
    https://datatracker.ietf.org/doc/draft-ietf-spice-glue-id/.
 
@@ -38,7 +38,7 @@ About This Document
    https://www.ietf.org/mailman/listinfo/spice/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/mesur-io/draft-zundel-spice-glue-id.
+   https://github.com/ietf-wg-spice/draft-ietf-spice-glue-id.
 
 Status of This Memo
 

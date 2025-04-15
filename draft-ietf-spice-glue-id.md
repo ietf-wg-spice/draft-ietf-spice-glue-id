@@ -1,10 +1,10 @@
 ---
-title: "SPICE GLUE: GLobal Unique Enterprise (GLUE) Identifiers"
+title: "GLobal Unique Enterprise (GLUE) Identifiers"
 abbrev: "SPICE GLUE"
 lang: en
 category: std
 
-docname: draft-zundel-spice-glue-id-latest
+docname: draft-ietf-spice-glue-id-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
@@ -23,7 +23,7 @@ venue:
   mail: "spice@ietf.org"
   arch: "https://mailarchive.ietf.org/arch/browse/spice/"
   github: "mesur-io/draft-zundel-spice-glue-id"
-  latest: "https://mesur-io.github.io/draft-zundel-spice-glue-id/draft-zundel-spice-glue-id.html"
+  latest: "https://mesur-io.github.io/draft-ietf-spice-glue-id/draft-ietf-spice-glue-id.html"
 
 author:
  -
@@ -398,27 +398,14 @@ An indication of the relevant sections may also be included, but is not required
 # Acknowledgments
 {:numbered="false"}
 
-Martin Thomson and
 Alexander (A.J.) Stein
+and
+Martin Thomson
 contributed to this specification.
 
 # Document History
 {: numbered="false"}
 
--02
-
-* Per working group feedback, use an IETF URN namespace for GLUE URIs.
-* Also establish an IETF URN namespace for identifiers defined by the SPICE working group, which the GLUE namespace is within.
-* Refer to "organizational identification schemes" rather than "company identification schemes".
-* Added Security Considerations.
-* Added Michael B. Jones as an author.
-
--01
-
-* Added Uniqueness and Naming Section.
-* Added Privacy Considerations.
-* Added Pamela Dingle as an author.
-
 -00
 
-* Initial individual draft
+* Initial working group draft, based on draft-zundel-spice-glue-id-02

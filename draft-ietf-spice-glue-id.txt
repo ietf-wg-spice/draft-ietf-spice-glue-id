@@ -5,14 +5,14 @@
 Secure Patterns for Internet CrEdentials                       B. Zundel
 Internet-Draft                                                  mesur.io
 Intended status: Standards Track                               P. Dingle
-Expires: 1 September 2025                          Microsoft Corporation
+Expires: 17 October 2025                           Microsoft Corporation
                                                              M. B. Jones
                                                   Self-Issued Consulting
-                                                        28 February 2025
+                                                           15 April 2025
 
 
-        SPICE GLUE: GLobal Unique Enterprise (GLUE) Identifiers
-                   draft-zundel-spice-glue-id-latest
+              GLobal Unique Enterprise (GLUE) Identifiers
+                    draft-ietf-spice-glue-id-latest
 
 Abstract
 
@@ -27,9 +27,9 @@ About This Document
    This note is to be removed before publishing as an RFC.
 
    The latest revision of this draft can be found at https://mesur-
-   io.github.io/draft-zundel-spice-glue-id/draft-zundel-spice-glue-
-   id.html.  Status information for this document may be found at
-   https://datatracker.ietf.org/doc/draft-zundel-spice-glue-id/.
+   io.github.io/draft-ietf-spice-glue-id/draft-ietf-spice-glue-id.html.
+   Status information for this document may be found at
+   https://datatracker.ietf.org/doc/draft-ietf-spice-glue-id/.
 
    Discussion of this document takes place on the Secure Patterns for
    Internet CrEdentials Working Group mailing list
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 September 2025.
+   This Internet-Draft will expire on 17 October 2025.
 
 Copyright Notice
 
@@ -492,37 +492,15 @@ Table of Contents
 
 Acknowledgments
 
-   Martin Thomson and Alexander (A.J.)  Stein contributed to this
+   Alexander (A.J.)  Stein and Martin Thomson contributed to this
    specification.
 
 Document History
 
-   -02
-
-   *  Per working group feedback, use an IETF URN namespace for GLUE
-      URIs.
-
-   *  Also establish an IETF URN namespace for identifiers defined by
-      the SPICE working group, which the GLUE namespace is within.
-
-   *  Refer to "organizational identification schemes" rather than
-      "company identification schemes".
-
-   *  Added Security Considerations.
-
-   *  Added Michael B.  Jones as an author.
-
-   -01
-
-   *  Added Uniqueness and Naming Section.
-
-   *  Added Privacy Considerations.
-
-   *  Added Pamela Dingle as an author.
-
    -00
 
-   *  Initial individual draft
+   *  Initial working group draft, based on draft-zundel-spice-glue-
+      id-02
 
 Authors' Addresses
 

@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-24T01:56:00.439973+00:00",
+  "timestamp": "2025-06-19T02:04:05.964123+00:00",
   "repo": "ietf-wg-spice/draft-ietf-spice-glue-id",
   "labels": [
     {
@@ -124,7 +124,7 @@
       ],
       "body": "Has anyone considered presenting this to staff in the [US General Services Administration](), particularly those may be directly or indirectly involved with the design and maintenance of sam.gov data store and supporting systems, perhaps the [Technology Transformation Services](https://www.gsa.gov/about-us/organization/federal-acquisition-service/technology-transformation-services/tts-solutions) or [Office of Government-Wide Policy (OGP)](https://www.gsa.gov/about-us/organization/office-of-governmentwide-policy)? The latter have experience building systems and supporting policy for such macro-scale solutions, so it may be worth reaching out the scope, content, and registry of identifiers are more complete and vetted.",
       "createdAt": "2024-07-26T02:18:38Z",
-      "updatedAt": "2025-04-22T20:52:39Z",
+      "updatedAt": "2025-06-17T16:32:23Z",
       "closedAt": null,
       "comments": [
         {
@@ -154,6 +154,13 @@
           "body": "@aj-stein-nist, is there somebody at the GSA that you suggest we talk to?",
           "createdAt": "2025-04-22T20:52:39Z",
           "updatedAt": "2025-04-22T20:52:39Z"
+        },
+        {
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "body": "We'd be glad to do this, but unless a contact for this conversation is identified, this isn't actionable.  I propose to close this issue on that basis.",
+          "createdAt": "2025-06-17T16:32:23Z",
+          "updatedAt": "2025-06-17T16:32:23Z"
         }
       ]
     },
@@ -288,7 +295,7 @@
       "labels": [],
       "body": "Questions from IETF 120 Plenary in Vancouver (https://notes.ietf.org/notes-ietf-120-spice)\r\n\r\nAJ Stein: How does the system handle nested organizations and confidence in subsidiary relationships?\r\nThe draft describes a string identifier as a building block, with future layers handling more complex relationships and attestations.",
       "createdAt": "2024-08-05T18:26:55Z",
-      "updatedAt": "2025-04-22T23:17:13Z",
+      "updatedAt": "2025-06-17T16:29:37Z",
       "closedAt": null,
       "comments": [
         {
@@ -311,6 +318,13 @@
           "body": "Brent plans to talk to Roy Williams at Microsoft asking for examples of how this is used in practice.  An example in the specification could provide useful context to people.\n\nThat said, my instinct is that this should be done by External Authorities (see [Terminology](https://www.ietf.org/archive/id/draft-ietf-spice-glue-id-00.html#name-terminology)) and not directly in this specification.  We shouldn't be telling the External Authorities how to organize their namespaces.",
           "createdAt": "2025-04-22T23:17:11Z",
           "updatedAt": "2025-04-22T23:17:11Z"
+        },
+        {
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I still believe that this should be done by External Authorities in the manner of their choosing.  I propose to close this issue on that basis.\n\nAt most, a sentence could be added to the spec describing this possibility.",
+          "createdAt": "2025-06-17T16:29:36Z",
+          "updatedAt": "2025-06-17T16:29:36Z"
         }
       ]
     },
@@ -447,7 +461,7 @@
       "labels": [],
       "body": "I believe that there is a need for businesses to be able to add additional local identifiers or data to a glue id.    As an example,  we might want to say the business identifier is Dunn & Bradstreet company 12345, factor 52B.  For companies with many global business identities and many factories (for example), it may be important to say that a given factory is identified relative to a given business identifier.  In this case for example do we want the glue id for a factory certified in France under the french business identifier 12345 as 52B to be \"glue:dun.12345#52B\".  The guidance here would be for anyone resolving to remove the fragment prior to validating/resolving the number at Dunn & Bradstreet.  I do not think the fragment needs to be technically resolveable, it may be that only the business owner knows what 52B means, or it is also possible that the company's factory identifiers are public and available for further lookup.   Note that some business authorities have this kind of granularity already built into the identifier, but there still may be internal context that businesses want to add.  The obvious downside is that should we decide a fragment is a good idea, it would make the identifiers longer.",
       "createdAt": "2024-09-25T16:14:23Z",
-      "updatedAt": "2025-04-22T23:10:44Z",
+      "updatedAt": "2025-06-17T16:26:46Z",
       "closedAt": null,
       "comments": [
         {
@@ -456,6 +470,13 @@
           "body": "URNs typically don't have fragments.  Is there a compelling reason to have them in this case?",
           "createdAt": "2025-04-22T23:10:43Z",
           "updatedAt": "2025-04-22T23:10:43Z"
+        },
+        {
+          "author": "selfissued",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Since URNs typically don't have fragments, I propose to close this, not having heard reasons to the contrary.  That said, this possibility can be raised on the SPICE mailing list if anyone wants to re-raise it.",
+          "createdAt": "2025-06-17T16:26:12Z",
+          "updatedAt": "2025-06-17T16:26:46Z"
         }
       ]
     }

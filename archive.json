@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-19T02:04:05.964123+00:00",
+  "timestamp": "2025-06-24T02:05:01.724260+00:00",
   "repo": "ietf-wg-spice/draft-ietf-spice-glue-id",
   "labels": [
     {
@@ -120,11 +120,11 @@
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [
-        "future"
+        "pending close"
       ],
       "body": "Has anyone considered presenting this to staff in the [US General Services Administration](), particularly those may be directly or indirectly involved with the design and maintenance of sam.gov data store and supporting systems, perhaps the [Technology Transformation Services](https://www.gsa.gov/about-us/organization/federal-acquisition-service/technology-transformation-services/tts-solutions) or [Office of Government-Wide Policy (OGP)](https://www.gsa.gov/about-us/organization/office-of-governmentwide-policy)? The latter have experience building systems and supporting policy for such macro-scale solutions, so it may be worth reaching out the scope, content, and registry of identifiers are more complete and vetted.",
       "createdAt": "2024-07-26T02:18:38Z",
-      "updatedAt": "2025-06-17T16:32:23Z",
+      "updatedAt": "2025-06-23T15:47:25Z",
       "closedAt": null,
       "comments": [
         {

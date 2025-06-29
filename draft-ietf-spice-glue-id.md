@@ -27,8 +27,8 @@ venue:
 
 author:
  -
-    fullname: Brent Zundel
-    organization: mesur.io
+    fullname: Brent W. Zundel
+    organization: Tradeverifyd
     email: brent.zundel@gmail.com
     country: United States
 
@@ -405,6 +405,10 @@ contributed to this specification.
 
 # Document History
 {: numbered="false"}
+
+-01
+
+* Updated Brent's affiliation.
 
 -00
 

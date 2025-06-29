@@ -2,13 +2,13 @@
 
 
 
-Secure Patterns for Internet CrEdentials                       B. Zundel
-Internet-Draft                                                  mesur.io
+Secure Patterns for Internet CrEdentials                    B. W. Zundel
+Internet-Draft                                              Tradeverifyd
 Intended status: Standards Track                               P. Dingle
-Expires: 28 December 2025                          Microsoft Corporation
+Expires: 31 December 2025                          Microsoft Corporation
                                                              M. B. Jones
                                                   Self-Issued Consulting
-                                                            26 June 2025
+                                                            29 June 2025
 
 
               GLobal Unique Enterprise (GLUE) Identifiers
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 28 December 2025.
+   This Internet-Draft will expire on 31 December 2025.
 
 Copyright Notice
 
@@ -497,6 +497,10 @@ Acknowledgments
 
 Document History
 
+   -01
+
+   *  Updated Brent's affiliation.
+
    -00
 
    *  Initial working group draft, based on draft-zundel-spice-glue-
@@ -504,8 +508,8 @@ Document History
 
 Authors' Addresses
 
-   Brent Zundel
-   mesur.io
+   Brent W. Zundel
+   Tradeverifyd
    United States
    Email: brent.zundel@gmail.com
 

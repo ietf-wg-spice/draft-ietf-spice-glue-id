@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-29T02:21:23.345471+00:00",
+  "timestamp": "2025-07-01T02:22:21.258427+00:00",
   "repo": "ietf-wg-spice/draft-ietf-spice-glue-id",
   "labels": [
     {
@@ -980,6 +980,48 @@
       },
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 22,
+      "id": "PR_kwDOMSfv0M6ckCQq",
+      "title": "Update Brent's affiliation",
+      "url": "https://github.com/ietf-wg-spice/draft-ietf-spice-glue-id/pull/22",
+      "state": "MERGED",
+      "author": "selfissued",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-29T05:45:25Z",
+      "updatedAt": "2025-06-29T21:53:04Z",
+      "baseRepository": "ietf-wg-spice/draft-ietf-spice-glue-id",
+      "baseRefName": "main",
+      "baseRefOid": "2581990e07ba48c9a8827b530cdbbe66054b59a3",
+      "headRepository": "ietf-wg-spice/draft-ietf-spice-glue-id",
+      "headRefName": "mbj-brent",
+      "headRefOid": "4249c3d54f083d4507bed3aa8a9efa75804864c9",
+      "closedAt": "2025-06-29T21:53:04Z",
+      "mergedAt": "2025-06-29T21:53:04Z",
+      "mergedBy": "brentzundel",
+      "mergeCommit": {
+        "oid": "b44cf3e8cbb9bd8084d341bf11f75253b2add413"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOMSfv0M6w_o_0",
+          "commit": {
+            "abbreviatedOid": "4249c3d"
+          },
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-06-29T21:52:56Z",
+          "updatedAt": "2025-06-29T21:52:56Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }

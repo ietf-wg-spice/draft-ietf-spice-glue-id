@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-01T02:22:21.258427+00:00",
+  "timestamp": "2025-07-08T02:05:38.281403+00:00",
   "repo": "ietf-wg-spice/draft-ietf-spice-glue-id",
   "labels": [
     {
@@ -295,15 +295,15 @@
       "id": "I_kwDOMSfv0M6R-_uJ",
       "title": "IETF 120 - Nested Organizations & Subsidiary Relationships",
       "url": "https://github.com/ietf-wg-spice/draft-ietf-spice-glue-id/issues/9",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "pamelatech",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Questions from IETF 120 Plenary in Vancouver (https://notes.ietf.org/notes-ietf-120-spice)\r\n\r\nAJ Stein: How does the system handle nested organizations and confidence in subsidiary relationships?\r\nThe draft describes a string identifier as a building block, with future layers handling more complex relationships and attestations.",
       "createdAt": "2024-08-05T18:26:55Z",
-      "updatedAt": "2025-06-17T16:29:37Z",
-      "closedAt": null,
+      "updatedAt": "2025-07-07T20:29:09Z",
+      "closedAt": "2025-07-07T20:29:09Z",
       "comments": [
         {
           "author": "brentzundel",
@@ -332,6 +332,13 @@
           "body": "I still believe that this should be done by External Authorities in the manner of their choosing.  I propose to close this issue on that basis.\n\nAt most, a sentence could be added to the spec describing this possibility.",
           "createdAt": "2025-06-17T16:29:36Z",
           "updatedAt": "2025-06-17T16:29:36Z"
+        },
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "closing",
+          "createdAt": "2025-07-07T20:29:09Z",
+          "updatedAt": "2025-07-07T20:29:09Z"
         }
       ]
     },
@@ -461,15 +468,15 @@
       "id": "I_kwDOMSfv0M6X5bPt",
       "title": "Should a Glue ID have a fragment?",
       "url": "https://github.com/ietf-wg-spice/draft-ietf-spice-glue-id/issues/14",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "pamelatech",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "I believe that there is a need for businesses to be able to add additional local identifiers or data to a glue id.    As an example,  we might want to say the business identifier is Dunn & Bradstreet company 12345, factor 52B.  For companies with many global business identities and many factories (for example), it may be important to say that a given factory is identified relative to a given business identifier.  In this case for example do we want the glue id for a factory certified in France under the french business identifier 12345 as 52B to be \"glue:dun.12345#52B\".  The guidance here would be for anyone resolving to remove the fragment prior to validating/resolving the number at Dunn & Bradstreet.  I do not think the fragment needs to be technically resolveable, it may be that only the business owner knows what 52B means, or it is also possible that the company's factory identifiers are public and available for further lookup.   Note that some business authorities have this kind of granularity already built into the identifier, but there still may be internal context that businesses want to add.  The obvious downside is that should we decide a fragment is a good idea, it would make the identifiers longer.",
       "createdAt": "2024-09-25T16:14:23Z",
-      "updatedAt": "2025-06-17T16:26:46Z",
-      "closedAt": null,
+      "updatedAt": "2025-07-07T20:28:53Z",
+      "closedAt": "2025-07-07T20:28:53Z",
       "comments": [
         {
           "author": "selfissued",
@@ -484,6 +491,13 @@
           "body": "Since URNs typically don't have fragments, I propose to close this, not having heard reasons to the contrary.  That said, this possibility can be raised on the SPICE mailing list if anyone wants to re-raise it.",
           "createdAt": "2025-06-17T16:26:12Z",
           "updatedAt": "2025-06-17T16:26:46Z"
+        },
+        {
+          "author": "brentzundel",
+          "authorAssociation": "COLLABORATOR",
+          "body": "closing",
+          "createdAt": "2025-07-07T20:28:53Z",
+          "updatedAt": "2025-07-07T20:28:53Z"
         }
       ]
     }

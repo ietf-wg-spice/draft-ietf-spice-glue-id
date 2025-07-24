@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-08T02:05:38.281403+00:00",
+  "timestamp": "2025-07-24T02:18:02.807370+00:00",
   "repo": "ietf-wg-spice/draft-ietf-spice-glue-id",
   "labels": [
     {
@@ -500,6 +500,22 @@
           "updatedAt": "2025-07-07T20:28:53Z"
         }
       ]
+    },
+    {
+      "number": 23,
+      "id": "I_kwDOMSfv0M7Bz-9s",
+      "title": "Spice and glue are probably not the best names to be in the urn",
+      "url": "https://github.com/ietf-wg-spice/draft-ietf-spice-glue-id/issues/23",
+      "state": "OPEN",
+      "author": "tomnsmoothwall",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Spice is a \"street name\" for various semi-legal narcotics (https://www.nhsinform.scot/healthy-living/drugs-and-drug-use/common-drugs/synthetic-cannabinoids-spice/)\nWhereas glue is commonly abused for similar reasons.\n\nI'd suggest avoiding both these terms appearing together, as it raises the likelihood of triggering over zealous web and email filters. Additionally we're asking \"non tech\" folks to adopt this, and a name which had \"interesting\" connotations might not help. ",
+      "createdAt": "2025-07-22T08:17:43Z",
+      "updatedAt": "2025-07-22T08:17:43Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [

@@ -67,10 +67,10 @@ The GLUE URN namespace is within the SPICE URN namespace.
 
 # Introduction
 
-Enterprise entity identifiers are myriad. With the increasing use of digital
-credentials, there is a need for a common methodology for expressing these
-identifiers such that claims about and by such entities can be made in a
-consistent and interoperable manner.
+There are a myriad of entity identifier types for agents and services. With the
+increasing use of digital credentials, there is a need for a common methodology
+for expressing these identifiers such that claims about and by such entities can
+be made in a consistent and interoperable manner.
 
 This specification establishes an IETF URN namespace that standardizes the expression of
 existing organizational entity identifiers by providing a common representation format.

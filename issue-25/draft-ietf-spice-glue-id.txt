@@ -5,10 +5,10 @@
 Secure Patterns for Internet CrEdentials                    B. W. Zundel
 Internet-Draft                                              Tradeverifyd
 Intended status: Standards Track                               P. Dingle
-Expires: 31 December 2025                          Microsoft Corporation
+Expires: 10 April 2026                             Microsoft Corporation
                                                              M. B. Jones
                                                   Self-Issued Consulting
-                                                            29 June 2025
+                                                          7 October 2025
 
 
               GLobal Unique Enterprise (GLUE) Identifiers
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 31 December 2025.
+   This Internet-Draft will expire on 10 April 2026.
 
 Copyright Notice
 
@@ -99,10 +99,11 @@ Table of Contents
 
 1.  Introduction
 
-   Enterprise entity identifiers are myriad.  With the increasing use of
-   digital credentials, there is a need for a common methodology for
-   expressing these identifiers such that claims about and by such
-   entities can be made in a consistent and interoperable manner.
+   There are a myriad of entity identifier types for agents and
+   services.  With the increasing use of digital credentials, there is a
+   need for a common methodology for expressing these identifiers such
+   that claims about and by such entities can be made in a consistent
+   and interoperable manner.
 
    This specification establishes an IETF URN namespace that
    standardizes the expression of existing organizational entity

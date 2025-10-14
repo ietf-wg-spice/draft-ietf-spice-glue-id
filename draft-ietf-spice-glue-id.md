@@ -58,9 +58,9 @@ informative:
 
 This specification establishes an IETF URN namespace for
 GLobal Unique Enterprise (GLUE) Identifiers.
-It also establishes an IETF URN namespace for identifiers defined by
-the IETF Secure Patterns for Internet CrEdentials (SPICE) working group.
-The GLUE URN namespace is within the SPICE URN namespace.
+It also establishes an IETF URN namespace for identifiers addressing the
+requirements identified by the IETF Secure Patterns for Internet CrEdentials
+(SPICE) working group.
 
 
 --- middle

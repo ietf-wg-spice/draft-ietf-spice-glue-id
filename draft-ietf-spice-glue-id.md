@@ -112,25 +112,24 @@ contain the following components:
 ## Uniqueness and Namespacing
 
 Each GLUE URI MUST be globally unique.
+
 It is assumed that most registered organizational entity identification schemes
-already handle any necessary namespacing as part of the
-External Identifier. However, if collisions are possible within the
-set of possible external identifiers for an Authority Identifier scheme, then
-further namespacing might be necessary at the GLUE URI level. Such namespacing
-SHOULD be done on the Authority Identifier as part of the registration process.
+already handle any necessary namespacing as part of the External Identifier.
+However, if collisions are possible within the set of possible external
+identifiers for an Authority Identifier scheme, then further namespacing is
+necessary at the GLUE URI level. Such namespacing MUST be done on the Authority
+Identifier. The combination of the namespacing and the authority MUST result in
+a unique Authority Identifier.
 
-That is, the different namespaces would be considered either different schemes
-operated by the same authority, or the same scheme operated by different
-authorities. In either case a unique Authority Identifier would be necessary for
-each.
-
-For example, assume there is an External Authority FEA that provides
-identifiers for organizational entities in USA and Canada. The identifiers in the USA
-are unique, and the identifiers in Canada are unique, but there is no guarantee
-that an organizational entity in Canada will not be assigned the same identifier as an organizational
-entity in the USA. Upon registration of FEA as an Authority Identifier, it would
-be necessary to separately register FEA-USA and FEA-Can to provide
-differentiation between the two sets of External Identifiers.
+For example, assume there is an External Authority FEA that provides identifiers
+for organizations in Singapore and South Korea. The identifiers issued in
+Singapore are unique within Singapore, and the identifiers issued in South Korea
+are unique within South Korea, but there is no guarantee that an organization in
+Singapore will not be assigned the same identifier as an organization in South
+Korea. Upon registration of FEA as an Authority Identifier, it would be
+necessary to separately register two different Authority Identifiers (e.g.,
+FEA-SG and FEA-KR) to provide differentiation between the two sets of External
+Identifiers.
 
 # GLUE URIs {#glue-uris}
 

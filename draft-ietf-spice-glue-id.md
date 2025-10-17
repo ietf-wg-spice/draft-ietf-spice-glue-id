@@ -28,7 +28,6 @@ venue:
 author:
  -
     fullname: Brent W. Zundel
-    organization: Tradeverifyd
     email: brent.zundel@gmail.com
     country: United States
 

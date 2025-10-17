@@ -3,12 +3,12 @@
 
 
 Secure Patterns for Internet CrEdentials                    B. W. Zundel
-Internet-Draft                                              Tradeverifyd
+Internet-Draft                                                          
 Intended status: Standards Track                               P. Dingle
-Expires: 31 December 2025                          Microsoft Corporation
+Expires: 20 April 2026                             Microsoft Corporation
                                                              M. B. Jones
                                                   Self-Issued Consulting
-                                                            29 June 2025
+                                                         17 October 2025
 
 
               GLobal Unique Enterprise (GLUE) Identifiers
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 31 December 2025.
+   This Internet-Draft will expire on 20 April 2026.
 
 Copyright Notice
 
@@ -509,7 +509,6 @@ Document History
 Authors' Addresses
 
    Brent W. Zundel
-   Tradeverifyd
    United States
    Email: brent.zundel@gmail.com
 

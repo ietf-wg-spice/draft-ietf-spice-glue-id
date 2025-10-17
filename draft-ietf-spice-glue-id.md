@@ -206,17 +206,18 @@ Security considerations for URNs can be found in [RFC2141].
 
 ## Private Identifiers as Corporate Identifiers
 
-There are some corporate identifiers that make use of personal identifiers. This
-is the case for some registered sole-proprietor businesses in the United
-States, where the business identifier may be the same as the
-social-security-number of the business owner.
+There are some corporate identifiers that make use of personal identifiers. For
+example, this is the case for some registered sole-proprietor businesses in the
+United States, where the Tax ID may be the same as the Social Security Number
+(SSN) of the business owner. Where the Tax ID uniquely identifies the business,
+the SSN uniquely identifies an individual.
 
-It is possible for such identifiers to be represented as GLUE URIs. An
+It is possible for such business identifiers to be represented as GLUE URIs. An
 identifier's expression as a GLUE URI does not change the privacy
 characteristics of that identifier. The same cautions and concerns need to be
 taken with the GLUE URI representation as with the original identifier.
 
-Implementers storing or evaluating GLUE URIs are encouraged to evaluate the
+Implementers storing or evaluating GLUE URIs are encouraged to be aware the
 privacy characteristics of each identification scheme represented by an
 Authority Identifier and to appropriately handle any GLUE URI which violates
 privacy policies.
@@ -317,7 +318,7 @@ An indication of the relevant sections may also be included, but is not required
 * URN: urn:ietf:spice:glue
 * Description: GLUE URN namespace
 * Change Controller: IETF
-* Specification Document(s): {{glue-uris} of this specification
+* Specification Document(s): {{glue-uris}} of this specification
 
 ## GLUE Authority Identifier URN Registry {#GLUE-URN}
 

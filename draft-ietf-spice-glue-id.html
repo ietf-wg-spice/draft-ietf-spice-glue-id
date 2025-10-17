@@ -1460,15 +1460,16 @@ Security considerations for URNs can be found in <span>[<a href="#RFC2141" class
         <h3 id="name-private-identifiers-as-corp">
 <a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-private-identifiers-as-corp" class="section-name selfRef">Private Identifiers as Corporate Identifiers</a>
         </h3>
-<p id="section-6.1-1">There are some corporate identifiers that make use of personal identifiers. This
-is the case for some registered sole-proprietor businesses in the United
-States, where the business identifier may be the same as the
-social-security-number of the business owner.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
-<p id="section-6.1-2">It is possible for such identifiers to be represented as GLUE URIs. An
+<p id="section-6.1-1">There are some corporate identifiers that make use of personal identifiers. For
+example, this is the case for some registered sole-proprietor businesses in the
+United States, where the Tax ID may be the same as the Social Security Number
+(SSN) of the business owner. Where the Tax ID uniquely identifies the business,
+the SSN uniquely identifies an individual.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
+<p id="section-6.1-2">It is possible for such business identifiers to be represented as GLUE URIs. An
 identifier's expression as a GLUE URI does not change the privacy
 characteristics of that identifier. The same cautions and concerns need to be
 taken with the GLUE URI representation as with the original identifier.<a href="#section-6.1-2" class="pilcrow">¶</a></p>
-<p id="section-6.1-3">Implementers storing or evaluating GLUE URIs are encouraged to evaluate the
+<p id="section-6.1-3">Implementers storing or evaluating GLUE URIs are encouraged to be aware the
 privacy characteristics of each identification scheme represented by an
 Authority Identifier and to appropriately handle any GLUE URI which violates
 privacy policies.<a href="#section-6.1-3" class="pilcrow">¶</a></p>

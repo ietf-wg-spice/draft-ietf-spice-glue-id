@@ -405,6 +405,10 @@ contributed to this specification.
 # Document History
 {: numbered="false"}
 
+-02
+
+* Improved several descriptions in the specification.
+
 -01
 
 * Updated Brent's affiliation.

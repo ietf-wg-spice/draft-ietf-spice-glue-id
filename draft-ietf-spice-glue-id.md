@@ -55,12 +55,10 @@ informative:
 
 --- abstract
 
-This specification establishes an IETF URN namespace for
+This specification establishes a URN namespace for
 GLobal Unique Enterprise (GLUE) Identifiers.
-It also establishes an IETF URN namespace for identifiers addressing the
-requirements identified by the IETF Secure Patterns for Internet CrEdentials
-(SPICE) working group.
-
+This enables URN identifiers to be used for businesses and organizations.
+It enables organizational identities from existing authorities to be represented within this URN namespace.
 
 --- middle
 
@@ -71,7 +69,7 @@ With the increasing use of digital credentials, there is a need for a common
 methodology for expressing these identifiers such that claims about and by such
 entities can be made in a consistent and interoperable manner.
 
-This specification establishes an IETF URN namespace that standardizes the expression of
+This specification establishes a URN namespace that standardizes the expression of
 existing organizational entity identifiers by providing a common representation format.
 It also establishes a registry for managing how existing organizational entity
 identification mechanisms relate to this namespace.
@@ -132,8 +130,8 @@ Identifiers.
 
 # GLUE URIs {#glue-uris}
 
-All GLUE URIs comply with [RFC3986].
-They begin with `urn:ietf:spice:glue:` and are followed by an Authority Identifier,
+GLUE URIs comply with [RFC3986].
+They begin with `urn:glue:` and are followed by an Authority Identifier,
 a colon character (":"), and the External Identifier allocated by the authority.
 
 Authority Identifiers consist of a sequence of characters beginning with a letter and
@@ -168,14 +166,14 @@ external-identifier = ( ALPHA / DIGIT / "-" ) *( ALPHA / DIGIT / "+" / "-" / "."
 Combining these, the ABNF [RFC5234] for a GLUE URI is:
 
 ```
-glue-uri = "urn:ietf:spice:glue:" authority-identifier ":" external-identifier
+glue-uri = "urn:glue:" authority-identifier ":" external-identifier
 ```
 
 For example, the following is a GLUE URI using the Authority Identifier "example"
 and the External Identifier "42":
 
 ```
-urn:ietf:spice:glue:example:42
+urn:glue:example:42
 ```
 
 The Authority Identifier MUST be registered in the GLUE URI Authority Identifier registry
@@ -223,9 +221,9 @@ privacy policies.
 
 # IANA Considerations
 
-This section establishes two registries and populates them with their initial contents.
+This section establishes a registry and populates it with its initial contents.
 The following registration procedure is used for the
-registries established by this specification.
+registry established by this specification.
 
 Values are registered on a Specification Required [RFC8126]
 basis after a two-week review period on the spice-ext-review@ietf.org
@@ -240,15 +238,14 @@ the Designated Experts may request that IANA withdraw the registration.
 
 Registration requests sent to the mailing list for review should use
 an appropriate subject
-(e.g., "Request to register URN urn:ietf:spice:example" or
-"Request to register URN urn:ietf:spice:glue:example").
+(e.g., "Request to register URN urn:glue:example").
 
 Within the review period, the Designated Experts will either approve or deny
 the registration request, communicating this decision to the review list and IANA.
 Denials should include an explanation and, if applicable,
 suggestions as to how to make the request successful.
-The IANA escalation process is followed when the Designated Experts
-are not responsive within 14 days.
+The IANA escalation process can be initiated by the party requesting registration
+when the Designated Experts are not responsive within 14 days.
 
 Criteria that should be applied by the Designated Experts includes
 determining whether the proposed registration duplicates existing functionality,
@@ -277,48 +274,6 @@ before the specification is completely done,
 so that if problems are identified, the authors can iterate and fix them
 before publication of the final specification.
 
-## SPICE URN Registry {#SPICE-URN}
-
-This specification establishes the
-IANA "SPICE URN" registry
-creating a URN namespace for identifiers needed by
-the IETF Secure Patterns for Internet CrEdentials (SPICE) working group.
-The registry records the URN
-and a reference to the specification that defines it.
-
-### Registration Template
-
-URN:
-: The URN requested within the "urn:ietf:spice:" namespace.
-The identifier following "urn:ietf:spice:"
-and before any following colon (":") character
-is not case sensitive and any letters MUST be expressed in lowercase characters.
-This identifier MUST consist of a sequence of characters
-beginning with a letter and followed by any combination of
-letters, digits, plus ("+"), period ("."), or hyphen ("-").
-
-Description:
-: Brief description of the purpose of the SPICE URN.
-
-Change Controller:
-: For IETF stream RFCs, use "IETF".
-For others, give the name of the responsible party.
-Other details (e.g., postal address, e-mail address, home page URI) may also be included.
-
-Specification Document(s):
-: Reference to the document or documents that specify the URN to be registered,
-preferably including URLs that can be used to retrieve the documents.
-An indication of the relevant sections may also be included, but is not required.
-
-### Initial Registry Contents
-
-#### urn:ietf:spice:glue
-
-* URN: urn:ietf:spice:glue
-* Description: GLUE URN namespace
-* Change Controller: IETF
-* Specification Document(s): {{glue-uris}} of this specification
-
 ## GLUE Authority Identifier URN Registry {#GLUE-URN}
 
 This specification establishes the
@@ -327,8 +282,14 @@ creating a URN namespace for Authority Identifiers for
 GLobal Unique Enterprise (GLUE) Identifiers.
 
 Each entry registers the URN for an Authority Identifier within the
-"urn:ietf:spice:glue:" namespace.
+"urn:glue:" namespace.
 The organization responsible for the Authority Identifier is recorded.
+
+IANA is requested to create the
+"GLobal Unique Enterprise (GLUE) Identifiers"
+registry group located at
+https://www.iana.org/assignments/glue-identifiers/
+and place this registry there.
 
 ### Registration Template
 
@@ -341,8 +302,8 @@ beginning with a letter and followed by any combination of
 letters, digits, plus ("+"), period ("."), or hyphen ("-").
 
 URN:
-: The URN within the "urn:ietf:spice:glue:" namespace
-consisting of "urn:ietf:spice:glue:" followed by
+: The URN within the "urn:glue:" namespace
+consisting of "urn:glue:" followed by
 the Authority Identifier.
 
 Organization:
@@ -363,7 +324,7 @@ An indication of the relevant sections may also be included, but is not required
 #### gln
 
 * Authority Identifier: gln
-* URN: urn:ietf:spice:glue:gln
+* URN: urn:glue:gln
 * Organization: GS1
 * Change Controller: IETF
 * Specification Document(s): {{authority-identifiers}} of this specification
@@ -371,7 +332,7 @@ An indication of the relevant sections may also be included, but is not required
 #### lei
 
 * Authority Identifier: lei
-* URN: urn:ietf:spice:glue:lei
+* URN: urn:glue:lei
 * Organization: GLEIF
 * Change Controller: IETF
 * Specification Document(s): {{authority-identifiers}} of this specification
@@ -379,7 +340,7 @@ An indication of the relevant sections may also be included, but is not required
 #### duns
 
 * Authority Identifier: duns
-* URN: urn:ietf:spice:glue:duns
+* URN: urn:glue:duns
 * Organization: Dun & Bradstreet
 * Change Controller: IETF
 * Specification Document(s): {{authority-identifiers}} of this specification
@@ -387,7 +348,7 @@ An indication of the relevant sections may also be included, but is not required
 #### pen
 
 * Authority Identifier: pen
-* URN: urn:ietf:spice:glue:pen
+* URN: urn:glue:pen
 * Organization: Private Enterprise Numbers
 * Change Controller: IETF
 * Specification Document(s): {{authority-identifiers}} of this specification
@@ -404,6 +365,11 @@ contributed to this specification.
 
 # Document History
 {: numbered="false"}
+
+-03
+
+* Use the urn:glue URN namespace and delete the urn:ietf:spice URN namespace.
+* Addressed early IANA feedback.
 
 -02
 

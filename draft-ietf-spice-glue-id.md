@@ -196,8 +196,18 @@ They are registered in the GLUE Authority Identifier URN Registry in {{GLUE-URN}
 
 # Security Considerations
 
-There are no additional security considerations beyond those already inherent to using URNs.
+Most security considerations consist of those already inherent to using URNs.
 Security considerations for URNs can be found in [RFC2141].
+
+## Guidance for GLUE Parsers
+
+While each authority will have its own constraints on the length of the external
+identifiers specified by them, we provide generic parsers of GLUE identifiers
+the following guidelines:
+
+- limit parsing of the Authority Identifier portion to 50 characters
+- limit parsing of External Identifier portion to 1000 characters
+
 
 # Privacy Considerations
 

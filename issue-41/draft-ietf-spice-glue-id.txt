@@ -5,10 +5,10 @@
 Secure Patterns for Internet CrEdentials                    B. W. Zundel
 Internet-Draft                                                          
 Intended status: Standards Track                               P. Dingle
-Expires: 2 June 2026                               Microsoft Corporation
+Expires: 9 July 2026                               Microsoft Corporation
                                                              M. B. Jones
                                                   Self-Issued Consulting
-                                                        29 November 2025
+                                                          5 January 2026
 
 
               GLobal Unique Enterprise (GLUE) Identifiers
@@ -55,11 +55,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 2 June 2026.
+   This Internet-Draft will expire on 9 July 2026.
 
 Copyright Notice
 
-   Copyright (c) 2025 IETF Trust and the persons identified as the
+   Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -81,6 +81,7 @@ Table of Contents
    3.  GLUE URIs
    4.  GLUE Authority Identifiers
    5.  Security Considerations
+     5.1.  Guidance for GLUE Parsers
    6.  Privacy Considerations
      6.1.  Private Identifiers as Corporate Identifiers
    7.  IANA Considerations
@@ -247,9 +248,19 @@ Table of Contents
 
 5.  Security Considerations
 
-   There are no additional security considerations beyond those already
-   inherent to using URNs.  Security considerations for URNs can be
-   found in [RFC2141].
+   Most security considerations consist of those already inherent to
+   using URNs.  Security considerations for URNs can be found in
+   [RFC2141].
+
+5.1.  Guidance for GLUE Parsers
+
+   While each authority will have its own constraints on the length of
+   the external identifiers specified by them, we provide generic
+   parsers of GLUE identifiers the following guidelines:
+
+   *  limit parsing of the Authority Identifier portion to 50 characters
+
+   *  limit parsing of External Identifier portion to 1000 characters
 
 6.  Privacy Considerations
 

@@ -470,6 +470,11 @@ Table of Contents
               RFC 8126, DOI 10.17487/RFC8126, June 2017,
               <https://www.rfc-editor.org/rfc/rfc8126>.
 
+   [RFC9371]  Baber, A. and P. Hoffman, "Registration Procedures for
+              Private Enterprise Numbers (PENs)", RFC 9371,
+              DOI 10.17487/RFC9371, March 2023,
+              <https://www.rfc-editor.org/rfc/rfc9371>.
+
 Acknowledgments
 
    Alexander (A.J.)  Stein and Martin Thomson contributed to this

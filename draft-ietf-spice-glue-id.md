@@ -47,10 +47,26 @@ author:
 
 normative:
   RFC3986:
+  GLN:
+    title: Global Location Nymber (GLN)
+    target: https://www.gs1.org/standards/id-keys/gln
+  DUNS:
+    title: D-U-N-S Numbers
+    target: https://www.dnb.com/duns.html
+  LEI:
+    title: Legal Entity Identifier (LEI)
+    target: https://www.iso.org/standard/78829.html
+  PEN:
+    title:
+    target: https://www.iana.org/assignments/enterprise-numbers
 
 informative:
   RFC2141:
   RFC8126:
+  LEI-IANA:
+    title: LEI Namespace Identifier
+    target: https://www.iana.org/assignments/urn-formal/lei
+
 ---
 
 --- abstract
@@ -169,11 +185,11 @@ Combining these, the ABNF [RFC5234] for a GLUE URI is:
 glue-uri = "urn:glue:" authority-identifier ":" external-identifier
 ```
 
-For example, the following is a GLUE URI using the Authority Identifier "example"
-and the External Identifier "42":
+For example, the following is a GLUE URI using the Authority Identifier "pen"
+and the External Identifier "1.3.6.1.4.1.32473":
 
 ```
-urn:glue:example:42
+urn:glue:pen:1.3.6.1.4.1.32473
 ```
 
 The Authority Identifier MUST be registered in the GLUE URI Authority Identifier registry
@@ -190,7 +206,7 @@ This section defines the following GLUE Authority Identifiers.
 | GS1              |  gln   | https://www.gs1.org/standards/id-keys/gln |
 | GLEIF            |  lei   | https://www.iso.org/standard/78829.html   |
 | Dun & Bradstreet |  duns  | https://www.dnb.com/duns.html             |
-| Private Enterprise Numbers | pen | https://www.iana.org/assignments/enterprise-numbers/ |
+| Private Enterprise Numbers | pen | https://www.iana.org/assignments/enterprise-numbers |
 
 They are registered in the GLUE Authority Identifier URN Registry in {{GLUE-URN}}.
 
@@ -327,7 +343,7 @@ An indication of the relevant sections may also be included, but is not required
 * URN: urn:glue:gln
 * Organization: GS1
 * Change Controller: IETF
-* Specification Document(s): {{authority-identifiers}} of this specification
+* Specification Document(s): {{authority-identifiers}} of this specification, [GLN]
 
 #### lei
 
@@ -335,7 +351,7 @@ An indication of the relevant sections may also be included, but is not required
 * URN: urn:glue:lei
 * Organization: GLEIF
 * Change Controller: IETF
-* Specification Document(s): {{authority-identifiers}} of this specification
+* Specification Document(s): {{authority-identifiers}} of this specification, [LEI], [LEI-IANA]
 
 #### duns
 
@@ -343,7 +359,7 @@ An indication of the relevant sections may also be included, but is not required
 * URN: urn:glue:duns
 * Organization: Dun & Bradstreet
 * Change Controller: IETF
-* Specification Document(s): {{authority-identifiers}} of this specification
+* Specification Document(s): {{authority-identifiers}} of this specification, [DUNS]
 
 #### pen
 
@@ -351,7 +367,7 @@ An indication of the relevant sections may also be included, but is not required
 * URN: urn:glue:pen
 * Organization: Private Enterprise Numbers
 * Change Controller: IETF
-* Specification Document(s): {{authority-identifiers}} of this specification
+* Specification Document(s): {{authority-identifiers}} of this specification, [PEN]
 
 --- back
 

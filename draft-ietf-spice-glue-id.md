@@ -369,7 +369,7 @@ An indication of the relevant sections may also be included, but is not required
 * URN: urn:glue:pen
 * Organization: Private Enterprise Numbers
 * Change Controller: IETF
-* Specification Document(s): {{authority-identifiers}} of this specification, [PEN]
+* Specification Document(s): {{authority-identifiers}} of this specification, [PEN], [RFC9371]
 
 --- back
 

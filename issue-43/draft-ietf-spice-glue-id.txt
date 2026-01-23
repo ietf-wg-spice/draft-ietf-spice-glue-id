@@ -421,7 +421,8 @@ Table of Contents
 
    *  Change Controller: IETF
 
-   *  Specification Document(s): Section 4 of this specification, [PEN]
+   *  Specification Document(s): Section 4 of this specification, [PEN],
+      [RFC9371]
 
 8.  References
 

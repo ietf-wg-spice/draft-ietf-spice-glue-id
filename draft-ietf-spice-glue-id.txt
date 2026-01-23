@@ -186,9 +186,10 @@ Table of Contents
    as equivalent to lowercase in Authority Identifier names (e.g., allow
    "EXAMPLE" as well as "example") for the sake of robustness but should
    only produce lowercase Authority Identifier names for consistency.
-   The ABNF [RFC5234] for Authority Identifiers is:
+   There is a limit of 50 characters for the length of an Authority
+   Identifier.  The ABNF [RFC5234] for Authority Identifiers is:
 
-   authority-identifier = ALPHA *( ALPHA / DIGIT / "+" / "-" / "." )
+   authority-identifier = ALPHA *49( ALPHA / DIGIT / "+" / "-" / "." )
 
    External Identifiers consist of a sequence of characters beginning
    with a letter or digit or hyphen ("-") and followed by any
@@ -199,10 +200,11 @@ Table of Contents
    External Identifiers are case-insensitive or case-sensitive.  When
    they are case-insensitive, the canonical form is lowercase and
    documents that specify External Identifiers must do so with lowercase
-   letters.  The ABNF [RFC5234] for External Identifiers is:
+   letters.  There is a limit of 1000 characters for an External
+   Identifier.  The ABNF [RFC5234] for External Identifiers is:
 
-   external-identifier = ( ALPHA / DIGIT / "-" ) *( ALPHA / DIGIT / "+"
-   / "-" / "." )
+   external-identifier = ( ALPHA / DIGIT / "-" ) *999( ALPHA / DIGIT /
+   "+" / "-" / "." )
 
    Combining these, the ABNF [RFC5234] for a GLUE URI is:
 
@@ -351,9 +353,9 @@ Table of Contents
       responsible for assigning the External Identifier used in GLUE
       URIs.  This identifier is not case sensitive and any letters MUST
       be expressed in lowercase characters.  It MUST consist of a
-      sequence of characters beginning with a letter and followed by any
-      combination of letters, digits, plus ("+"), period ("."), or
-      hyphen ("-").
+      sequence of characters with a mazimum length of 50, beginning with
+      a letter and followed by any combination of letters, digits, plus
+      ("+"), period ("."), or hyphen ("-").
 
    URN:  The URN within the "urn:glue:" namespace consisting of
       "urn:glue:" followed by the Authority Identifier.

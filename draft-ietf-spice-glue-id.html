@@ -1377,10 +1377,10 @@ external-identifier = ( ALPHA / DIGIT / "-" ) *999( ALPHA / DIGIT / "+" / "-" / 
 <p id="section-3-7"><code>
 glue-uri = "urn:glue:" authority-identifier ":" external-identifier
 </code><a href="#section-3-7" class="pilcrow">¶</a></p>
-<p id="section-3-8">For example, the following is a GLUE URI using the Authority Identifier "example"
-and the External Identifier "42":<a href="#section-3-8" class="pilcrow">¶</a></p>
+<p id="section-3-8">For example, the following is a GLUE URI using the Authority Identifier "pen"
+and the External Identifier "1.3.6.1.4.1.32473":<a href="#section-3-8" class="pilcrow">¶</a></p>
 <p id="section-3-9"><code>
-urn:glue:example:42
+urn:glue:pen:1.3.6.1.4.1.32473
 </code><a href="#section-3-9" class="pilcrow">¶</a></p>
 <p id="section-3-10">The Authority Identifier <span class="bcp14">MUST</span> be registered in the GLUE URI Authority Identifier registry
 defined in <a href="#GLUE-URN" class="auto internal xref">Section 7.1</a>.
@@ -1422,7 +1422,7 @@ by the External Authority.<a href="#section-3-10" class="pilcrow">¶</a></p>
           <tr>
             <td class="text-left" rowspan="1" colspan="1">Private Enterprise Numbers</td>
             <td class="text-left" rowspan="1" colspan="1">pen</td>
-            <td class="text-left" rowspan="1" colspan="1">https://www.iana.org/assignments/enterprise-numbers/</td>
+            <td class="text-left" rowspan="1" colspan="1">https://www.iana.org/assignments/enterprise-numbers</td>
           </tr>
         </tbody>
       </table>
@@ -1602,7 +1602,7 @@ An indication of the relevant sections may also be included, but is not required
                 <p id="section-7.1.2.1-1.4.1">Change Controller: IETF<a href="#section-7.1.2.1-1.4.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-7.1.2.1-1.5">
-                <p id="section-7.1.2.1-1.5.1">Specification Document(s): <a href="#authority-identifiers" class="auto internal xref">Section 4</a> of this specification<a href="#section-7.1.2.1-1.5.1" class="pilcrow">¶</a></p>
+                <p id="section-7.1.2.1-1.5.1">Specification Document(s): <a href="#authority-identifiers" class="auto internal xref">Section 4</a> of this specification, <span>[<a href="#GLN" class="cite xref">GLN</a>]</span><a href="#section-7.1.2.1-1.5.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </section>
@@ -1626,7 +1626,7 @@ An indication of the relevant sections may also be included, but is not required
                 <p id="section-7.1.2.2-1.4.1">Change Controller: IETF<a href="#section-7.1.2.2-1.4.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-7.1.2.2-1.5">
-                <p id="section-7.1.2.2-1.5.1">Specification Document(s): <a href="#authority-identifiers" class="auto internal xref">Section 4</a> of this specification<a href="#section-7.1.2.2-1.5.1" class="pilcrow">¶</a></p>
+                <p id="section-7.1.2.2-1.5.1">Specification Document(s): <a href="#authority-identifiers" class="auto internal xref">Section 4</a> of this specification, <span>[<a href="#LEI" class="cite xref">LEI</a>]</span>, <span>[<a href="#LEI-IANA" class="cite xref">LEI-IANA</a>]</span><a href="#section-7.1.2.2-1.5.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </section>
@@ -1650,7 +1650,7 @@ An indication of the relevant sections may also be included, but is not required
                 <p id="section-7.1.2.3-1.4.1">Change Controller: IETF<a href="#section-7.1.2.3-1.4.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-7.1.2.3-1.5">
-                <p id="section-7.1.2.3-1.5.1">Specification Document(s): <a href="#authority-identifiers" class="auto internal xref">Section 4</a> of this specification<a href="#section-7.1.2.3-1.5.1" class="pilcrow">¶</a></p>
+                <p id="section-7.1.2.3-1.5.1">Specification Document(s): <a href="#authority-identifiers" class="auto internal xref">Section 4</a> of this specification, <span>[<a href="#DUNS" class="cite xref">DUNS</a>]</span><a href="#section-7.1.2.3-1.5.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </section>
@@ -1674,7 +1674,7 @@ An indication of the relevant sections may also be included, but is not required
                 <p id="section-7.1.2.4-1.4.1">Change Controller: IETF<a href="#section-7.1.2.4-1.4.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-7.1.2.4-1.5">
-                <p id="section-7.1.2.4-1.5.1">Specification Document(s): <a href="#authority-identifiers" class="auto internal xref">Section 4</a> of this specification<a href="#section-7.1.2.4-1.5.1" class="pilcrow">¶</a></p>
+                <p id="section-7.1.2.4-1.5.1">Specification Document(s): <a href="#authority-identifiers" class="auto internal xref">Section 4</a> of this specification, <span>[<a href="#PEN" class="cite xref">PEN</a>]</span>, <span>[<a href="#RFC9371" class="cite xref">RFC9371</a>]</span><a href="#section-7.1.2.4-1.5.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </section>
@@ -1696,6 +1696,22 @@ An indication of the relevant sections may also be included, but is not required
 <a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
+<dt id="DUNS">[DUNS]</dt>
+        <dd>
+<span class="refTitle">"D-U-N-S Numbers"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.dnb.com/duns.html">https://www.dnb.com/duns.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="GLN">[GLN]</dt>
+        <dd>
+<span class="refTitle">"Global Location Nymber (GLN)"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.gs1.org/standards/id-keys/gln">https://www.gs1.org/standards/id-keys/gln</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="LEI">[LEI]</dt>
+        <dd>
+<span class="refTitle">"Legal Entity Identifier (LEI)"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.iso.org/standard/78829.html">https://www.iso.org/standard/78829.html</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="PEN">[PEN]</dt>
+        <dd>
+<span class="refTitle">"Private Enterprise Numbers"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.iana.org/assignments/enterprise-numbers">https://www.iana.org/assignments/enterprise-numbers</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
         <dd>
 <span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
@@ -1717,6 +1733,10 @@ An indication of the relevant sections may also be included, but is not required
 <a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
+<dt id="LEI-IANA">[LEI-IANA]</dt>
+        <dd>
+<span class="refTitle">"LEI Namespace Identifier"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.iana.org/assignments/urn-formal/lei">https://www.iana.org/assignments/urn-formal/lei</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC2141">[RFC2141]</dt>
         <dd>
 <span class="refAuthor">Moats, R.</span>, <span class="refTitle">"URN Syntax"</span>, <span class="seriesInfo">RFC 2141</span>, <span class="seriesInfo">DOI 10.17487/RFC2141</span>, <time datetime="1997-05" class="refDate">May 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2141">https://www.rfc-editor.org/rfc/rfc2141</a>&gt;</span>. </dd>
@@ -1726,8 +1746,12 @@ An indication of the relevant sections may also be included, but is not required
 <span class="refAuthor">Crocker, D., Ed.</span> and <span class="refAuthor">P. Overell</span>, <span class="refTitle">"Augmented BNF for Syntax Specifications: ABNF"</span>, <span class="seriesInfo">STD 68</span>, <span class="seriesInfo">RFC 5234</span>, <span class="seriesInfo">DOI 10.17487/RFC5234</span>, <time datetime="2008-01" class="refDate">January 2008</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5234">https://www.rfc-editor.org/rfc/rfc5234</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8126">[RFC8126]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Cotton, M.</span>, <span class="refAuthor">Leiba, B.</span>, and <span class="refAuthor">T. Narten</span>, <span class="refTitle">"Guidelines for Writing an IANA Considerations Section in RFCs"</span>, <span class="seriesInfo">BCP 26</span>, <span class="seriesInfo">RFC 8126</span>, <span class="seriesInfo">DOI 10.17487/RFC8126</span>, <time datetime="2017-06" class="refDate">June 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8126">https://www.rfc-editor.org/rfc/rfc8126</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9371">[RFC9371]</dt>
+      <dd>
+<span class="refAuthor">Baber, A.</span> and <span class="refAuthor">P. Hoffman</span>, <span class="refTitle">"Registration Procedures for Private Enterprise Numbers (PENs)"</span>, <span class="seriesInfo">RFC 9371</span>, <span class="seriesInfo">DOI 10.17487/RFC9371</span>, <time datetime="2023-03" class="refDate">March 2023</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9371">https://www.rfc-editor.org/rfc/rfc9371</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>

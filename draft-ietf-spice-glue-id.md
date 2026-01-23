@@ -199,7 +199,8 @@ They are registered in the GLUE Authority Identifier URN Registry in {{GLUE-URN}
 
 # Security Considerations
 
-Most security considerations consist of those already inherent to using URNs.
+There are no additional security considerations beyond those already inherent to
+using URNs.
 Security considerations for URNs can be found in [RFC2141].
 
 # Privacy Considerations

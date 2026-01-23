@@ -64,6 +64,7 @@ informative:
   RFC2141:
   RFC8126:
   RFC5234:
+  RFC9371:
   LEI-IANA:
     title: LEI Namespace Identifier
     target: https://www.iana.org/assignments/urn-formal/lei

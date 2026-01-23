@@ -135,33 +135,35 @@ GLUE URIs comply with [RFC3986].
 They begin with `urn:glue:` and are followed by an Authority Identifier,
 a colon character (":"), and the External Identifier allocated by the authority.
 
-Authority Identifiers consist of a sequence of characters beginning with a letter and
-followed by any combination of letters, digits, plus ("+"), period ("."), or hyphen ("-").
-Although Authority Identifiers are case-insensitive, the canonical form is lowercase
-and documents that specify Authority Identifiers must do so with lowercase letters.
-An implementation should accept uppercase letters as equivalent to lowercase
-in Authority Identifier names (e.g., allow "EXAMPLE" as well as "example")
-for the sake of robustness but should only produce
-lowercase Authority Identifier names for consistency.
+Authority Identifiers consist of a sequence of characters beginning with a
+letter and followed by any combination of letters, digits, plus ("+"), period
+("."), or hyphen ("-").
+Although Authority Identifiers are case-insensitive, the canonical form is
+lowercase and documents that specify Authority Identifiers must do so with
+lowercase letters. An implementation should accept uppercase letters as
+equivalent to lowercase in Authority Identifier names (e.g., allow "EXAMPLE" as
+well as "example") for the sake of robustness but should only produce lowercase
+Authority Identifier names for consistency. There is a limit of 50 characters
+for the length of an Authority Identifier.
 The ABNF [RFC5234] for Authority Identifiers is:
 
 ```
-authority-identifier = ALPHA *( ALPHA / DIGIT / "+" / "-" / "." )
+authority-identifier = ALPHA *49( ALPHA / DIGIT / "+" / "-" / "." )
 ```
 
-External Identifiers consist of a sequence of characters beginning with
-a letter or digit or hyphen ("-") and
-followed by any combination of letters, digits, plus ("+"), period ("."), or hyphen ("-").
-A digit or hyphen is allowed as the first character to permit the case where
-the External Identifier is the representation of a number.
-It is specific to the Authority Identifier whether the
-External Identifiers are case-insensitive or case-sensitive.
-When they are case-insensitive, the canonical form is lowercase
-and documents that specify External Identifiers must do so with lowercase letters.
+External Identifiers consist of a sequence of characters beginning with a letter
+or digit or hyphen ("-") and followed by any combination of letters, digits,
+plus ("+"), period ("."), or hyphen ("-").
+A digit or hyphen is allowed as the first character to permit the case where the
+External Identifier is the representation of a number. It is specific to the
+Authority Identifier whether the External Identifiers are case-insensitive or
+case-sensitive. When they are case-insensitive, the canonical form is lowercase
+and documents that specify External Identifiers must do so with lowercase
+letters. There is a limit of 1000 characters for an External Identifier.
 The ABNF [RFC5234] for External Identifiers is:
 
 ```
-external-identifier = ( ALPHA / DIGIT / "-" ) *( ALPHA / DIGIT / "+" / "-" / "." )
+external-identifier = ( ALPHA / DIGIT / "-" ) *999( ALPHA / DIGIT / "+" / "-" / "." )
 ```
 
 Combining these, the ABNF [RFC5234] for a GLUE URI is:
@@ -197,7 +199,8 @@ They are registered in the GLUE Authority Identifier URN Registry in {{GLUE-URN}
 
 # Security Considerations
 
-There are no additional security considerations beyond those already inherent to using URNs.
+There are no additional security considerations beyond those already inherent to
+using URNs.
 Security considerations for URNs can be found in [RFC2141].
 
 # Privacy Considerations
@@ -298,7 +301,7 @@ Authority Identifier:
 : identifier for the External Authority responsible for assigning the External Identifier used in GLUE URIs.
 This identifier
 is not case sensitive and any letters MUST be expressed in lowercase characters.
-It MUST consist of a sequence of characters
+It MUST consist of a sequence of characters with a mazimum length of 50,
 beginning with a letter and followed by any combination of
 letters, digits, plus ("+"), period ("."), or hyphen ("-").
 

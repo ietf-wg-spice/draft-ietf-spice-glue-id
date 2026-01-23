@@ -67,6 +67,10 @@ informative:
     title: LEI Namespace Identifier
     target: https://www.iana.org/assignments/urn-formal/lei
   RFC5234:
+  LEI-IANA:
+    title: LEI Namespace Identifier
+    target: https://www.iana.org/assignments/urn-formal/lei
+
 ---
 
 --- abstract

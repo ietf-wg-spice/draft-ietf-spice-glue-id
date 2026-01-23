@@ -5,10 +5,10 @@
 Secure Patterns for Internet CrEdentials                    B. W. Zundel
 Internet-Draft                                                          
 Intended status: Standards Track                               P. Dingle
-Expires: 9 July 2026                               Microsoft Corporation
+Expires: 27 July 2026                              Microsoft Corporation
                                                              M. B. Jones
                                                   Self-Issued Consulting
-                                                          5 January 2026
+                                                         23 January 2026
 
 
               GLobal Unique Enterprise (GLUE) Identifiers
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 9 July 2026.
+   This Internet-Draft will expire on 27 July 2026.
 
 Copyright Notice
 
@@ -81,7 +81,6 @@ Table of Contents
    3.  GLUE URIs
    4.  GLUE Authority Identifiers
    5.  Security Considerations
-     5.1.  Guidance for GLUE Parsers
    6.  Privacy Considerations
      6.1.  Private Identifiers as Corporate Identifiers
    7.  IANA Considerations
@@ -187,9 +186,10 @@ Table of Contents
    as equivalent to lowercase in Authority Identifier names (e.g., allow
    "EXAMPLE" as well as "example") for the sake of robustness but should
    only produce lowercase Authority Identifier names for consistency.
-   The ABNF [RFC5234] for Authority Identifiers is:
+   There is a limit of 50 characters for the length of an Authority
+   Identifier.  The ABNF [RFC5234] for Authority Identifiers is:
 
-   authority-identifier = ALPHA *( ALPHA / DIGIT / "+" / "-" / "." )
+   authority-identifier = ALPHA *49( ALPHA / DIGIT / "+" / "-" / "." )
 
    External Identifiers consist of a sequence of characters beginning
    with a letter or digit or hyphen ("-") and followed by any
@@ -200,10 +200,11 @@ Table of Contents
    External Identifiers are case-insensitive or case-sensitive.  When
    they are case-insensitive, the canonical form is lowercase and
    documents that specify External Identifiers must do so with lowercase
-   letters.  The ABNF [RFC5234] for External Identifiers is:
+   letters.  There is a limit of 1000 characters for an External
+   Identifier.  The ABNF [RFC5234] for External Identifiers is:
 
-   external-identifier = ( ALPHA / DIGIT / "-" ) *( ALPHA / DIGIT / "+"
-   / "-" / "." )
+   external-identifier = ( ALPHA / DIGIT / "-" ) *999( ALPHA / DIGIT /
+   "+" / "-" / "." )
 
    Combining these, the ABNF [RFC5234] for a GLUE URI is:
 
@@ -251,16 +252,6 @@ Table of Contents
    Most security considerations consist of those already inherent to
    using URNs.  Security considerations for URNs can be found in
    [RFC2141].
-
-5.1.  Guidance for GLUE Parsers
-
-   While each authority will have its own constraints on the length of
-   the external identifiers specified by them, we provide generic
-   parsers of GLUE identifiers the following guidelines:
-
-   *  limit parsing of the Authority Identifier portion to 50 characters
-
-   *  limit parsing of External Identifier portion to 1000 characters
 
 6.  Privacy Considerations
 
@@ -362,9 +353,9 @@ Table of Contents
       responsible for assigning the External Identifier used in GLUE
       URIs.  This identifier is not case sensitive and any letters MUST
       be expressed in lowercase characters.  It MUST consist of a
-      sequence of characters beginning with a letter and followed by any
-      combination of letters, digits, plus ("+"), period ("."), or
-      hyphen ("-").
+      sequence of characters with a mazimum length of 50, beginning with
+      a letter and followed by any combination of letters, digits, plus
+      ("+"), period ("."), or hyphen ("-").
 
    URN:  The URN within the "urn:glue:" namespace consisting of
       "urn:glue:" followed by the Authority Identifier.
@@ -455,6 +446,11 @@ Table of Contents
 
    [RFC2141]  Moats, R., "URN Syntax", RFC 2141, DOI 10.17487/RFC2141,
               May 1997, <https://www.rfc-editor.org/rfc/rfc2141>.
+
+   [RFC5234]  Crocker, D., Ed. and P. Overell, "Augmented BNF for Syntax
+              Specifications: ABNF", STD 68, RFC 5234,
+              DOI 10.17487/RFC5234, January 2008,
+              <https://www.rfc-editor.org/rfc/rfc5234>.
 
    [RFC8126]  Cotton, M., Leiba, B., and T. Narten, "Guidelines for
               Writing an IANA Considerations Section in RFCs", BCP 26,

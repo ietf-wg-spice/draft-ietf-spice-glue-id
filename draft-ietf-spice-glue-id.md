@@ -33,8 +33,7 @@ author:
 
  -
     fullname: Pamela Dingle
-    organization: Microsoft Corporation
-    email: pamela.dingle@microsoft.com
+    email: pameladingle@gmail.com
     country: United States
 
  -

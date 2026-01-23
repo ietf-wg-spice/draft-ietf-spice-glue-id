@@ -51,6 +51,7 @@ normative:
 informative:
   RFC2141:
   RFC8126:
+  RFC5234:
 ---
 
 --- abstract

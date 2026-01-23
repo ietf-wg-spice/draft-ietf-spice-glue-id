@@ -57,7 +57,7 @@ normative:
     title: Legal Entity Identifier (LEI)
     target: https://www.iso.org/standard/78829.html
   PEN:
-    title:
+    title: Private Enterprise Numbers
     target: https://www.iana.org/assignments/enterprise-numbers
 
 informative:

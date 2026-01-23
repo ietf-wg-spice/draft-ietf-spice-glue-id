@@ -216,7 +216,7 @@ They are registered in the GLUE Authority Identifier URN Registry in {{GLUE-URN}
 
 ## Note about LEI URNs
 
-Users should be aware that [LEI-IANA] registers a URN namespace for LEIs. This
+Readers should be aware that [LEI-IANA] registers a URN namespace for LEIs. This
 means that LEIs can be represented as URNs in at least two ways. For example,
 "urn:lei:INR2EJN1ERAN0W5ZP974" is equivalent to "urn:glue:lei:INR2EJN1ERAN0W5ZP974".
 

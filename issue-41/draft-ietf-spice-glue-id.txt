@@ -249,9 +249,9 @@ Table of Contents
 
 5.  Security Considerations
 
-   Most security considerations consist of those already inherent to
-   using URNs.  Security considerations for URNs can be found in
-   [RFC2141].
+   There are no additional security considerations beyond those already
+   inherent to using URNs.  Security considerations for URNs can be
+   found in [RFC2141].
 
 6.  Privacy Considerations
 

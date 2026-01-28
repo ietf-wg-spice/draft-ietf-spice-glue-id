@@ -5,10 +5,10 @@
 Secure Patterns for Internet CrEdentials                    B. W. Zundel
 Internet-Draft                                                          
 Intended status: Standards Track                               P. Dingle
-Expires: 27 July 2026                              Microsoft Corporation
+Expires: 1 August 2026                             Microsoft Corporation
                                                              M. B. Jones
                                                   Self-Issued Consulting
-                                                         23 January 2026
+                                                         28 January 2026
 
 
               GLobal Unique Enterprise (GLUE) Identifiers
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 27 July 2026.
+   This Internet-Draft will expire on 1 August 2026.
 
 Copyright Notice
 
@@ -80,6 +80,7 @@ Table of Contents
      2.1.  Uniqueness and Namespacing
    3.  GLUE URIs
    4.  GLUE Authority Identifiers
+     4.1.  Note about LEI URNs
    5.  Security Considerations
    6.  Privacy Considerations
      6.1.  Private Identifiers as Corporate Identifiers
@@ -246,6 +247,13 @@ Table of Contents
 
    They are registered in the GLUE Authority Identifier URN Registry in
    Section 7.1.
+
+4.1.  Note about LEI URNs
+
+   Readers should be aware that [LEI-IANA] registers a URN namespace for
+   LEIs.  This means that LEIs can be represented as URNs in at least
+   two ways.  For example, "urn:lei:INR2EJN1ERAN0W5ZP974" is equivalent
+   to "urn:glue:lei:INR2EJN1ERAN0W5ZP974".
 
 5.  Security Considerations
 

@@ -495,7 +495,7 @@ Document History
 
    -04
 
-   *  Applied review suggestions from Martin Thompson, specifically:
+   *  Applied review suggestions from Martin Thomson, specifically:
 
       -  Added references for each registered Authority Identifier.
 

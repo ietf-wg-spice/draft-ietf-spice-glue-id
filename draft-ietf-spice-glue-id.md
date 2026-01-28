@@ -393,6 +393,13 @@ contributed to this specification.
 # Document History
 {: numbered="false"}
 
+-04
+
+* Applied review suggestions from Martin Thompson, specifically:
+  - Added references for each registered Authority Identifier.
+  - Added size limits for Authority Identifiers and External Identifiers.
+  - Added a note about LEI URNs.
+
 -03
 
 * Use the urn:glue URN namespace and delete the urn:ietf:spice URN namespace.

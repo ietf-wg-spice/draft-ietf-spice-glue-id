@@ -395,7 +395,7 @@ contributed to this specification.
 
 -04
 
-* Applied review suggestions from Martin Thompson, specifically:
+* Applied review suggestions from Martin Thomson, specifically:
   - Added references for each registered Authority Identifier.
   - Added size limits for Authority Identifiers and External Identifiers.
   - Added a note about LEI URNs.

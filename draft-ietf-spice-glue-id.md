@@ -55,10 +55,15 @@ normative:
     target: https://www.dnb.com/duns.html
   LEI:
     title: Legal Entity Identifier (LEI)
+    date: 2020
     target: https://www.iso.org/standard/78829.html
   PEN:
     title: Private Enterprise Numbers
     target: https://www.iana.org/assignments/enterprise-numbers
+  ISO6523:
+    title: "ISO/IEC 6523-1:2023. Information technology — Structure for the identification of organizations and organization parts, Part 1: Identification of organization identification schemes"
+    date: 2023
+    target: https://www.iso.org/standard/82246.html
 
 informative:
   RFC2141:
@@ -211,6 +216,7 @@ This section defines the following GLUE Authority Identifiers.
 | GLEIF            |  lei   | https://www.iso.org/standard/78829.html   |
 | Dun & Bradstreet |  duns  | https://www.dnb.com/duns.html             |
 | Private Enterprise Numbers | pen | https://www.iana.org/assignments/enterprise-numbers |
+| ISO/IEC 6523 | iso6523 | https://www.iso.org/standard/82246.html |
 
 They are registered in the GLUE Authority Identifier URN Registry in {{GLUE-URN}}.
 
@@ -380,18 +386,31 @@ An indication of the relevant sections may also be included, but is not required
 * Change Controller: IETF
 * Specification Document(s): {{authority-identifiers}} of this specification, [PEN], [RFC9371]
 
+#### iso6523
+
+* Authority Identifier: iso6523
+* URN: urn:glue:iso6523
+* Organization: ISO/IEC 6523
+* Change Controller: IETF
+* Specification Document(s): {{authority-identifiers}} of this specification, [ISO6523]
+
 --- back
 
 # Acknowledgments
 {:numbered="false"}
 
-Alexander (A.J.) Stein
+Martin Lindström,
+Alexander (A.J.) Stein,
 and
 Martin Thomson
 contributed to this specification.
 
 # Document History
 {: numbered="false"}
+
+-05
+
+* Added ISO/IEC 6523 identifiers.
 
 -04
 

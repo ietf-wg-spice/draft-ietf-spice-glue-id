@@ -242,9 +242,12 @@ authority or documented in the relevant registry entry.
 
 ### LEI URNs
 
-Readers should be aware that [LEI-IANA] registers a URN namespace for LEIs. This
-means that LEIs can be represented as URNs in at least two ways. For example,
-"urn:lei:INR2EJN1ERAN0W5ZP974" is equivalent to "urn:glue:lei:INR2EJN1ERAN0W5ZP974".
+[LEI-IANA] registers a URN namespace for LEIs. This means that LEIs can be
+represented as URNs in at least two ways. Therefore there is an equivalence
+between a GLUE URI with an "lei" Authority Identifier and an LEI URN, provided
+the 20-digit LEI Code of the LEI URN is identifical to the External Identifier
+of the GLUE URI. For example, "urn:lei:INR2EJN1ERAN0W5ZP974" is equivalent to
+"urn:glue:lei:INR2EJN1ERAN0W5ZP974".
 
 # Security Considerations
 

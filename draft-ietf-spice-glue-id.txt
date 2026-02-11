@@ -310,10 +310,9 @@ Table of Contents
    Within the review period, the Designated Experts will either approve
    or deny the registration request, communicating this decision to the
    review list and IANA.  Denials should include an explanation and, if
-   applicable, suggestions as to how to make the request successful.
-   The IANA escalation process can be initiated by the party requesting
-   registration when the Designated Experts are not responsive within 14
-   days.
+   applicable, suggestions as to how to make the request successful.  If
+   the designated experts are not responsive, the registration
+   requesters should contact IANA to escalate the process.
 
    Criteria that should be applied by the Designated Experts includes
    determining whether the proposed registration duplicates existing

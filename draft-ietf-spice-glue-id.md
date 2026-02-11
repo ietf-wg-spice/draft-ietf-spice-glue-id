@@ -201,6 +201,13 @@ and the External Identifier "1.3.6.1.4.1.32473":
 urn:glue:pen:1.3.6.1.4.1.32473
 ```
 
+A GLUE URI is defined over the restricted US-ASCII syntax specified in this
+section. Percent-encoding is not permitted. Consequently, GLUE URIs do not
+support representation of External Identifiers whose canonical form includes
+non-ASCII characters. This specification is therefore limited to identifier
+systems whose canonical representations are fully within the permitted character
+set.
+
 The Authority Identifier MUST be registered in the GLUE URI Authority Identifier registry
 defined in {{GLUE-URN}}.
 The External Identifier MUST be the identifier assigned to the organization

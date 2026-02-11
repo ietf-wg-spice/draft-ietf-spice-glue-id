@@ -230,7 +230,17 @@ This section defines the following GLUE Authority Identifiers.
 
 They are registered in the GLUE Authority Identifier URN Registry in {{GLUE-URN}}.
 
-## Note about LEI URNs
+## Equivalence to Similar URIs
+
+A GLUE URI is an identifier in a distinct URN namespace. By default, a GLUE URI
+is not equivalent to any other URI, including a URI defined by the referenced
+authority's own namespace. Equivalence between a GLUE URI and a non-GLUE URI
+exists only when explicitly specified for a given Authority Identifier.
+Implementations and relying parties MUST NOT assume equivalence between GLUE
+URIs and non-GLUE URIs unless such equivalence is explicitly defined by the
+authority or documented in the relevant registry entry.
+
+### LEI URNs
 
 Readers should be aware that [LEI-IANA] registers a URN namespace for LEIs. This
 means that LEIs can be represented as URNs in at least two ways. For example,

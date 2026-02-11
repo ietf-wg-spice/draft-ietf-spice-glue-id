@@ -161,8 +161,8 @@ They begin with `urn:glue:` and are followed by an Authority Identifier,
 a colon character (":"), and the External Identifier allocated by the authority.
 
 Authority Identifiers consist of a sequence of characters beginning with a
-letter and followed by any combination of letters, digits, plus ("+"), period
-("."), or hyphen ("-").
+letter or digit and followed by any combination of letters, digits, plus ("+"),
+period ("."), or hyphen ("-").
 Although Authority Identifiers are case-insensitive, the canonical form is
 lowercase and documents that specify Authority Identifiers must do so with
 lowercase letters. An implementation should accept uppercase letters as
@@ -173,7 +173,7 @@ for the length of an Authority Identifier.
 The ABNF [RFC5234] for Authority Identifiers is:
 
 ```
-authority-identifier = ALPHA *49( ALPHA / DIGIT / "+" / "-" / "." )
+authority-identifier = (ALPHA/DIGIT) *49( ALPHA / DIGIT / "+" / "-" / "." )
 ```
 
 External Identifiers consist of a sequence of characters beginning with a letter

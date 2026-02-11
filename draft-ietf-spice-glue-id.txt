@@ -5,10 +5,10 @@
 Secure Patterns for Internet CrEdentials                    B. W. Zundel
 Internet-Draft                                                          
 Intended status: Standards Track                               P. Dingle
-Expires: 1 August 2026                             Microsoft Corporation
+Expires: 15 August 2026                            Microsoft Corporation
                                                              M. B. Jones
                                                   Self-Issued Consulting
-                                                         28 January 2026
+                                                        11 February 2026
 
 
               GLobal Unique Enterprise (GLUE) Identifiers
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 August 2026.
+   This Internet-Draft will expire on 15 August 2026.
 
 Copyright Notice
 
@@ -241,6 +241,9 @@ Table of Contents
      | Private      | pen        | https://www.iana.org/assignments/ |
      | Enterprise   |            | enterprise-numbers                |
      | Numbers      |            |                                   |
+     +--------------+------------+-----------------------------------+
+     | ISO/IEC 6523 | iso6523    | https://www.iso.org/              |
+     |              |            | standard/82246.html               |
      +--------------+------------+-----------------------------------+
 
                                   Table 1
@@ -434,6 +437,19 @@ Table of Contents
    *  Specification Document(s): Section 4 of this specification, [PEN],
       [RFC9371]
 
+7.1.2.5.  iso6523
+
+   *  Authority Identifier: iso6523
+
+   *  URN: urn:glue:iso6523
+
+   *  Organization: ISO/IEC 6523
+
+   *  Change Controller: IETF
+
+   *  Specification Document(s): Section 4 of this specification,
+      [ISO6523]
+
 8.  References
 
 8.1.  Normative References
@@ -443,7 +459,13 @@ Table of Contents
    [GLN]      "Global Location Nymber (GLN)", n.d.,
               <https://www.gs1.org/standards/id-keys/gln>.
 
-   [LEI]      "Legal Entity Identifier (LEI)", n.d.,
+   [ISO6523]  "ISO/IEC 6523-1:2023. Information technology — Structure
+              for the identification of organizations and organization
+              parts, Part 1: Identification of organization
+              identification schemes", 2023,
+              <https://www.iso.org/standard/82246.html>.
+
+   [LEI]      "Legal Entity Identifier (LEI)", 2020,
               <https://www.iso.org/standard/78829.html>.
 
    [PEN]      "Private Enterprise Numbers", n.d.,
@@ -488,10 +510,14 @@ Table of Contents
 
 Acknowledgments
 
-   Alexander (A.J.)  Stein and Martin Thomson contributed to this
-   specification.
+   Martin Lindström, Alexander (A.J.)  Stein, and Martin Thomson
+   contributed to this specification.
 
 Document History
+
+   -05
+
+   *  Added ISO/IEC 6523 identifiers.
 
    -04
 

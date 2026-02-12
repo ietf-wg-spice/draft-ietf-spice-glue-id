@@ -133,6 +133,9 @@ contain the following components:
 
 Each GLUE URI MUST be globally unique.
 
+A business entity can be identified by multiple GLUE URIs,
+but each GLUE URI can only refer to a single business entity.
+
 It is assumed that most registered organizational entity identification schemes
 already handle any necessary namespacing as part of the External Identifier.
 However, if collisions are possible within the set of possible external

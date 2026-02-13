@@ -275,6 +275,11 @@ an appropriate subject
 
 Within the review period, the Designated Experts will either approve or deny
 the registration request, communicating this decision to the review list and IANA.
+The Designated Experts verify that a specification exists. Experts are
+encouraged to be biased towards approving registrations unless they are abusive,
+frivolous, or actively harmful (not merely aesthetically displeasing or
+architecturally dubious).
+
 Denials should include an explanation and, if applicable,
 suggestions as to how to make the request successful.
 If the designated experts are not responsive,

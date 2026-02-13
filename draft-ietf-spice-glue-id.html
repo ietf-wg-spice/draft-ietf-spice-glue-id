@@ -1324,14 +1324,16 @@ contain the following components:<a href="#section-2-1" class="pilcrow">¶</a></
 <a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-uniqueness-and-namespacing" class="section-name selfRef">Uniqueness and Namespacing</a>
         </h3>
 <p id="section-2.1-1">Each GLUE URI <span class="bcp14">MUST</span> be globally unique.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
-<p id="section-2.1-2">It is assumed that most registered organizational entity identification schemes
+<p id="section-2.1-2">A business entity can be identified by multiple GLUE URIs,
+but each GLUE URI can only refer to a single business entity.<a href="#section-2.1-2" class="pilcrow">¶</a></p>
+<p id="section-2.1-3">It is assumed that most registered organizational entity identification schemes
 already handle any necessary namespacing as part of the External Identifier.
 However, if collisions are possible within the set of possible external
 identifiers for an Authority Identifier scheme, then further namespacing is
 necessary at the GLUE URI level. Such namespacing <span class="bcp14">MUST</span> be done on the Authority
 Identifier. The combination of the namespacing and the authority <span class="bcp14">MUST</span> result in
-a unique Authority Identifier.<a href="#section-2.1-2" class="pilcrow">¶</a></p>
-<p id="section-2.1-3">For example, assume there is an External Authority FEA that provides identifiers
+a unique Authority Identifier.<a href="#section-2.1-3" class="pilcrow">¶</a></p>
+<p id="section-2.1-4">For example, assume there is an External Authority FEA that provides identifiers
 for organizations in Singapore and South Korea. The identifiers issued in
 Singapore are unique within Singapore, and the identifiers issued in South Korea
 are unique within South Korea, but there is no guarantee that an organization in
@@ -1339,7 +1341,7 @@ Singapore will not be assigned the same identifier as an organization in South
 Korea. Upon registration of FEA as an Authority Identifier, it would be
 necessary to separately register two different Authority Identifiers (e.g.,
 FEA-SG and FEA-KR) to provide differentiation between the two sets of External
-Identifiers.<a href="#section-2.1-3" class="pilcrow">¶</a></p>
+Identifiers.<a href="#section-2.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>

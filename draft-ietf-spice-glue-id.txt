@@ -5,10 +5,10 @@
 Secure Patterns for Internet CrEdentials                    B. W. Zundel
 Internet-Draft                                                          
 Intended status: Standards Track                               P. Dingle
-Expires: 15 August 2026                            Microsoft Corporation
+Expires: 17 August 2026                            Microsoft Corporation
                                                              M. B. Jones
                                                   Self-Issued Consulting
-                                                        11 February 2026
+                                                        13 February 2026
 
 
               GLobal Unique Enterprise (GLUE) Identifiers
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 August 2026.
+   This Internet-Draft will expire on 17 August 2026.
 
 Copyright Notice
 
@@ -309,10 +309,16 @@ Table of Contents
 
    Within the review period, the Designated Experts will either approve
    or deny the registration request, communicating this decision to the
-   review list and IANA.  Denials should include an explanation and, if
-   applicable, suggestions as to how to make the request successful.  If
-   the designated experts are not responsive, the registration
-   requesters should contact IANA to escalate the process.
+   review list and IANA.  The Designated Experts verify that a
+   specification exists.  Experts are encouraged to be biased towards
+   approving registrations unless they are abusive, frivolous, or
+   actively harmful (not merely aesthetically displeasing or
+   architecturally dubious).
+
+   Denials should include an explanation and, if applicable, suggestions
+   as to how to make the request successful.  If the designated experts
+   are not responsive, the registration requesters should contact IANA
+   to escalate the process.
 
    Criteria that should be applied by the Designated Experts includes
    determining whether the proposed registration duplicates existing

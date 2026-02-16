@@ -543,7 +543,7 @@ Acknowledgments
 
    Carsten Bormann, Tim Bray, Patrik Fältström, Sue Hares, John Klensin,
    Martin Lindström, Rohan Mahy, James Manger, Alexander (A.J.)  Stein,
-   Martin Thomson, Peter Yee contributed to this specification.
+   Martin Thomson, and Peter Yee contributed to this specification.
 
 Document History
 

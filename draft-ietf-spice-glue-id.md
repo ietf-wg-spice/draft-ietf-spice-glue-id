@@ -64,15 +64,15 @@ normative:
     title: "ISO/IEC 6523-1:2023. Information technology — Structure for the identification of organizations and organization parts, Part 1: Identification of organization identification schemes"
     date: 2023
     target: https://www.iso.org/standard/82246.html
+  LEI-IANA:
+    title: LEI Namespace Identifier
+    target: https://www.iana.org/assignments/urn-formal/lei
 
 informative:
   RFC2141:
   RFC8126:
   RFC5234:
   RFC9371:
-  LEI-IANA:
-    title: LEI Namespace Identifier
-    target: https://www.iana.org/assignments/urn-formal/lei
 
 ---
 

@@ -425,10 +425,17 @@ An indication of the relevant sections may also be included, but is not required
 # Acknowledgments
 {:numbered="false"}
 
+Carsten Bormann,
+Tim Bray,
+Patrik Fältström,
+Sue Hares,
+John Klensin,
 Martin Lindström,
+Rohan Mahy,
+James Manger,
 Alexander (A.J.) Stein,
-and
-Martin Thomson
+Martin Thomson,
+Peter Yee
 contributed to this specification.
 
 # Document History

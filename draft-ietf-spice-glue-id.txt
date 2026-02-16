@@ -98,7 +98,7 @@ Table of Contents
 
 1.  Introduction
 
-   There are a myriad of entity identifier types for businesses and
+   There are myriad entity identifier types for businesses and
    organizations.  With the increasing use of digital credentials, there
    is a need for a common methodology for expressing these identifiers
    such that claims about and by such entities can be made in a
@@ -184,7 +184,7 @@ Table of Contents
 
    Authority Identifiers consist of a sequence of characters beginning
    with a letter or digit and followed by any combination of letters,
-   digits, plus ("+"), period ("."), or hyphen ("-").  Although
+   digits, plus ("+"), hyphen ("-"), or period (".").  Although
    Authority Identifiers are case-insensitive, the canonical form is
    lowercase and documents that specify Authority Identifiers must do so
    with lowercase letters.  An implementation should accept uppercase
@@ -200,8 +200,8 @@ Table of Contents
 
    External Identifiers consist of a sequence of characters beginning
    with a letter or digit or hyphen ("-") and followed by any
-   combination of letters, digits, plus ("+"), period ("."), or hyphen
-   ("-").  A digit or hyphen is allowed as the first character to permit
+   combination of letters, digits, plus ("+"), hyphen ("-"), or period
+   (".").  A digit or hyphen is allowed as the first character to permit
    the case where the External Identifier is the representation of a
    number.  It is specific to the Authority Identifier whether the
    External Identifiers are case-insensitive or case-sensitive.  When

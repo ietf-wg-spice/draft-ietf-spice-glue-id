@@ -162,7 +162,7 @@ a colon character (":"), and the External Identifier allocated by the authority.
 
 Authority Identifiers consist of a sequence of characters beginning with a
 letter or digit and followed by any combination of letters, digits, plus ("+"),
-period ("."), or hyphen ("-").
+hyphen ("-"), or period (".").
 Although Authority Identifiers are case-insensitive, the canonical form is
 lowercase and documents that specify Authority Identifiers must do so with
 lowercase letters. An implementation should accept uppercase letters as
@@ -178,7 +178,7 @@ authority-identifier = (ALPHA/DIGIT) *49( ALPHA / DIGIT / "+" / "-" / "." )
 
 External Identifiers consist of a sequence of characters beginning with a letter
 or digit or hyphen ("-") and followed by any combination of letters, digits,
-plus ("+"), period ("."), or hyphen ("-").
+plus ("+"), hyphen ("-"), or period (".").
 A digit or hyphen is allowed as the first character to permit the case where the
 External Identifier is the representation of a number. It is specific to the
 Authority Identifier whether the External Identifiers are case-insensitive or

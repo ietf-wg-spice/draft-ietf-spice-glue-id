@@ -435,7 +435,7 @@ Rohan Mahy,
 James Manger,
 Alexander (A.J.) Stein,
 Martin Thomson,
-Peter Yee
+and Peter Yee
 contributed to this specification.
 
 # Document History

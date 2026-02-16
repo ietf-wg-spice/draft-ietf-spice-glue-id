@@ -87,7 +87,7 @@ It enables organizational identities from existing authorities to be represented
 
 # Introduction
 
-There are a myriad of entity identifier types for businesses and organizations.
+There are myriad entity identifier types for businesses and organizations.
 With the increasing use of digital credentials, there is a need for a common
 methodology for expressing these identifiers such that claims about and by such
 entities can be made in a consistent and interoperable manner.

@@ -437,7 +437,10 @@ contributed to this specification.
 -05
 
 * Added ISO/IEC 6523 identifiers.
-* The first digit of the Authority Identifier may be a digit
+* The first character of the Authority Identifier may be a digit
+* fixed wording in IANA Considerations
+* Limited character set to US-ASCII
+* Fixed multiple nits from WGLC
 
 -04
 

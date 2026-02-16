@@ -5,10 +5,10 @@
 Secure Patterns for Internet CrEdentials                    B. W. Zundel
 Internet-Draft                                                          
 Intended status: Standards Track                               P. Dingle
-Expires: 17 August 2026                            Microsoft Corporation
+Expires: 20 August 2026                            Microsoft Corporation
                                                              M. B. Jones
                                                   Self-Issued Consulting
-                                                        13 February 2026
+                                                        16 February 2026
 
 
               GLobal Unique Enterprise (GLUE) Identifiers
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 17 August 2026.
+   This Internet-Draft will expire on 20 August 2026.
 
 Copyright Notice
 
@@ -182,18 +182,20 @@ Table of Contents
    External Identifier allocated by the authority.
 
    Authority Identifiers consist of a sequence of characters beginning
-   with a letter and followed by any combination of letters, digits,
-   plus ("+"), period ("."), or hyphen ("-").  Although Authority
-   Identifiers are case-insensitive, the canonical form is lowercase and
-   documents that specify Authority Identifiers must do so with
-   lowercase letters.  An implementation should accept uppercase letters
-   as equivalent to lowercase in Authority Identifier names (e.g., allow
-   "EXAMPLE" as well as "example") for the sake of robustness but should
-   only produce lowercase Authority Identifier names for consistency.
-   There is a limit of 50 characters for the length of an Authority
-   Identifier.  The ABNF [RFC5234] for Authority Identifiers is:
+   with a letter or digit and followed by any combination of letters,
+   digits, plus ("+"), period ("."), or hyphen ("-").  Although
+   Authority Identifiers are case-insensitive, the canonical form is
+   lowercase and documents that specify Authority Identifiers must do so
+   with lowercase letters.  An implementation should accept uppercase
+   letters as equivalent to lowercase in Authority Identifier names
+   (e.g., allow "EXAMPLE" as well as "example") for the sake of
+   robustness but should only produce lowercase Authority Identifier
+   names for consistency.  There is a limit of 50 characters for the
+   length of an Authority Identifier.  The ABNF [RFC5234] for Authority
+   Identifiers is:
 
-   authority-identifier = ALPHA *49( ALPHA / DIGIT / "+" / "-" / "." )
+   authority-identifier = (ALPHA/DIGIT) *49( ALPHA / DIGIT / "+" / "-" /
+   "." )
 
    External Identifiers consist of a sequence of characters beginning
    with a letter or digit or hyphen ("-") and followed by any

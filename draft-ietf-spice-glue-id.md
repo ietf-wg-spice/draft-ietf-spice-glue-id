@@ -278,8 +278,6 @@ privacy policies.
 # IANA Considerations
 
 This section establishes a registry and populates it with its initial contents.
-The following registration procedure is used for the
-registry established by this specification.
 
 Values are registered on a Specification Required [RFC8126]
 basis after a two-week review period on the spice-ext-review@ietf.org

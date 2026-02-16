@@ -428,11 +428,13 @@ An indication of the relevant sections may also be included, but is not required
 Carsten Bormann,
 Tim Bray,
 Patrik Fältström,
+Arnt Gulbrandsen,
 Sue Hares,
 John Klensin,
 Martin Lindström,
 Rohan Mahy,
 James Manger,
+Orie Steele,
 Alexander (A.J.) Stein,
 Martin Thomson,
 and Peter Yee

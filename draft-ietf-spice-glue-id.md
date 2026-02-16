@@ -198,10 +198,10 @@ glue-uri = "urn:glue:" authority-identifier ":" external-identifier
 ```
 
 For example, the following is a GLUE URI using the Authority Identifier "pen"
-and the External Identifier "1.3.6.1.4.1.32473":
+and the External Identifier "32473":
 
 ```
-urn:glue:pen:1.3.6.1.4.1.32473
+urn:glue:pen:32473
 ```
 
 A GLUE URI is defined over the restricted US-ASCII syntax specified in this
@@ -439,6 +439,7 @@ contributed to this specification.
 -05
 
 * Added ISO/IEC 6523 identifiers.
+* The first digit of the Authority Identifier may be a digit
 
 -04
 

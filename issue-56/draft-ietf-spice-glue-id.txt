@@ -5,10 +5,10 @@
 Secure Patterns for Internet CrEdentials                    B. W. Zundel
 Internet-Draft                                                          
 Intended status: Standards Track                               P. Dingle
-Expires: 15 August 2026                            Microsoft Corporation
+Expires: 20 August 2026                            Microsoft Corporation
                                                              M. B. Jones
                                                   Self-Issued Consulting
-                                                        11 February 2026
+                                                        16 February 2026
 
 
               GLobal Unique Enterprise (GLUE) Identifiers
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 August 2026.
+   This Internet-Draft will expire on 20 August 2026.
 
 Copyright Notice
 
@@ -489,6 +489,9 @@ Table of Contents
    [LEI]      "Legal Entity Identifier (LEI)", 2020,
               <https://www.iso.org/standard/78829.html>.
 
+   [LEI-IANA] "LEI Namespace Identifier", n.d.,
+              <https://www.iana.org/assignments/urn-formal/lei>.
+
    [PEN]      "Private Enterprise Numbers", n.d.,
               <https://www.iana.org/assignments/enterprise-numbers>.
 
@@ -507,9 +510,6 @@ Table of Contents
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
 8.2.  Informative References
-
-   [LEI-IANA] "LEI Namespace Identifier", n.d.,
-              <https://www.iana.org/assignments/urn-formal/lei>.
 
    [RFC2141]  Moats, R., "URN Syntax", RFC 2141, DOI 10.17487/RFC2141,
               May 1997, <https://www.rfc-editor.org/rfc/rfc2141>.

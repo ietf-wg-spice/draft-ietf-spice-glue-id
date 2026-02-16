@@ -80,7 +80,8 @@ Table of Contents
      2.1.  Uniqueness and Namespacing
    3.  GLUE URIs
    4.  GLUE Authority Identifiers
-     4.1.  Note about LEI URNs
+     4.1.  Equivalence to Similar URIs
+       4.1.1.  LEI URNs
    5.  Security Considerations
    6.  Privacy Considerations
      6.1.  Private Identifiers as Corporate Identifiers
@@ -221,6 +222,13 @@ Table of Contents
 
    urn:glue:pen:1.3.6.1.4.1.32473
 
+   A GLUE URI is defined over the restricted US-ASCII syntax specified
+   in this section.  Percent-encoding is not permitted.  Consequently,
+   GLUE URIs do not support representation of External Identifiers whose
+   canonical form includes non-ASCII characters.  This specification is
+   therefore limited to identifier systems whose canonical
+   representations are fully within the permitted character set.
+
    The Authority Identifier MUST be registered in the GLUE URI Authority
    Identifier registry defined in Section 7.1.  The External Identifier
    MUST be the identifier assigned to the organization by the External
@@ -256,12 +264,26 @@ Table of Contents
    They are registered in the GLUE Authority Identifier URN Registry in
    Section 7.1.
 
-4.1.  Note about LEI URNs
+4.1.  Equivalence to Similar URIs
 
-   Readers should be aware that [LEI-IANA] registers a URN namespace for
-   LEIs.  This means that LEIs can be represented as URNs in at least
-   two ways.  For example, "urn:lei:INR2EJN1ERAN0W5ZP974" is equivalent
-   to "urn:glue:lei:INR2EJN1ERAN0W5ZP974".
+   A GLUE URI is an identifier in a distinct URN namespace.  By default,
+   a GLUE URI is not equivalent to any other URI, including a URI
+   defined by the referenced authority's own namespace.  Equivalence
+   between a GLUE URI and a non-GLUE URI exists only when explicitly
+   specified for a given Authority Identifier.  Implementations and
+   relying parties MUST NOT assume equivalence between GLUE URIs and
+   non-GLUE URIs unless such equivalence is explicitly defined by the
+   authority or documented in the relevant registry entry.
+
+4.1.1.  LEI URNs
+
+   [LEI-IANA] registers a URN namespace for LEIs.  This means that LEIs
+   can be represented as URNs in at least two ways.  Therefore there is
+   an equivalence between a GLUE URI with an "lei" Authority Identifier
+   and an LEI URN, provided the 20-digit LEI Code of the LEI URN is
+   identifical to the External Identifier of the GLUE URI.  For example,
+   "urn:lei:INR2EJN1ERAN0W5ZP974" is equivalent to
+   "urn:glue:lei:INR2EJN1ERAN0W5ZP974".
 
 5.  Security Considerations
 
@@ -478,6 +500,9 @@ Table of Contents
    [LEI]      "Legal Entity Identifier (LEI)", 2020,
               <https://www.iso.org/standard/78829.html>.
 
+   [LEI-IANA] "LEI Namespace Identifier", n.d.,
+              <https://www.iana.org/assignments/urn-formal/lei>.
+
    [PEN]      "Private Enterprise Numbers", n.d.,
               <https://www.iana.org/assignments/enterprise-numbers>.
 
@@ -496,9 +521,6 @@ Table of Contents
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
 8.2.  Informative References
-
-   [LEI-IANA] "LEI Namespace Identifier", n.d.,
-              <https://www.iana.org/assignments/urn-formal/lei>.
 
    [RFC2141]  Moats, R., "URN Syntax", RFC 2141, DOI 10.17487/RFC2141,
               May 1997, <https://www.rfc-editor.org/rfc/rfc2141>.

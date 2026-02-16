@@ -541,8 +541,9 @@ Table of Contents
 
 Acknowledgments
 
-   Martin Lindström, Alexander (A.J.)  Stein, and Martin Thomson
-   contributed to this specification.
+   Carsten Bormann, Tim Bray, Patrik Fältström, Sue Hares, John Klensin,
+   Martin Lindström, Rohan Mahy, James Manger, Alexander (A.J.)  Stein,
+   Martin Thomson, and Peter Yee contributed to this specification.
 
 Document History
 
@@ -550,7 +551,13 @@ Document History
 
    *  Added ISO/IEC 6523 identifiers.
 
-   *  The first digit of the Authority Identifier may be a digit
+   *  The first character of the Authority Identifier may be a digit.
+
+   *  Fixed wording in IANA Considerations.
+
+   *  Limited character set to US-ASCII.
+
+   *  Fixed multiple nits from WGLC.
 
    -04
 

@@ -138,8 +138,8 @@ Table of Contents
       Identifier(s) over which it has jurisdiction.
 
    External Authority:  an organization that allocates External
-      Identifiers used in GLUE URIs with Authority Identifier(s) over
-      which it has jurisdiction.
+      Identifiers over which it has jurisdiction that are used in GLUE
+      URIs with its Authority Identifier(s).
 
 2.  Core Concepts
 

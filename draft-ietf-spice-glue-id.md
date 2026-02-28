@@ -242,7 +242,8 @@ authority or documented in the relevant registry entry.
 
 ### LEI URNs
 
-[LEI-IANA] registers a URN namespace for LEIs. This means that LEIs can be
+[LEI-IANA] registers a URN namespace for Legal Entity Identifiers (LEIs).
+This means that LEIs can be
 represented as URNs in at least two ways. Therefore there is an equivalence
 between a GLUE URI with an "lei" Authority Identifier and an LEI URN, provided
 the 20-digit LEI Code of the LEI URN is identifical to the External Identifier
@@ -431,6 +432,7 @@ Patrik Fältström,
 Arnt Gulbrandsen,
 Sue Hares,
 John Klensin,
+Erik Kline,
 Martin Lindström,
 Rohan Mahy,
 James Manger,
@@ -443,6 +445,13 @@ contributed to this specification.
 # Document History
 {: numbered="false"}
 
+-06
+
+* Addressed Erik Kline's review comments, specifically:
+  - Expanded LEI on first use to Legal Entity Identifier (LEI).
+  - Included instructions to the designated experts about ensuring that
+    the registration references an existing organizational registry
+    operated by an External Authority identified by the proposed Authority Identifier.
 -05
 
 * Added ISO/IEC 6523 identifiers.

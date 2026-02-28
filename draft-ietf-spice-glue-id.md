@@ -118,7 +118,7 @@ External Identifier:
 : identifier assigned by an External Authority to identify a particular organization within GLUE URIs with Authority Identifier(s) over which it has jurisdiction.
 
 External Authority:
-: an organization that allocates External Identifiers used in GLUE URIs with Authority Identifier(s) over which it has jurisdiction.
+: an organization that allocates External Identifiers over which it has jurisdiction that are used in GLUE URIs with its Authority Identifier(s).
 
 # Core Concepts
 

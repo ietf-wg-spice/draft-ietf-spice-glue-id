@@ -280,7 +280,7 @@ privacy policies.
 
 This section establishes a registry and populates it with its initial contents.
 
-Values are registered on a Specification Required {{Section 4.6 of RFC8126}}
+Values are registered on a Specification Required ({{Section 4.6 of RFC8126}})
 basis after a two-week review period on the spice-ext-review@ietf.org
 mailing list, on the advice of one or more Designated Experts.
 However, to allow for the allocation of values prior to publication

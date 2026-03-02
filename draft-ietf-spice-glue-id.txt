@@ -5,10 +5,10 @@
 Secure Patterns for Internet CrEdentials                    B. W. Zundel
 Internet-Draft                                                          
 Intended status: Standards Track                               P. Dingle
-Expires: 20 August 2026                            Microsoft Corporation
+Expires: 3 September 2026                          Microsoft Corporation
                                                              M. B. Jones
                                                   Self-Issued Consulting
-                                                        16 February 2026
+                                                            2 March 2026
 
 
               GLobal Unique Enterprise (GLUE) Identifiers
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 20 August 2026.
+   This Internet-Draft will expire on 3 September 2026.
 
 Copyright Notice
 
@@ -106,9 +106,9 @@ Table of Contents
 
    This specification establishes a URN namespace that standardizes the
    expression of existing organizational entity identifiers by providing
-   a common representation format.  It also establishes a registry for
-   managing how existing organizational entity identification mechanisms
-   relate to this namespace.
+   a common representation format.  It also establishes an IANA registry
+   for managing how existing organizational entity identification
+   mechanisms relate to this namespace.
 
    Any organizational entity identifier whose identification mechanism
    has been registered as an Authority Identifier in the registry may be
@@ -218,7 +218,9 @@ Table of Contents
    glue-uri = "urn:glue:" authority-identifier ":" external-identifier
 
    For example, the following is a GLUE URI using the Authority
-   Identifier "pen" and the External Identifier "32473":
+   Identifier "pen" and the External Identifier "32473".  This example
+   uses the Enterprise Number "32473" reserved for documentation in
+   [RFC5612].
 
    urn:glue:pen:32473
 
@@ -236,7 +238,8 @@ Table of Contents
 
 4.  GLUE Authority Identifiers
 
-   This section defines the following GLUE Authority Identifiers.
+   This section defines the GLUE Authority Identifiers listed in
+   Table 1.
 
      +==============+============+===================================+
      | Organization | Authority  | External Authority Specification  |
@@ -259,9 +262,9 @@ Table of Contents
      |              |            | standard/82246.html               |
      +--------------+------------+-----------------------------------+
 
-                                  Table 1
+                Table 1: Defined GLUE Authority Identifiers
 
-   They are registered in the GLUE Authority Identifier URN Registry in
+   These are registered in the GLUE Authority Identifier URN Registry in
    Section 7.1.
 
 4.1.  Equivalence to Similar URIs
@@ -318,16 +321,16 @@ Table of Contents
    This section establishes a registry and populates it with its initial
    contents.
 
-   Values are registered on a Specification Required [RFC8126] basis
-   after a two-week review period on the spice-ext-review@ietf.org
-   mailing list, on the advice of one or more Designated Experts.
-   However, to allow for the allocation of values prior to publication
-   of the final version of a specification, the Designated Experts may
-   approve registration once they are satisfied that the specification
-   will be completed and published.  However, if the specification is
-   not completed and published in a timely manner, as determined by the
-   Designated Experts, the Designated Experts may request that IANA
-   withdraw the registration.
+   Values are registered on a Specification Required (Section 4.6 of
+   [RFC8126]) basis after a two-week review period on the spice-ext-
+   review@ietf.org mailing list, on the advice of one or more Designated
+   Experts.  However, to allow for the allocation of values prior to
+   publication of the final version of a specification, the Designated
+   Experts may approve registration once they are satisfied that the
+   specification will be completed and published.  However, if the
+   specification is not completed and published in a timely manner, as
+   determined by the Designated Experts, the Designated Experts may
+   request that IANA withdraw the registration.
 
    Registration requests sent to the mailing list for review should use
    an appropriate subject (e.g., "Request to register URN
@@ -407,7 +410,7 @@ Table of Contents
 
    Change Controller:  For IETF stream RFCs, use "IETF".  For others,
       give the name of the responsible party.  Other details (e.g.,
-      postal address, e-mail address, home page URI) may also be
+      postal address, e-mail address, or home page URI) may also be
       included.
 
    Specification Document(s):  Reference to the document or documents
@@ -528,6 +531,10 @@ Table of Contents
               Specifications: ABNF", STD 68, RFC 5234,
               DOI 10.17487/RFC5234, January 2008,
               <https://www.rfc-editor.org/rfc/rfc5234>.
+
+   [RFC5612]  Eronen, P. and D. Harrington, "Enterprise Number for
+              Documentation Use", RFC 5612, DOI 10.17487/RFC5612, August
+              2009, <https://www.rfc-editor.org/rfc/rfc5612>.
 
    [RFC8126]  Cotton, M., Leiba, B., and T. Narten, "Guidelines for
               Writing an IANA Considerations Section in RFCs", BCP 26,

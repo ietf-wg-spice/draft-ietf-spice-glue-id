@@ -438,6 +438,7 @@ James Manger,
 Orie Steele,
 Alexander (A.J.) Stein,
 Martin Thomson,
+Éric Vyncke,
 and Peter Yee
 contributed to this specification.
 

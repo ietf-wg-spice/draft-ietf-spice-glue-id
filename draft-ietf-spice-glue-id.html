@@ -1329,15 +1329,16 @@ contain the following components:<a href="#section-2-1" class="pilcrow">¶</a></
 <a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-uniqueness-and-namespacing" class="section-name selfRef">Uniqueness and Namespacing</a>
         </h3>
 <p id="section-2.1-1">Each GLUE URI <span class="bcp14">MUST</span> be globally unique.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
-<p id="section-2.1-2">A business entity can be identified by multiple GLUE URIs,
-but each GLUE URI can only refer to a single business entity.<a href="#section-2.1-2" class="pilcrow">¶</a></p>
+<p id="section-2.1-2">An organization can be identified by multiple GLUE URIs,
+but each GLUE URI can only refer to a single organization.<a href="#section-2.1-2" class="pilcrow">¶</a></p>
 <p id="section-2.1-3">It is assumed that most registered organizational entity identification schemes
 already handle any necessary namespacing as part of the External Identifier.
 However, if collisions are possible within the set of possible external
 identifiers for an Authority Identifier scheme, then further namespacing is
-necessary at the GLUE URI level. Such namespacing <span class="bcp14">MUST</span> be done on the Authority
-Identifier. The combination of the namespacing and the authority <span class="bcp14">MUST</span> result in
-a unique Authority Identifier.<a href="#section-2.1-3" class="pilcrow">¶</a></p>
+necessary at the GLUE URI level.
+Such namespacing <span class="bcp14">MUST</span> be done using the Authority Identifier.
+The combination of the Authority Identifier and the External Identifier
+<span class="bcp14">MUST</span> result in a unique GLUE URI.<a href="#section-2.1-3" class="pilcrow">¶</a></p>
 <p id="section-2.1-4">For example, assume there is an External Authority FEA that provides identifiers
 for organizations in Singapore and South Korea. The identifiers issued in
 Singapore are unique within Singapore, and the identifiers issued in South Korea
@@ -1811,6 +1812,10 @@ An indication of the relevant sections may also be included, but is not required
         <dd>
 <span class="refAuthor">Berners-Lee, T.</span>, <span class="refAuthor">Fielding, R.</span>, and <span class="refAuthor">L. Masinter</span>, <span class="refTitle">"Uniform Resource Identifier (URI): Generic Syntax"</span>, <span class="seriesInfo">STD 66</span>, <span class="seriesInfo">RFC 3986</span>, <span class="seriesInfo">DOI 10.17487/RFC3986</span>, <time datetime="2005-01" class="refDate">January 2005</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc3986">https://www.rfc-editor.org/rfc/rfc3986</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="RFC5234">[RFC5234]</dt>
+        <dd>
+<span class="refAuthor">Crocker, D., Ed.</span> and <span class="refAuthor">P. Overell</span>, <span class="refTitle">"Augmented BNF for Syntax Specifications: ABNF"</span>, <span class="seriesInfo">STD 68</span>, <span class="seriesInfo">RFC 5234</span>, <span class="seriesInfo">DOI 10.17487/RFC5234</span>, <time datetime="2008-01" class="refDate">January 2008</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5234">https://www.rfc-editor.org/rfc/rfc5234</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC8174">[RFC8174]</dt>
       <dd>
 <span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
@@ -1827,10 +1832,6 @@ An indication of the relevant sections may also be included, but is not required
 <dt id="RFC2141">[RFC2141]</dt>
         <dd>
 <span class="refAuthor">Moats, R.</span>, <span class="refTitle">"URN Syntax"</span>, <span class="seriesInfo">RFC 2141</span>, <span class="seriesInfo">DOI 10.17487/RFC2141</span>, <time datetime="1997-05" class="refDate">May 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2141">https://www.rfc-editor.org/rfc/rfc2141</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC5234">[RFC5234]</dt>
-        <dd>
-<span class="refAuthor">Crocker, D., Ed.</span> and <span class="refAuthor">P. Overell</span>, <span class="refTitle">"Augmented BNF for Syntax Specifications: ABNF"</span>, <span class="seriesInfo">STD 68</span>, <span class="seriesInfo">RFC 5234</span>, <span class="seriesInfo">DOI 10.17487/RFC5234</span>, <time datetime="2008-01" class="refDate">January 2008</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5234">https://www.rfc-editor.org/rfc/rfc5234</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC5612">[RFC5612]</dt>
         <dd>
@@ -1855,6 +1856,7 @@ An indication of the relevant sections may also be included, but is not required
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
 <p id="appendix-A-1">Carsten Bormann,
+Mohamed Boucadair,
 Tim Bray,
 Patrik Fältström,
 Arnt Gulbrandsen,
@@ -1878,79 +1880,78 @@ contributed to this specification.<a href="#appendix-A-1" class="pilcrow">¶</a>
 <a href="#name-document-history" class="section-name selfRef">Document History</a>
       </h2>
 <p id="appendix-B-1">-06<a href="#appendix-B-1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="appendix-B-2.1">
-          <p id="appendix-B-2.1.1">Addressed Erik Kline's review comments, specifically:<a href="#appendix-B-2.1.1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="appendix-B-2.1.2.1">
-              <p id="appendix-B-2.1.2.1.1">Expanded LEI on first use to Legal Entity Identifier (LEI).<a href="#appendix-B-2.1.2.1.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="appendix-B-2.1.2.2">
-              <p id="appendix-B-2.1.2.2.1">Included instructions to the designated experts about ensuring that
-the registration references an existing organizational registry
-operated by an External Authority identified by the proposed Authority Identifier.
--05<a href="#appendix-B-2.1.2.2.1" class="pilcrow">¶</a></p>
-</li>
-          </ul>
-</li>
-        <li class="normal" id="appendix-B-2.2">
-          <p id="appendix-B-2.2.1">Added ISO/IEC 6523 identifiers.<a href="#appendix-B-2.2.1" class="pilcrow">¶</a></p>
-</li>
-        <li class="normal" id="appendix-B-2.3">
-          <p id="appendix-B-2.3.1">The first character of the Authority Identifier may be a digit.<a href="#appendix-B-2.3.1" class="pilcrow">¶</a></p>
-</li>
-        <li class="normal" id="appendix-B-2.4">
-          <p id="appendix-B-2.4.1">Fixed wording in IANA Considerations.<a href="#appendix-B-2.4.1" class="pilcrow">¶</a></p>
-</li>
-        <li class="normal" id="appendix-B-2.5">
-          <p id="appendix-B-2.5.1">Limited character set to US-ASCII.<a href="#appendix-B-2.5.1" class="pilcrow">¶</a></p>
-</li>
-        <li class="normal" id="appendix-B-2.6">
-          <p id="appendix-B-2.6.1">Fixed multiple nits from WGLC.<a href="#appendix-B-2.6.1" class="pilcrow">¶</a></p>
-</li>
-      </ul>
-<p id="appendix-B-3">-04<a href="#appendix-B-3" class="pilcrow">¶</a></p>
+<p id="appendix-B-2">&lt;&lt;&lt;&lt;&lt;&lt;&lt; mbj-mohamed
+* Addressed Mohamed Boucadair's review comments, specifically:
+  - Used neutral language "organization" that doesn't assume that all organizations are businesses.
+  - Reworded confusing text about uniqueness.
+  - Made the RFC 5234 reference normative.<a href="#appendix-B-2" class="pilcrow">¶</a></p>
+<p id="appendix-B-3">=======
+* Addressed Erik Kline's review comments, specifically:
+  - Expanded LEI on first use to Legal Entity Identifier (LEI).
+  - Included instructions to the designated experts about ensuring that
+    the registration references an existing organizational registry
+    operated by an External Authority identified by the proposed Authority Identifier.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; main
+-05<a href="#appendix-B-3" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-B-4.1">
-          <p id="appendix-B-4.1.1">Applied review suggestions from Martin Thomson, specifically:<a href="#appendix-B-4.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-4.1.1">Added ISO/IEC 6523 identifiers.<a href="#appendix-B-4.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-B-4.2">
+          <p id="appendix-B-4.2.1">The first character of the Authority Identifier may be a digit.<a href="#appendix-B-4.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-B-4.3">
+          <p id="appendix-B-4.3.1">Fixed wording in IANA Considerations.<a href="#appendix-B-4.3.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-B-4.4">
+          <p id="appendix-B-4.4.1">Limited character set to US-ASCII.<a href="#appendix-B-4.4.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-B-4.5">
+          <p id="appendix-B-4.5.1">Fixed multiple nits from WGLC.<a href="#appendix-B-4.5.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="appendix-B-5">-04<a href="#appendix-B-5" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="appendix-B-4.1.2.1">
-              <p id="appendix-B-4.1.2.1.1">Added references for each registered Authority Identifier.<a href="#appendix-B-4.1.2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="appendix-B-6.1">
+          <p id="appendix-B-6.1.1">Applied review suggestions from Martin Thomson, specifically:<a href="#appendix-B-6.1.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-B-6.1.2.1">
+              <p id="appendix-B-6.1.2.1.1">Added references for each registered Authority Identifier.<a href="#appendix-B-6.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="appendix-B-4.1.2.2">
-              <p id="appendix-B-4.1.2.2.1">Added size limits for Authority Identifiers and External Identifiers.<a href="#appendix-B-4.1.2.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="appendix-B-6.1.2.2">
+              <p id="appendix-B-6.1.2.2.1">Added size limits for Authority Identifiers and External Identifiers.<a href="#appendix-B-6.1.2.2.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="appendix-B-4.1.2.3">
-              <p id="appendix-B-4.1.2.3.1">Added a note about LEI URNs.<a href="#appendix-B-4.1.2.3.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="appendix-B-6.1.2.3">
+              <p id="appendix-B-6.1.2.3.1">Added a note about LEI URNs.<a href="#appendix-B-6.1.2.3.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </li>
       </ul>
-<p id="appendix-B-5">-03<a href="#appendix-B-5" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="appendix-B-6.1">
-          <p id="appendix-B-6.1.1">Use the urn:glue URN namespace and delete the urn:ietf:spice URN namespace.<a href="#appendix-B-6.1.1" class="pilcrow">¶</a></p>
-</li>
-        <li class="normal" id="appendix-B-6.2">
-          <p id="appendix-B-6.2.1">Addressed early IANA feedback.<a href="#appendix-B-6.2.1" class="pilcrow">¶</a></p>
-</li>
-      </ul>
-<p id="appendix-B-7">-02<a href="#appendix-B-7" class="pilcrow">¶</a></p>
+<p id="appendix-B-7">-03<a href="#appendix-B-7" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-B-8.1">
-          <p id="appendix-B-8.1.1">Improved several descriptions in the specification.<a href="#appendix-B-8.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-8.1.1">Use the urn:glue URN namespace and delete the urn:ietf:spice URN namespace.<a href="#appendix-B-8.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-B-8.2">
+          <p id="appendix-B-8.2.1">Addressed early IANA feedback.<a href="#appendix-B-8.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="appendix-B-9">-01<a href="#appendix-B-9" class="pilcrow">¶</a></p>
+<p id="appendix-B-9">-02<a href="#appendix-B-9" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-B-10.1">
-          <p id="appendix-B-10.1.1">Updated Brent's affiliation.<a href="#appendix-B-10.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-10.1.1">Improved several descriptions in the specification.<a href="#appendix-B-10.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="appendix-B-11">-00<a href="#appendix-B-11" class="pilcrow">¶</a></p>
+<p id="appendix-B-11">-01<a href="#appendix-B-11" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-B-12.1">
-          <p id="appendix-B-12.1.1">Initial working group draft, based on draft-zundel-spice-glue-id-02<a href="#appendix-B-12.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-12.1.1">Updated Brent's affiliation.<a href="#appendix-B-12.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="appendix-B-13">-00<a href="#appendix-B-13" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-B-14.1">
+          <p id="appendix-B-14.1.1">Initial working group draft, based on draft-zundel-spice-glue-id-02<a href="#appendix-B-14.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 </section>

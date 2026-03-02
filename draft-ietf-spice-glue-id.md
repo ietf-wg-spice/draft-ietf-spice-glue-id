@@ -111,14 +111,14 @@ This specification uses the following terms:
 GLUE URI:
 : a URI that uses the GLUE URN namespace established in this specification.
 
-External Authority:
-: an organization that allocates External Identifiers for GLUE URIs using the Authority Identifier(s) over which they have jurisdiction.
-
 Authority Identifier:
-: identifier for the External Authority responsible for assigning the External Identifier used in GLUE URIs.
+: identifier for the External Authority responsible for assigning the External Identifiers used in GLUE URIs over which it has jurisdiction.
 
 External Identifier:
-: identifier assigned by an External Authority to identify a particular organization within GLUE URNs over which it has jurisdiction.
+: identifier assigned by an External Authority to identify a particular organization within GLUE URIs with Authority Identifier(s) over which it has jurisdiction.
+
+External Authority:
+: an organization that allocates External Identifiers over which it has jurisdiction that are used in GLUE URIs with its Authority Identifier(s).
 
 # Core Concepts
 
@@ -254,9 +254,15 @@ of the GLUE URI. For example, "urn:lei:INR2EJN1ERAN0W5ZP974" is equivalent to
 
 # Security Considerations
 
-There are no additional security considerations beyond those already inherent to
-using URNs.
+The security considerations inherent to using URNs apply.
 Security considerations for URNs can be found in [RFC2141].
+
+The global uniqueness of GLUE URIs prevents situations in which
+the same identifier is allocated in different local namespaces
+and cannot be disambiguated when used.
+For instance both Canadian and Singaporean organization registries might use
+the local identifier "42", but with these referring to different organizations.
+Embedding these local identifiers in GLUE URIs enables disambiguation.
 
 # Privacy Considerations
 
@@ -313,7 +319,8 @@ Criteria that should be applied by the Designated Experts includes
 determining whether the proposed registration duplicates existing functionality,
 determining whether it is likely to be of general applicability
 or whether it is useful only for a single application,
-and whether the registration makes sense.
+and whether the registration references an existing organizational registry
+operated by an External Authority identified by the proposed Authority Identifier.
 
 IANA must only accept registry updates from the Designated Experts and should direct
 all requests for registration to the review mailing list.
@@ -431,6 +438,7 @@ An indication of the relevant sections may also be included, but is not required
 Carsten Bormann,
 Mohamed Boucadair,
 Tim Bray,
+Deb Cooley,
 Patrik Fältström,
 Arnt Gulbrandsen,
 Sue Hares,
@@ -451,19 +459,22 @@ contributed to this specification.
 
 -06
 
-<<<<<<< mbj-mohamed
+* Addressed Deb Cooley's review comments, specifically:
+  - Reworked term definitions.
+  - Added security consideration about uniqueness of GLUE URIs.
+  - Updated registration instructions to include a criterion about
+    an existing organizational registry operated by an External Authority
+    identified by the proposed Authority Identifier.
 * Addressed Mohamed Boucadair's review comments, specifically:
   - Used neutral language "organization" that doesn't assume that all organizations are businesses.
   - Reworded confusing text about uniqueness.
   - Made the RFC 5234 reference normative.
-
-=======
 * Addressed Erik Kline's review comments, specifically:
   - Expanded LEI on first use to Legal Entity Identifier (LEI).
   - Included instructions to the designated experts about ensuring that
     the registration references an existing organizational registry
     operated by an External Authority identified by the proposed Authority Identifier.
->>>>>>> main
+
 -05
 
 * Added ISO/IEC 6523 identifiers.

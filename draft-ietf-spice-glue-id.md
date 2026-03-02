@@ -47,6 +47,7 @@ author:
 
 normative:
   RFC3986:
+  RFC5234:
   GLN:
     title: Global Location Nymber (GLN)
     target: https://www.gs1.org/standards/id-keys/gln
@@ -71,7 +72,6 @@ normative:
 informative:
   RFC2141:
   RFC8126:
-  RFC5234:
   RFC9371:
 
 ---
@@ -133,16 +133,17 @@ contain the following components:
 
 Each GLUE URI MUST be globally unique.
 
-A business entity can be identified by multiple GLUE URIs,
-but each GLUE URI can only refer to a single business entity.
+An organization can be identified by multiple GLUE URIs,
+but each GLUE URI can only refer to a single organization.
 
 It is assumed that most registered organizational entity identification schemes
 already handle any necessary namespacing as part of the External Identifier.
 However, if collisions are possible within the set of possible external
 identifiers for an Authority Identifier scheme, then further namespacing is
-necessary at the GLUE URI level. Such namespacing MUST be done on the Authority
-Identifier. The combination of the namespacing and the authority MUST result in
-a unique Authority Identifier.
+necessary at the GLUE URI level.
+Such namespacing MUST be done using the Authority Identifier.
+The combination of the Authority Identifier and the External Identifier
+MUST result in a unique GLUE URI.
 
 For example, assume there is an External Authority FEA that provides identifiers
 for organizations in Singapore and South Korea. The identifiers issued in
@@ -428,6 +429,7 @@ An indication of the relevant sections may also be included, but is not required
 {:numbered="false"}
 
 Carsten Bormann,
+Mohamed Boucadair,
 Tim Bray,
 Patrik Fältström,
 Arnt Gulbrandsen,
@@ -449,11 +451,19 @@ contributed to this specification.
 
 -06
 
+<<<<<<< mbj-mohamed
+* Addressed Mohamed Boucadair's review comments, specifically:
+  - Used neutral language "organization" that doesn't assume that all organizations are businesses.
+  - Reworded confusing text about uniqueness.
+  - Made the RFC 5234 reference normative.
+
+=======
 * Addressed Erik Kline's review comments, specifically:
   - Expanded LEI on first use to Legal Entity Identifier (LEI).
   - Included instructions to the designated experts about ensuring that
     the registration references an existing organizational registry
     operated by an External Authority identified by the proposed Authority Identifier.
+>>>>>>> main
 -05
 
 * Added ISO/IEC 6523 identifiers.

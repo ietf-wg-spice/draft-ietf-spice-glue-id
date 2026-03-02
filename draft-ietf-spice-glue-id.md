@@ -94,7 +94,7 @@ entities can be made in a consistent and interoperable manner.
 
 This specification establishes a URN namespace that standardizes the expression of
 existing organizational entity identifiers by providing a common representation format.
-It also establishes a registry for managing how existing organizational entity
+It also establishes an IANA registry for managing how existing organizational entity
 identification mechanisms relate to this namespace.
 
 Any organizational entity identifier whose identification mechanism has been registered
@@ -199,7 +199,7 @@ glue-uri = "urn:glue:" authority-identifier ":" external-identifier
 ```
 
 For example, the following is a GLUE URI using the Authority Identifier "pen"
-and the External Identifier "32473":
+and the External Identifier "32473". This example uses the Enterprise Number "32473" reserved for documentation in {{?RFC5612}}.
 
 ```
 urn:glue:pen:32473
@@ -219,7 +219,7 @@ by the External Authority.
 
 # GLUE Authority Identifiers {#authority-identifiers}
 
-This section defines the following GLUE Authority Identifiers.
+This section defines the GLUE Authority Identifiers listed in {{glue-def}}.
 
 | Organization     | Authority Identifier | External Authority Specification |
 |:-----------------|:-------|:------------------------------------------|
@@ -228,8 +228,9 @@ This section defines the following GLUE Authority Identifiers.
 | Dun & Bradstreet |  duns  | https://www.dnb.com/duns.html             |
 | Private Enterprise Numbers | pen | https://www.iana.org/assignments/enterprise-numbers |
 | ISO/IEC 6523 | iso6523 | https://www.iso.org/standard/82246.html |
+{: #glue-def title='Defined GLUE Authority Identifiers'}
 
-They are registered in the GLUE Authority Identifier URN Registry in {{GLUE-URN}}.
+These are registered in the GLUE Authority Identifier URN Registry in {{GLUE-URN}}.
 
 ## Equivalence to Similar URIs
 
@@ -243,7 +244,8 @@ authority or documented in the relevant registry entry.
 
 ### LEI URNs
 
-[LEI-IANA] registers a URN namespace for LEIs. This means that LEIs can be
+[LEI-IANA] registers a URN namespace for Legal Entity Identifiers (LEIs).
+This means that LEIs can be
 represented as URNs in at least two ways. Therefore there is an equivalence
 between a GLUE URI with an "lei" Authority Identifier and an LEI URN, provided
 the 20-digit LEI Code of the LEI URN is identifical to the External Identifier
@@ -280,7 +282,7 @@ privacy policies.
 
 This section establishes a registry and populates it with its initial contents.
 
-Values are registered on a Specification Required [RFC8126]
+Values are registered on a Specification Required ({{Section 4.6 of RFC8126}})
 basis after a two-week review period on the spice-ext-review@ietf.org
 mailing list, on the advice of one or more Designated Experts.
 However, to allow for the allocation of values prior to publication
@@ -372,7 +374,7 @@ Organization:
 Change Controller:
 : For IETF stream RFCs, use "IETF".
 For others, give the name of the responsible party.
-Other details (e.g., postal address, e-mail address, home page URI) may also be included.
+Other details (e.g., postal address, e-mail address, or home page URI) may also be included.
 
 Specification Document(s):
 : Reference to the document or documents that specify the Authority Identifier to be registered,
@@ -433,12 +435,14 @@ Patrik Fältström,
 Arnt Gulbrandsen,
 Sue Hares,
 John Klensin,
+Erik Kline,
 Martin Lindström,
 Rohan Mahy,
 James Manger,
 Orie Steele,
 Alexander (A.J.) Stein,
 Martin Thomson,
+Éric Vyncke,
 and Peter Yee
 contributed to this specification.
 
@@ -447,11 +451,19 @@ contributed to this specification.
 
 -06
 
+<<<<<<< mbj-mohamed
 * Addressed Mohamed Boucadair's review comments, specifically:
   - Used neutral language "organization" that doesn't assume that all organizations are businesses.
   - Reworded confusing text about uniqueness.
   - Made the RFC 5234 reference normative.
 
+=======
+* Addressed Erik Kline's review comments, specifically:
+  - Expanded LEI on first use to Legal Entity Identifier (LEI).
+  - Included instructions to the designated experts about ensuring that
+    the registration references an existing organizational registry
+    operated by an External Authority identified by the proposed Authority Identifier.
+>>>>>>> main
 -05
 
 * Added ISO/IEC 6523 identifiers.

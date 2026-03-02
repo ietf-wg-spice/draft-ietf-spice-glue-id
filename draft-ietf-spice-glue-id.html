@@ -1288,19 +1288,19 @@ appear in all capitals, as shown here.<a href="#section-1.1-1" class="pilcrow">�
             <p id="section-1.2-2.2.1">a URI that uses the GLUE URN namespace established in this specification.<a href="#section-1.2-2.2.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-1.2-2.3">External Authority:</dt>
+<dt id="section-1.2-2.3">Authority Identifier:</dt>
           <dd style="margin-left: 1.5em" id="section-1.2-2.4">
-            <p id="section-1.2-2.4.1">an organization that allocates External Identifiers for GLUE URIs using the Authority Identifier(s) over which they have jurisdiction.<a href="#section-1.2-2.4.1" class="pilcrow">¶</a></p>
+            <p id="section-1.2-2.4.1">identifier for the External Authority responsible for assigning the External Identifiers used in GLUE URIs over which it has jurisdiction.<a href="#section-1.2-2.4.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-1.2-2.5">Authority Identifier:</dt>
+<dt id="section-1.2-2.5">External Identifier:</dt>
           <dd style="margin-left: 1.5em" id="section-1.2-2.6">
-            <p id="section-1.2-2.6.1">identifier for the External Authority responsible for assigning the External Identifier used in GLUE URIs.<a href="#section-1.2-2.6.1" class="pilcrow">¶</a></p>
+            <p id="section-1.2-2.6.1">identifier assigned by an External Authority to identify a particular organization within GLUE URIs with Authority Identifier(s) over which it has jurisdiction.<a href="#section-1.2-2.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-1.2-2.7">External Identifier:</dt>
+<dt id="section-1.2-2.7">External Authority:</dt>
           <dd style="margin-left: 1.5em" id="section-1.2-2.8">
-            <p id="section-1.2-2.8.1">identifier assigned by an External Authority to identify a particular organization within GLUE URNs over which it has jurisdiction.<a href="#section-1.2-2.8.1" class="pilcrow">¶</a></p>
+            <p id="section-1.2-2.8.1">an organization that allocates External Identifiers over which it has jurisdiction that are used in GLUE URIs with its Authority Identifier(s).<a href="#section-1.2-2.8.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 </dl>
@@ -1492,9 +1492,14 @@ of the GLUE URI. For example, "urn:lei:INR2EJN1ERAN0W5ZP974" is equivalent to
       <h2 id="name-security-considerations">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-5-1">There are no additional security considerations beyond those already inherent to
-using URNs.
+<p id="section-5-1">The security considerations inherent to using URNs apply.
 Security considerations for URNs can be found in <span>[<a href="#RFC2141" class="cite xref">RFC2141</a>]</span>.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-2">The global uniqueness of GLUE URIs prevents situations in which
+the same identifier is allocated in different local namespaces
+and cannot be disambiguated when used.
+For instance both Canadian and Singaporean organization registries might use
+the local identifier "42", but with these referring to different organizations.
+Embedding these local identifiers in GLUE URIs enables disambiguation.<a href="#section-5-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="privacy-considerations">
@@ -1557,7 +1562,8 @@ the registration requesters should contact IANA to escalate the process.<a href=
 determining whether the proposed registration duplicates existing functionality,
 determining whether it is likely to be of general applicability
 or whether it is useful only for a single application,
-and whether the registration makes sense.<a href="#section-7-6" class="pilcrow">¶</a></p>
+and whether the registration references an existing organizational registry
+operated by an External Authority identified by the proposed Authority Identifier.<a href="#section-7-6" class="pilcrow">¶</a></p>
 <p id="section-7-7">IANA must only accept registry updates from the Designated Experts and should direct
 all requests for registration to the review mailing list.<a href="#section-7-7" class="pilcrow">¶</a></p>
 <p id="section-7-8">It is suggested that multiple Designated Experts be appointed who are able to
@@ -1858,6 +1864,7 @@ An indication of the relevant sections may also be included, but is not required
 <p id="appendix-A-1">Carsten Bormann,
 Mohamed Boucadair,
 Tim Bray,
+Deb Cooley,
 Patrik Fältström,
 Arnt Gulbrandsen,
 Sue Hares,
@@ -1880,19 +1887,52 @@ contributed to this specification.<a href="#appendix-A-1" class="pilcrow">¶</a>
 <a href="#name-document-history" class="section-name selfRef">Document History</a>
       </h2>
 <p id="appendix-B-1">-06<a href="#appendix-B-1" class="pilcrow">¶</a></p>
-<p id="appendix-B-2">&lt;&lt;&lt;&lt;&lt;&lt;&lt; mbj-mohamed
-* Addressed Mohamed Boucadair's review comments, specifically:
-  - Used neutral language "organization" that doesn't assume that all organizations are businesses.
-  - Reworded confusing text about uniqueness.
-  - Made the RFC 5234 reference normative.<a href="#appendix-B-2" class="pilcrow">¶</a></p>
-<p id="appendix-B-3">=======
-* Addressed Erik Kline's review comments, specifically:
-  - Expanded LEI on first use to Legal Entity Identifier (LEI).
-  - Included instructions to the designated experts about ensuring that
-    the registration references an existing organizational registry
-    operated by an External Authority identified by the proposed Authority Identifier.
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; main
--05<a href="#appendix-B-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-B-2.1">
+          <p id="appendix-B-2.1.1">Addressed Deb Cooley's review comments, specifically:<a href="#appendix-B-2.1.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-B-2.1.2.1">
+              <p id="appendix-B-2.1.2.1.1">Reworked term definitions.<a href="#appendix-B-2.1.2.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="appendix-B-2.1.2.2">
+              <p id="appendix-B-2.1.2.2.1">Added security consideration about uniqueness of GLUE URIs.<a href="#appendix-B-2.1.2.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="appendix-B-2.1.2.3">
+              <p id="appendix-B-2.1.2.3.1">Updated registration instructions to include a criterion about
+an existing organizational registry operated by an External Authority
+identified by the proposed Authority Identifier.<a href="#appendix-B-2.1.2.3.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+</li>
+        <li class="normal" id="appendix-B-2.2">
+          <p id="appendix-B-2.2.1">Addressed Mohamed Boucadair's review comments, specifically:<a href="#appendix-B-2.2.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-B-2.2.2.1">
+              <p id="appendix-B-2.2.2.1.1">Used neutral language "organization" that doesn't assume that all organizations are businesses.<a href="#appendix-B-2.2.2.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="appendix-B-2.2.2.2">
+              <p id="appendix-B-2.2.2.2.1">Reworded confusing text about uniqueness.<a href="#appendix-B-2.2.2.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="appendix-B-2.2.2.3">
+              <p id="appendix-B-2.2.2.3.1">Made the RFC 5234 reference normative.<a href="#appendix-B-2.2.2.3.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+</li>
+        <li class="normal" id="appendix-B-2.3">
+          <p id="appendix-B-2.3.1">Addressed Erik Kline's review comments, specifically:<a href="#appendix-B-2.3.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-B-2.3.2.1">
+              <p id="appendix-B-2.3.2.1.1">Expanded LEI on first use to Legal Entity Identifier (LEI).<a href="#appendix-B-2.3.2.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="appendix-B-2.3.2.2">
+              <p id="appendix-B-2.3.2.2.1">Included instructions to the designated experts about ensuring that
+the registration references an existing organizational registry
+operated by an External Authority identified by the proposed Authority Identifier.<a href="#appendix-B-2.3.2.2.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+</li>
+      </ul>
+<p id="appendix-B-3">-05<a href="#appendix-B-3" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-B-4.1">
           <p id="appendix-B-4.1.1">Added ISO/IEC 6523 identifiers.<a href="#appendix-B-4.1.1" class="pilcrow">¶</a></p>

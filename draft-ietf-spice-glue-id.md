@@ -444,7 +444,7 @@ IANA "Formal URN Namespaces" registry {{IANA.URN}} established by {{RFC8141}}.
 * Date: 2026-03-02
 * Registrant: IETF
 * Purpose: GLobal Unique Enterprise (GLUE) identifier namespace,
-  established by [[ this specification ]]
+  established by \[\[ this specification ]]
 * Syntax: "urn:glue:" authority-identifier ":" external-identifier, where
   authority-identifier = (ALPHA/DIGIT) *49( ALPHA / DIGIT / "+" / "-" / "." ) and
   external-identifier = ( ALPHA / DIGIT / "-" ) *999( ALPHA / DIGIT / "+" / "-" / "." )

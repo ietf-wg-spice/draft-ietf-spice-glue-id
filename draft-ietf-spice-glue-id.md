@@ -72,7 +72,11 @@ normative:
 informative:
   RFC2141:
   RFC8126:
+  RFC8141:
   RFC9371:
+  IANA.URN:
+    title: Formal URN Namespaces
+    targt: https://www.iana.org/assignments/urn-namespaces/
 
 ---
 
@@ -286,7 +290,22 @@ privacy policies.
 
 # IANA Considerations
 
-This section establishes a registry and populates it with its initial contents.
+## GLUE Authority Identifier URN Registry {#GLUE-URN}
+
+This specification establishes the
+IANA "GLUE Authority Identifier URN" registry
+creating a URN namespace for Authority Identifiers for
+GLobal Unique Enterprise (GLUE) Identifiers.
+
+Each entry registers the URN for an Authority Identifier within the
+"urn:glue:" namespace.
+The organization responsible for the Authority Identifier is recorded.
+
+IANA is requested to create the
+"GLobal Unique Enterprise (GLUE) Identifiers"
+registry group located at
+https://www.iana.org/assignments/glue-identifiers/
+and place this registry there.
 
 Values are registered on a Specification Required ({{Section 4.6 of RFC8126}})
 basis after a two-week review period on the spice-ext-review@ietf.org
@@ -343,23 +362,6 @@ before the specification is completely done,
 so that if problems are identified, the authors can iterate and fix them
 before publication of the final specification.
 
-## GLUE Authority Identifier URN Registry {#GLUE-URN}
-
-This specification establishes the
-IANA "GLUE Authority Identifier URN" registry
-creating a URN namespace for Authority Identifiers for
-GLobal Unique Enterprise (GLUE) Identifiers.
-
-Each entry registers the URN for an Authority Identifier within the
-"urn:glue:" namespace.
-The organization responsible for the Authority Identifier is recorded.
-
-IANA is requested to create the
-"GLobal Unique Enterprise (GLUE) Identifiers"
-registry group located at
-https://www.iana.org/assignments/glue-identifiers/
-and place this registry there.
-
 ### Registration Template
 
 Authority Identifier:
@@ -392,49 +394,156 @@ An indication of the relevant sections may also be included, but is not required
 
 #### gln
 
-* Authority Identifier: gln
-* URN: urn:glue:gln
-* Organization: GS1
-* Change Controller: IETF
-* Specification Document(s): {{authority-identifiers}} of this specification, [GLN]
+{:compact}
+Authority Identifier:
+: gln
+
+URN:
+: urn:glue:gln
+
+Organization:
+: GS1
+
+Change Controller:
+: IETF
+
+Specification Document(s):
+: {{authority-identifiers}} of this specification, [GLN]
+
 
 #### lei
 
-* Authority Identifier: lei
-* URN: urn:glue:lei
-* Organization: GLEIF
-* Change Controller: IETF
-* Specification Document(s): {{authority-identifiers}} of this specification, [LEI], [LEI-IANA]
+{:compact}
+Authority Identifier:
+: lei
+
+URN:
+: urn:glue:lei
+
+Organization:
+: GLEIF
+
+Change Controller:
+: IETF
+
+Specification Document(s):
+: {{authority-identifiers}} of this specification, [LEI], [LEI-IANA]
+
 
 #### duns
 
-* Authority Identifier: duns
-* URN: urn:glue:duns
-* Organization: Dun & Bradstreet
-* Change Controller: IETF
-* Specification Document(s): {{authority-identifiers}} of this specification, [DUNS]
+{:compact}
+Authority Identifier:
+: duns
+
+URN:
+: urn:glue:duns
+
+Organization:
+: Dun & Bradstreet
+
+Change Controller:
+: IETF
+
+Specification Document(s):
+: {{authority-identifiers}} of this specification, [DUNS]
+
 
 #### pen
 
-* Authority Identifier: pen
-* URN: urn:glue:pen
-* Organization: Private Enterprise Numbers
-* Change Controller: IETF
-* Specification Document(s): {{authority-identifiers}} of this specification, [PEN], [RFC9371]
+{:compact}
+Authority Identifier:
+: pen
+
+URN:
+: urn:glue:pen
+
+Organization:
+: Private Enterprise Numbers
+
+Change Controller:
+: IETF
+
+Specification Document(s):
+: {{authority-identifiers}} of this specification, [PEN], [RFC9371]
+
 
 #### iso6523
 
-* Authority Identifier: iso6523
-* URN: urn:glue:iso6523
-* Organization: ISO/IEC 6523
-* Change Controller: IETF
-* Specification Document(s): {{authority-identifiers}} of this specification, [ISO6523]
+{:compact}
+Authority Identifier:
+: iso6523
+
+URN:
+: urn:glue:iso6523
+
+Organization:
+: ISO/IEC 6523
+
+Change Controller:
+: IETF
+
+Specification Document(s):
+: {{authority-identifiers}} of this specification, [ISO6523]
+
+
+## URN Namespace Registration
+
+This specification registers the following URN in the
+IANA "Formal URN Namespaces" registry {{IANA.URN}} established by {{RFC8141}}.
+
+### urn:glue
+
+{:compact}
+Namespace Identifier:
+: glue
+
+Version:
+: 1
+
+Date:
+: 2026-03-02
+
+Registrant:
+: IETF
+
+Purpose:
+: GLobal Unique Enterprise (GLUE) identifier namespace,
+  established by \[\[ this specification ]]
+
+Syntax:
+: As specified in the glue-uri ABNF entry in {{glue-uris}} of \[\[ this specification ]]
+
+Assignment:
+: Specification Required ({{Section 4.6 of RFC8126}}) basis
+
+Security and Privacy:
+: GLUE URNs are public identifiers for public entities.
+
+Interoperability:
+: GLUE URNs encapsulate other existing identifier namespaces.
+  Therefore, they provide a globally unique equivalent to identifiers within
+  those local namespaces.
+  Some of those namespaces may also utilize URNs.
+
+Resolution:
+: Resolution of GLUE URNs, which are identifiers, is not performed.
+
+Documentation:
+: \[\[ this specification ]]
+
+Additional Information:
+: N/A
+
+Revision Information:
+: N/A
 
 --- back
 
 # Acknowledgments
 {:numbered="false"}
 
+Amanda Baber,
 Carsten Bormann,
 Mohamed Boucadair,
 Tim Bray,
@@ -456,6 +565,10 @@ contributed to this specification.
 
 # Document History
 {: numbered="false"}
+
+-07
+
+* Registered urn:glue per Amanda Baber's instructions.
 
 -06
 

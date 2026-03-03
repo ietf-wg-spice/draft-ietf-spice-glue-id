@@ -439,25 +439,49 @@ IANA "Formal URN Namespaces" registry {{IANA.URN}} established by {{RFC8141}}.
 
 ### urn:glue
 
-* Namespace Identifier: glue
-* Version: 1
-* Date: 2026-03-02
-* Registrant: IETF
-* Purpose: GLobal Unique Enterprise (GLUE) identifier namespace,
+{:compact}
+Namespace Identifier:
+: glue
+
+Version:
+: 1
+
+Date:
+: 2026-03-02
+
+Registrant:
+: IETF
+
+Purpose:
+: GLobal Unique Enterprise (GLUE) identifier namespace,
   established by \[\[ this specification ]]
-* Syntax: "urn:glue:" authority-identifier ":" external-identifier, where
-  authority-identifier = (ALPHA/DIGIT) *49( ALPHA / DIGIT / "+" / "-" / "." ) and
-  external-identifier = ( ALPHA / DIGIT / "-" ) *999( ALPHA / DIGIT / "+" / "-" / "." )
-* Assignment: Specification Required ({{Section 4.6 of RFC8126}}) basis
-* Security and Privacy: GLUE URNs are public identifiers for public entities
-* Interoperability: GLUE URNs encapsulate other existing identifier namespaces.
+
+Syntax:
+: As specified in the glue-uri ABNF entry in {{glue-uris}} of \[\[ this specification ]]
+
+Assignment:
+: Specification Required ({{Section 4.6 of RFC8126}}) basis
+
+Security and Privacy:
+: GLUE URNs are public identifiers for public entities.
+
+Interoperability:
+: GLUE URNs encapsulate other existing identifier namespaces.
   Therefore, they provide a globally unique equivalent to identifiers within
   those local namespaces.
   Some of those namespaces may also utilize URNs.
-* Resolution: Resolution of GLUE URNs, which are identifiers, is not performed.
-* Documentation: [[ this specification ]]
-* Additional Information: N/A
-* Revision Information: N/A
+
+Resolution:
+: Resolution of GLUE URNs, which are identifiers, is not performed.
+
+Documentation:
+: \[\[ this specification ]]
+
+Additional Information:
+: N/A
+
+Revision Information:
+: N/A
 
 --- back
 

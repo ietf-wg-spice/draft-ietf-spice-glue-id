@@ -5,10 +5,10 @@
 Secure Patterns for Internet CrEdentials                    B. W. Zundel
 Internet-Draft                                                          
 Intended status: Standards Track                               P. Dingle
-Expires: 3 September 2026                          Microsoft Corporation
+Expires: 4 September 2026                          Microsoft Corporation
                                                              M. B. Jones
                                                   Self-Issued Consulting
-                                                            2 March 2026
+                                                            3 March 2026
 
 
               GLobal Unique Enterprise (GLUE) Identifiers
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 September 2026.
+   This Internet-Draft will expire on 4 September 2026.
 
 Copyright Notice
 
@@ -89,6 +89,8 @@ Table of Contents
      7.1.  GLUE Authority Identifier URN Registry
        7.1.1.  Registration Template
        7.1.2.  Initial Registry Contents
+     7.2.  URN Namespace Registration
+       7.2.1.  urn:glue
    8.  References
      8.1.  Normative References
      8.2.  Informative References
@@ -324,8 +326,20 @@ Table of Contents
 
 7.  IANA Considerations
 
-   This section establishes a registry and populates it with its initial
-   contents.
+7.1.  GLUE Authority Identifier URN Registry
+
+   This specification establishes the IANA "GLUE Authority Identifier
+   URN" registry creating a URN namespace for Authority Identifiers for
+   GLobal Unique Enterprise (GLUE) Identifiers.
+
+   Each entry registers the URN for an Authority Identifier within the
+   "urn:glue:" namespace.  The organization responsible for the
+   Authority Identifier is recorded.
+
+   IANA is requested to create the "GLobal Unique Enterprise (GLUE)
+   Identifiers" registry group located at
+   https://www.iana.org/assignments/glue-identifiers/ and place this
+   registry there.
 
    Values are registered on a Specification Required (Section 4.6 of
    [RFC8126]) basis after a two-week review period on the spice-ext-
@@ -385,21 +399,6 @@ Table of Contents
    so that if problems are identified, the authors can iterate and fix
    them before publication of the final specification.
 
-7.1.  GLUE Authority Identifier URN Registry
-
-   This specification establishes the IANA "GLUE Authority Identifier
-   URN" registry creating a URN namespace for Authority Identifiers for
-   GLobal Unique Enterprise (GLUE) Identifiers.
-
-   Each entry registers the URN for an Authority Identifier within the
-   "urn:glue:" namespace.  The organization responsible for the
-   Authority Identifier is recorded.
-
-   IANA is requested to create the "GLobal Unique Enterprise (GLUE)
-   Identifiers" registry group located at
-   https://www.iana.org/assignments/glue-identifiers/ and place this
-   registry there.
-
 7.1.1.  Registration Template
 
    Authority Identifier:  identifier for the External Authority
@@ -431,66 +430,74 @@ Table of Contents
 
 7.1.2.1.  gln
 
-   *  Authority Identifier: gln
-
-   *  URN: urn:glue:gln
-
-   *  Organization: GS1
-
-   *  Change Controller: IETF
-
-   *  Specification Document(s): Section 4 of this specification, [GLN]
+   Authority Identifier:  gln
+   URN:  urn:glue:gln
+   Organization:  GS1
+   Change Controller:  IETF
+   Specification Document(s):  Section 4 of this specification, [GLN]
 
 7.1.2.2.  lei
 
-   *  Authority Identifier: lei
-
-   *  URN: urn:glue:lei
-
-   *  Organization: GLEIF
-
-   *  Change Controller: IETF
-
-   *  Specification Document(s): Section 4 of this specification, [LEI],
+   Authority Identifier:  lei
+   URN:  urn:glue:lei
+   Organization:  GLEIF
+   Change Controller:  IETF
+   Specification Document(s):  Section 4 of this specification, [LEI],
       [LEI-IANA]
 
 7.1.2.3.  duns
 
-   *  Authority Identifier: duns
-
-   *  URN: urn:glue:duns
-
-   *  Organization: Dun & Bradstreet
-
-   *  Change Controller: IETF
-
-   *  Specification Document(s): Section 4 of this specification, [DUNS]
+   Authority Identifier:  duns
+   URN:  urn:glue:duns
+   Organization:  Dun & Bradstreet
+   Change Controller:  IETF
+   Specification Document(s):  Section 4 of this specification, [DUNS]
 
 7.1.2.4.  pen
 
-   *  Authority Identifier: pen
-
-   *  URN: urn:glue:pen
-
-   *  Organization: Private Enterprise Numbers
-
-   *  Change Controller: IETF
-
-   *  Specification Document(s): Section 4 of this specification, [PEN],
+   Authority Identifier:  pen
+   URN:  urn:glue:pen
+   Organization:  Private Enterprise Numbers
+   Change Controller:  IETF
+   Specification Document(s):  Section 4 of this specification, [PEN],
       [RFC9371]
 
 7.1.2.5.  iso6523
 
-   *  Authority Identifier: iso6523
-
-   *  URN: urn:glue:iso6523
-
-   *  Organization: ISO/IEC 6523
-
-   *  Change Controller: IETF
-
-   *  Specification Document(s): Section 4 of this specification,
+   Authority Identifier:  iso6523
+   URN:  urn:glue:iso6523
+   Organization:  ISO/IEC 6523
+   Change Controller:  IETF
+   Specification Document(s):  Section 4 of this specification,
       [ISO6523]
+
+7.2.  URN Namespace Registration
+
+   This specification registers the following URN in the IANA "Formal
+   URN Namespaces" registry [IANA.URN] established by [RFC8141].
+
+7.2.1.  urn:glue
+
+   Namespace Identifier:  glue
+   Version:  1
+   Date:  2026-03-02
+   Registrant:  IETF
+   Purpose:  GLobal Unique Enterprise (GLUE) identifier namespace,
+      established by [[ this specification ]]
+   Syntax:  As specified in the glue-uri ABNF entry in Section 3 of [[
+      this specification ]]
+   Assignment:  Specification Required (Section 4.6 of [RFC8126]) basis
+   Security and Privacy:  GLUE URNs are public identifiers for public
+      entities.
+   Interoperability:  GLUE URNs encapsulate other existing identifier
+      namespaces.  Therefore, they provide a globally unique equivalent
+      to identifiers within those local namespaces.  Some of those
+      namespaces may also utilize URNs.
+   Resolution:  Resolution of GLUE URNs, which are identifiers, is not
+      performed.
+   Documentation:  [[ this specification ]]
+   Additional Information:  N/A
+   Revision Information:  N/A
 
 8.  References
 
@@ -537,6 +544,8 @@ Table of Contents
 
 8.2.  Informative References
 
+   [IANA.URN] "Formal URN Namespaces", n.d..
+
    [RFC2141]  Moats, R., "URN Syntax", RFC 2141, DOI 10.17487/RFC2141,
               May 1997, <https://www.rfc-editor.org/rfc/rfc2141>.
 
@@ -549,6 +558,10 @@ Table of Contents
               RFC 8126, DOI 10.17487/RFC8126, June 2017,
               <https://www.rfc-editor.org/rfc/rfc8126>.
 
+   [RFC8141]  Saint-Andre, P. and J. Klensin, "Uniform Resource Names
+              (URNs)", RFC 8141, DOI 10.17487/RFC8141, April 2017,
+              <https://www.rfc-editor.org/rfc/rfc8141>.
+
    [RFC9371]  Baber, A. and P. Hoffman, "Registration Procedures for
               Private Enterprise Numbers (PENs)", RFC 9371,
               DOI 10.17487/RFC9371, March 2023,
@@ -556,13 +569,17 @@ Table of Contents
 
 Acknowledgments
 
-   Carsten Bormann, Mohamed Boucadair, Tim Bray, Deb Cooley, Patrik
-   Fältström, Arnt Gulbrandsen, Sue Hares, John Klensin, Erik Kline,
-   Martin Lindström, Rohan Mahy, James Manger, Orie Steele, Alexander
-   (A.J.)  Stein, Martin Thomson, Éric Vyncke, and Peter Yee contributed
-   to this specification.
+   Amanda Baber, Carsten Bormann, Mohamed Boucadair, Tim Bray, Deb
+   Cooley, Patrik Fältström, Arnt Gulbrandsen, Sue Hares, John Klensin,
+   Erik Kline, Martin Lindström, Rohan Mahy, James Manger, Orie Steele,
+   Alexander (A.J.)  Stein, Martin Thomson, Éric Vyncke, and Peter Yee
+   contributed to this specification.
 
 Document History
+
+   -07
+
+   *  Registered urn:glue per Amanda Baber's instructions.
 
    -06
 

@@ -430,65 +430,45 @@ Table of Contents
 
 7.1.2.1.  gln
 
-   *  Authority Identifier: gln
-
-   *  URN: urn:glue:gln
-
-   *  Organization: GS1
-
-   *  Change Controller: IETF
-
-   *  Specification Document(s): Section 4 of this specification, [GLN]
+   Authority Identifier:  gln
+   URN:  urn:glue:gln
+   Organization:  GS1
+   Change Controller:  IETF
+   Specification Document(s):  Section 4 of this specification, [GLN]
 
 7.1.2.2.  lei
 
-   *  Authority Identifier: lei
-
-   *  URN: urn:glue:lei
-
-   *  Organization: GLEIF
-
-   *  Change Controller: IETF
-
-   *  Specification Document(s): Section 4 of this specification, [LEI],
+   Authority Identifier:  lei
+   URN:  urn:glue:lei
+   Organization:  GLEIF
+   Change Controller:  IETF
+   Specification Document(s):  Section 4 of this specification, [LEI],
       [LEI-IANA]
 
 7.1.2.3.  duns
 
-   *  Authority Identifier: duns
-
-   *  URN: urn:glue:duns
-
-   *  Organization: Dun & Bradstreet
-
-   *  Change Controller: IETF
-
-   *  Specification Document(s): Section 4 of this specification, [DUNS]
+   Authority Identifier:  duns
+   URN:  urn:glue:duns
+   Organization:  Dun & Bradstreet
+   Change Controller:  IETF
+   Specification Document(s):  Section 4 of this specification, [DUNS]
 
 7.1.2.4.  pen
 
-   *  Authority Identifier: pen
-
-   *  URN: urn:glue:pen
-
-   *  Organization: Private Enterprise Numbers
-
-   *  Change Controller: IETF
-
-   *  Specification Document(s): Section 4 of this specification, [PEN],
+   Authority Identifier:  pen
+   URN:  urn:glue:pen
+   Organization:  Private Enterprise Numbers
+   Change Controller:  IETF
+   Specification Document(s):  Section 4 of this specification, [PEN],
       [RFC9371]
 
 7.1.2.5.  iso6523
 
-   *  Authority Identifier: iso6523
-
-   *  URN: urn:glue:iso6523
-
-   *  Organization: ISO/IEC 6523
-
-   *  Change Controller: IETF
-
-   *  Specification Document(s): Section 4 of this specification,
+   Authority Identifier:  iso6523
+   URN:  urn:glue:iso6523
+   Organization:  ISO/IEC 6523
+   Change Controller:  IETF
+   Specification Document(s):  Section 4 of this specification,
       [ISO6523]
 
 7.2.  URN Namespace Registration

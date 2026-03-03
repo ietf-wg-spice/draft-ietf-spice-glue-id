@@ -394,43 +394,98 @@ An indication of the relevant sections may also be included, but is not required
 
 #### gln
 
-* Authority Identifier: gln
-* URN: urn:glue:gln
-* Organization: GS1
-* Change Controller: IETF
-* Specification Document(s): {{authority-identifiers}} of this specification, [GLN]
+{:compact}
+Authority Identifier:
+: gln
+
+URN:
+: urn:glue:gln
+
+Organization:
+: GS1
+
+Change Controller:
+: IETF
+
+Specification Document(s):
+: {{authority-identifiers}} of this specification, [GLN]
+
 
 #### lei
 
-* Authority Identifier: lei
-* URN: urn:glue:lei
-* Organization: GLEIF
-* Change Controller: IETF
-* Specification Document(s): {{authority-identifiers}} of this specification, [LEI], [LEI-IANA]
+{:compact}
+Authority Identifier:
+: lei
+
+URN:
+: urn:glue:lei
+
+Organization:
+: GLEIF
+
+Change Controller:
+: IETF
+
+Specification Document(s):
+: {{authority-identifiers}} of this specification, [LEI], [LEI-IANA]
+
 
 #### duns
 
-* Authority Identifier: duns
-* URN: urn:glue:duns
-* Organization: Dun & Bradstreet
-* Change Controller: IETF
-* Specification Document(s): {{authority-identifiers}} of this specification, [DUNS]
+{:compact}
+Authority Identifier:
+: duns
+
+URN:
+: urn:glue:duns
+
+Organization:
+: Dun & Bradstreet
+
+Change Controller:
+: IETF
+
+Specification Document(s):
+: {{authority-identifiers}} of this specification, [DUNS]
+
 
 #### pen
 
-* Authority Identifier: pen
-* URN: urn:glue:pen
-* Organization: Private Enterprise Numbers
-* Change Controller: IETF
-* Specification Document(s): {{authority-identifiers}} of this specification, [PEN], [RFC9371]
+{:compact}
+Authority Identifier:
+: pen
+
+URN:
+: urn:glue:pen
+
+Organization:
+: Private Enterprise Numbers
+
+Change Controller:
+: IETF
+
+Specification Document(s):
+: {{authority-identifiers}} of this specification, [PEN], [RFC9371]
+
 
 #### iso6523
 
-* Authority Identifier: iso6523
-* URN: urn:glue:iso6523
-* Organization: ISO/IEC 6523
-* Change Controller: IETF
-* Specification Document(s): {{authority-identifiers}} of this specification, [ISO6523]
+{:compact}
+Authority Identifier:
+: iso6523
+
+URN:
+: urn:glue:iso6523
+
+Organization:
+: ISO/IEC 6523
+
+Change Controller:
+: IETF
+
+Specification Document(s):
+: {{authority-identifiers}} of this specification, [ISO6523]
+
 
 ## URN Namespace Registration
 

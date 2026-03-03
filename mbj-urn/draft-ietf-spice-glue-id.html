@@ -1792,53 +1792,77 @@ IANA "Formal URN Namespaces" registry <span>[<a href="#IANA.URN" class="cite xre
           <h4 id="name-urnglue">
 <a href="#section-7.2.1" class="section-number selfRef">7.2.1. </a><a href="#name-urnglue" class="section-name selfRef">urn:glue</a>
           </h4>
-<ul class="normal">
-<li class="normal" id="section-7.2.1-1.1">
-              <p id="section-7.2.1-1.1.1">Namespace Identifier: glue<a href="#section-7.2.1-1.1.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-7.2.1-1.2">
-              <p id="section-7.2.1-1.2.1">Version: 1<a href="#section-7.2.1-1.2.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-7.2.1-1.3">
-              <p id="section-7.2.1-1.3.1">Date: 2026-03-02<a href="#section-7.2.1-1.3.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-7.2.1-1.4">
-              <p id="section-7.2.1-1.4.1">Registrant: IETF<a href="#section-7.2.1-1.4.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-7.2.1-1.5">
-              <p id="section-7.2.1-1.5.1">Purpose: GLobal Unique Enterprise (GLUE) identifier namespace,
-established by [[ this specification ]]<a href="#section-7.2.1-1.5.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-7.2.1-1.6">
-              <p id="section-7.2.1-1.6.1">Syntax: "urn:glue:" authority-identifier ":" external-identifier, where
-authority-identifier = (ALPHA/DIGIT) *49( ALPHA / DIGIT / "+" / "-" / "." ) and
-external-identifier = ( ALPHA / DIGIT / "-" ) *999( ALPHA / DIGIT / "+" / "-" / "." )<a href="#section-7.2.1-1.6.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-7.2.1-1.7">
-              <p id="section-7.2.1-1.7.1">Assignment: Specification Required (<span><a href="https://rfc-editor.org/rfc/rfc8126#section-4.6" class="relref">Section 4.6</a> of [<a href="#RFC8126" class="cite xref">RFC8126</a>]</span>) basis<a href="#section-7.2.1-1.7.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-7.2.1-1.8">
-              <p id="section-7.2.1-1.8.1">Security and Privacy: GLUE URNs are public identifiers for public entities<a href="#section-7.2.1-1.8.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-7.2.1-1.9">
-              <p id="section-7.2.1-1.9.1">Interoperability: GLUE URNs encapsulate other existing identifier namespaces.
+<span class="break"></span><dl class="dlCompact dlParallel" id="section-7.2.1-1">
+            <dt id="section-7.2.1-1.1">Namespace Identifier:</dt>
+            <dd style="margin-left: 1.5em" id="section-7.2.1-1.2">
+              <p id="section-7.2.1-1.2.1">glue<a href="#section-7.2.1-1.2.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+<dt id="section-7.2.1-1.3">Version:</dt>
+            <dd style="margin-left: 1.5em" id="section-7.2.1-1.4">
+              <p id="section-7.2.1-1.4.1">1<a href="#section-7.2.1-1.4.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+<dt id="section-7.2.1-1.5">Date:</dt>
+            <dd style="margin-left: 1.5em" id="section-7.2.1-1.6">
+              <p id="section-7.2.1-1.6.1">2026-03-02<a href="#section-7.2.1-1.6.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+<dt id="section-7.2.1-1.7">Registrant:</dt>
+            <dd style="margin-left: 1.5em" id="section-7.2.1-1.8">
+              <p id="section-7.2.1-1.8.1">IETF<a href="#section-7.2.1-1.8.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+<dt id="section-7.2.1-1.9">Purpose:</dt>
+            <dd style="margin-left: 1.5em" id="section-7.2.1-1.10">
+              <p id="section-7.2.1-1.10.1">GLobal Unique Enterprise (GLUE) identifier namespace,
+established by [[ this specification ]]<a href="#section-7.2.1-1.10.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+<dt id="section-7.2.1-1.11">Syntax:</dt>
+            <dd style="margin-left: 1.5em" id="section-7.2.1-1.12">
+              <p id="section-7.2.1-1.12.1">As specified in the glue-uri ABNF entry in <a href="#glue-uris" class="auto internal xref">Section 3</a> of [[ this specification ]]<a href="#section-7.2.1-1.12.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+<dt id="section-7.2.1-1.13">Assignment:</dt>
+            <dd style="margin-left: 1.5em" id="section-7.2.1-1.14">
+              <p id="section-7.2.1-1.14.1">Specification Required (<span><a href="https://rfc-editor.org/rfc/rfc8126#section-4.6" class="relref">Section 4.6</a> of [<a href="#RFC8126" class="cite xref">RFC8126</a>]</span>) basis<a href="#section-7.2.1-1.14.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+<dt id="section-7.2.1-1.15">Security and Privacy:</dt>
+            <dd style="margin-left: 1.5em" id="section-7.2.1-1.16">
+              <p id="section-7.2.1-1.16.1">GLUE URNs are public identifiers for public entities.<a href="#section-7.2.1-1.16.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+<dt id="section-7.2.1-1.17">Interoperability:</dt>
+            <dd style="margin-left: 1.5em" id="section-7.2.1-1.18">
+              <p id="section-7.2.1-1.18.1">GLUE URNs encapsulate other existing identifier namespaces.
 Therefore, they provide a globally unique equivalent to identifiers within
 those local namespaces.
-Some of those namespaces may also utilize URNs.<a href="#section-7.2.1-1.9.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-7.2.1-1.10">
-              <p id="section-7.2.1-1.10.1">Resolution: Resolution of GLUE URNs, which are identifiers, is not performed.<a href="#section-7.2.1-1.10.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-7.2.1-1.11">
-              <p id="section-7.2.1-1.11.1">Documentation: [[ this specification ]]<a href="#section-7.2.1-1.11.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-7.2.1-1.12">
-              <p id="section-7.2.1-1.12.1">Additional Information: N/A<a href="#section-7.2.1-1.12.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-7.2.1-1.13">
-              <p id="section-7.2.1-1.13.1">Revision Information: N/A<a href="#section-7.2.1-1.13.1" class="pilcrow">¶</a></p>
-</li>
-          </ul>
+Some of those namespaces may also utilize URNs.<a href="#section-7.2.1-1.18.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+<dt id="section-7.2.1-1.19">Resolution:</dt>
+            <dd style="margin-left: 1.5em" id="section-7.2.1-1.20">
+              <p id="section-7.2.1-1.20.1">Resolution of GLUE URNs, which are identifiers, is not performed.<a href="#section-7.2.1-1.20.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+<dt id="section-7.2.1-1.21">Documentation:</dt>
+            <dd style="margin-left: 1.5em" id="section-7.2.1-1.22">
+              <p id="section-7.2.1-1.22.1">[[ this specification ]]<a href="#section-7.2.1-1.22.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+<dt id="section-7.2.1-1.23">Additional Information:</dt>
+            <dd style="margin-left: 1.5em" id="section-7.2.1-1.24">
+              <p id="section-7.2.1-1.24.1">N/A<a href="#section-7.2.1-1.24.1" class="pilcrow">¶</a></p>
+</dd>
+            <dd class="break"></dd>
+<dt id="section-7.2.1-1.25">Revision Information:</dt>
+            <dd style="margin-left: 1.5em" id="section-7.2.1-1.26">
+              <p id="section-7.2.1-1.26.1">N/A<a href="#section-7.2.1-1.26.1" class="pilcrow">¶</a></p>
+</dd>
+          <dd class="break"></dd>
+</dl>
 </section>
 </div>
 </section>

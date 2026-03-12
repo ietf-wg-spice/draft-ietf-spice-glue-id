@@ -482,7 +482,7 @@ Table of Contents
    Authority Identifier:  duns
    URN:  urn:glue:duns
    Organization:  Dun & Bradstreet
-   Transformation Rules:  Delete dash characters.
+   Transformation Rules:  Delete hyphen characters.
    Change Controller:  IETF
    Specification Document(s):  Section 4 of this specification, [DUNS]
 

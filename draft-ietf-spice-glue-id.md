@@ -208,9 +208,8 @@ MUST NOT allow the representation of an External Identifier
 to contain the colon character.
 Specifications MUST define a substitute character,
 such as period, that is used in place of a colon in External Identifiers.
-The substitution performed when creating the GLUE URN
-is specific to the Authority Identifier
-and is specified in the Transformation Rules in the IANA registration.
+Any substitution can be specified in the Transformation Rules
+in the IANA registration for an Authority Identifier; see {{GLUE-Authority-Reg}}.
 
 There is a limit of 1000 characters for an External Identifier.
 The ABNF [RFC5234] for External Identifiers is:

@@ -167,9 +167,9 @@ Table of Contents
    collisions are possible within the set of possible external
    identifiers for an Authority Identifier scheme, then further
    namespacing is necessary at the GLUE URN level.  Such namespacing
-   MUST be done using the Authority Identifier.  The combination of the
-   Authority Identifier and the External Identifier MUST result in a
-   unique GLUE URN.
+   could be done by allocating multiple Authority Identifiers.  The
+   combination of the Authority Identifier and the External Identifier
+   MUST result in a unique GLUE URN.
 
    For example, assume there is an External Authority FEA that provides
    identifiers for organizations in Singapore and South Korea.  The

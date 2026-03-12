@@ -146,7 +146,7 @@ already handle any namespacing necessary to achieve uniqueness as part of the Ex
 However, if collisions are possible within the set of possible external
 identifiers for an Authority Identifier scheme, then further namespacing is
 necessary at the GLUE URN level.
-Such namespacing MUST be done using the Authority Identifier.
+Such namespacing could be done by allocating multiple Authority Identifiers.
 The combination of the Authority Identifier and the External Identifier
 MUST result in a unique GLUE URN.
 

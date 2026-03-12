@@ -474,7 +474,7 @@ Organization:
 : Dun & Bradstreet
 
 Transformation Rules:
-: Delete dash characters.
+: Delete hyphen characters.
 
 Change Controller:
 : IETF

@@ -236,7 +236,7 @@ non-ASCII characters. This specification is therefore limited to identifier
 systems whose representations can be expressed fully within the permitted character set.
 
 The Authority Identifier MUST be registered in the GLUE URN Authority Identifier registry
-defined in {{GLUE-URN}}.
+defined in {{GLUE-Authority-Reg}}.
 The External Identifier MUST be the identifier assigned to the organization
 by the External Authority.
 

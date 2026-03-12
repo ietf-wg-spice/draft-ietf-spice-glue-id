@@ -203,9 +203,11 @@ The DUNS numbers 12-345-6789 and 123456789 are considered to be equivalent.
 The latter form without the ignored characters MUST be used
 as the External Identifier in GLUE URNs.
 
-Finally, should the original represenation of an External Identifier
-contain the colon character, an alternative character,
-such as period, MUST be substituted for the colon when used in GLUE URNs.
+Finally, documents that define a new Authority Identifier type
+MUST NOT allow the representation of an External Identifier
+to contain the colon character.
+Specifications MUST define a substitute character,
+such as period, that is used in place of a colon in External Identifiers.
 The substitution performed when creating the GLUE URN
 is specific to the Authority Identifier
 and is specified in the Transformation Rules in the IANA registration.

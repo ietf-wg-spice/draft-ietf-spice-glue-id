@@ -198,7 +198,7 @@ on the namespace specific string.
 While the original representation of some External Identifiers may contain
 characters that are ignored, these MUST be omitted when used in GLUE URNs.
 For instance, Dun & Bradstreet {{DUNS}} identifiers sometimes contain
-dash characters that are ignored.
+hyphen characters that are ignored.
 The DUNS numbers 12-345-6789 and 123456789 are considered to be equivalent.
 The latter form without the ignored characters MUST be used
 as the External Identifier in GLUE URNs.

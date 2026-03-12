@@ -1404,9 +1404,11 @@ dash characters that are ignored.
 The DUNS numbers 12-345-6789 and 123456789 are considered to be equivalent.
 The latter form without the ignored characters <span class="bcp14">MUST</span> be used
 as the External Identifier in GLUE URNs.<a href="#section-3-5" class="pilcrow">¶</a></p>
-<p id="section-3-6">Finally, should the original represenation of an External Identifier
-contain the colon character, an alternative character,
-such as period, <span class="bcp14">MUST</span> be substituted for the colon when used in GLUE URNs.
+<p id="section-3-6">Finally, documents that define a new Authority Identifier type
+<span class="bcp14">MUST NOT</span> allow the representation of an External Identifier
+to contain the colon character.
+Specifications <span class="bcp14">MUST</span> define a substitute character,
+such as period, that is used in place of a colon in External Identifiers.
 The substitution performed when creating the GLUE URN
 is specific to the Authority Identifier
 and is specified in the Transformation Rules in the IANA registration.<a href="#section-3-6" class="pilcrow">¶</a></p>

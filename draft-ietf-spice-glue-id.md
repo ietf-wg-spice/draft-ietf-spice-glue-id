@@ -192,7 +192,8 @@ case-sensitive. When they are case-insensitive, the canonical form is lowercase
 and documents that specify External Identifiers MUST do so with lowercase letters.
 Always using the canonical form of these URNs means that code performing comparisons
 need not be aware of whether External Identifiers are case-sensitive or not;
-case-sensitive comparisons can always be performed.
+case-sensitive comparisons can always be performed
+on the namespace specific string.
 
 While the original representation of some External Identifiers may contain
 characters that are ignored, these MUST be omitted when used in GLUE URNs.

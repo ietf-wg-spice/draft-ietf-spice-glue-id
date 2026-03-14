@@ -46,8 +46,8 @@ author:
     country: United States
 
 normative:
-  RFC3986:
   RFC5234:
+  RFC8141:
   GLN:
     title: Global Location Nymber (GLN)
     target: https://www.gs1.org/standards/id-keys/gln
@@ -71,7 +71,6 @@ normative:
 
 informative:
   RFC8126:
-  RFC8141:
   RFC9371:
   IANA.URN:
     title: Formal URN Namespaces
@@ -162,7 +161,7 @@ Identifiers.
 
 # GLUE URNs {#glue-urns}
 
-GLUE URNs comply with [RFC3986].
+GLUE URNs comply with [RFC8141].
 They begin with "urn:glue:" and are followed by an Authority Identifier,
 a colon character (":"), and the External Identifier allocated by the authority.
 

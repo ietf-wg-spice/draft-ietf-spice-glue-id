@@ -46,8 +46,8 @@ author:
     country: United States
 
 normative:
-  RFC3986:
   RFC5234:
+  RFC8141:
   GLN:
     title: Global Location Nymber (GLN)
     target: https://www.gs1.org/standards/id-keys/gln
@@ -70,13 +70,11 @@ normative:
     target: https://www.iana.org/assignments/urn-formal/lei
 
 informative:
-  RFC2141:
   RFC8126:
-  RFC8141:
   RFC9371:
   IANA.URN:
     title: Formal URN Namespaces
-    targt: https://www.iana.org/assignments/urn-namespaces/
+    target: https://www.iana.org/assignments/urn-namespaces/
 
 ---
 
@@ -102,7 +100,7 @@ It also establishes an IANA registry for managing how existing organizational en
 identification mechanisms relate to this namespace.
 
 Any organizational entity identifier whose identification mechanism has been registered
-as an Authority Identifier in the registry may be represented as a GLUE URI.
+as an Authority Identifier in the registry may be represented as a GLUE URN.
 
 ## Requirements Notation and Conventions
 
@@ -112,21 +110,21 @@ as an Authority Identifier in the registry may be represented as a GLUE URI.
 
 This specification uses the following terms:
 
-GLUE URI:
-: a URI that uses the GLUE URN namespace established in this specification.
+GLUE URN:
+: a URN that uses the GLUE URN namespace established in this specification.
 
 Authority Identifier:
-: identifier for the External Authority responsible for assigning the External Identifiers used in GLUE URIs over which it has jurisdiction.
+: identifier for the External Authority responsible for assigning the External Identifiers used in GLUE URNs over which it has jurisdiction.
 
 External Identifier:
-: identifier assigned by an External Authority to identify a particular organization within GLUE URIs with Authority Identifier(s) over which it has jurisdiction.
+: identifier assigned by an External Authority to identify a particular organization within GLUE URNs with Authority Identifier(s) over which it has jurisdiction.
 
 External Authority:
-: an organization that allocates External Identifiers over which it has jurisdiction that are used in GLUE URIs with its Authority Identifier(s).
+: an organization that allocates External Identifiers over which it has jurisdiction that are used in GLUE URNs with its Authority Identifier(s).
 
 # Core Concepts
 
-Every GLUE URI MUST
+Every GLUE URN MUST
 contain the following components:
 
 - The Authority Identifier
@@ -135,19 +133,21 @@ contain the following components:
 
 ## Uniqueness and Namespacing
 
-Each GLUE URI MUST be globally unique.
-
-An organization can be identified by multiple GLUE URIs,
-but each GLUE URI can only refer to a single organization.
+Each GLUE URN is globally unique identifier.
+An organization can be identified by multiple GLUE URNs,
+but each distinct GLUE URN can only refer to a single organization.
+If multiple External Authorities have issued identifiers for the same organization
+(e.g., the organization has both a Dun & Bradstreet number and a Private Enterprise Number),
+then the same organization can be identified by GLUE URNs differentiated by the Authority Identifier.
 
 It is assumed that most registered organizational entity identification schemes
-already handle any necessary namespacing as part of the External Identifier.
+already handle any namespacing necessary to achieve uniqueness as part of the External Identifier.
 However, if collisions are possible within the set of possible external
 identifiers for an Authority Identifier scheme, then further namespacing is
-necessary at the GLUE URI level.
-Such namespacing MUST be done using the Authority Identifier.
+necessary at the GLUE URN level.
+Such namespacing could be done by allocating multiple Authority Identifiers.
 The combination of the Authority Identifier and the External Identifier
-MUST result in a unique GLUE URI.
+MUST result in a unique GLUE URN.
 
 For example, assume there is an External Authority FEA that provides identifiers
 for organizations in Singapore and South Korea. The identifiers issued in
@@ -159,10 +159,10 @@ necessary to separately register two different Authority Identifiers (e.g.,
 FEA-SG and FEA-KR) to provide differentiation between the two sets of External
 Identifiers.
 
-# GLUE URIs {#glue-uris}
+# GLUE URNs {#glue-urns}
 
-GLUE URIs comply with [RFC3986].
-They begin with `urn:glue:` and are followed by an Authority Identifier,
+GLUE URNs comply with [RFC8141].
+They begin with "urn:glue:" and are followed by an Authority Identifier,
 a colon character (":"), and the External Identifier allocated by the authority.
 
 Authority Identifiers consist of a sequence of characters beginning with a
@@ -188,36 +188,56 @@ A digit or hyphen is allowed as the first character to permit the case where the
 External Identifier is the representation of a number. It is specific to the
 Authority Identifier whether the External Identifiers are case-insensitive or
 case-sensitive. When they are case-insensitive, the canonical form is lowercase
-and documents that specify External Identifiers must do so with lowercase
-letters. There is a limit of 1000 characters for an External Identifier.
+and documents that specify External Identifiers MUST do so with lowercase letters.
+Always using the canonical form of these URNs means that code performing comparisons
+need not be aware of whether External Identifiers are case-sensitive or not;
+case-sensitive comparisons can always be performed
+on the namespace specific string.
+
+While the original representation of some External Identifiers may contain
+characters that are ignored, these MUST be omitted when used in GLUE URNs.
+For instance, Dun & Bradstreet {{DUNS}} identifiers sometimes contain
+hyphen characters that are ignored.
+The DUNS numbers 12-345-6789 and 123456789 are considered to be equivalent.
+The latter form without the ignored characters MUST be used
+as the External Identifier in GLUE URNs.
+
+Finally, documents that define a new Authority Identifier type
+MUST NOT allow the representation of an External Identifier
+to contain the colon character.
+Specifications MUST define a substitute character,
+such as period, that is used in place of a colon in External Identifiers.
+Any substitution can be specified in the Transformation Rules
+in the IANA registration for an Authority Identifier; see {{GLUE-Authority-Reg}}.
+
+There is a limit of 1000 characters for an External Identifier.
 The ABNF [RFC5234] for External Identifiers is:
 
 ```
 external-identifier = ( ALPHA / DIGIT / "-" ) *999( ALPHA / DIGIT / "+" / "-" / "." )
 ```
 
-Combining these, the ABNF [RFC5234] for a GLUE URI is:
+Combining these, the ABNF [RFC5234] for a GLUE URN is:
 
 ```
-glue-uri = "urn:glue:" authority-identifier ":" external-identifier
+glue-urn = "urn:glue:" authority-identifier ":" external-identifier
 ```
 
-For example, the following is a GLUE URI using the Authority Identifier "pen"
+For example, the following is a GLUE URN using the Authority Identifier "pen"
 and the External Identifier "32473". This example uses the Enterprise Number "32473" reserved for documentation in {{?RFC5612}}.
 
 ```
 urn:glue:pen:32473
 ```
 
-A GLUE URI is defined over the restricted US-ASCII syntax specified in this
-section. Percent-encoding is not permitted. Consequently, GLUE URIs do not
-support representation of External Identifiers whose canonical form includes
+A GLUE URN is defined over the restricted US-ASCII syntax specified in this
+section. Percent-encoding is not permitted. Consequently, GLUE URNs do not
+support representation of External Identifiers that use
 non-ASCII characters. This specification is therefore limited to identifier
-systems whose canonical representations are fully within the permitted character
-set.
+systems whose representations can be expressed fully within the permitted character set.
 
-The Authority Identifier MUST be registered in the GLUE URI Authority Identifier registry
-defined in {{GLUE-URN}}.
+The Authority Identifier MUST be registered in the GLUE URN Authority Identifier registry
+defined in {{GLUE-Authority-Reg}}.
 The External Identifier MUST be the identifier assigned to the organization
 by the External Authority.
 
@@ -234,39 +254,40 @@ This section defines the GLUE Authority Identifiers listed in {{glue-def}}.
 | ISO/IEC 6523 | iso6523 | https://www.iso.org/standard/82246.html |
 {: #glue-def title='Defined GLUE Authority Identifiers'}
 
-These are registered in the GLUE Authority Identifier URN Registry in {{GLUE-URN}}.
+These are registered in the GLUE Authority Identifier URN Registry in {{GLUE-Authority-Reg}}.
 
-## Equivalence to Similar URIs
+## Equivalence to Similar URNs
 
-A GLUE URI is an identifier in a distinct URN namespace. By default, a GLUE URI
-is not equivalent to any other URI, including a URI defined by the referenced
-authority's own namespace. Equivalence between a GLUE URI and a non-GLUE URI
+A GLUE URN is an identifier in a distinct URN namespace. By default, a GLUE URN
+is not equivalent to any other URN, including a URN defined by the referenced
+authority's own namespace. Equivalence between a GLUE URN and a non-GLUE URN
 exists only when explicitly specified for a given Authority Identifier.
 Implementations and relying parties MUST NOT assume equivalence between GLUE
-URIs and non-GLUE URIs unless such equivalence is explicitly defined by the
-authority or documented in the relevant registry entry.
+URNs and non-GLUE URNs unless such equivalence is explicitly defined by the
+authority and the party understands that particular Authority Identifier
+and the specified equivalance.
 
 ### LEI URNs
 
 [LEI-IANA] registers a URN namespace for Legal Entity Identifiers (LEIs).
 This means that LEIs can be
 represented as URNs in at least two ways. Therefore there is an equivalence
-between a GLUE URI with an "lei" Authority Identifier and an LEI URN, provided
-the 20-digit LEI Code of the LEI URN is identifical to the External Identifier
-of the GLUE URI. For example, "urn:lei:INR2EJN1ERAN0W5ZP974" is equivalent to
-"urn:glue:lei:INR2EJN1ERAN0W5ZP974".
+between a GLUE URN with an "lei" Authority Identifier and an LEI URN, provided
+the 20-digit LEI Code of the LEI URN is identical to the External Identifier
+of the GLUE URN. For example, "urn:lei:inr2ejn1eran0w5zp974" is equivalent to
+"urn:glue:lei:inr2ejn1eran0w5zp974".
 
 # Security Considerations
 
 The security considerations inherent to using URNs apply.
-Security considerations for URNs can be found in [RFC2141].
+Security considerations for URNs can be found in {{RFC8141}}.
 
-The global uniqueness of GLUE URIs prevents situations in which
+The global uniqueness of GLUE URNs prevents situations in which
 the same identifier is allocated in different local namespaces
 and cannot be disambiguated when used.
 For instance both Canadian and Singaporean organization registries might use
 the local identifier "42", but with these referring to different organizations.
-Embedding these local identifiers in GLUE URIs enables disambiguation.
+Embedding these local identifiers in GLUE URNs enables disambiguation.
 
 # Privacy Considerations
 
@@ -278,26 +299,26 @@ United States, where the Tax ID may be the same as the Social Security Number
 (SSN) of the business owner. Where the Tax ID uniquely identifies the business,
 the SSN uniquely identifies an individual.
 
-It is possible for such business identifiers to be represented as GLUE URIs. An
-identifier's expression as a GLUE URI does not change the privacy
+It is possible for such business identifiers to be represented as GLUE URNs. An
+identifier's expression as a GLUE URN does not change the privacy
 characteristics of that identifier. The same cautions and concerns need to be
-taken with the GLUE URI representation as with the original identifier.
+taken with the GLUE URN representation as with the original identifier.
 
-Implementers storing or evaluating GLUE URIs are encouraged to be aware the
+Implementers storing or evaluating GLUE URNs are encouraged to be aware the
 privacy characteristics of each identification scheme represented by an
-Authority Identifier and to appropriately handle any GLUE URI which violates
+Authority Identifier and to appropriately handle any GLUE URN which violates
 privacy policies.
 
 # IANA Considerations
 
-## GLUE Authority Identifier URN Registry {#GLUE-URN}
+## GLUE Authority Identifier Registry {#GLUE-Authority-Reg}
 
 This specification establishes the
-IANA "GLUE Authority Identifier URN" registry
+IANA "GLUE Authority Identifier" registry
 creating a URN namespace for Authority Identifiers for
 GLobal Unique Enterprise (GLUE) Identifiers.
 
-Each entry registers the URN for an Authority Identifier within the
+Each entry registers an Authority Identifier within the
 "urn:glue:" namespace.
 The organization responsible for the Authority Identifier is recorded.
 
@@ -365,7 +386,7 @@ before publication of the final specification.
 ### Registration Template
 
 Authority Identifier:
-: identifier for the External Authority responsible for assigning the External Identifier used in GLUE URIs.
+: identifier for the External Authority responsible for assigning the External Identifier used in GLUE URNs.
 This identifier
 is not case sensitive and any letters MUST be expressed in lowercase characters.
 It MUST consist of a sequence of characters with a mazimum length of 50,
@@ -380,10 +401,13 @@ the Authority Identifier.
 Organization:
 : The organization responsible for the Authority Identifier.
 
+Transformation Rules:
+: Syntactic transformations applied to the original External Identifiers when creating the GLUE URN, or "N/A" if none.
+
 Change Controller:
 : For IETF stream RFCs, use "IETF".
 For others, give the name of the responsible party.
-Other details (e.g., postal address, e-mail address, or home page URI) may also be included.
+Other details (e.g., postal address, e-mail address, or home page URL) may also be included.
 
 Specification Document(s):
 : Reference to the document or documents that specify the Authority Identifier to be registered,
@@ -404,6 +428,9 @@ URN:
 Organization:
 : GS1
 
+Transformation Rules:
+: N/A
+
 Change Controller:
 : IETF
 
@@ -422,6 +449,9 @@ URN:
 
 Organization:
 : GLEIF
+
+Transformation Rules:
+: Convert uppercase characters to lowercase.
 
 Change Controller:
 : IETF
@@ -442,6 +472,9 @@ URN:
 Organization:
 : Dun & Bradstreet
 
+Transformation Rules:
+: Delete hyphen characters.
+
 Change Controller:
 : IETF
 
@@ -460,6 +493,9 @@ URN:
 
 Organization:
 : Private Enterprise Numbers
+
+Transformation Rules:
+: N/A
 
 Change Controller:
 : IETF
@@ -480,6 +516,9 @@ URN:
 Organization:
 : ISO/IEC 6523
 
+Transformation Rules:
+: Substitute period for any colon characters.
+
 Change Controller:
 : IETF
 
@@ -489,7 +528,7 @@ Specification Document(s):
 
 ## URN Namespace Registration
 
-This specification registers the following URN in the
+This specification registers the following URN namespace in the
 IANA "Formal URN Namespaces" registry {{IANA.URN}} established by {{RFC8141}}.
 
 ### urn:glue
@@ -512,7 +551,7 @@ Purpose:
   established by \[\[ this specification ]]
 
 Syntax:
-: As specified in the glue-uri ABNF entry in {{glue-uris}} of \[\[ this specification ]]
+: As specified in the glue-urn ABNF entry in {{glue-urns}} of \[\[ this specification ]]
 
 Assignment:
 : Specification Required ({{Section 4.6 of RFC8126}}) basis
@@ -556,15 +595,27 @@ Erik Kline,
 Martin Lindström,
 Rohan Mahy,
 James Manger,
+Peter Saint-Andre,
 Orie Steele,
 Alexander (A.J.) Stein,
 Martin Thomson,
 Éric Vyncke,
+Dale Worley,
 and Peter Yee
 contributed to this specification.
 
 # Document History
 {: numbered="false"}
+
+-08
+
+* Addressed urn:glue registration feedback by Dale Worley
+  about identifier uniqueness and defining Transformation Rules, when needed.
+* Addressed urn:glue registration feedback by Peter Saint-Andre
+  about using "URN" rather than "URI",
+  applying suggested language about when
+  multiple External Authorities have issued identifiers for the same organization,
+  and correcting issues with the registry descriptions.
 
 -07
 

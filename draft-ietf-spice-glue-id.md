@@ -268,7 +268,7 @@ URIs and non-GLUE URIs unless such equivalence is explicitly defined by the
 authority and the party understands that particular Authority Identifier
 and the specified equivalance.
 
-### LEI URIs
+### LEI URNs
 
 [LEI-IANA] registers a URN namespace for Legal Entity Identifiers (LEIs).
 This means that LEIs can be

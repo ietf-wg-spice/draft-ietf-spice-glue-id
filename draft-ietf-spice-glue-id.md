@@ -543,7 +543,7 @@ Status:
 : Permanent
 
 Applications/protocols that use this scheme name:
-: OpenID Federation Organization Identifier Metadata Parameter 1.0 by OIDC Sweden, other SPICE use cases
+: Systems that need to refer to organizational entities utilizing interoperable identifiers derived from existing organizational identifier systems
 
 Contact:
 : Michael B. Jones - michael_b_jones@hotmail.com

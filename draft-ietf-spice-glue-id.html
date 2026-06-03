@@ -9,30 +9,30 @@
 <meta content="Pamela Dingle" name="author">
 <meta content="Michael B. Jones" name="author">
 <meta content="
-       This specification establishes a URN namespace for
+       This specification establishes a URI scheme for
 GLobal Unique Enterprise (GLUE) Identifiers.
-This enables URN identifiers to be used for businesses and organizations.
-It enables organizational identities from existing authorities to be represented within this URN namespace. 
+This enables URI identifiers to be used for businesses and organizations.
+It enables organizational identities from existing authorities to be represented within this URI scheme. 
     " name="description">
-<meta content="xml2rfc 3.31.0" name="generator">
+<meta content="xml2rfc 3.33.0" name="generator">
 <meta content="URI" name="keyword">
-<meta content="URN" name="keyword">
+<meta content="Scheme" name="keyword">
 <meta content="Enterprise" name="keyword">
 <meta content="Entity Identifiers" name="keyword">
 <meta content="draft-ietf-spice-glue-id-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.31.0
-    Python 3.12.12
+  xml2rfc 3.33.0
+    Python 3.12.13
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.2.1
     Jinja2 3.1.6
     lxml 6.0.2
-    platformdirs 4.5.1
+    platformdirs 4.9.6
     pycountry 24.6.1
     PyYAML 6.0.3
-    requests 2.32.5
-    wcwidth 0.3.0
+    requests 2.33.1
+    wcwidth 0.7.0
 -->
 <link href="draft-ietf-spice-glue-id.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -299,16 +299,19 @@ h1, h2, h3, h4, h5, h6 {
   font-size-adjust: 0.5;
   color: var(--title-color);
 }
-h1#title {
-  font-size: 32px;
-  line-height: 40px;
-  clear: both;
-}
-h1#title, h1#rfcnum {
-  margin: 1.5em 0 0.2em;
-}
-h1#rfcnum + h1#title {
-  margin: 0.2em 0;
+h1 {
+  &#title {
+    font-size: 32px;
+    line-height: 40px;
+    clear: both;
+    margin: 1.5em 0 0.2em;
+  }
+  &#rfcnum {
+    margin: 1.5em 0 0.2em;
+    & + h1#title {
+      margin: 0.2em 0;
+    }
+  }
 }
 
 h1, h2, h3 {
@@ -328,10 +331,10 @@ h4, h5, h6 {
 #abstract+p {
   font-size: 18px;
   line-height: 24px;
-}
-#abstract+p code, #abstract+p samp, #abstract+p tt {
-  font-size: 16px;
-  line-height: 0;
+  & code, & samp, & tt {
+    font-size: 16px;
+    line-height: 0;
+  }
 }
 
 p {
@@ -342,59 +345,59 @@ p {
 div {
   margin: 0;
 }
-.alignRight.art-text {
-  background-color: var(--highlight-color);
-  border: 1px solid var(--line-color);
-  border-radius: 3px;
-  padding: 0.5em 1em 0;
-  margin-bottom: 0.5em;
-}
-.alignRight.art-text pre {
-  padding: 0;
-  width: auto;
-}
 .alignRight {
   margin: 1em 0;
-}
-.alignRight > *:first-child {
-  border: none;
-  margin: 0;
-  float: right;
-  clear: both;
-}
-.alignRight > *:nth-child(2) {
-  clear: both;
-  display: block;
-  border: none;
+  &.art-text {
+    background-color: var(--highlight-color);
+    border: 1px solid var(--line-color);
+    border-radius: 3px;
+    padding: 0.5em 1em 0;
+    margin-bottom: 0.5em;
+    & pre {
+      padding: 0;
+      width: auto;
+    }
+  }
+  & > *:first-child {
+    border: none;
+    margin: 0;
+    float: right;
+    clear: both;
+  }
+  & > *:nth-child(2) {
+    clear: both;
+    display: block;
+    border: none;
+  }
 }
 svg {
   display: block;
-}
-/* font-family isn't space-separated, but =~ will have to do */
-svg[font-family~="monospace" i], svg [font-family~="monospace" i] {
-  font-family: var(--font-mono);
-}
-.alignCenter.art-text {
-  background-color: var(--highlight-color);
-  border: 1px solid var(--line-color);
-  border-radius: 3px;
-  padding: 0.5em 1em 0;
-  margin-bottom: 0.5em;
-}
-.alignCenter.art-text pre {
-  padding: 0;
-  width: auto;
+  /* font-family isn't space-separated, but =~ will have to do */
+  &[font-family~="monospace" i], & [font-family~="monospace" i] {
+    font-family: var(--font-mono);
+  }
 }
 .alignCenter {
   margin: 1em 0;
-}
-.alignCenter > *:first-child {
-  border: none;
-  /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
-     support flexbox yet.
-  */
-  display: table;
-  margin: 0 auto;
+  &.art-text {
+    background-color: var(--highlight-color);
+    border: 1px solid var(--line-color);
+    border-radius: 3px;
+    padding: 0.5em 1em 0;
+    margin-bottom: 0.5em;
+    & pre {
+      padding: 0;
+      width: auto;
+    }
+  }
+  & > *:first-child {
+    border: none;
+    /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
+       support flexbox yet.
+    */
+    display: table;
+    margin: 0 auto;
+  }
 }
 
 /* lists */
@@ -432,26 +435,25 @@ dl {
     --indent: 5ch;
     & > dt {
       min-width: calc(var(--indent) - 2ch);
+      float: none;
     }
-  }
-  &.olPercent > dt {
-    float: none;
   }
 
   dl > dd > & {
     margin-top: 0.5em;
     margin-bottom: 0;
   }
-}
-dl:not(.dlNewline) > dt {
-  float: left;
-  margin-right: 2ch;
-  min-width: 8ch;
-}
-dl > dd {
-  margin-bottom: .8em;
-  margin-left: var(--indent) !important; /* stupid element overrides */
-  min-height: 2ex;
+
+  &:not(.dlNewline) > dt {
+    float: left;
+    margin-right: 2ch;
+    min-width: 8ch;
+  }
+  & > dd {
+    margin-bottom: .8em;
+    margin-left: var(--indent) !important; /* stupid element overrides */
+    min-height: 2ex;
+  }
 }
 :is(dl.compact, .dlCompact) > dd {
   margin-bottom: 0;
@@ -467,20 +469,22 @@ dl > dd {
 }
 
 /* links */
-a, a[href].selfRef:hover {
+a {
   text-decoration: none;
+  &[href] {
+    color: var(--link-color);
+    &:hover { text-decoration: underline; }
+    &.selfRef {
+      color: var(--text-color);
+      &:hover {
+        text-decoration: none;
+        background-color: var(--highlight-color);
+      }
+    }
+  }
 }
-a[href] {
-  color: var(--link-color);
-}
-a[href].selfRef, .iref + a[href].internal {
+.iref + a[href].internal {
   color: var(--text-color);
-}
-a[href]:hover {
-  text-decoration: underline;
-}
-a[href].selfRef:hover {
-  background-color: var(--highlight-color);
 }
 a.xref:is(.cite, .auto), :is(#status-of-memo, #copyright) a {
   white-space: nowrap;
@@ -516,9 +520,9 @@ img {
 figure {
   margin: 0.5em 0;
   padding: 0;
-}
-figure blockquote {
-  margin: 0.8em 0.4em 0.4em;
+  & blockquote {
+    margin: 0.8em 0.4em 0.4em;
+  }
 }
 figcaption, caption {
   font-style: italic;
@@ -528,17 +532,19 @@ figcaption, caption {
 }
 @media screen {
   /* Auto-collapse boilerplate. */
-  :is(#status-of-memo, #copyright) p {
-    margin: -2px 0;
-    max-height: 0;
-    transition: max-height 2s ease, margin 0.5s ease 0.5s;
-    overflow: hidden;
-  }
-  :is(#status-of-memo, #copyright):hover p,
-  :is(#status-of-memo, #copyright) h2:target ~ p {
-    margin: 0.5em 0;
-    max-height: 500px;
-    overflow: auto;
+  :is(#status-of-memo, #copyright) {
+    & p {
+      margin: -2px 0;
+      max-height: 0;
+      transition: max-height 2s ease, margin 0.5s ease 0.5s;
+      overflow: hidden;
+    }
+    &:hover p,
+    & h2:target ~ p {
+      margin: 0.5em 0;
+      max-height: 500px;
+      overflow: auto;
+    }
   }
   pre, svg {
     display: inline-block;
@@ -588,25 +594,17 @@ table {
   max-width: 100%;
   margin: 0 0 1em;
   border-collapse: collapse;
-}
-table.right {
-  margin-left: auto;
-}
-table.center {
-  margin-left: auto;
-  margin-right: auto;
-}
-table.left {
-  margin-right: auto;
-}
-table .text-left {
-  text-align: left;
-}
-table .text-center {
-  text-align: center;
-}
-table .text-right {
-  text-align: right;
+  &.right { margin-left: auto; }
+  &.center { margin-left: auto; margin-right: auto; }
+  &.left { margin-right: auto; }
+  & .text-left { text-align: left; }
+  & .text-center { text-align: center; }
+  & .text-right { text-align: right; }
+  & caption {
+    margin: 0;
+    padding: 3px 0 3px 1em;
+  }
+  & p { margin: 0; }
 }
 
 thead, tbody {
@@ -626,13 +624,6 @@ th {
 :is(tr:nth-child(2n+1), thead+tbody > tr:nth-child(2n)) > td {
   background-color: var(--highlight-color);
 }
-table caption {
-  margin: 0;
-  padding: 3px 0 3px 1em;
-}
-table p {
-  margin: 0;
-}
 
 /* pilcrow */
 a.pilcrow {
@@ -643,18 +634,16 @@ a.pilcrow {
     color: var(--pilcrow-weak);
     &:hover { text-decoration: none; }
   }
-}
-@media not print {
-  :hover > a.pilcrow, a.pilcrow:focus {
-    opacity: 1;
+  @media not print {
+    :hover > &, &:focus {
+      opacity: 1;
+    }
+    &[href]:hover {
+      color: var(--pilcrow-strong);
+      background-color: transparent;
+    }
   }
-  a.pilcrow[href]:hover {
-    color: var(--pilcrow-strong);
-    background-color: transparent;
-  }
-}
-@media print {
-  a.pilcrow {
+  @media print {
     display: none;
   }
 }
@@ -713,9 +702,9 @@ sub, sup {
   font-size: 0.9em;
   font-style: italic;
   margin-top: 2em;
-}
-.docInfo .prepared {
-  float: right;
+  & .prepared {
+    float: right;
+  }
 }
 
 /* table of contents */
@@ -805,23 +794,27 @@ hr.addr {
   max-width: calc(100% - 16px);
 }
 @media (min-width: 500px) {
-  #authors-addresses > section {
-    column-count: 2;
-    column-gap: 20px;
-  }
-  #authors-addresses > section > h2 {
-    column-span: all;
-  }
-  /* hack for break-inside: avoid-column */
-  #authors-addresses address {
-    display: inline-block;
-    break-inside: avoid-column;
+  #authors-addresses {
+    & > section {
+      column-count: 2;
+      column-gap: 20px;
+    }
+    & > section > h2 {
+      column-span: all;
+    }
+    /* hack for break-inside: avoid-column */
+    & address {
+      display: inline-block;
+      break-inside: avoid-column;
+    }
   }
 }
 
 /* Comments */
-.rfcEditorRemove p:first-of-type {
-  font-style: italic;
+.rfcEditorRemove {
+  & p:first-of-type {
+    font-style: italic;
+  }
 }
 .cref {
   background-color: rgba(249, 232, 105, 0.3);
@@ -832,19 +825,21 @@ hr.addr {
 }
 
 @media screen {
-  #toc nav {
-    font-family: var(--font-title);
-    font-weight: 360;
-    & > ul { margin-bottom: 2em; }
-    & ul {
-      margin: 0 0 0 4px;
-      & :is(p, li) {
-        margin: 2px 0;
+  #toc {
+    & nav {
+      font-family: var(--font-title);
+      font-weight: 360;
+      & > ul { margin-bottom: 2em; }
+      & ul {
+        margin: 0 0 0 4px;
+        & :is(p, li) {
+          margin: 2px 0;
+        }
       }
     }
-  }
-  #toc a.toplink {
-    float: right;
+    & a.toplink {
+      float: right;
+    }
   }
 }
 @media not screen {
@@ -865,54 +860,54 @@ hr.addr {
     margin: 0;
     border-bottom: 1px solid #ccc;
     opacity: 0.6;
-  }
-  #toc h2 {
-    margin: 0;
-    padding: 2px 0 2px 6px;
-    padding-right: 1em;
-    font-size: 18px;
-    line-height: 24px;
-    min-width: 190px;
-    text-align: right;
-    background-color: #444;
-    color: white;
-    cursor: pointer;
-    &::before { /* css hamburger */
-      float: right;
-      position: relative;
-      width: 1em;
-      height: 1px;
-      left: -164px;
-      margin: 8px 0 0 0;
-      background: white none repeat scroll 0 0;
-      box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
-      content: "";
+    & h2 {
+      margin: 0;
+      padding: 2px 0 2px 6px;
+      padding-right: 1em;
+      font-size: 18px;
+      line-height: 24px;
+      min-width: 190px;
+      text-align: right;
+      background-color: #444;
+      color: white;
+      cursor: pointer;
+      &::before { /* css hamburger */
+        float: right;
+        position: relative;
+        width: 1em;
+        height: 1px;
+        left: -164px;
+        margin: 8px 0 0 0;
+        background: white none repeat scroll 0 0;
+        box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
+        content: "";
+      }
     }
-  }
-  #toc nav {
-    display: none;
-    background-color: var(--background-color);
-    padding: 0.5em 1em 1em;
-    overflow: auto;
-    overscroll-behavior: contain;
-    height: calc(100vh - 48px);
-    border-left: 1px solid #ddd;
-  }
-  #toc.active {
-    opacity: 1;
-    & nav { display: block; }
-  }
-  /* Make the collapsed ToC header render white on gray also when it's a link */
-  #toc h2 a,
-  #toc h2 a:is(:link, :focus, :hover),
-  #toc a.toplink,
-  #toc a.toplink:hover {
-    color: white;
-    background-color: #444;
-    text-decoration: none;
-  }
-  #toc a.toplink {
-    margin: 2px 0.5em 0;
+    & nav {
+      display: none;
+      background-color: var(--background-color);
+      padding: 0.5em 1em 1em;
+      overflow: auto;
+      overscroll-behavior: contain;
+      height: calc(100vh - 48px);
+      border-left: 1px solid #ddd;
+    }
+    &.active {
+      opacity: 1;
+      & nav { display: block; }
+    }
+    /* Make the collapsed ToC header render white on gray also when it's a link */
+    & h2 a,
+    & h2 a:is(:link, :focus, :hover),
+    & a.toplink,
+    & a.toplink:hover {
+      color: white;
+      background-color: #444;
+      text-decoration: none;
+    }
+    & a.toplink {
+      margin: 2px 0.5em 0;
+    }
   }
 }
 
@@ -931,26 +926,26 @@ hr.addr {
     margin: 0;
     padding: 0;
     z-index: 1;
-  }
-  #toc h2 {
-    margin: 0;
-    padding: 0.25em 1em 1em 0;
-  }
-  #toc nav {
-    display: block;
-    height: calc(90vh - 84px);
-    bottom: 0;
-    padding: 0.5em 0 2em;
-    overflow: auto;
-    overscroll-behavior: contain;
-    scrollbar-width: thin;
+    & h2 {
+      margin: 0;
+      padding: 0.25em 1em 1em 0;
+    }
+    & nav {
+      display: block;
+      height: calc(90vh - 84px);
+      bottom: 0;
+      padding: 0.5em 0 2em;
+      overflow: auto;
+      overscroll-behavior: contain;
+      scrollbar-width: thin;
+    }
+    & a.toplink {
+      margin: 8px 0.5em 0;
+    }
   }
   img { /* future proofing */
     max-width: 100%;
     height: auto;
-  }
-  #toc a.toplink {
-    margin: 8px 0.5em 0;
   }
 }
 
@@ -966,12 +961,13 @@ hr.addr {
   #n-copyright-notice {
     border-bottom: none;
   }
-  #toc, #n-introduction {
-    page-break-before: always;
-  }
   #toc {
+    page-break-before: always;
     border-top: none;
     padding-top: 0;
+  }
+  #n-introduction {
+    page-break-before: always;
   }
   figure, pre, .vcard {
     page-break-inside: avoid;
@@ -1033,17 +1029,19 @@ hr.addr {
 }
 
 /* SVG Trick: a prefix match works because only black and white are allowed */
-svg :is([stroke="black"], [stroke^="#000"]) {
-  stroke: var(--text-color);
-}
-svg :is([stroke="white"], [stroke^="#fff"]) {
-  stroke: var(--background-color);
-}
-svg :is([fill="black"], [fill^="#000"], :not([fill])) {
-  fill: var(--text-color);
-}
-svg :is([fill="white"], [fill^="#fff"]) {
-  fill: var(--background-color);
+svg {
+  & :is([stroke="black"], [stroke^="#000"]) {
+    stroke: var(--text-color);
+  }
+  & :is([stroke="white"], [stroke^="#fff"]) {
+    stroke: var(--background-color);
+  }
+  & :is([fill="black"], [fill^="#000"], :not([fill])) {
+    fill: var(--text-color);
+  }
+  & :is([fill="white"], [fill^="#fff"]) {
+    fill: var(--background-color);
+  }
 }
 </style>
 
@@ -1053,11 +1051,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">SPICE GLUE</td>
-<td class="right">March 2026</td>
+<td class="right">June 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Zundel, et al.</td>
-<td class="center">Expires 16 September 2026</td>
+<td class="center">Expires 5 December 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1070,12 +1068,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-spice-glue-id-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-03-15" class="published">15 March 2026</time>
+<time datetime="2026-06-03" class="published">3 June 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-09-16">16 September 2026</time></dd>
+<dd class="expires"><time datetime="2026-12-05">5 December 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1095,10 +1093,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">GLobal Unique Enterprise (GLUE) Identifiers</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">This specification establishes a URN namespace for
+<p id="section-abstract-1">This specification establishes a URI scheme for
 GLobal Unique Enterprise (GLUE) Identifiers.
-This enables URN identifiers to be used for businesses and organizations.
-It enables organizational identities from existing authorities to be represented within this URN namespace.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+This enables URI identifiers to be used for businesses and organizations.
+It enables organizational identities from existing authorities to be represented within this URI scheme.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1135,7 +1133,7 @@ It enables organizational identities from existing authorities to be represented
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 16 September 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 5 December 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1184,13 +1182,13 @@ It enables organizational identities from existing authorities to be represented
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-glue-urns" class="internal xref">GLUE URNs</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-glue-uris" class="internal xref">GLUE URIs</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-glue-authority-identifiers" class="internal xref">GLUE Authority Identifiers</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
-                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-equivalence-to-similar-urns" class="internal xref">Equivalence to Similar URNs</a></p>
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-equivalence-to-similar-uris" class="internal xref">Equivalence to Similar URIs</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.1">
                     <p id="section-toc.1-1.4.2.1.2.1.1"><a href="#section-4.1.1" class="auto internal xref">4.1.1</a>.  <a href="#name-lei-urns" class="internal xref">LEI URNs</a></p>
@@ -1225,10 +1223,10 @@ It enables organizational identities from existing authorities to be represented
                 </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2">
-                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="auto internal xref">7.2</a>.  <a href="#name-urn-namespace-registration" class="internal xref">URN Namespace Registration</a></p>
+                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="auto internal xref">7.2</a>.  <a href="#name-uri-scheme-registration" class="internal xref">URI Scheme Registration</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2.2.1">
-                    <p id="section-toc.1-1.7.2.2.2.1.1"><a href="#section-7.2.1" class="auto internal xref">7.2.1</a>.  <a href="#name-urnglue" class="internal xref">urn:glue</a></p>
+                    <p id="section-toc.1-1.7.2.2.2.1.1"><a href="#section-7.2.1" class="auto internal xref">7.2.1</a>.  <a href="#name-glue" class="internal xref">glue</a></p>
 </li>
                 </ul>
 </li>
@@ -1267,12 +1265,12 @@ It enables organizational identities from existing authorities to be represented
 With the increasing use of digital credentials, there is a need for a common
 methodology for expressing these identifiers such that claims about and by such
 entities can be made in a consistent and interoperable manner.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">This specification establishes a URN namespace that standardizes the expression of
+<p id="section-1-2">This specification establishes a URI scheme that standardizes the expression of
 existing organizational entity identifiers by providing a common representation format.
 It also establishes an IANA registry for managing how existing organizational entity
 identification mechanisms relate to this namespace.<a href="#section-1-2" class="pilcrow">¶</a></p>
 <p id="section-1-3">Any organizational entity identifier whose identification mechanism has been registered
-as an Authority Identifier in the registry may be represented as a GLUE URN.<a href="#section-1-3" class="pilcrow">¶</a></p>
+as an Authority Identifier in the registry may be represented as a GLUE URI.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <div id="requirements-notation-and-conventions">
 <section id="section-1.1">
         <h3 id="name-requirements-notation-and-c">
@@ -1291,24 +1289,24 @@ appear in all capitals, as shown here.<a href="#section-1.1-1" class="pilcrow">�
         </h3>
 <p id="section-1.2-1">This specification uses the following terms:<a href="#section-1.2-1" class="pilcrow">¶</a></p>
 <span class="break"></span><dl class="dlParallel" id="section-1.2-2">
-          <dt id="section-1.2-2.1">GLUE URN:</dt>
+          <dt id="section-1.2-2.1">GLUE URI:</dt>
           <dd style="margin-left: 1.5em" id="section-1.2-2.2">
-            <p id="section-1.2-2.2.1">a URN that uses the GLUE URN namespace established in this specification.<a href="#section-1.2-2.2.1" class="pilcrow">¶</a></p>
+            <p id="section-1.2-2.2.1">a URI that uses the GLUE URI scheme established in this specification.<a href="#section-1.2-2.2.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-1.2-2.3">Authority Identifier:</dt>
           <dd style="margin-left: 1.5em" id="section-1.2-2.4">
-            <p id="section-1.2-2.4.1">identifier for the External Authority responsible for assigning the External Identifiers used in GLUE URNs over which it has jurisdiction.<a href="#section-1.2-2.4.1" class="pilcrow">¶</a></p>
+            <p id="section-1.2-2.4.1">identifier for the External Authority responsible for assigning the External Identifiers used in GLUE URIs over which it has jurisdiction.<a href="#section-1.2-2.4.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-1.2-2.5">External Identifier:</dt>
           <dd style="margin-left: 1.5em" id="section-1.2-2.6">
-            <p id="section-1.2-2.6.1">identifier assigned by an External Authority to identify a particular organization within GLUE URNs with Authority Identifier(s) over which it has jurisdiction.<a href="#section-1.2-2.6.1" class="pilcrow">¶</a></p>
+            <p id="section-1.2-2.6.1">identifier assigned by an External Authority to identify a particular organization within GLUE URIs with Authority Identifier(s) over which it has jurisdiction.<a href="#section-1.2-2.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-1.2-2.7">External Authority:</dt>
           <dd style="margin-left: 1.5em" id="section-1.2-2.8">
-            <p id="section-1.2-2.8.1">an organization that allocates External Identifiers over which it has jurisdiction that are used in GLUE URNs with its Authority Identifier(s).<a href="#section-1.2-2.8.1" class="pilcrow">¶</a></p>
+            <p id="section-1.2-2.8.1">an organization that allocates External Identifiers over which it has jurisdiction that are used in GLUE URIs with its Authority Identifier(s).<a href="#section-1.2-2.8.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 </dl>
@@ -1321,7 +1319,7 @@ appear in all capitals, as shown here.<a href="#section-1.1-1" class="pilcrow">�
       <h2 id="name-core-concepts">
 <a href="#section-2" class="section-number selfRef">2. </a><a href="#name-core-concepts" class="section-name selfRef">Core Concepts</a>
       </h2>
-<p id="section-2-1">Every GLUE URN <span class="bcp14">MUST</span>
+<p id="section-2-1">Every GLUE URI <span class="bcp14">MUST</span>
 contain the following components:<a href="#section-2-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-2-2.1">
@@ -1336,20 +1334,20 @@ contain the following components:<a href="#section-2-1" class="pilcrow">¶</a></
         <h3 id="name-uniqueness-and-namespacing">
 <a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-uniqueness-and-namespacing" class="section-name selfRef">Uniqueness and Namespacing</a>
         </h3>
-<p id="section-2.1-1">Each GLUE URN is globally unique identifier.
-An organization can be identified by multiple GLUE URNs,
-but each distinct GLUE URN can only refer to a single organization.
+<p id="section-2.1-1">Each GLUE URI is globally unique identifier.
+An organization can be identified by multiple GLUE URIs,
+but each distinct GLUE URI can only refer to a single organization.
 If multiple External Authorities have issued identifiers for the same organization
 (e.g., the organization has both a Dun &amp; Bradstreet number and a Private Enterprise Number),
-then the same organization can be identified by GLUE URNs differentiated by the Authority Identifier.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
+then the same organization can be identified by GLUE URIs differentiated by the Authority Identifier.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
 <p id="section-2.1-2">It is assumed that most registered organizational entity identification schemes
 already handle any namespacing necessary to achieve uniqueness as part of the External Identifier.
 However, if collisions are possible within the set of possible external
 identifiers for an Authority Identifier scheme, then further namespacing is
-necessary at the GLUE URN level.
+necessary at the GLUE URI level.
 Such namespacing could be done by allocating multiple Authority Identifiers.
 The combination of the Authority Identifier and the External Identifier
-<span class="bcp14">MUST</span> result in a unique GLUE URN.<a href="#section-2.1-2" class="pilcrow">¶</a></p>
+<span class="bcp14">MUST</span> result in a unique GLUE URI.<a href="#section-2.1-2" class="pilcrow">¶</a></p>
 <p id="section-2.1-3">For example, assume there is an External Authority FEA that provides identifiers
 for organizations in Singapore and South Korea. The identifiers issued in
 Singapore are unique within Singapore, and the identifiers issued in South Korea
@@ -1363,13 +1361,13 @@ Identifiers.<a href="#section-2.1-3" class="pilcrow">¶</a></p>
 </div>
 </section>
 </div>
-<div id="glue-urns">
+<div id="glue-uris">
 <section id="section-3">
-      <h2 id="name-glue-urns">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-glue-urns" class="section-name selfRef">GLUE URNs</a>
+      <h2 id="name-glue-uris">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-glue-uris" class="section-name selfRef">GLUE URIs</a>
       </h2>
-<p id="section-3-1">GLUE URNs comply with <span>[<a href="#RFC8141" class="cite xref">RFC8141</a>]</span>.
-They begin with "urn:glue:" and are followed by an Authority Identifier,
+<p id="section-3-1">GLUE URIs comply with <span>[<a href="#RFC7595" class="cite xref">RFC7595</a>]</span>.
+They begin with "glue:" and are followed by an Authority Identifier,
 a colon character (":"), and the External Identifier allocated by the authority.<a href="#section-3-1" class="pilcrow">¶</a></p>
 <p id="section-3-2">Authority Identifiers consist of a sequence of characters beginning with a
 letter or digit and followed by any combination of letters, digits, plus ("+"),
@@ -1393,17 +1391,17 @@ External Identifier is the representation of a number. It is specific to the
 Authority Identifier whether the External Identifiers are case-insensitive or
 case-sensitive. When they are case-insensitive, the canonical form is lowercase
 and documents that specify External Identifiers <span class="bcp14">MUST</span> do so with lowercase letters.
-Always using the canonical form of these URNs means that code performing comparisons
+Always using the canonical form of these URIs means that code performing comparisons
 need not be aware of whether External Identifiers are case-sensitive or not;
 case-sensitive comparisons can always be performed
 on the namespace specific string.<a href="#section-3-4" class="pilcrow">¶</a></p>
 <p id="section-3-5">While the original representation of some External Identifiers may contain
-characters that are ignored, these <span class="bcp14">MUST</span> be omitted when used in GLUE URNs.
+characters that are ignored, these <span class="bcp14">MUST</span> be omitted when used in GLUE URIs.
 For instance, Dun &amp; Bradstreet <span>[<a href="#DUNS" class="cite xref">DUNS</a>]</span> identifiers sometimes contain
 hyphen characters that are ignored.
 The DUNS numbers 12-345-6789 and 123456789 are considered to be equivalent.
 The latter form without the ignored characters <span class="bcp14">MUST</span> be used
-as the External Identifier in GLUE URNs.<a href="#section-3-5" class="pilcrow">¶</a></p>
+as the External Identifier in GLUE URIs.<a href="#section-3-5" class="pilcrow">¶</a></p>
 <p id="section-3-6">Finally, documents that define a new Authority Identifier type
 <span class="bcp14">MUST NOT</span> allow the representation of an External Identifier
 to contain the colon character.
@@ -1416,22 +1414,22 @@ The ABNF <span>[<a href="#RFC5234" class="cite xref">RFC5234</a>]</span> for Ext
 <p id="section-3-8"><code>
 external-identifier = ( ALPHA / DIGIT / "-" ) *999( ALPHA / DIGIT / "+" / "-" / "." )
 </code><a href="#section-3-8" class="pilcrow">¶</a></p>
-<p id="section-3-9">Combining these, the ABNF <span>[<a href="#RFC5234" class="cite xref">RFC5234</a>]</span> for a GLUE URN is:<a href="#section-3-9" class="pilcrow">¶</a></p>
+<p id="section-3-9">Combining these, the ABNF <span>[<a href="#RFC5234" class="cite xref">RFC5234</a>]</span> for a GLUE URI is:<a href="#section-3-9" class="pilcrow">¶</a></p>
 <p id="section-3-10"><code>
-glue-urn = "urn:glue:" authority-identifier ":" external-identifier
+glue-uri = "glue:" authority-identifier ":" external-identifier
 </code><a href="#section-3-10" class="pilcrow">¶</a></p>
-<p id="section-3-11">For example, the following is a GLUE URN using the Authority Identifier "pen"
+<p id="section-3-11">For example, the following is a GLUE URI using the Authority Identifier "pen"
 and the External Identifier "32473". This example uses the Enterprise Number "32473" reserved for documentation in <span>[<a href="#RFC5612" class="cite xref">RFC5612</a>]</span>.<a href="#section-3-11" class="pilcrow">¶</a></p>
 <p id="section-3-12"><code>
-urn:glue:pen:32473
+glue:pen:32473
 </code><a href="#section-3-12" class="pilcrow">¶</a></p>
-<p id="section-3-13">A GLUE URN is defined over the restricted US-ASCII syntax specified in this
-section. Percent-encoding is not permitted. Consequently, GLUE URNs do not
+<p id="section-3-13">A GLUE URI is defined over the restricted US-ASCII syntax specified in this
+section. Percent-encoding is not permitted. Consequently, GLUE URIs do not
 support representation of External Identifiers that use
 non-ASCII characters. This specification is therefore limited to identifier
 systems whose representations can be expressed fully within the permitted character set.<a href="#section-3-13" class="pilcrow">¶</a></p>
-<p id="section-3-14">The Authority Identifier <span class="bcp14">MUST</span> be registered in the GLUE URN Authority Identifier registry
-defined in <a href="#GLUE-Authority-Reg" class="auto internal xref">Section 7.1</a>.
+<p id="section-3-14">The Authority Identifier <span class="bcp14">MUST</span> be registered in the GLUE URI Authority Identifier registry
+established in <a href="#GLUE-Authority-Reg" class="auto internal xref">Section 7.1</a>.
 The External Identifier <span class="bcp14">MUST</span> be the identifier assigned to the organization
 by the External Authority.<a href="#section-3-14" class="pilcrow">¶</a></p>
 </section>
@@ -1484,18 +1482,19 @@ by the External Authority.<a href="#section-3-14" class="pilcrow">¶</a></p>
         </tbody>
       </table>
 </div>
-<p id="section-4-3">These are registered in the GLUE Authority Identifier URN Registry in <a href="#GLUE-Authority-Reg" class="auto internal xref">Section 7.1</a>.<a href="#section-4-3" class="pilcrow">¶</a></p>
-<div id="equivalence-to-similar-urns">
+<p id="section-4-3">These are registered in the GLUE Authority Identifier URI Registry
+established in <a href="#GLUE-Authority-Reg" class="auto internal xref">Section 7.1</a>.<a href="#section-4-3" class="pilcrow">¶</a></p>
+<div id="equivalence-to-similar-uris">
 <section id="section-4.1">
-        <h3 id="name-equivalence-to-similar-urns">
-<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-equivalence-to-similar-urns" class="section-name selfRef">Equivalence to Similar URNs</a>
+        <h3 id="name-equivalence-to-similar-uris">
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-equivalence-to-similar-uris" class="section-name selfRef">Equivalence to Similar URIs</a>
         </h3>
-<p id="section-4.1-1">A GLUE URN is an identifier in a distinct URN namespace. By default, a GLUE URN
-is not equivalent to any other URN, including a URN defined by the referenced
-authority's own namespace. Equivalence between a GLUE URN and a non-GLUE URN
+<p id="section-4.1-1">A GLUE URI is an identifier in a distinct URI scheme. By default, a GLUE URI
+is not equivalent to any other URI, including a URI defined by the referenced
+authority's own namespace. Equivalence between a GLUE URI and a non-GLUE URI
 exists only when explicitly specified for a given Authority Identifier.
 Implementations and relying parties <span class="bcp14">MUST NOT</span> assume equivalence between GLUE
-URNs and non-GLUE URNs unless such equivalence is explicitly defined by the
+URIs and non-GLUE URIs unless such equivalence is explicitly defined by the
 authority and the party understands that particular Authority Identifier
 and the specified equivalance.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
 <div id="lei-urns">
@@ -1505,11 +1504,11 @@ and the specified equivalance.<a href="#section-4.1-1" class="pilcrow">¶</a></p
           </h4>
 <p id="section-4.1.1-1"><span>[<a href="#LEI-IANA" class="cite xref">LEI-IANA</a>]</span> registers a URN namespace for Legal Entity Identifiers (LEIs).
 This means that LEIs can be
-represented as URNs in at least two ways. Therefore there is an equivalence
-between a GLUE URN with an "lei" Authority Identifier and an LEI URN, provided
+represented in at least two ways. Therefore there is an equivalence
+between a GLUE URI with an "lei" Authority Identifier and an LEI URN, provided
 the 20-digit LEI Code of the LEI URN is identical to the External Identifier
-of the GLUE URN. For example, "urn:lei:inr2ejn1eran0w5zp974" is equivalent to
-"urn:glue:lei:inr2ejn1eran0w5zp974".<a href="#section-4.1.1-1" class="pilcrow">¶</a></p>
+of the GLUE URI. For example, "urn:lei:inr2ejn1eran0w5zp974" is equivalent to
+"glue:lei:inr2ejn1eran0w5zp974".<a href="#section-4.1.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1521,14 +1520,14 @@ of the GLUE URN. For example, "urn:lei:inr2ejn1eran0w5zp974" is equivalent to
       <h2 id="name-security-considerations">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-5-1">The security considerations inherent to using URNs apply.
-Security considerations for URNs can be found in <span>[<a href="#RFC8141" class="cite xref">RFC8141</a>]</span>.<a href="#section-5-1" class="pilcrow">¶</a></p>
-<p id="section-5-2">The global uniqueness of GLUE URNs prevents situations in which
+<p id="section-5-1">The security considerations inherent to using URIs apply.
+Security considerations for URIs can be found in <span>[<a href="#RFC7595" class="cite xref">RFC7595</a>]</span>.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-2">The global uniqueness of GLUE URIs prevents situations in which
 the same identifier is allocated in different local namespaces
 and cannot be disambiguated when used.
 For instance both Canadian and Singaporean organization registries might use
 the local identifier "42", but with these referring to different organizations.
-Embedding these local identifiers in GLUE URNs enables disambiguation.<a href="#section-5-2" class="pilcrow">¶</a></p>
+Embedding these local identifiers in GLUE URIs enables disambiguation.<a href="#section-5-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="privacy-considerations">
@@ -1546,13 +1545,13 @@ example, this is the case for some registered sole-proprietor businesses in the
 United States, where the Tax ID may be the same as the Social Security Number
 (SSN) of the business owner. Where the Tax ID uniquely identifies the business,
 the SSN uniquely identifies an individual.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
-<p id="section-6.1-2">It is possible for such business identifiers to be represented as GLUE URNs. An
-identifier's expression as a GLUE URN does not change the privacy
+<p id="section-6.1-2">It is possible for such business identifiers to be represented as GLUE URIs. An
+identifier's expression as a GLUE URI does not change the privacy
 characteristics of that identifier. The same cautions and concerns need to be
-taken with the GLUE URN representation as with the original identifier.<a href="#section-6.1-2" class="pilcrow">¶</a></p>
-<p id="section-6.1-3">Implementers storing or evaluating GLUE URNs are encouraged to be aware the
+taken with the GLUE URI representation as with the original identifier.<a href="#section-6.1-2" class="pilcrow">¶</a></p>
+<p id="section-6.1-3">Implementers storing or evaluating GLUE URIs are encouraged to be aware the
 privacy characteristics of each identification scheme represented by an
-Authority Identifier and to appropriately handle any GLUE URN which violates
+Authority Identifier and to appropriately handle any GLUE URI that violates
 privacy policies.<a href="#section-6.1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1570,10 +1569,10 @@ privacy policies.<a href="#section-6.1-3" class="pilcrow">¶</a></p>
         </h3>
 <p id="section-7.1-1">This specification establishes the
 IANA "GLUE Authority Identifier" registry
-creating a URN namespace for Authority Identifiers for
+creating a URI namespace for Authority Identifiers for
 GLobal Unique Enterprise (GLUE) Identifiers.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
 <p id="section-7.1-2">Each entry registers an Authority Identifier within the
-"urn:glue:" namespace.
+"glue:" namespace.
 The organization responsible for the Authority Identifier is recorded.<a href="#section-7.1-2" class="pilcrow">¶</a></p>
 <p id="section-7.1-3">IANA is requested to create the
 "GLobal Unique Enterprise (GLUE) Identifiers"
@@ -1592,7 +1591,7 @@ in a timely manner, as determined by the Designated Experts,
 the Designated Experts may request that IANA withdraw the registration.<a href="#section-7.1-4" class="pilcrow">¶</a></p>
 <p id="section-7.1-5">Registration requests sent to the mailing list for review should use
 an appropriate subject
-(e.g., "Request to register URN urn:glue:example").<a href="#section-7.1-5" class="pilcrow">¶</a></p>
+(e.g., "Request to register URI glue:example").<a href="#section-7.1-5" class="pilcrow">¶</a></p>
 <p id="section-7.1-6">Within the review period, the Designated Experts will either approve or deny
 the registration request, communicating this decision to the review list and IANA.
 The Designated Experts verify that a specification exists. Experts are
@@ -1635,18 +1634,18 @@ before publication of the final specification.<a href="#section-7.1-11" class="p
 <span class="break"></span><dl class="dlParallel" id="section-7.1.1-1">
             <dt id="section-7.1.1-1.1">Authority Identifier:</dt>
             <dd style="margin-left: 1.5em" id="section-7.1.1-1.2">
-              <p id="section-7.1.1-1.2.1">identifier for the External Authority responsible for assigning the External Identifier used in GLUE URNs.
+              <p id="section-7.1.1-1.2.1">Identifier for the External Authority responsible for assigning the External Identifier used in GLUE URIs.
 This identifier
 is not case sensitive and any letters <span class="bcp14">MUST</span> be expressed in lowercase characters.
 It <span class="bcp14">MUST</span> consist of a sequence of characters with a mazimum length of 50,
-beginning with a letter and followed by any combination of
+beginning with a letter or digit and followed by any combination of
 letters, digits, plus ("+"), period ("."), or hyphen ("-").<a href="#section-7.1.1-1.2.1" class="pilcrow">¶</a></p>
 </dd>
             <dd class="break"></dd>
-<dt id="section-7.1.1-1.3">URN:</dt>
+<dt id="section-7.1.1-1.3">URI:</dt>
             <dd style="margin-left: 1.5em" id="section-7.1.1-1.4">
-              <p id="section-7.1.1-1.4.1">The URN within the "urn:glue:" namespace
-consisting of "urn:glue:" followed by
+              <p id="section-7.1.1-1.4.1">The URI within the "glue:" namespace
+consisting of "glue:" followed by
 the Authority Identifier.<a href="#section-7.1.1-1.4.1" class="pilcrow">¶</a></p>
 </dd>
             <dd class="break"></dd>
@@ -1657,7 +1656,7 @@ the Authority Identifier.<a href="#section-7.1.1-1.4.1" class="pilcrow">¶</a></
             <dd class="break"></dd>
 <dt id="section-7.1.1-1.7">Transformation Rules:</dt>
             <dd style="margin-left: 1.5em" id="section-7.1.1-1.8">
-              <p id="section-7.1.1-1.8.1">Syntactic transformations applied to the original External Identifiers when creating the GLUE URN, or "N/A" if none.<a href="#section-7.1.1-1.8.1" class="pilcrow">¶</a></p>
+              <p id="section-7.1.1-1.8.1">Syntactic transformations applied to the original External Identifiers when creating the GLUE URI, or "N/A" if none.<a href="#section-7.1.1-1.8.1" class="pilcrow">¶</a></p>
 </dd>
             <dd class="break"></dd>
 <dt id="section-7.1.1-1.9">Change Controller:</dt>
@@ -1693,9 +1692,9 @@ An indication of the relevant sections may also be included, but is not required
                 <p id="section-7.1.2.1-1.2.1">gln<a href="#section-7.1.2.1-1.2.1" class="pilcrow">¶</a></p>
 </dd>
               <dd class="break"></dd>
-<dt id="section-7.1.2.1-1.3">URN:</dt>
+<dt id="section-7.1.2.1-1.3">URI:</dt>
               <dd style="margin-left: 1.5em" id="section-7.1.2.1-1.4">
-                <p id="section-7.1.2.1-1.4.1">urn:glue:gln<a href="#section-7.1.2.1-1.4.1" class="pilcrow">¶</a></p>
+                <p id="section-7.1.2.1-1.4.1">glue:gln<a href="#section-7.1.2.1-1.4.1" class="pilcrow">¶</a></p>
 </dd>
               <dd class="break"></dd>
 <dt id="section-7.1.2.1-1.5">Organization:</dt>
@@ -1715,7 +1714,7 @@ An indication of the relevant sections may also be included, but is not required
               <dd class="break"></dd>
 <dt id="section-7.1.2.1-1.11">Specification Document(s):</dt>
               <dd style="margin-left: 1.5em" id="section-7.1.2.1-1.12">
-                <p id="section-7.1.2.1-1.12.1"><a href="#authority-identifiers" class="auto internal xref">Section 4</a> of this specification, <span>[<a href="#GLN" class="cite xref">GLN</a>]</span><a href="#section-7.1.2.1-1.12.1" class="pilcrow">¶</a></p>
+                <p id="section-7.1.2.1-1.12.1"><a href="#authority-identifiers" class="auto internal xref">Section 4</a> of [[ this specification ]], <span>[<a href="#GLN" class="cite xref">GLN</a>]</span><a href="#section-7.1.2.1-1.12.1" class="pilcrow">¶</a></p>
 </dd>
             <dd class="break"></dd>
 </dl>
@@ -1732,9 +1731,9 @@ An indication of the relevant sections may also be included, but is not required
                 <p id="section-7.1.2.2-1.2.1">lei<a href="#section-7.1.2.2-1.2.1" class="pilcrow">¶</a></p>
 </dd>
               <dd class="break"></dd>
-<dt id="section-7.1.2.2-1.3">URN:</dt>
+<dt id="section-7.1.2.2-1.3">URI:</dt>
               <dd style="margin-left: 1.5em" id="section-7.1.2.2-1.4">
-                <p id="section-7.1.2.2-1.4.1">urn:glue:lei<a href="#section-7.1.2.2-1.4.1" class="pilcrow">¶</a></p>
+                <p id="section-7.1.2.2-1.4.1">glue:lei<a href="#section-7.1.2.2-1.4.1" class="pilcrow">¶</a></p>
 </dd>
               <dd class="break"></dd>
 <dt id="section-7.1.2.2-1.5">Organization:</dt>
@@ -1754,7 +1753,7 @@ An indication of the relevant sections may also be included, but is not required
               <dd class="break"></dd>
 <dt id="section-7.1.2.2-1.11">Specification Document(s):</dt>
               <dd style="margin-left: 1.5em" id="section-7.1.2.2-1.12">
-                <p id="section-7.1.2.2-1.12.1"><a href="#authority-identifiers" class="auto internal xref">Section 4</a> of this specification, <span>[<a href="#LEI" class="cite xref">LEI</a>]</span>, <span>[<a href="#LEI-IANA" class="cite xref">LEI-IANA</a>]</span><a href="#section-7.1.2.2-1.12.1" class="pilcrow">¶</a></p>
+                <p id="section-7.1.2.2-1.12.1"><a href="#authority-identifiers" class="auto internal xref">Section 4</a> of [[ this specification ]], <span>[<a href="#LEI" class="cite xref">LEI</a>]</span>, <span>[<a href="#LEI-IANA" class="cite xref">LEI-IANA</a>]</span><a href="#section-7.1.2.2-1.12.1" class="pilcrow">¶</a></p>
 </dd>
             <dd class="break"></dd>
 </dl>
@@ -1771,9 +1770,9 @@ An indication of the relevant sections may also be included, but is not required
                 <p id="section-7.1.2.3-1.2.1">duns<a href="#section-7.1.2.3-1.2.1" class="pilcrow">¶</a></p>
 </dd>
               <dd class="break"></dd>
-<dt id="section-7.1.2.3-1.3">URN:</dt>
+<dt id="section-7.1.2.3-1.3">URI:</dt>
               <dd style="margin-left: 1.5em" id="section-7.1.2.3-1.4">
-                <p id="section-7.1.2.3-1.4.1">urn:glue:duns<a href="#section-7.1.2.3-1.4.1" class="pilcrow">¶</a></p>
+                <p id="section-7.1.2.3-1.4.1">glue:duns<a href="#section-7.1.2.3-1.4.1" class="pilcrow">¶</a></p>
 </dd>
               <dd class="break"></dd>
 <dt id="section-7.1.2.3-1.5">Organization:</dt>
@@ -1793,7 +1792,7 @@ An indication of the relevant sections may also be included, but is not required
               <dd class="break"></dd>
 <dt id="section-7.1.2.3-1.11">Specification Document(s):</dt>
               <dd style="margin-left: 1.5em" id="section-7.1.2.3-1.12">
-                <p id="section-7.1.2.3-1.12.1"><a href="#authority-identifiers" class="auto internal xref">Section 4</a> of this specification, <span>[<a href="#DUNS" class="cite xref">DUNS</a>]</span><a href="#section-7.1.2.3-1.12.1" class="pilcrow">¶</a></p>
+                <p id="section-7.1.2.3-1.12.1"><a href="#authority-identifiers" class="auto internal xref">Section 4</a> of [[ this specification ]], <span>[<a href="#DUNS" class="cite xref">DUNS</a>]</span><a href="#section-7.1.2.3-1.12.1" class="pilcrow">¶</a></p>
 </dd>
             <dd class="break"></dd>
 </dl>
@@ -1810,9 +1809,9 @@ An indication of the relevant sections may also be included, but is not required
                 <p id="section-7.1.2.4-1.2.1">pen<a href="#section-7.1.2.4-1.2.1" class="pilcrow">¶</a></p>
 </dd>
               <dd class="break"></dd>
-<dt id="section-7.1.2.4-1.3">URN:</dt>
+<dt id="section-7.1.2.4-1.3">URI:</dt>
               <dd style="margin-left: 1.5em" id="section-7.1.2.4-1.4">
-                <p id="section-7.1.2.4-1.4.1">urn:glue:pen<a href="#section-7.1.2.4-1.4.1" class="pilcrow">¶</a></p>
+                <p id="section-7.1.2.4-1.4.1">glue:pen<a href="#section-7.1.2.4-1.4.1" class="pilcrow">¶</a></p>
 </dd>
               <dd class="break"></dd>
 <dt id="section-7.1.2.4-1.5">Organization:</dt>
@@ -1832,7 +1831,7 @@ An indication of the relevant sections may also be included, but is not required
               <dd class="break"></dd>
 <dt id="section-7.1.2.4-1.11">Specification Document(s):</dt>
               <dd style="margin-left: 1.5em" id="section-7.1.2.4-1.12">
-                <p id="section-7.1.2.4-1.12.1"><a href="#authority-identifiers" class="auto internal xref">Section 4</a> of this specification, <span>[<a href="#PEN" class="cite xref">PEN</a>]</span>, <span>[<a href="#RFC9371" class="cite xref">RFC9371</a>]</span><a href="#section-7.1.2.4-1.12.1" class="pilcrow">¶</a></p>
+                <p id="section-7.1.2.4-1.12.1"><a href="#authority-identifiers" class="auto internal xref">Section 4</a> of [[ this specification ]], <span>[<a href="#PEN" class="cite xref">PEN</a>]</span>, <span>[<a href="#RFC9371" class="cite xref">RFC9371</a>]</span><a href="#section-7.1.2.4-1.12.1" class="pilcrow">¶</a></p>
 </dd>
             <dd class="break"></dd>
 </dl>
@@ -1849,9 +1848,9 @@ An indication of the relevant sections may also be included, but is not required
                 <p id="section-7.1.2.5-1.2.1">iso6523<a href="#section-7.1.2.5-1.2.1" class="pilcrow">¶</a></p>
 </dd>
               <dd class="break"></dd>
-<dt id="section-7.1.2.5-1.3">URN:</dt>
+<dt id="section-7.1.2.5-1.3">URI:</dt>
               <dd style="margin-left: 1.5em" id="section-7.1.2.5-1.4">
-                <p id="section-7.1.2.5-1.4.1">urn:glue:iso6523<a href="#section-7.1.2.5-1.4.1" class="pilcrow">¶</a></p>
+                <p id="section-7.1.2.5-1.4.1">glue:iso6523<a href="#section-7.1.2.5-1.4.1" class="pilcrow">¶</a></p>
 </dd>
               <dd class="break"></dd>
 <dt id="section-7.1.2.5-1.5">Organization:</dt>
@@ -1871,7 +1870,7 @@ An indication of the relevant sections may also be included, but is not required
               <dd class="break"></dd>
 <dt id="section-7.1.2.5-1.11">Specification Document(s):</dt>
               <dd style="margin-left: 1.5em" id="section-7.1.2.5-1.12">
-                <p id="section-7.1.2.5-1.12.1"><a href="#authority-identifiers" class="auto internal xref">Section 4</a> of this specification, <span>[<a href="#ISO6523" class="cite xref">ISO6523</a>]</span><a href="#section-7.1.2.5-1.12.1" class="pilcrow">¶</a></p>
+                <p id="section-7.1.2.5-1.12.1"><a href="#authority-identifiers" class="auto internal xref">Section 4</a> of [[ this specification ]], <span>[<a href="#ISO6523" class="cite xref">ISO6523</a>]</span><a href="#section-7.1.2.5-1.12.1" class="pilcrow">¶</a></p>
 </dd>
             <dd class="break"></dd>
 </dl>
@@ -1881,86 +1880,48 @@ An indication of the relevant sections may also be included, but is not required
 </div>
 </section>
 </div>
-<div id="urn-namespace-registration">
+<div id="uri-scheme-registration">
 <section id="section-7.2">
-        <h3 id="name-urn-namespace-registration">
-<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-urn-namespace-registration" class="section-name selfRef">URN Namespace Registration</a>
+        <h3 id="name-uri-scheme-registration">
+<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-uri-scheme-registration" class="section-name selfRef">URI Scheme Registration</a>
         </h3>
-<p id="section-7.2-1">This specification registers the following URN namespace in the
-IANA "Formal URN Namespaces" registry <span>[<a href="#IANA.URN" class="cite xref">IANA.URN</a>]</span> established by <span>[<a href="#RFC8141" class="cite xref">RFC8141</a>]</span>.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
-<div id="urnglue">
+<p id="section-7.2-1">This specification registers the following URI scheme in the
+IANA "Uniform Resource Identifier (URI) Schemes" registry <span>[<a href="#IANA.URISchemes" class="cite xref">IANA.URISchemes</a>]</span>
+established by <span>[<a href="#RFC7595" class="cite xref">RFC7595</a>]</span>.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
+<div id="glue">
 <section id="section-7.2.1">
-          <h4 id="name-urnglue">
-<a href="#section-7.2.1" class="section-number selfRef">7.2.1. </a><a href="#name-urnglue" class="section-name selfRef">urn:glue</a>
+          <h4 id="name-glue">
+<a href="#section-7.2.1" class="section-number selfRef">7.2.1. </a><a href="#name-glue" class="section-name selfRef">glue</a>
           </h4>
 <span class="break"></span><dl class="dlCompact dlParallel" id="section-7.2.1-1">
-            <dt id="section-7.2.1-1.1">Namespace Identifier:</dt>
+            <dt id="section-7.2.1-1.1">Scheme Name:</dt>
             <dd style="margin-left: 1.5em" id="section-7.2.1-1.2">
               <p id="section-7.2.1-1.2.1">glue<a href="#section-7.2.1-1.2.1" class="pilcrow">¶</a></p>
 </dd>
             <dd class="break"></dd>
-<dt id="section-7.2.1-1.3">Version:</dt>
+<dt id="section-7.2.1-1.3">Status:</dt>
             <dd style="margin-left: 1.5em" id="section-7.2.1-1.4">
-              <p id="section-7.2.1-1.4.1">1<a href="#section-7.2.1-1.4.1" class="pilcrow">¶</a></p>
+              <p id="section-7.2.1-1.4.1">Permanent<a href="#section-7.2.1-1.4.1" class="pilcrow">¶</a></p>
 </dd>
             <dd class="break"></dd>
-<dt id="section-7.2.1-1.5">Date:</dt>
+<dt id="section-7.2.1-1.5">Applications/protocols that use this scheme name:</dt>
             <dd style="margin-left: 1.5em" id="section-7.2.1-1.6">
-              <p id="section-7.2.1-1.6.1">2026-03-02<a href="#section-7.2.1-1.6.1" class="pilcrow">¶</a></p>
+              <p id="section-7.2.1-1.6.1">Systems that need to refer to organizational entities utilizing interoperable identifiers derived from existing organizational identifier systems<a href="#section-7.2.1-1.6.1" class="pilcrow">¶</a></p>
 </dd>
             <dd class="break"></dd>
-<dt id="section-7.2.1-1.7">Registrant:</dt>
+<dt id="section-7.2.1-1.7">Contact:</dt>
             <dd style="margin-left: 1.5em" id="section-7.2.1-1.8">
-              <p id="section-7.2.1-1.8.1">IETF<a href="#section-7.2.1-1.8.1" class="pilcrow">¶</a></p>
+              <p id="section-7.2.1-1.8.1">Michael B. Jones - michael_b_jones@hotmail.com<a href="#section-7.2.1-1.8.1" class="pilcrow">¶</a></p>
 </dd>
             <dd class="break"></dd>
-<dt id="section-7.2.1-1.9">Purpose:</dt>
+<dt id="section-7.2.1-1.9">Change Controller:</dt>
             <dd style="margin-left: 1.5em" id="section-7.2.1-1.10">
-              <p id="section-7.2.1-1.10.1">GLobal Unique Enterprise (GLUE) identifier namespace,
-established by [[ this specification ]]<a href="#section-7.2.1-1.10.1" class="pilcrow">¶</a></p>
+              <p id="section-7.2.1-1.10.1">IETF<a href="#section-7.2.1-1.10.1" class="pilcrow">¶</a></p>
 </dd>
             <dd class="break"></dd>
-<dt id="section-7.2.1-1.11">Syntax:</dt>
+<dt id="section-7.2.1-1.11">References:</dt>
             <dd style="margin-left: 1.5em" id="section-7.2.1-1.12">
-              <p id="section-7.2.1-1.12.1">As specified in the glue-urn ABNF entry in <a href="#glue-urns" class="auto internal xref">Section 3</a> of [[ this specification ]]<a href="#section-7.2.1-1.12.1" class="pilcrow">¶</a></p>
-</dd>
-            <dd class="break"></dd>
-<dt id="section-7.2.1-1.13">Assignment:</dt>
-            <dd style="margin-left: 1.5em" id="section-7.2.1-1.14">
-              <p id="section-7.2.1-1.14.1">Specification Required (<span><a href="https://rfc-editor.org/rfc/rfc8126#section-4.6" class="relref">Section 4.6</a> of [<a href="#RFC8126" class="cite xref">RFC8126</a>]</span>) basis<a href="#section-7.2.1-1.14.1" class="pilcrow">¶</a></p>
-</dd>
-            <dd class="break"></dd>
-<dt id="section-7.2.1-1.15">Security and Privacy:</dt>
-            <dd style="margin-left: 1.5em" id="section-7.2.1-1.16">
-              <p id="section-7.2.1-1.16.1">GLUE URNs are public identifiers for public entities.<a href="#section-7.2.1-1.16.1" class="pilcrow">¶</a></p>
-</dd>
-            <dd class="break"></dd>
-<dt id="section-7.2.1-1.17">Interoperability:</dt>
-            <dd style="margin-left: 1.5em" id="section-7.2.1-1.18">
-              <p id="section-7.2.1-1.18.1">GLUE URNs encapsulate other existing identifier namespaces.
-Therefore, they provide a globally unique equivalent to identifiers within
-those local namespaces.
-Some of those namespaces may also utilize URNs.<a href="#section-7.2.1-1.18.1" class="pilcrow">¶</a></p>
-</dd>
-            <dd class="break"></dd>
-<dt id="section-7.2.1-1.19">Resolution:</dt>
-            <dd style="margin-left: 1.5em" id="section-7.2.1-1.20">
-              <p id="section-7.2.1-1.20.1">Resolution of GLUE URNs, which are identifiers, is not performed.<a href="#section-7.2.1-1.20.1" class="pilcrow">¶</a></p>
-</dd>
-            <dd class="break"></dd>
-<dt id="section-7.2.1-1.21">Documentation:</dt>
-            <dd style="margin-left: 1.5em" id="section-7.2.1-1.22">
-              <p id="section-7.2.1-1.22.1">[[ this specification ]]<a href="#section-7.2.1-1.22.1" class="pilcrow">¶</a></p>
-</dd>
-            <dd class="break"></dd>
-<dt id="section-7.2.1-1.23">Additional Information:</dt>
-            <dd style="margin-left: 1.5em" id="section-7.2.1-1.24">
-              <p id="section-7.2.1-1.24.1">N/A<a href="#section-7.2.1-1.24.1" class="pilcrow">¶</a></p>
-</dd>
-            <dd class="break"></dd>
-<dt id="section-7.2.1-1.25">Revision Information:</dt>
-            <dd style="margin-left: 1.5em" id="section-7.2.1-1.26">
-              <p id="section-7.2.1-1.26.1">N/A<a href="#section-7.2.1-1.26.1" class="pilcrow">¶</a></p>
+              <p id="section-7.2.1-1.12.1">[[ this specification ]]<a href="#section-7.2.1-1.12.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 </dl>
@@ -2013,9 +1974,9 @@ Some of those namespaces may also utilize URNs.<a href="#section-7.2.1-1.18.1" c
         <dd>
 <span class="refAuthor">Crocker, D., Ed.</span> and <span class="refAuthor">P. Overell</span>, <span class="refTitle">"Augmented BNF for Syntax Specifications: ABNF"</span>, <span class="seriesInfo">STD 68</span>, <span class="seriesInfo">RFC 5234</span>, <span class="seriesInfo">DOI 10.17487/RFC5234</span>, <time datetime="2008-01" class="refDate">January 2008</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5234">https://www.rfc-editor.org/rfc/rfc5234</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="RFC8141">[RFC8141]</dt>
+<dt id="RFC7595">[RFC7595]</dt>
         <dd>
-<span class="refAuthor">Saint-Andre, P.</span> and <span class="refAuthor">J. Klensin</span>, <span class="refTitle">"Uniform Resource Names (URNs)"</span>, <span class="seriesInfo">RFC 8141</span>, <span class="seriesInfo">DOI 10.17487/RFC8141</span>, <time datetime="2017-04" class="refDate">April 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8141">https://www.rfc-editor.org/rfc/rfc8141</a>&gt;</span>. </dd>
+<span class="refAuthor">Thaler, D., Ed.</span>, <span class="refAuthor">Hansen, T.</span>, and <span class="refAuthor">T. Hardie</span>, <span class="refTitle">"Guidelines and Registration Procedures for URI Schemes"</span>, <span class="seriesInfo">BCP 35</span>, <span class="seriesInfo">RFC 7595</span>, <span class="seriesInfo">DOI 10.17487/RFC7595</span>, <time datetime="2015-06" class="refDate">June 2015</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7595">https://www.rfc-editor.org/rfc/rfc7595</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8174">[RFC8174]</dt>
       <dd>
@@ -2030,9 +1991,9 @@ Some of those namespaces may also utilize URNs.<a href="#section-7.2.1-1.18.1" c
 <a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
-<dt id="IANA.URN">[IANA.URN]</dt>
+<dt id="IANA.URISchemes">[IANA.URISchemes]</dt>
         <dd>
-<span class="refTitle">"Formal URN Namespaces"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.iana.org/assignments/urn-namespaces/">https://www.iana.org/assignments/urn-namespaces/</a>&gt;</span>. </dd>
+<span class="refTitle">"Uniform Resource Identifier (URI) Schemes"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.iana.org/assignments/uri-schemes">https://www.iana.org/assignments/uri-schemes</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC5612">[RFC5612]</dt>
         <dd>
@@ -2084,132 +2045,139 @@ contributed to this specification.<a href="#appendix-A-1" class="pilcrow">¶</a>
       <h2 id="name-document-history">
 <a href="#name-document-history" class="section-name selfRef">Document History</a>
       </h2>
-<p id="appendix-B-1">-08<a href="#appendix-B-1" class="pilcrow">¶</a></p>
+<p id="appendix-B-1">-09<a href="#appendix-B-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-B-2.1">
-          <p id="appendix-B-2.1.1">Addressed urn:glue registration feedback by Dale Worley
-about identifier uniqueness and defining Transformation Rules, when needed.<a href="#appendix-B-2.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-2.1.1">Changed from using a URN namespace to a URI scheme,
+based on feedback from the URN designated experts.<a href="#appendix-B-2.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="appendix-B-2.2">
-          <p id="appendix-B-2.2.1">Addressed urn:glue registration feedback by Peter Saint-Andre
+      </ul>
+<p id="appendix-B-3">-08<a href="#appendix-B-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-B-4.1">
+          <p id="appendix-B-4.1.1">Addressed urn:glue registration feedback by Dale Worley
+about identifier uniqueness and defining Transformation Rules, when needed.<a href="#appendix-B-4.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-B-4.2">
+          <p id="appendix-B-4.2.1">Addressed urn:glue registration feedback by Peter Saint-Andre
 about using "URN" rather than "URI",
 applying suggested language about when
 multiple External Authorities have issued identifiers for the same organization,
-and correcting issues with the registry descriptions.<a href="#appendix-B-2.2.1" class="pilcrow">¶</a></p>
+and correcting issues with the registry descriptions.<a href="#appendix-B-4.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="appendix-B-3">-07<a href="#appendix-B-3" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="appendix-B-4.1">
-          <p id="appendix-B-4.1.1">Registered urn:glue per Amanda Baber's instructions.<a href="#appendix-B-4.1.1" class="pilcrow">¶</a></p>
-</li>
-      </ul>
-<p id="appendix-B-5">-06<a href="#appendix-B-5" class="pilcrow">¶</a></p>
+<p id="appendix-B-5">-07<a href="#appendix-B-5" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-B-6.1">
-          <p id="appendix-B-6.1.1">Addressed Deb Cooley's review comments, specifically:<a href="#appendix-B-6.1.1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="appendix-B-6.1.2.1">
-              <p id="appendix-B-6.1.2.1.1">Reworked term definitions.<a href="#appendix-B-6.1.2.1.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="appendix-B-6.1.2.2">
-              <p id="appendix-B-6.1.2.2.1">Added security consideration about uniqueness of GLUE URIs.<a href="#appendix-B-6.1.2.2.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="appendix-B-6.1.2.3">
-              <p id="appendix-B-6.1.2.3.1">Updated registration instructions to include a criterion about
-an existing organizational registry operated by an External Authority
-identified by the proposed Authority Identifier.<a href="#appendix-B-6.1.2.3.1" class="pilcrow">¶</a></p>
-</li>
-          </ul>
-</li>
-        <li class="normal" id="appendix-B-6.2">
-          <p id="appendix-B-6.2.1">Addressed Mohamed Boucadair's review comments, specifically:<a href="#appendix-B-6.2.1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="appendix-B-6.2.2.1">
-              <p id="appendix-B-6.2.2.1.1">Used neutral language "organization" that doesn't assume that all organizations are businesses.<a href="#appendix-B-6.2.2.1.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="appendix-B-6.2.2.2">
-              <p id="appendix-B-6.2.2.2.1">Reworded confusing text about uniqueness.<a href="#appendix-B-6.2.2.2.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="appendix-B-6.2.2.3">
-              <p id="appendix-B-6.2.2.3.1">Made the RFC 5234 reference normative.<a href="#appendix-B-6.2.2.3.1" class="pilcrow">¶</a></p>
-</li>
-          </ul>
-</li>
-        <li class="normal" id="appendix-B-6.3">
-          <p id="appendix-B-6.3.1">Addressed Erik Kline's review comments, specifically:<a href="#appendix-B-6.3.1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="appendix-B-6.3.2.1">
-              <p id="appendix-B-6.3.2.1.1">Expanded LEI on first use to Legal Entity Identifier (LEI).<a href="#appendix-B-6.3.2.1.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="appendix-B-6.3.2.2">
-              <p id="appendix-B-6.3.2.2.1">Included instructions to the designated experts about ensuring that
-the registration references an existing organizational registry
-operated by an External Authority identified by the proposed Authority Identifier.<a href="#appendix-B-6.3.2.2.1" class="pilcrow">¶</a></p>
-</li>
-          </ul>
+          <p id="appendix-B-6.1.1">Registered urn:glue per Amanda Baber's instructions.<a href="#appendix-B-6.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="appendix-B-7">-05<a href="#appendix-B-7" class="pilcrow">¶</a></p>
+<p id="appendix-B-7">-06<a href="#appendix-B-7" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-B-8.1">
-          <p id="appendix-B-8.1.1">Added ISO/IEC 6523 identifiers.<a href="#appendix-B-8.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-8.1.1">Addressed Deb Cooley's review comments, specifically:<a href="#appendix-B-8.1.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-B-8.1.2.1">
+              <p id="appendix-B-8.1.2.1.1">Reworked term definitions.<a href="#appendix-B-8.1.2.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="appendix-B-8.1.2.2">
+              <p id="appendix-B-8.1.2.2.1">Added security consideration about uniqueness of GLUE URIs.<a href="#appendix-B-8.1.2.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="appendix-B-8.1.2.3">
+              <p id="appendix-B-8.1.2.3.1">Updated registration instructions to include a criterion about
+an existing organizational registry operated by an External Authority
+identified by the proposed Authority Identifier.<a href="#appendix-B-8.1.2.3.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
 </li>
         <li class="normal" id="appendix-B-8.2">
-          <p id="appendix-B-8.2.1">The first character of the Authority Identifier may be a digit.<a href="#appendix-B-8.2.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-8.2.1">Addressed Mohamed Boucadair's review comments, specifically:<a href="#appendix-B-8.2.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-B-8.2.2.1">
+              <p id="appendix-B-8.2.2.1.1">Used neutral language "organization" that doesn't assume that all organizations are businesses.<a href="#appendix-B-8.2.2.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="appendix-B-8.2.2.2">
+              <p id="appendix-B-8.2.2.2.1">Reworded confusing text about uniqueness.<a href="#appendix-B-8.2.2.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="appendix-B-8.2.2.3">
+              <p id="appendix-B-8.2.2.3.1">Made the RFC 5234 reference normative.<a href="#appendix-B-8.2.2.3.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
 </li>
         <li class="normal" id="appendix-B-8.3">
-          <p id="appendix-B-8.3.1">Fixed wording in IANA Considerations.<a href="#appendix-B-8.3.1" class="pilcrow">¶</a></p>
-</li>
-        <li class="normal" id="appendix-B-8.4">
-          <p id="appendix-B-8.4.1">Limited character set to US-ASCII.<a href="#appendix-B-8.4.1" class="pilcrow">¶</a></p>
-</li>
-        <li class="normal" id="appendix-B-8.5">
-          <p id="appendix-B-8.5.1">Fixed multiple nits from WGLC.<a href="#appendix-B-8.5.1" class="pilcrow">¶</a></p>
-</li>
-      </ul>
-<p id="appendix-B-9">-04<a href="#appendix-B-9" class="pilcrow">¶</a></p>
+          <p id="appendix-B-8.3.1">Addressed Erik Kline's review comments, specifically:<a href="#appendix-B-8.3.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="appendix-B-10.1">
-          <p id="appendix-B-10.1.1">Applied review suggestions from Martin Thomson, specifically:<a href="#appendix-B-10.1.1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="appendix-B-10.1.2.1">
-              <p id="appendix-B-10.1.2.1.1">Added references for each registered Authority Identifier.<a href="#appendix-B-10.1.2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="appendix-B-8.3.2.1">
+              <p id="appendix-B-8.3.2.1.1">Expanded LEI on first use to Legal Entity Identifier (LEI).<a href="#appendix-B-8.3.2.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="appendix-B-10.1.2.2">
-              <p id="appendix-B-10.1.2.2.1">Added size limits for Authority Identifiers and External Identifiers.<a href="#appendix-B-10.1.2.2.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="appendix-B-10.1.2.3">
-              <p id="appendix-B-10.1.2.3.1">Added a note about LEI URNs.<a href="#appendix-B-10.1.2.3.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="appendix-B-8.3.2.2">
+              <p id="appendix-B-8.3.2.2.1">Included instructions to the designated experts about ensuring that
+the registration references an existing organizational registry
+operated by an External Authority identified by the proposed Authority Identifier.<a href="#appendix-B-8.3.2.2.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </li>
       </ul>
-<p id="appendix-B-11">-03<a href="#appendix-B-11" class="pilcrow">¶</a></p>
+<p id="appendix-B-9">-05<a href="#appendix-B-9" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-B-10.1">
+          <p id="appendix-B-10.1.1">Added ISO/IEC 6523 identifiers.<a href="#appendix-B-10.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-B-10.2">
+          <p id="appendix-B-10.2.1">The first character of the Authority Identifier may be a digit.<a href="#appendix-B-10.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-B-10.3">
+          <p id="appendix-B-10.3.1">Fixed wording in IANA Considerations.<a href="#appendix-B-10.3.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-B-10.4">
+          <p id="appendix-B-10.4.1">Limited character set to US-ASCII.<a href="#appendix-B-10.4.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-B-10.5">
+          <p id="appendix-B-10.5.1">Fixed multiple nits from WGLC.<a href="#appendix-B-10.5.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="appendix-B-11">-04<a href="#appendix-B-11" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-B-12.1">
-          <p id="appendix-B-12.1.1">Use the urn:glue URN namespace and delete the urn:ietf:spice URN namespace.<a href="#appendix-B-12.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-12.1.1">Applied review suggestions from Martin Thomson, specifically:<a href="#appendix-B-12.1.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-B-12.1.2.1">
+              <p id="appendix-B-12.1.2.1.1">Added references for each registered Authority Identifier.<a href="#appendix-B-12.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="appendix-B-12.2">
-          <p id="appendix-B-12.2.1">Addressed early IANA feedback.<a href="#appendix-B-12.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="appendix-B-12.1.2.2">
+              <p id="appendix-B-12.1.2.2.1">Added size limits for Authority Identifiers and External Identifiers.<a href="#appendix-B-12.1.2.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="appendix-B-12.1.2.3">
+              <p id="appendix-B-12.1.2.3.1">Added a note about LEI URNs.<a href="#appendix-B-12.1.2.3.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
 </li>
       </ul>
-<p id="appendix-B-13">-02<a href="#appendix-B-13" class="pilcrow">¶</a></p>
+<p id="appendix-B-13">-03<a href="#appendix-B-13" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-B-14.1">
-          <p id="appendix-B-14.1.1">Improved several descriptions in the specification.<a href="#appendix-B-14.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-14.1.1">Use the urn:glue URN namespace and delete the urn:ietf:spice URN namespace.<a href="#appendix-B-14.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-B-14.2">
+          <p id="appendix-B-14.2.1">Addressed early IANA feedback.<a href="#appendix-B-14.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="appendix-B-15">-01<a href="#appendix-B-15" class="pilcrow">¶</a></p>
+<p id="appendix-B-15">-02<a href="#appendix-B-15" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-B-16.1">
-          <p id="appendix-B-16.1.1">Updated Brent's affiliation.<a href="#appendix-B-16.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-16.1.1">Improved several descriptions in the specification.<a href="#appendix-B-16.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="appendix-B-17">-00<a href="#appendix-B-17" class="pilcrow">¶</a></p>
+<p id="appendix-B-17">-01<a href="#appendix-B-17" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-B-18.1">
-          <p id="appendix-B-18.1.1">Initial working group draft, based on draft-zundel-spice-glue-id-02<a href="#appendix-B-18.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-18.1.1">Updated Brent's affiliation.<a href="#appendix-B-18.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="appendix-B-19">-00<a href="#appendix-B-19" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-B-20.1">
+          <p id="appendix-B-20.1.1">Initial working group draft, based on draft-zundel-spice-glue-id-02<a href="#appendix-B-20.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 </section>

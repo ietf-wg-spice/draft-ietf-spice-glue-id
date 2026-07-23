@@ -5,10 +5,10 @@
 Secure Patterns for Internet CrEdentials                    B. W. Zundel
 Internet-Draft                                                          
 Intended status: Standards Track                               P. Dingle
-Expires: 5 December 2026                           Microsoft Corporation
+Expires: 24 January 2027                           Microsoft Corporation
                                                              M. B. Jones
                                                   Self-Issued Consulting
-                                                             3 June 2026
+                                                            23 July 2026
 
 
               GLobal Unique Enterprise (GLUE) Identifiers
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 5 December 2026.
+   This Internet-Draft will expire on 24 January 2027.
 
 Copyright Notice
 
@@ -272,9 +272,6 @@ Table of Contents
      | Organization | Authority  | External Authority Specification  |
      |              | Identifier |                                   |
      +==============+============+===================================+
-     | GS1          | gln        | https://www.gs1.org/standards/id- |
-     |              |            | keys/gln                          |
-     +--------------+------------+-----------------------------------+
      | GLEIF        | lei        | https://www.iso.org/              |
      |              |            | standard/78829.html               |
      +--------------+------------+-----------------------------------+
@@ -458,17 +455,7 @@ Table of Contents
 
 7.1.2.  Initial Registry Contents
 
-7.1.2.1.  gln
-
-   Authority Identifier:  gln
-   URI:  glue:gln
-   Organization:  GS1
-   Transformation Rules:  N/A
-   Change Controller:  IETF
-   Specification Document(s):  Section 4 of [[ this specification ]],
-      [GLN]
-
-7.1.2.2.  lei
+7.1.2.1.  lei
 
    Authority Identifier:  lei
    URI:  glue:lei
@@ -478,7 +465,7 @@ Table of Contents
    Specification Document(s):  Section 4 of [[ this specification ]],
       [LEI], [LEI-IANA]
 
-7.1.2.3.  duns
+7.1.2.2.  duns
 
    Authority Identifier:  duns
    URI:  glue:duns
@@ -488,7 +475,7 @@ Table of Contents
    Specification Document(s):  Section 4 of [[ this specification ]],
       [DUNS]
 
-7.1.2.4.  pen
+7.1.2.3.  pen
 
    Authority Identifier:  pen
    URI:  glue:pen
@@ -498,7 +485,7 @@ Table of Contents
    Specification Document(s):  Section 4 of [[ this specification ]],
       [PEN], [RFC9371]
 
-7.1.2.5.  iso6523
+7.1.2.4.  iso6523
 
    Authority Identifier:  iso6523
    URI:  glue:iso6523
@@ -531,9 +518,6 @@ Table of Contents
 8.1.  Normative References
 
    [DUNS]     "D-U-N-S Numbers", n.d., <https://www.dnb.com/duns.html>.
-
-   [GLN]      "Global Location Nymber (GLN)", n.d.,
-              <https://www.gs1.org/standards/id-keys/gln>.
 
    [ISO6523]  "ISO/IEC 6523-1:2023. Information technology — Structure
               for the identification of organizations and organization
@@ -598,6 +582,10 @@ Acknowledgments
    Vyncke, Dale Worley, and Peter Yee contributed to this specification.
 
 Document History
+
+   -10
+
+   *  Removed GS1 usage.
 
    -09
 

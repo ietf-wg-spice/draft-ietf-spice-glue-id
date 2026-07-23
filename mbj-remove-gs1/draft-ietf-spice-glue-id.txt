@@ -5,10 +5,10 @@
 Secure Patterns for Internet CrEdentials                    B. W. Zundel
 Internet-Draft                                                          
 Intended status: Standards Track                               P. Dingle
-Expires: 20 August 2026                            Microsoft Corporation
+Expires: 24 January 2027                           Microsoft Corporation
                                                              M. B. Jones
                                                   Self-Issued Consulting
-                                                        16 February 2026
+                                                            23 July 2026
 
 
               GLobal Unique Enterprise (GLUE) Identifiers
@@ -16,11 +16,11 @@ Expires: 20 August 2026                            Microsoft Corporation
 
 Abstract
 
-   This specification establishes a URN namespace for GLobal Unique
-   Enterprise (GLUE) Identifiers.  This enables URN identifiers to be
+   This specification establishes a URI scheme for GLobal Unique
+   Enterprise (GLUE) Identifiers.  This enables URI identifiers to be
    used for businesses and organizations.  It enables organizational
    identities from existing authorities to be represented within this
-   URN namespace.
+   URI scheme.
 
 About This Document
 
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 20 August 2026.
+   This Internet-Draft will expire on 24 January 2027.
 
 Copyright Notice
 
@@ -86,9 +86,11 @@ Table of Contents
    6.  Privacy Considerations
      6.1.  Private Identifiers as Corporate Identifiers
    7.  IANA Considerations
-     7.1.  GLUE Authority Identifier URN Registry
+     7.1.  GLUE Authority Identifier Registry
        7.1.1.  Registration Template
        7.1.2.  Initial Registry Contents
+     7.2.  URI Scheme Registration
+       7.2.1.  glue
    8.  References
      8.1.  Normative References
      8.2.  Informative References
@@ -104,11 +106,11 @@ Table of Contents
    such that claims about and by such entities can be made in a
    consistent and interoperable manner.
 
-   This specification establishes a URN namespace that standardizes the
+   This specification establishes a URI scheme that standardizes the
    expression of existing organizational entity identifiers by providing
-   a common representation format.  It also establishes a registry for
-   managing how existing organizational entity identification mechanisms
-   relate to this namespace.
+   a common representation format.  It also establishes an IANA registry
+   for managing how existing organizational entity identification
+   mechanisms relate to this namespace.
 
    Any organizational entity identifier whose identification mechanism
    has been registered as an Authority Identifier in the registry may be
@@ -126,20 +128,20 @@ Table of Contents
 
    This specification uses the following terms:
 
-   GLUE URI:  a URI that uses the GLUE URN namespace established in this
+   GLUE URI:  a URI that uses the GLUE URI scheme established in this
       specification.
 
-   External Authority:  an organization that allocates External
-      Identifiers for GLUE URIs using the Authority Identifier(s) over
-      which they have jurisdiction.
-
    Authority Identifier:  identifier for the External Authority
-      responsible for assigning the External Identifier used in GLUE
-      URIs.
+      responsible for assigning the External Identifiers used in GLUE
+      URIs over which it has jurisdiction.
 
    External Identifier:  identifier assigned by an External Authority to
-      identify a particular organization within GLUE URNs over which it
-      has jurisdiction.
+      identify a particular organization within GLUE URIs with Authority
+      Identifier(s) over which it has jurisdiction.
+
+   External Authority:  an organization that allocates External
+      Identifiers over which it has jurisdiction that are used in GLUE
+      URIs with its Authority Identifier(s).
 
 2.  Core Concepts
 
@@ -151,19 +153,23 @@ Table of Contents
 
 2.1.  Uniqueness and Namespacing
 
-   Each GLUE URI MUST be globally unique.
-
-   A business entity can be identified by multiple GLUE URIs, but each
-   GLUE URI can only refer to a single business entity.
+   Each GLUE URI is globally unique identifier.  An organization can be
+   identified by multiple GLUE URIs, but each distinct GLUE URI can only
+   refer to a single organization.  If multiple External Authorities
+   have issued identifiers for the same organization (e.g., the
+   organization has both a Dun & Bradstreet number and a Private
+   Enterprise Number), then the same organization can be identified by
+   GLUE URIs differentiated by the Authority Identifier.
 
    It is assumed that most registered organizational entity
-   identification schemes already handle any necessary namespacing as
-   part of the External Identifier.  However, if collisions are possible
-   within the set of possible external identifiers for an Authority
-   Identifier scheme, then further namespacing is necessary at the GLUE
-   URI level.  Such namespacing MUST be done on the Authority
-   Identifier.  The combination of the namespacing and the authority
-   MUST result in a unique Authority Identifier.
+   identification schemes already handle any namespacing necessary to
+   achieve uniqueness as part of the External Identifier.  However, if
+   collisions are possible within the set of possible external
+   identifiers for an Authority Identifier scheme, then further
+   namespacing is necessary at the GLUE URI level.  Such namespacing
+   could be done by allocating multiple Authority Identifiers.  The
+   combination of the Authority Identifier and the External Identifier
+   MUST result in a unique GLUE URI.
 
    For example, assume there is an External Authority FEA that provides
    identifiers for organizations in Singapore and South Korea.  The
@@ -178,7 +184,7 @@ Table of Contents
 
 3.  GLUE URIs
 
-   GLUE URIs comply with [RFC3986].  They begin with urn:glue: and are
+   GLUE URIs comply with [RFC7595].  They begin with "glue:" and are
    followed by an Authority Identifier, a colon character (":"), and the
    External Identifier allocated by the authority.
 
@@ -206,45 +212,66 @@ Table of Contents
    number.  It is specific to the Authority Identifier whether the
    External Identifiers are case-insensitive or case-sensitive.  When
    they are case-insensitive, the canonical form is lowercase and
-   documents that specify External Identifiers must do so with lowercase
-   letters.  There is a limit of 1000 characters for an External
-   Identifier.  The ABNF [RFC5234] for External Identifiers is:
+   documents that specify External Identifiers MUST do so with lowercase
+   letters.  Always using the canonical form of these URIs means that
+   code performing comparisons need not be aware of whether External
+   Identifiers are case-sensitive or not; case-sensitive comparisons can
+   always be performed on the namespace specific string.
+
+   While the original representation of some External Identifiers may
+   contain characters that are ignored, these MUST be omitted when used
+   in GLUE URIs.  For instance, Dun & Bradstreet [DUNS] identifiers
+   sometimes contain hyphen characters that are ignored.  The DUNS
+   numbers 12-345-6789 and 123456789 are considered to be equivalent.
+   The latter form without the ignored characters MUST be used as the
+   External Identifier in GLUE URIs.
+
+   Finally, documents that define a new Authority Identifier type MUST
+   NOT allow the representation of an External Identifier to contain the
+   colon character.  Specifications MUST define a substitute character,
+   such as period, that is used in place of a colon in External
+   Identifiers.  Any substitution can be specified in the Transformation
+   Rules in the IANA registration for an Authority Identifier; see
+   Section 7.1.
+
+   There is a limit of 1000 characters for an External Identifier.  The
+   ABNF [RFC5234] for External Identifiers is:
 
    external-identifier = ( ALPHA / DIGIT / "-" ) *999( ALPHA / DIGIT /
    "+" / "-" / "." )
 
    Combining these, the ABNF [RFC5234] for a GLUE URI is:
 
-   glue-uri = "urn:glue:" authority-identifier ":" external-identifier
+   glue-uri = "glue:" authority-identifier ":" external-identifier
 
    For example, the following is a GLUE URI using the Authority
-   Identifier "pen" and the External Identifier "32473":
+   Identifier "pen" and the External Identifier "32473".  This example
+   uses the Enterprise Number "32473" reserved for documentation in
+   [RFC5612].
 
-   urn:glue:pen:32473
+   glue:pen:32473
 
    A GLUE URI is defined over the restricted US-ASCII syntax specified
    in this section.  Percent-encoding is not permitted.  Consequently,
-   GLUE URIs do not support representation of External Identifiers whose
-   canonical form includes non-ASCII characters.  This specification is
-   therefore limited to identifier systems whose canonical
-   representations are fully within the permitted character set.
+   GLUE URIs do not support representation of External Identifiers that
+   use non-ASCII characters.  This specification is therefore limited to
+   identifier systems whose representations can be expressed fully
+   within the permitted character set.
 
    The Authority Identifier MUST be registered in the GLUE URI Authority
-   Identifier registry defined in Section 7.1.  The External Identifier
-   MUST be the identifier assigned to the organization by the External
-   Authority.
+   Identifier registry established in Section 7.1.  The External
+   Identifier MUST be the identifier assigned to the organization by the
+   External Authority.
 
 4.  GLUE Authority Identifiers
 
-   This section defines the following GLUE Authority Identifiers.
+   This section defines the GLUE Authority Identifiers listed in
+   Table 1.
 
      +==============+============+===================================+
      | Organization | Authority  | External Authority Specification  |
      |              | Identifier |                                   |
      +==============+============+===================================+
-     | GS1          | gln        | https://www.gs1.org/standards/id- |
-     |              |            | keys/gln                          |
-     +--------------+------------+-----------------------------------+
      | GLEIF        | lei        | https://www.iso.org/              |
      |              |            | standard/78829.html               |
      +--------------+------------+-----------------------------------+
@@ -259,37 +286,44 @@ Table of Contents
      |              |            | standard/82246.html               |
      +--------------+------------+-----------------------------------+
 
-                                  Table 1
+                Table 1: Defined GLUE Authority Identifiers
 
-   They are registered in the GLUE Authority Identifier URN Registry in
-   Section 7.1.
+   These are registered in the GLUE Authority Identifier URI Registry
+   established in Section 7.1.
 
 4.1.  Equivalence to Similar URIs
 
-   A GLUE URI is an identifier in a distinct URN namespace.  By default,
-   a GLUE URI is not equivalent to any other URI, including a URI
-   defined by the referenced authority's own namespace.  Equivalence
-   between a GLUE URI and a non-GLUE URI exists only when explicitly
-   specified for a given Authority Identifier.  Implementations and
-   relying parties MUST NOT assume equivalence between GLUE URIs and
-   non-GLUE URIs unless such equivalence is explicitly defined by the
-   authority or documented in the relevant registry entry.
+   A GLUE URI is an identifier in a distinct URI scheme.  By default, a
+   GLUE URI is not equivalent to any other URI, including a URI defined
+   by the referenced authority's own namespace.  Equivalence between a
+   GLUE URI and a non-GLUE URI exists only when explicitly specified for
+   a given Authority Identifier.  Implementations and relying parties
+   MUST NOT assume equivalence between GLUE URIs and non-GLUE URIs
+   unless such equivalence is explicitly defined by the authority and
+   the party understands that particular Authority Identifier and the
+   specified equivalance.
 
 4.1.1.  LEI URNs
 
-   [LEI-IANA] registers a URN namespace for LEIs.  This means that LEIs
-   can be represented as URNs in at least two ways.  Therefore there is
-   an equivalence between a GLUE URI with an "lei" Authority Identifier
-   and an LEI URN, provided the 20-digit LEI Code of the LEI URN is
-   identifical to the External Identifier of the GLUE URI.  For example,
-   "urn:lei:INR2EJN1ERAN0W5ZP974" is equivalent to
-   "urn:glue:lei:INR2EJN1ERAN0W5ZP974".
+   [LEI-IANA] registers a URN namespace for Legal Entity Identifiers
+   (LEIs).  This means that LEIs can be represented in at least two
+   ways.  Therefore there is an equivalence between a GLUE URI with an
+   "lei" Authority Identifier and an LEI URN, provided the 20-digit LEI
+   Code of the LEI URN is identical to the External Identifier of the
+   GLUE URI.  For example, "urn:lei:inr2ejn1eran0w5zp974" is equivalent
+   to "glue:lei:inr2ejn1eran0w5zp974".
 
 5.  Security Considerations
 
-   There are no additional security considerations beyond those already
-   inherent to using URNs.  Security considerations for URNs can be
-   found in [RFC2141].
+   The security considerations inherent to using URIs apply.  Security
+   considerations for URIs can be found in [RFC7595].
+
+   The global uniqueness of GLUE URIs prevents situations in which the
+   same identifier is allocated in different local namespaces and cannot
+   be disambiguated when used.  For instance both Canadian and
+   Singaporean organization registries might use the local identifier
+   "42", but with these referring to different organizations.  Embedding
+   these local identifiers in GLUE URIs enables disambiguation.
 
 6.  Privacy Considerations
 
@@ -311,27 +345,39 @@ Table of Contents
    Implementers storing or evaluating GLUE URIs are encouraged to be
    aware the privacy characteristics of each identification scheme
    represented by an Authority Identifier and to appropriately handle
-   any GLUE URI which violates privacy policies.
+   any GLUE URI that violates privacy policies.
 
 7.  IANA Considerations
 
-   This section establishes a registry and populates it with its initial
-   contents.
+7.1.  GLUE Authority Identifier Registry
 
-   Values are registered on a Specification Required [RFC8126] basis
-   after a two-week review period on the spice-ext-review@ietf.org
-   mailing list, on the advice of one or more Designated Experts.
-   However, to allow for the allocation of values prior to publication
-   of the final version of a specification, the Designated Experts may
-   approve registration once they are satisfied that the specification
-   will be completed and published.  However, if the specification is
-   not completed and published in a timely manner, as determined by the
-   Designated Experts, the Designated Experts may request that IANA
-   withdraw the registration.
+   This specification establishes the IANA "GLUE Authority Identifier"
+   registry creating a URI namespace for Authority Identifiers for
+   GLobal Unique Enterprise (GLUE) Identifiers.
+
+   Each entry registers an Authority Identifier within the "glue:"
+   namespace.  The organization responsible for the Authority Identifier
+   is recorded.
+
+   IANA is requested to create the "GLobal Unique Enterprise (GLUE)
+   Identifiers" registry group located at
+   https://www.iana.org/assignments/glue-identifiers/ and place this
+   registry there.
+
+   Values are registered on a Specification Required (Section 4.6 of
+   [RFC8126]) basis after a two-week review period on the spice-ext-
+   review@ietf.org mailing list, on the advice of one or more Designated
+   Experts.  However, to allow for the allocation of values prior to
+   publication of the final version of a specification, the Designated
+   Experts may approve registration once they are satisfied that the
+   specification will be completed and published.  However, if the
+   specification is not completed and published in a timely manner, as
+   determined by the Designated Experts, the Designated Experts may
+   request that IANA withdraw the registration.
 
    Registration requests sent to the mailing list for review should use
-   an appropriate subject (e.g., "Request to register URN
-   urn:glue:example").
+   an appropriate subject (e.g., "Request to register URI
+   glue:example").
 
    Within the review period, the Designated Experts will either approve
    or deny the registration request, communicating this decision to the
@@ -350,7 +396,9 @@ Table of Contents
    determining whether the proposed registration duplicates existing
    functionality, determining whether it is likely to be of general
    applicability or whether it is useful only for a single application,
-   and whether the registration makes sense.
+   and whether the registration references an existing organizational
+   registry operated by an External Authority identified by the proposed
+   Authority Identifier.
 
    IANA must only accept registry updates from the Designated Experts
    and should direct all requests for registration to the review mailing
@@ -374,40 +422,29 @@ Table of Contents
    so that if problems are identified, the authors can iterate and fix
    them before publication of the final specification.
 
-7.1.  GLUE Authority Identifier URN Registry
-
-   This specification establishes the IANA "GLUE Authority Identifier
-   URN" registry creating a URN namespace for Authority Identifiers for
-   GLobal Unique Enterprise (GLUE) Identifiers.
-
-   Each entry registers the URN for an Authority Identifier within the
-   "urn:glue:" namespace.  The organization responsible for the
-   Authority Identifier is recorded.
-
-   IANA is requested to create the "GLobal Unique Enterprise (GLUE)
-   Identifiers" registry group located at
-   https://www.iana.org/assignments/glue-identifiers/ and place this
-   registry there.
-
 7.1.1.  Registration Template
 
-   Authority Identifier:  identifier for the External Authority
+   Authority Identifier:  Identifier for the External Authority
       responsible for assigning the External Identifier used in GLUE
       URIs.  This identifier is not case sensitive and any letters MUST
       be expressed in lowercase characters.  It MUST consist of a
       sequence of characters with a mazimum length of 50, beginning with
-      a letter and followed by any combination of letters, digits, plus
-      ("+"), period ("."), or hyphen ("-").
+      a letter or digit and followed by any combination of letters,
+      digits, plus ("+"), period ("."), or hyphen ("-").
 
-   URN:  The URN within the "urn:glue:" namespace consisting of
-      "urn:glue:" followed by the Authority Identifier.
+   URI:  The URI within the "glue:" namespace consisting of "glue:"
+      followed by the Authority Identifier.
 
    Organization:  The organization responsible for the Authority
       Identifier.
 
+   Transformation Rules:  Syntactic transformations applied to the
+      original External Identifiers when creating the GLUE URI, or "N/A"
+      if none.
+
    Change Controller:  For IETF stream RFCs, use "IETF".  For others,
       give the name of the responsible party.  Other details (e.g.,
-      postal address, e-mail address, home page URI) may also be
+      postal address, e-mail address, or home page URL) may also be
       included.
 
    Specification Document(s):  Reference to the document or documents
@@ -418,77 +455,69 @@ Table of Contents
 
 7.1.2.  Initial Registry Contents
 
-7.1.2.1.  gln
+7.1.2.1.  lei
 
-   *  Authority Identifier: gln
+   Authority Identifier:  lei
+   URI:  glue:lei
+   Organization:  GLEIF
+   Transformation Rules:  Convert uppercase characters to lowercase.
+   Change Controller:  IETF
+   Specification Document(s):  Section 4 of [[ this specification ]],
+      [LEI], [LEI-IANA]
 
-   *  URN: urn:glue:gln
+7.1.2.2.  duns
 
-   *  Organization: GS1
+   Authority Identifier:  duns
+   URI:  glue:duns
+   Organization:  Dun & Bradstreet
+   Transformation Rules:  Delete hyphen characters.
+   Change Controller:  IETF
+   Specification Document(s):  Section 4 of [[ this specification ]],
+      [DUNS]
 
-   *  Change Controller: IETF
+7.1.2.3.  pen
 
-   *  Specification Document(s): Section 4 of this specification, [GLN]
+   Authority Identifier:  pen
+   URI:  glue:pen
+   Organization:  Private Enterprise Numbers
+   Transformation Rules:  N/A
+   Change Controller:  IETF
+   Specification Document(s):  Section 4 of [[ this specification ]],
+      [PEN], [RFC9371]
 
-7.1.2.2.  lei
+7.1.2.4.  iso6523
 
-   *  Authority Identifier: lei
-
-   *  URN: urn:glue:lei
-
-   *  Organization: GLEIF
-
-   *  Change Controller: IETF
-
-   *  Specification Document(s): Section 4 of this specification, [LEI],
-      [LEI-IANA]
-
-7.1.2.3.  duns
-
-   *  Authority Identifier: duns
-
-   *  URN: urn:glue:duns
-
-   *  Organization: Dun & Bradstreet
-
-   *  Change Controller: IETF
-
-   *  Specification Document(s): Section 4 of this specification, [DUNS]
-
-7.1.2.4.  pen
-
-   *  Authority Identifier: pen
-
-   *  URN: urn:glue:pen
-
-   *  Organization: Private Enterprise Numbers
-
-   *  Change Controller: IETF
-
-   *  Specification Document(s): Section 4 of this specification, [PEN],
-      [RFC9371]
-
-7.1.2.5.  iso6523
-
-   *  Authority Identifier: iso6523
-
-   *  URN: urn:glue:iso6523
-
-   *  Organization: ISO/IEC 6523
-
-   *  Change Controller: IETF
-
-   *  Specification Document(s): Section 4 of this specification,
+   Authority Identifier:  iso6523
+   URI:  glue:iso6523
+   Organization:  ISO/IEC 6523
+   Transformation Rules:  Substitute period for any colon characters.
+   Change Controller:  IETF
+   Specification Document(s):  Section 4 of [[ this specification ]],
       [ISO6523]
+
+7.2.  URI Scheme Registration
+
+   This specification registers the following URI scheme in the IANA
+   "Uniform Resource Identifier (URI) Schemes" registry
+   [IANA.URISchemes] established by [RFC7595].
+
+7.2.1.  glue
+
+   Scheme Name:  glue
+   Status:  Permanent
+   Applications/protocols that use this scheme name:  Systems that need
+      to refer to organizational entities utilizing interoperable
+      identifiers derived from existing organizational identifier
+      systems
+   Contact:  Michael B.  Jones - michael_b_jones@hotmail.com
+   Change Controller:  IETF
+   References:  [[ this specification ]]
 
 8.  References
 
 8.1.  Normative References
 
    [DUNS]     "D-U-N-S Numbers", n.d., <https://www.dnb.com/duns.html>.
-
-   [GLN]      "Global Location Nymber (GLN)", n.d.,
-              <https://www.gs1.org/standards/id-keys/gln>.
 
    [ISO6523]  "ISO/IEC 6523-1:2023. Information technology — Structure
               for the identification of organizations and organization
@@ -510,10 +539,15 @@ Table of Contents
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/rfc/rfc2119>.
 
-   [RFC3986]  Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
-              Resource Identifier (URI): Generic Syntax", STD 66,
-              RFC 3986, DOI 10.17487/RFC3986, January 2005,
-              <https://www.rfc-editor.org/rfc/rfc3986>.
+   [RFC5234]  Crocker, D., Ed. and P. Overell, "Augmented BNF for Syntax
+              Specifications: ABNF", STD 68, RFC 5234,
+              DOI 10.17487/RFC5234, January 2008,
+              <https://www.rfc-editor.org/rfc/rfc5234>.
+
+   [RFC7595]  Thaler, D., Ed., Hansen, T., and T. Hardie, "Guidelines
+              and Registration Procedures for URI Schemes", BCP 35,
+              RFC 7595, DOI 10.17487/RFC7595, June 2015,
+              <https://www.rfc-editor.org/rfc/rfc7595>.
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
@@ -521,13 +555,13 @@ Table of Contents
 
 8.2.  Informative References
 
-   [RFC2141]  Moats, R., "URN Syntax", RFC 2141, DOI 10.17487/RFC2141,
-              May 1997, <https://www.rfc-editor.org/rfc/rfc2141>.
+   [IANA.URISchemes]
+              "Uniform Resource Identifier (URI) Schemes", n.d.,
+              <https://www.iana.org/assignments/uri-schemes>.
 
-   [RFC5234]  Crocker, D., Ed. and P. Overell, "Augmented BNF for Syntax
-              Specifications: ABNF", STD 68, RFC 5234,
-              DOI 10.17487/RFC5234, January 2008,
-              <https://www.rfc-editor.org/rfc/rfc5234>.
+   [RFC5612]  Eronen, P. and D. Harrington, "Enterprise Number for
+              Documentation Use", RFC 5612, DOI 10.17487/RFC5612, August
+              2009, <https://www.rfc-editor.org/rfc/rfc5612>.
 
    [RFC8126]  Cotton, M., Leiba, B., and T. Narten, "Guidelines for
               Writing an IANA Considerations Section in RFCs", BCP 26,
@@ -541,12 +575,68 @@ Table of Contents
 
 Acknowledgments
 
-   Carsten Bormann, Tim Bray, Patrik Fältström, Arnt Gulbrandsen, Sue
-   Hares, John Klensin, Martin Lindström, Rohan Mahy, James Manger, Orie
-   Steele, Alexander (A.J.)  Stein, Martin Thomson, and Peter Yee
-   contributed to this specification.
+   Amanda Baber, Carsten Bormann, Mohamed Boucadair, Tim Bray, Deb
+   Cooley, Patrik Fältström, Arnt Gulbrandsen, Sue Hares, John Klensin,
+   Erik Kline, Martin Lindström, Rohan Mahy, James Manger, Peter Saint-
+   Andre, Orie Steele, Alexander (A.J.)  Stein, Martin Thomson, Éric
+   Vyncke, Dale Worley, and Peter Yee contributed to this specification.
 
 Document History
+
+   -10
+
+   *  Removed GS1 usage.
+
+   -09
+
+   *  Changed from using a URN namespace to a URI scheme, based on
+      feedback from the URN designated experts.
+
+   -08
+
+   *  Addressed urn:glue registration feedback by Dale Worley about
+      identifier uniqueness and defining Transformation Rules, when
+      needed.
+
+   *  Addressed urn:glue registration feedback by Peter Saint-Andre
+      about using "URN" rather than "URI", applying suggested language
+      about when multiple External Authorities have issued identifiers
+      for the same organization, and correcting issues with the registry
+      descriptions.
+
+   -07
+
+   *  Registered urn:glue per Amanda Baber's instructions.
+
+   -06
+
+   *  Addressed Deb Cooley's review comments, specifically:
+
+      -  Reworked term definitions.
+
+      -  Added security consideration about uniqueness of GLUE URIs.
+
+      -  Updated registration instructions to include a criterion about
+         an existing organizational registry operated by an External
+         Authority identified by the proposed Authority Identifier.
+
+   *  Addressed Mohamed Boucadair's review comments, specifically:
+
+      -  Used neutral language "organization" that doesn't assume that
+         all organizations are businesses.
+
+      -  Reworded confusing text about uniqueness.
+
+      -  Made the RFC 5234 reference normative.
+
+   *  Addressed Erik Kline's review comments, specifically:
+
+      -  Expanded LEI on first use to Legal Entity Identifier (LEI).
+
+      -  Included instructions to the designated experts about ensuring
+         that the registration references an existing organizational
+         registry operated by an External Authority identified by the
+         proposed Authority Identifier.
 
    -05
 

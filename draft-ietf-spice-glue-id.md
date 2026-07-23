@@ -48,9 +48,6 @@ author:
 normative:
   RFC5234:
   RFC7595:
-  GLN:
-    title: Global Location Nymber (GLN)
-    target: https://www.gs1.org/standards/id-keys/gln
   DUNS:
     title: D-U-N-S Numbers
     target: https://www.dnb.com/duns.html
@@ -247,7 +244,6 @@ This section defines the GLUE Authority Identifiers listed in {{glue-def}}.
 
 | Organization     | Authority Identifier | External Authority Specification |
 |:-----------------|:-------|:------------------------------------------|
-| GS1              |  gln   | https://www.gs1.org/standards/id-keys/gln |
 | GLEIF            |  lei   | https://www.iso.org/standard/78829.html   |
 | Dun & Bradstreet |  duns  | https://www.dnb.com/duns.html             |
 | Private Enterprise Numbers | pen | https://www.iana.org/assignments/enterprise-numbers |
@@ -417,28 +413,6 @@ An indication of the relevant sections may also be included, but is not required
 
 ### Initial Registry Contents
 
-#### gln
-
-{:compact}
-Authority Identifier:
-: gln
-
-URI:
-: glue:gln
-
-Organization:
-: GS1
-
-Transformation Rules:
-: N/A
-
-Change Controller:
-: IETF
-
-Specification Document(s):
-: {{authority-identifiers}} of \[\[ this specification ]], [GLN]
-
-
 #### lei
 
 {:compact}
@@ -584,6 +558,10 @@ contributed to this specification.
 
 # Document History
 {: numbered="false"}
+
+-10
+
+* Removed GS1 usage.
 
 -09
 

@@ -68,6 +68,11 @@ normative:
   LEI-IANA:
     title: LEI Namespace Identifier
     target: https://www.iana.org/assignments/urn-formal/lei
+  WIKIDATA:
+    title: "Wikidata:Identifiers"
+    author:
+      org: Wikimedia Foundation
+    target: https://www.wikidata.org/w/index.php?title=Wikidata:Identifiers&oldid=2327606992
 
 informative:
   RFC1034:
@@ -311,16 +316,17 @@ This section defines the GLUE Prefixes listed in {{glue-def}}.
 Prefixes for existing identifier systems that already have a globally unique form
 are registered as the leading portion of that form.
 
-| Organization     | Prefix                | Example GLUE Identifier                    |
-|:-----------------|:----------------------|:-------------------------------------------|
-| GLEIF            | urn:lei:              | urn:lei:7ltwfzyicnsx8d621k86               |
-| Private Enterprise Numbers | urn:oid:1.3.6.1.4.1. | urn:oid:1.3.6.1.4.1.32473      |
-| Dun & Bradstreet | glue_duns_            | glue_duns_123456789                        |
-| ISO/IEC 6523     | glue_iso6523_         | glue_iso6523_0060.123456789                |
+| Organization     | Prefix                           |
+|:-----------------|:---------------------------------|
+| GLEIF            | urn:lei:                         |
+| IANA (PEN)       | urn:oid:1.3.6.1.4.1.             |
+| Wikidata         | https://www.wikidata.org/entity/ |
+| Dun & Bradstreet | glue_duns_                       |
+| ISO/IEC 6523     | glue_iso6523_                    |
 {: #glue-def title='Defined GLUE Prefixes'}
 
 These are registered in the GLUE Prefix Registry
-established in {{GLUE-Prefix-Reg}}.
+established in {{GLUE-Prefix-Reg}}, which gives an example of each.
 The LEI Code in the first example is the one given as an example
 in the LEI URN namespace registration {{LEI-IANA}};
 no LEI Code is reserved for use in examples.
@@ -547,6 +553,28 @@ Specification Document(s):
 : {{prefixes}} of \[\[ this specification ]], [PEN], [RFC9371], [RFC3061]
 
 
+#### https://www.wikidata.org/entity/
+
+{:compact}
+Prefix:
+: https://www.wikidata.org/entity/ (scheme and host are case-insensitive)
+
+Example:
+: https://www.wikidata.org/entity/Q95
+
+Organization:
+: Wikimedia Foundation
+
+Transformation Rules:
+: N/A
+
+Change Controller:
+: IETF
+
+Specification Document(s):
+: {{prefixes}} of \[\[ this specification ]], [WIKIDATA]
+
+
 #### glue_duns_
 
 {:compact}
@@ -632,6 +660,7 @@ contributed to this specification.
 * Renamed "Authority Identifier" to "Prefix".
 * Added recommendations for new Prefixes:
   DNS names, UUIDs, URL-safe characters, and RFC 9839 and PRECIS for non-ASCII identifiers.
+* Registered the Wikidata entity URI prefix as an example of a general-purpose identifier.
 * Stated that equivalence between identifiers is out of scope.
 * Replaced the example LEI, and corrected "20-digit" to "20-character".
 * Updated the D-U-N-S reference.

@@ -81,10 +81,12 @@ informative:
 
 --- abstract
 
-This specification establishes a URI scheme for
-GLobal Unique Enterprise (GLUE) Identifiers.
-This enables URI identifiers to be used for businesses and organizations.
-It enables organizational identities from existing authorities to be represented within this URI scheme.
+This specification defines GLobal Unique Enterprise (GLUE) Identifiers,
+which are strings or URIs that identify businesses and organizations.
+Every GLUE Identifier carries a prefix that makes it globally unique.
+The specification establishes an IANA registry of prefixes, including prefixes
+that are compatible with existing organizational identifier systems,
+and prefixes that are simple strings rather than URIs.
 
 --- middle
 
@@ -95,13 +97,16 @@ With the increasing use of digital credentials, there is a need for a common
 methodology for expressing these identifiers such that claims about and by such
 entities can be made in a consistent and interoperable manner.
 
-This specification establishes a URI scheme that standardizes the expression of
-existing organizational entity identifiers by providing a common representation format.
-It also establishes an IANA registry for managing how existing organizational entity
-identification mechanisms relate to this namespace.
-
-Any organizational entity identifier whose identification mechanism has been registered
-as a Prefix in the registry may be represented as a GLUE URI.
+This specification defines GLUE Identifiers,
+which are either URIs or strings of a simple prefixed form.
+Both forms carry a prefix that makes the identifier globally unique.
+URIs already have this property through their scheme.
+Strings obtain it through a Prefix registered in an IANA registry
+established by this specification.
+That registry allows existing organizational entity identification mechanisms
+to be represented as GLUE Identifiers,
+and allows new Prefixes to be registered by anyone, without requiring
+a new URI scheme or URN namespace.
 
 ## Requirements Notation and Conventions
 
@@ -111,44 +116,55 @@ as a Prefix in the registry may be represented as a GLUE URI.
 
 This specification uses the following terms:
 
+GLUE Identifier:
+: an identifier for an organization that is either a GLUE String or a URI.
+
+GLUE String:
+: a GLUE Identifier that is not a URI, of the form "glue_" Prefix "_" External Identifier, defined in {{glue-strings}}.
+
 GLUE URI:
-: a URI that uses the GLUE URI scheme established in this specification.
+: a GLUE Identifier that is a URI, in which the URI scheme provides the global uniqueness; see {{glue-uris}}.
 
 Prefix:
-: identifier for the External Authority responsible for assigning the External Identifiers used in GLUE URIs over which it has jurisdiction.
+: the part of a GLUE String that makes it globally unique.
+Each Prefix is registered in the registry established in {{GLUE-Prefix-Reg}}.
+A Prefix typically corresponds to an External Authority.
 
 External Identifier:
-: identifier assigned by an External Authority to identify a particular organization within GLUE URIs with Prefix(es) over which it has jurisdiction.
+: the part of a GLUE String that follows the Prefix.
+It is allocated by the External Authority to identify a particular organization
+within the Prefix over which that authority has jurisdiction.
 
 External Authority:
-: an organization that allocates External Identifiers over which it has jurisdiction that are used in GLUE URIs with its Prefix(es).
+: an organization that allocates External Identifiers over which it has jurisdiction that are used in GLUE Strings with its Prefix(es).
 
 # Core Concepts
 
-Every GLUE URI MUST
-contain the following components:
+Every GLUE Identifier is globally unique and is either:
 
-- The Prefix
+- a GLUE String, which MUST contain a registered Prefix
+  and an External Identifier; or
 
-- The External Identifier
+- a URI, whose scheme (and, where applicable, namespace) makes it globally unique.
+  Examples are "urn:lei:7ltwfzyicnsx8d621k86" and "https://example.com/entities/1".
 
 ## Uniqueness and Namespacing
 
-Each GLUE URI is globally unique identifier.
-An organization can be identified by multiple GLUE URIs,
-but each distinct GLUE URI can only refer to a single organization.
+Each GLUE Identifier is a globally unique identifier.
+An organization can be identified by multiple GLUE Identifiers,
+but each distinct GLUE Identifier can only refer to a single organization.
 If multiple External Authorities have issued identifiers for the same organization
 (e.g., the organization has both a Dun & Bradstreet number and a Private Enterprise Number),
-then the same organization can be identified by GLUE URIs differentiated by the Prefix.
+then the same organization can be identified by GLUE Strings differentiated by the Prefix.
 
 It is assumed that most registered organizational entity identification schemes
 already handle any namespacing necessary to achieve uniqueness as part of the External Identifier.
 However, if collisions are possible within the set of possible external
 identifiers for a Prefix scheme, then further namespacing is
-necessary at the GLUE URI level.
+necessary at the Prefix level.
 Such namespacing could be done by allocating multiple Prefixes.
 The combination of the Prefix and the External Identifier
-MUST result in a unique GLUE URI.
+MUST result in a unique GLUE String.
 
 For example, assume there is an External Authority FEA that provides identifiers
 for organizations in Singapore and South Korea. The identifiers issued in
@@ -157,7 +173,7 @@ are unique within South Korea, but there is no guarantee that an organization in
 Singapore will not be assigned the same identifier as an organization in South
 Korea. Upon registration of FEA as a Prefix, it would be
 necessary to separately register two different Prefixes (e.g.,
-FEA-SG and FEA-KR) to provide differentiation between the two sets of External
+fea-sg and fea-kr) to provide differentiation between the two sets of External
 Identifiers.
 
 # GLUE URIs {#glue-uris}
@@ -209,7 +225,7 @@ to contain the colon character.
 Specifications MUST define a substitute character,
 such as period, that is used in place of a colon in External Identifiers.
 Any substitution can be specified in the Transformation Rules
-in the IANA registration for a Prefix; see {{GLUE-Authority-Reg}}.
+in the IANA registration for a Prefix; see {{GLUE-Prefix-Reg}}.
 
 There is a limit of 1000 characters for an External Identifier.
 The ABNF [RFC5234] for External Identifiers is:
@@ -238,7 +254,7 @@ non-ASCII characters. This specification is therefore limited to identifier
 systems whose representations can be expressed fully within the permitted character set.
 
 The Prefix MUST be registered in the GLUE URI Prefix registry
-established in {{GLUE-Authority-Reg}}.
+established in {{GLUE-Prefix-Reg}}.
 The External Identifier MUST be the identifier assigned to the organization
 by the External Authority.
 
@@ -255,7 +271,7 @@ This section defines the GLUE Prefixes listed in {{glue-def}}.
 {: #glue-def title='Defined GLUE Prefixes'}
 
 These are registered in the GLUE Prefix URI Registry
-established in {{GLUE-Authority-Reg}}.
+established in {{GLUE-Prefix-Reg}}.
 
 ## Equivalence to Similar URIs
 
@@ -316,7 +332,7 @@ privacy policies.
 
 # IANA Considerations
 
-## GLUE Prefix Registry {#GLUE-Authority-Reg}
+## GLUE Prefix Registry {#GLUE-Prefix-Reg}
 
 This specification establishes the
 IANA "GLUE Prefix" registry

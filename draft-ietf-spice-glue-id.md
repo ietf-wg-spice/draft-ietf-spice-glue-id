@@ -274,9 +274,13 @@ and the specified equivalance.
 This means that LEIs can be
 represented in at least two ways. Therefore there is an equivalence
 between a GLUE URI with an "lei" Authority Identifier and an LEI URN, provided
-the 20-digit LEI Code of the LEI URN is identical to the External Identifier
-of the GLUE URI. For example, "urn:lei:inr2ejn1eran0w5zp974" is equivalent to
-"glue:lei:inr2ejn1eran0w5zp974".
+the 20-character LEI Code of the LEI URN is identical to the External Identifier
+of the GLUE URI, after converting uppercase letters to lowercase.
+For example, "urn:lei:7ltwfzyicnsx8d621k86" is equivalent to
+"glue:lei:7ltwfzyicnsx8d621k86".
+The LEI Code used in this example is the one given as an example
+in the LEI URN namespace registration {{LEI-IANA}};
+no LEI Code is reserved for use in examples.
 
 # Security Considerations
 

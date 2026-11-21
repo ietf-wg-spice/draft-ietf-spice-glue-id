@@ -54,7 +54,7 @@ normative:
   RFC7595:
   DUNS:
     title: D-U-N-S Numbers
-    target: https://www.dnb.com/duns.html
+    target: https://www.dnb.com/en-us/smb/duns/what-is-a-duns-number.html
   LEI:
     title: Legal Entity Identifier (LEI)
     date: 2020
@@ -249,7 +249,7 @@ This section defines the GLUE Authority Identifiers listed in {{glue-def}}.
 | Organization     | Authority Identifier | External Authority Specification |
 |:-----------------|:-------|:------------------------------------------|
 | GLEIF            |  lei   | https://www.iso.org/standard/78829.html   |
-| Dun & Bradstreet |  duns  | https://www.dnb.com/duns.html             |
+| Dun & Bradstreet |  duns  | https://www.dnb.com/en-us/smb/duns/what-is-a-duns-number.html             |
 | Private Enterprise Numbers | pen | https://www.iana.org/assignments/enterprise-numbers |
 | ISO/IEC 6523 | iso6523 | https://www.iso.org/standard/82246.html |
 {: #glue-def title='Defined GLUE Authority Identifiers'}

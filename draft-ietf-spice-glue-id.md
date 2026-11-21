@@ -71,7 +71,12 @@ normative:
     target: https://www.iana.org/assignments/urn-formal/lei
 
 informative:
+  RFC1034:
+  RFC3986:
   RFC8126:
+  RFC8264:
+  RFC9562:
+  RFC9839:
   RFC9371:
   IANA.URISchemes:
     title: Uniform Resource Identifier (URI) Schemes
@@ -176,54 +181,56 @@ necessary to separately register two different Prefixes (e.g.,
 fea-sg and fea-kr) to provide differentiation between the two sets of External
 Identifiers.
 
-# GLUE URIs {#glue-uris}
+# GLUE Strings {#glue-strings}
 
-GLUE URIs comply with [RFC7595].
-They begin with "glue:" and are followed by a Prefix,
-a colon character (":"), and the External Identifier allocated by the authority.
+A GLUE String begins with the literal "glue_",
+followed by a Prefix, an underscore character ("_"),
+and the External Identifier allocated by the authority.
 
 Prefixes consist of a sequence of characters beginning with a
-letter or digit and followed by any combination of letters, digits, plus ("+"),
+letter or digit and followed by any combination of letters, digits,
 hyphen ("-"), or period (".").
+This repertoire is compatible with DNS names {{RFC1034}}.
+A Prefix MUST NOT contain an underscore, so the Prefix ends at
+the first underscore that follows "glue_".
 Although Prefixes are case-insensitive, the canonical form is
 lowercase and documents that specify Prefixes must do so with
 lowercase letters. An implementation should accept uppercase letters as
 equivalent to lowercase in Prefix names (e.g., allow "EXAMPLE" as
 well as "example") for the sake of robustness but should only produce lowercase
-Prefix names for consistency. There is a limit of 50 characters
+Prefix names for consistency. There is a limit of 253 characters
 for the length of a Prefix.
 The ABNF [RFC5234] for Prefixes is:
 
 ```
-prefix = (ALPHA/DIGIT) *49( ALPHA / DIGIT / "+" / "-" / "." )
+prefix = (ALPHA / DIGIT) *252( ALPHA / DIGIT / "-" / "." )
 ```
 
-External Identifiers consist of a sequence of characters beginning with a letter
-or digit or hyphen ("-") and followed by any combination of letters, digits,
-plus ("+"), hyphen ("-"), or period (".").
-A digit or hyphen is allowed as the first character to permit the case where the
-External Identifier is the representation of a number. It is specific to the
+External Identifiers consist of a sequence of unreserved characters
+{{Section 2.3 of RFC3986}}: letters, digits,
+hyphen ("-"), period ("."), underscore ("_"), and tilde ("~").
+It is specific to the
 Prefix whether the External Identifiers are case-insensitive or
 case-sensitive. When they are case-insensitive, the canonical form is lowercase
 and documents that specify External Identifiers MUST do so with lowercase letters.
-Always using the canonical form of these URIs means that code performing comparisons
+Always using the canonical form of these identifiers means that code performing comparisons
 need not be aware of whether External Identifiers are case-sensitive or not;
 case-sensitive comparisons can always be performed
-on the namespace specific string.
+on the whole GLUE String.
 
 While the original representation of some External Identifiers may contain
-characters that are ignored, these MUST be omitted when used in GLUE URIs.
+characters that are ignored, these MUST be omitted when used in GLUE Strings.
 For instance, Dun & Bradstreet {{DUNS}} identifiers sometimes contain
 hyphen characters that are ignored.
 The DUNS numbers 12-345-6789 and 123456789 are considered to be equivalent.
 The latter form without the ignored characters MUST be used
-as the External Identifier in GLUE URIs.
+as the External Identifier in GLUE Strings.
 
-Finally, documents that define a new Prefix type
+Documents that define a new Prefix
 MUST NOT allow the representation of an External Identifier
-to contain the colon character.
+to contain characters outside the set above, such as the colon character.
 Specifications MUST define a substitute character,
-such as period, that is used in place of a colon in External Identifiers.
+such as period, that is used in place of any such character in External Identifiers.
 Any substitution can be specified in the Transformation Rules
 in the IANA registration for a Prefix; see {{GLUE-Prefix-Reg}}.
 
@@ -231,32 +238,62 @@ There is a limit of 1000 characters for an External Identifier.
 The ABNF [RFC5234] for External Identifiers is:
 
 ```
-external-identifier = ( ALPHA / DIGIT / "-" ) *999( ALPHA / DIGIT / "+" / "-" / "." )
+external-identifier = 1*1000( ALPHA / DIGIT / "-" / "." / "_" / "~" )
 ```
 
-Combining these, the ABNF [RFC5234] for a GLUE URI is:
+Combining these, the ABNF [RFC5234] for a GLUE String is:
 
 ```
-glue-uri = "glue:" prefix ":" external-identifier
+glue-string = "glue_" prefix "_" external-identifier
 ```
 
-For example, the following is a GLUE URI using the Prefix "pen"
+For example, the following is a GLUE String using the Prefix "pen"
 and the External Identifier "32473". This example uses the Enterprise Number "32473" reserved for documentation in {{?RFC5612}}.
 
 ```
-glue:pen:32473
+glue_pen_32473
 ```
 
-A GLUE URI is defined over the restricted US-ASCII syntax specified in this
-section. Percent-encoding is not permitted. Consequently, GLUE URIs do not
-support representation of External Identifiers that use
-non-ASCII characters. This specification is therefore limited to identifier
-systems whose representations can be expressed fully within the permitted character set.
-
-The Prefix MUST be registered in the GLUE URI Prefix registry
+The Prefix MUST be registered in the GLUE Prefix registry
 established in {{GLUE-Prefix-Reg}}.
 The External Identifier MUST be the identifier assigned to the organization
 by the External Authority.
+
+## Recommendations for New Prefixes {#recommendations}
+
+The following recommendations apply to documents that register new Prefixes.
+
+- Consider using a DNS name {{RFC1034}} under the control of the External Authority
+  as the Prefix (e.g., "example.com"), because DNS names are already globally
+  unique and have an established allocation and ownership model.
+  A DNS-name Prefix also helps limit conflicts between registrations.
+
+- Consider using a UUID {{RFC9562}} in its lowercase hexadecimal string form
+  as the External Identifier,
+  because a UUID can be generated without coordination and is URL-safe.
+  For example, "glue_example.com_3f2504e0-4f89-41d3-9a0c-0305e82c3301".
+
+- Restrict both the Prefix and the External Identifier to URL-safe characters,
+  as defined by this section.
+
+- If a Prefix registration needs External Identifiers that contain
+  non-ASCII characters, the registration specifies the permitted repertoire.
+  That repertoire SHOULD be the Unicode Assignables subset defined in {{RFC9839}},
+  and the registration SHOULD consider applying the PRECIS framework {{RFC8264}}
+  for preparation, enforcement and comparison of the strings.
+  Such identifiers are not URL-safe and need percent-encoding when embedded in a URI.
+
+# GLUE URIs {#glue-uris}
+
+A URI {{RFC3986}} can be used as a GLUE Identifier.
+Because the URI scheme is already globally unique,
+no Prefix registration is needed.
+This specification does not define a new URI scheme.
+
+Existing identifier systems that already have a URI form,
+for example LEIs in the "urn:lei" namespace {{LEI-IANA}},
+can be used directly as GLUE URIs.
+See {{equivalence}} for the relationship between such URIs and GLUE Strings.
 
 # GLUE Prefixes {#prefixes}
 

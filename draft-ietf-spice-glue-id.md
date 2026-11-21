@@ -295,57 +295,69 @@ for example LEIs in the "urn:lei" namespace {{LEI-IANA}},
 can be used directly as GLUE URIs.
 See {{equivalence}} for the relationship between such URIs and GLUE Strings.
 
-# GLUE Prefixes {#prefixes}
+# Initial GLUE Prefixes {#prefixes}
 
 This section defines the GLUE Prefixes listed in {{glue-def}}.
+Each is compatible with an existing, globally unique identifier system.
 
-| Organization     | Prefix | External Authority Specification |
-|:-----------------|:-------|:------------------------------------------|
-| GLEIF            |  lei   | https://www.iso.org/standard/78829.html   |
-| Dun & Bradstreet |  duns  | https://www.dnb.com/en-us/smb/duns/what-is-a-duns-number.html             |
-| Private Enterprise Numbers | pen | https://www.iana.org/assignments/enterprise-numbers |
-| ISO/IEC 6523 | iso6523 | https://www.iso.org/standard/82246.html |
+| Organization     | Prefix | Example GLUE String | External Authority Specification |
+|:-----------------|:-------|:--------------------|:---------------------|
+| GLEIF            |  lei   | glue_lei_7ltwfzyicnsx8d621k86 | https://www.iso.org/standard/78829.html |
+| Dun & Bradstreet |  duns  | glue_duns_123456789 | https://www.dnb.com/en-us/smb/duns/what-is-a-duns-number.html |
+| Private Enterprise Numbers | pen | glue_pen_32473 | https://www.iana.org/assignments/enterprise-numbers |
+| ISO/IEC 6523 | iso6523 | glue_iso6523_0060.123456789 | https://www.iso.org/standard/82246.html |
 {: #glue-def title='Defined GLUE Prefixes'}
 
-These are registered in the GLUE Prefix URI Registry
+These are registered in the GLUE Prefix Registry
 established in {{GLUE-Prefix-Reg}}.
+Other Prefixes can be registered as described there,
+including Prefixes that are not tied to an existing identifier system.
 
-## Equivalence to Similar URIs
+## Equivalence to Similar Identifiers {#equivalence}
 
-A GLUE URI is an identifier in a distinct URI scheme. By default, a GLUE URI
-is not equivalent to any other URI, including a URI defined by the referenced
-authority's own namespace. Equivalence between a GLUE URI and a non-GLUE URI
+A GLUE String is an identifier in its own namespace. By default, a GLUE String
+is not equivalent to any other identifier, including a URI defined by the referenced
+authority's own namespace. Equivalence between a GLUE String and a URI
 exists only when explicitly specified for a given Prefix.
 Implementations and relying parties MUST NOT assume equivalence between GLUE
-URIs and non-GLUE URIs unless such equivalence is explicitly defined by the
+Strings and URIs unless such equivalence is explicitly defined by the
 authority and the party understands that particular Prefix
-and the specified equivalance.
+and the specified equivalence.
 
 ### LEI URNs
 
 [LEI-IANA] registers a URN namespace for Legal Entity Identifiers (LEIs).
 This means that LEIs can be
 represented in at least two ways. Therefore there is an equivalence
-between a GLUE URI with an "lei" Prefix and an LEI URN, provided
+between a GLUE String with an "lei" Prefix and an LEI URN, provided
 the 20-character LEI Code of the LEI URN is identical to the External Identifier
-of the GLUE URI, after converting uppercase letters to lowercase.
+of the GLUE String, after converting uppercase letters to lowercase.
 For example, "urn:lei:7ltwfzyicnsx8d621k86" is equivalent to
-"glue:lei:7ltwfzyicnsx8d621k86".
+"glue_lei_7ltwfzyicnsx8d621k86".
 The LEI Code used in this example is the one given as an example
 in the LEI URN namespace registration {{LEI-IANA}};
 no LEI Code is reserved for use in examples.
 
 # Security Considerations
 
-The security considerations inherent to using URIs apply.
-Security considerations for URIs can be found in {{RFC7595}}.
+The security considerations inherent to using URIs apply to GLUE URIs.
+Security considerations for URIs can be found in {{RFC3986}}.
 
-The global uniqueness of GLUE URIs prevents situations in which
+The global uniqueness of GLUE Identifiers prevents situations in which
 the same identifier is allocated in different local namespaces
 and cannot be disambiguated when used.
 For instance both Canadian and Singaporean organization registries might use
 the local identifier "42", but with these referring to different organizations.
-Embedding these local identifiers in GLUE URIs enables disambiguation.
+Embedding these local identifiers in GLUE Strings with distinct Prefixes enables disambiguation.
+
+A Prefix identifies the namespace, not the party presenting an identifier.
+A GLUE Identifier on its own does not authenticate that the presenter is the organization it names.
+Relying parties need to establish that by other means.
+
+A DNS name used as a Prefix can change hands when the domain registration lapses or is transferred.
+Registrations of such Prefixes are subject to the review described in {{GLUE-Prefix-Reg}}.
+Registered Prefixes remain bound to the registrant of record in the registry,
+whatever later happens to the domain.
 
 # Privacy Considerations
 
@@ -357,14 +369,14 @@ United States, where the Tax ID may be the same as the Social Security Number
 (SSN) of the business owner. Where the Tax ID uniquely identifies the business,
 the SSN uniquely identifies an individual.
 
-It is possible for such business identifiers to be represented as GLUE URIs. An
-identifier's expression as a GLUE URI does not change the privacy
+It is possible for such business identifiers to be represented as GLUE Identifiers. An
+identifier's expression as a GLUE Identifier does not change the privacy
 characteristics of that identifier. The same cautions and concerns need to be
-taken with the GLUE URI representation as with the original identifier.
+taken with the GLUE Identifier representation as with the original identifier.
 
-Implementers storing or evaluating GLUE URIs are encouraged to be aware the
-privacy characteristics of each identification scheme represented by an
-Prefix and to appropriately handle any GLUE URI that violates
+Implementers storing or evaluating GLUE Identifiers are encouraged to be aware the
+privacy characteristics of each identification scheme represented by a
+Prefix and to appropriately handle any GLUE Identifier that violates
 privacy policies.
 
 # IANA Considerations

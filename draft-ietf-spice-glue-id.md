@@ -13,8 +13,8 @@ v: 3
 area: "Security"
 workgroup: "Secure Patterns for Internet CrEdentials"
 keyword:
- - URI
- - Scheme
+ - Prefix
+ - Registry
  - Enterprise
  - Entity Identifiers
 venue:
@@ -50,7 +50,16 @@ author:
     email: orie@or13.io
 
 normative:
+  RFC3986:
   RFC5234:
+
+informative:
+  RFC1034:
+  RFC3061:
+  RFC8126:
+  RFC9371:
+  RFC9562:
+  RFC9839:
   DUNS:
     title: D-U-N-S Numbers
     target: https://www.dnb.com/en-us/smb/duns/what-is-a-duns-number.html
@@ -73,16 +82,6 @@ normative:
     author:
       org: Wikimedia Foundation
     target: https://www.wikidata.org/w/index.php?title=Wikidata:Identifiers&oldid=2327606992
-
-informative:
-  RFC1034:
-  RFC3061:
-  RFC3986:
-  RFC8126:
-  RFC8264:
-  RFC9562:
-  RFC9839:
-  RFC9371:
 
 ---
 
@@ -273,6 +272,13 @@ such as period, that is used in place of any such character in External Identifi
 Any substitution can be specified in the Transformation Rules
 in the IANA registration for the Prefix; see {{GLUE-Prefix-Reg}}.
 
+GLUE Identifiers with a new Prefix are defined over the restricted US-ASCII syntax specified in this
+section. Percent-encoding is not permitted. Consequently, such GLUE Identifiers do not
+support representation of External Identifiers that use
+non-ASCII characters. New Prefixes are therefore limited to identifier
+systems whose representations can be expressed fully within the permitted character set.
+This character set is a subset of the Unicode Assignables subset defined in {{RFC9839}}.
+
 There is a limit of 1000 characters for an External Identifier following a new Prefix.
 The ABNF [RFC5234] for such GLUE Identifiers is:
 
@@ -304,13 +310,6 @@ The following recommendations apply to documents that register new Prefixes.
 
 - Restrict both the name and the External Identifier to URL-safe characters,
   as defined by this section.
-
-- If a Prefix registration needs External Identifiers that contain
-  non-ASCII characters, the registration specifies the permitted repertoire.
-  That repertoire SHOULD be the Unicode Assignables subset defined in {{RFC9839}},
-  and the registration SHOULD consider applying the PRECIS framework {{RFC8264}}
-  for preparation, enforcement and comparison of the strings.
-  Such identifiers are not URL-safe and need percent-encoding when embedded in a URI.
 
 # Initial GLUE Prefixes {#prefixes}
 
@@ -662,7 +661,7 @@ contributed to this specification.
 * Removed the "glue:" URI scheme and its registration.
 * Renamed "Authority Identifier" to "Prefix".
 * Added recommendations for new Prefixes:
-  DNS names, UUIDs, URL-safe characters, and RFC 9839 and PRECIS for non-ASCII identifiers.
+  DNS names, UUIDs, and URL-safe characters.
 * Registered the Wikidata entity URI prefix as an example of a general-purpose identifier.
 * Stated that equivalence between identifiers, and establishing whether multiple identifiers
   refer to the same organization, are out of scope.

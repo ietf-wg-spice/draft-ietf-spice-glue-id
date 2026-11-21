@@ -176,6 +176,8 @@ Table of Contents
    organization (e.g., the organization has both a Dun & Bradstreet
    number and a Private Enterprise Number), then the same organization
    can be identified by GLUE Identifiers differentiated by the Prefix.
+   Establishing whether multiple GLUE Identifiers refer to the same
+   organization is out of scope for this specification.
 
    It is assumed that most registered organizational entity
    identification schemes already handle any namespacing necessary to
@@ -351,7 +353,8 @@ Table of Contents
 
    The specification that registers a Prefix can mention related
    identifiers, including URIs, URNs, IRIs and other strings.
-   Establishing equivalence between those identifiers is out of scope
+   Establishing equivalence between those identifiers, or whether
+   multiple identifiers refer to the same organization, is out of scope
    for this specification.  Implementations and relying parties MUST NOT
    assume equivalence between GLUE Identifiers and other identifiers
    unless such equivalence is explicitly defined by the specification
@@ -690,7 +693,9 @@ Document History
    *  Registered the Wikidata entity URI prefix as an example of a
       general-purpose identifier.
 
-   *  Stated that equivalence between identifiers is out of scope.
+   *  Stated that equivalence between identifiers, and establishing
+      whether multiple identifiers refer to the same organization, are
+      out of scope.
 
    *  Replaced the example LEI, and corrected "20-digit" to
       "20-character".

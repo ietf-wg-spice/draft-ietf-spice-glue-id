@@ -1362,7 +1362,9 @@ An organization can be identified by multiple GLUE Identifiers,
 but each distinct GLUE Identifier can only refer to a single organization.
 If multiple External Authorities have issued identifiers for the same organization
 (e.g., the organization has both a Dun &amp; Bradstreet number and a Private Enterprise Number),
-then the same organization can be identified by GLUE Identifiers differentiated by the Prefix.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
+then the same organization can be identified by GLUE Identifiers differentiated by the Prefix.
+Establishing whether multiple GLUE Identifiers
+refer to the same organization is out of scope for this specification.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
 <p id="section-2.1-2">It is assumed that most registered organizational entity identification schemes
 already handle any namespacing necessary to achieve uniqueness as part of the External Identifier.
 However, if collisions are possible within the set of possible external
@@ -1578,7 +1580,8 @@ The second example uses the Enterprise Number "32473" reserved for documentation
         </h3>
 <p id="section-4.1-1">The specification that registers a Prefix can mention related identifiers,
 including URIs, URNs, IRIs and other strings.
-Establishing equivalence between those identifiers
+Establishing equivalence between those identifiers,
+or whether multiple identifiers refer to the same organization,
 is out of scope for this specification.
 Implementations and relying parties <span class="bcp14">MUST NOT</span> assume equivalence between
 GLUE Identifiers and other identifiers
@@ -2137,7 +2140,8 @@ DNS names, UUIDs, URL-safe characters, and RFC 9839 and PRECIS for non-ASCII ide
           <p id="appendix-B-2.7.1">Registered the Wikidata entity URI prefix as an example of a general-purpose identifier.<a href="#appendix-B-2.7.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="appendix-B-2.8">
-          <p id="appendix-B-2.8.1">Stated that equivalence between identifiers is out of scope.<a href="#appendix-B-2.8.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-2.8.1">Stated that equivalence between identifiers, and establishing whether multiple identifiers
+refer to the same organization, are out of scope.<a href="#appendix-B-2.8.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="appendix-B-2.9">
           <p id="appendix-B-2.9.1">Replaced the example LEI, and corrected "20-digit" to "20-character".<a href="#appendix-B-2.9.1" class="pilcrow">¶</a></p>

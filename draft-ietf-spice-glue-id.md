@@ -45,6 +45,10 @@ author:
     uri: https://self-issued.info/
     country: United States
 
+ -
+    fullname: Orie Steele
+    email: orie@or13.io
+
 normative:
   RFC5234:
   RFC7595:

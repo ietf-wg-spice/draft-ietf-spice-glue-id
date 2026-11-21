@@ -71,6 +71,7 @@ normative:
 
 informative:
   RFC1034:
+  RFC3061:
   RFC3986:
   RFC8126:
   RFC8264:
@@ -83,11 +84,12 @@ informative:
 --- abstract
 
 This specification defines GLobal Unique Enterprise (GLUE) Identifiers,
-which are strings or URIs that identify businesses and organizations.
-Every GLUE Identifier carries a prefix that makes it globally unique.
-The specification establishes an IANA registry of prefixes, including prefixes
-that are compatible with existing organizational identifier systems,
-and prefixes that are simple strings rather than URIs.
+which are strings, some of which are also URIs, that identify businesses and organizations.
+Every GLUE Identifier begins with a registered prefix that makes it globally unique.
+The specification establishes an IANA registry of prefixes.
+Registered prefixes can be the leading portion of identifiers from existing organizational identifier systems,
+such as "urn:lei:",
+or can be new simple string prefixes of the form "glue_name_".
 
 --- middle
 
@@ -98,16 +100,18 @@ With the increasing use of digital credentials, there is a need for a common
 methodology for expressing these identifiers such that claims about and by such
 entities can be made in a consistent and interoperable manner.
 
-This specification defines GLUE Identifiers,
-which are either URIs or strings of a simple prefixed form.
-Both forms carry a prefix that makes the identifier globally unique.
-URIs already have this property through their scheme.
-Strings obtain it through a Prefix registered in an IANA registry
+This specification defines GLUE Identifiers.
+A GLUE Identifier is a string that begins with a Prefix registered in an IANA registry
 established by this specification.
-That registry allows existing organizational entity identification mechanisms
-to be represented as GLUE Identifiers,
-and allows new Prefixes to be registered by anyone, without requiring
-a new URI scheme or URN namespace.
+The Prefix makes the identifier globally unique.
+Many existing organizational identifiers already have a globally unique form,
+for example as a URN or as an HTTPS URL.
+Such identifiers are used as they are, and the registry records
+the leading portion of the identifier as a Prefix, together with a reference to
+the specification that defines the identifiers.
+This specification does not create new identifiers for these systems.
+For identifier systems that have no such form,
+and for new systems, the registry also allows Prefixes of the simple form "glue_name_".
 
 ## Requirements Notation and Conventions
 
@@ -118,36 +122,35 @@ a new URI scheme or URN namespace.
 This specification uses the following terms:
 
 GLUE Identifier:
-: an identifier for an organization that is either a GLUE String or a URI.
-
-GLUE String:
-: a GLUE Identifier that is not a URI, of the form "glue_" Prefix "_" External Identifier, defined in {{glue-strings}}.
-
-GLUE URI:
-: a GLUE Identifier that is a URI, in which the URI scheme provides the global uniqueness; see {{glue-uris}}.
+: an identifier for an organization that is a string beginning with a registered Prefix.
+It might also be a URI, URN, or IRI.
 
 Prefix:
-: the part of a GLUE String that makes it globally unique.
-Each Prefix is registered in the registry established in {{GLUE-Prefix-Reg}}.
+: the leading portion of a GLUE Identifier, registered in the registry established in {{GLUE-Prefix-Reg}}.
+Each GLUE Identifier begins with exactly one registered Prefix.
 A Prefix typically corresponds to an External Authority.
 
 External Identifier:
-: the part of a GLUE String that follows the Prefix.
+: the remainder of a GLUE Identifier after its Prefix.
 It is allocated by the External Authority to identify a particular organization
 within the Prefix over which that authority has jurisdiction.
 
 External Authority:
-: an organization that allocates External Identifiers over which it has jurisdiction that are used in GLUE Strings with its Prefix(es).
+: an organization that allocates External Identifiers over which it has jurisdiction that are used in GLUE Identifiers with its Prefix(es).
 
 # Core Concepts
 
-Every GLUE Identifier is globally unique and is either:
+Every GLUE Identifier is a string consisting of the following components, in order:
 
-- a GLUE String, which MUST contain a registered Prefix
-  and an External Identifier; or
+- A registered Prefix
 
-- a URI, whose scheme (and, where applicable, namespace) makes it globally unique.
-  Examples are "urn:lei:7ltwfzyicnsx8d621k86" and "https://example.com/entities/1".
+- The External Identifier
+
+This specification requires only that registered Prefixes are unique,
+and it relies on the IANA registry to enforce this property.
+This specification does not address the equivalence or uniqueness of the
+full identifiers defined by the specification that is referenced
+from the registration of a Prefix.
 
 ## Uniqueness and Namespacing
 
@@ -156,53 +159,85 @@ An organization can be identified by multiple GLUE Identifiers,
 but each distinct GLUE Identifier can only refer to a single organization.
 If multiple External Authorities have issued identifiers for the same organization
 (e.g., the organization has both a Dun & Bradstreet number and a Private Enterprise Number),
-then the same organization can be identified by GLUE Strings differentiated by the Prefix.
+then the same organization can be identified by GLUE Identifiers differentiated by the Prefix.
 
 It is assumed that most registered organizational entity identification schemes
 already handle any namespacing necessary to achieve uniqueness as part of the External Identifier.
 However, if collisions are possible within the set of possible external
-identifiers for a Prefix scheme, then further namespacing is
+identifiers for an External Authority, then further namespacing is
 necessary at the Prefix level.
-Such namespacing could be done by allocating multiple Prefixes.
+Such namespacing could be done by registering multiple Prefixes.
 The combination of the Prefix and the External Identifier
-MUST result in a unique GLUE String.
+MUST result in a unique GLUE Identifier.
 
 For example, assume there is an External Authority FEA that provides identifiers
 for organizations in Singapore and South Korea. The identifiers issued in
 Singapore are unique within Singapore, and the identifiers issued in South Korea
 are unique within South Korea, but there is no guarantee that an organization in
 Singapore will not be assigned the same identifier as an organization in South
-Korea. Upon registration of FEA as a Prefix, it would be
+Korea. Upon registration of FEA, it would be
 necessary to separately register two different Prefixes (e.g.,
-fea-sg and fea-kr) to provide differentiation between the two sets of External
+glue_fea-sg_ and glue_fea-kr_) to provide differentiation between the two sets of External
 Identifiers.
 
-# GLUE Strings {#glue-strings}
+# GLUE Identifiers {#glue-identifiers}
 
-A GLUE String begins with the literal "glue_",
-followed by a Prefix, an underscore character ("_"),
-and the External Identifier allocated by the authority.
+A GLUE Identifier is a string that begins with a Prefix registered
+in the registry established in {{GLUE-Prefix-Reg}},
+followed by the External Identifier allocated by the External Authority.
+A registered Prefix is either a Prefix for an existing identifier system,
+described in {{existing-prefixes}}, or a new "glue_" Prefix,
+described in {{new-prefixes}}.
 
-Prefixes consist of a sequence of characters beginning with a
+No registered Prefix may be a leading substring of another registered Prefix,
+so that every GLUE Identifier begins with exactly one registered Prefix.
+A Prefix is compared exactly as registered,
+except where its registration states that comparison is case-insensitive,
+as it is for the scheme and namespace of a URN.
+
+## Prefixes for Existing Identifier Systems {#existing-prefixes}
+
+Many organizational identifiers already have a globally unique form,
+such as a URN or a URL.
+The Prefix for such a system is the leading portion of the identifier,
+up to the point where the External Identifier allocated by the External Authority begins.
+Examples are "urn:lei:" and
+"https://business-registry.example/companies/us_va/".
+The Prefix MUST contain enough of the identifier to be globally unique
+and to scope the External Identifiers that the External Authority allocates.
+A URI scheme on its own, such as "https:", is not sufficient.
+
+For these systems the GLUE Identifier is the existing identifier,
+used as defined by the External Authority.
+This specification does not define new identifiers for them,
+and it does not restrict the characters of their External Identifiers.
+The specification referenced by the registration defines the syntax of the External Identifiers.
+
+## New Prefixes {#new-prefixes}
+
+Where an identifier system has no existing globally unique identifier form,
+a new Prefix of the form "glue_" name "_" can be registered.
+The name consists of a sequence of characters beginning with a
 letter or digit and followed by any combination of letters, digits,
 hyphen ("-"), or period (".").
 This repertoire is compatible with DNS names {{RFC1034}}.
-A Prefix MUST NOT contain an underscore, so the Prefix ends at
-the first underscore that follows "glue_".
-Although Prefixes are case-insensitive, the canonical form is
-lowercase and documents that specify Prefixes must do so with
+The name MUST NOT contain an underscore,
+so the Prefix ends at the first underscore that follows "glue_".
+Although names are case-insensitive, the canonical form is
+lowercase and documents that specify names must do so with
 lowercase letters. An implementation should accept uppercase letters as
-equivalent to lowercase in Prefix names (e.g., allow "EXAMPLE" as
+equivalent to lowercase in names (e.g., allow "EXAMPLE" as
 well as "example") for the sake of robustness but should only produce lowercase
-Prefix names for consistency. There is a limit of 253 characters
-for the length of a Prefix.
-The ABNF [RFC5234] for Prefixes is:
+names for consistency. There is a limit of 253 characters
+for the length of a name.
+The ABNF [RFC5234] for new Prefixes is:
 
 ```
-prefix = (ALPHA / DIGIT) *252( ALPHA / DIGIT / "-" / "." )
+new-prefix = "glue_" name "_"
+name = (ALPHA / DIGIT) *252( ALPHA / DIGIT / "-" / "." )
 ```
 
-External Identifiers consist of a sequence of unreserved characters
+External Identifiers following a new Prefix consist of a sequence of unreserved characters
 {{Section 2.3 of RFC3986}}: letters, digits,
 hyphen ("-"), period ("."), underscore ("_"), and tilde ("~").
 It is specific to the
@@ -212,15 +247,16 @@ and documents that specify External Identifiers MUST do so with lowercase letter
 Always using the canonical form of these identifiers means that code performing comparisons
 need not be aware of whether External Identifiers are case-sensitive or not;
 case-sensitive comparisons can always be performed
-on the whole GLUE String.
+on the whole GLUE Identifier.
 
 While the original representation of some External Identifiers may contain
-characters that are ignored, these MUST be omitted when used in GLUE Strings.
+characters that are ignored, these MUST be omitted when used in GLUE Identifiers
+with a new Prefix.
 For instance, Dun & Bradstreet {{DUNS}} identifiers sometimes contain
 hyphen characters that are ignored.
 The DUNS numbers 12-345-6789 and 123456789 are considered to be equivalent.
 The latter form without the ignored characters MUST be used
-as the External Identifier in GLUE Strings.
+as the External Identifier in GLUE Identifiers.
 
 Documents that define a new Prefix
 MUST NOT allow the representation of an External Identifier
@@ -228,48 +264,38 @@ to contain characters outside the set above, such as the colon character.
 Specifications MUST define a substitute character,
 such as period, that is used in place of any such character in External Identifiers.
 Any substitution can be specified in the Transformation Rules
-in the IANA registration for a Prefix; see {{GLUE-Prefix-Reg}}.
+in the IANA registration for the Prefix; see {{GLUE-Prefix-Reg}}.
 
-There is a limit of 1000 characters for an External Identifier.
-The ABNF [RFC5234] for External Identifiers is:
+There is a limit of 1000 characters for an External Identifier following a new Prefix.
+The ABNF [RFC5234] for such GLUE Identifiers is:
 
 ```
+glue-identifier = new-prefix external-identifier
 external-identifier = 1*1000( ALPHA / DIGIT / "-" / "." / "_" / "~" )
 ```
 
-Combining these, the ABNF [RFC5234] for a GLUE String is:
+For example, the following is a GLUE Identifier using the Prefix "glue_duns_"
+and the External Identifier "123456789".
 
 ```
-glue-string = "glue_" prefix "_" external-identifier
+glue_duns_123456789
 ```
 
-For example, the following is a GLUE String using the Prefix "pen"
-and the External Identifier "32473". This example uses the Enterprise Number "32473" reserved for documentation in {{?RFC5612}}.
-
-```
-glue_pen_32473
-```
-
-The Prefix MUST be registered in the GLUE Prefix registry
-established in {{GLUE-Prefix-Reg}}.
-The External Identifier MUST be the identifier assigned to the organization
-by the External Authority.
-
-## Recommendations for New Prefixes {#recommendations}
+### Recommendations for New Prefixes {#recommendations}
 
 The following recommendations apply to documents that register new Prefixes.
 
 - Consider using a DNS name {{RFC1034}} under the control of the External Authority
-  as the Prefix (e.g., "example.com"), because DNS names are already globally
+  as the name (e.g., "business-registry.example"), because DNS names are already globally
   unique and have an established allocation and ownership model.
   A DNS-name Prefix also helps limit conflicts between registrations.
 
 - Consider using a UUID {{RFC9562}} in its lowercase hexadecimal string form
   as the External Identifier,
   because a UUID can be generated without coordination and is URL-safe.
-  For example, "glue_example.com_3f2504e0-4f89-41d3-9a0c-0305e82c3301".
+  For example, "glue_business-registry.example_3f2504e0-4f89-41d3-9a0c-0305e82c3301".
 
-- Restrict both the Prefix and the External Identifier to URL-safe characters,
+- Restrict both the name and the External Identifier to URL-safe characters,
   as defined by this section.
 
 - If a Prefix registration needs External Identifiers that contain
@@ -279,64 +305,41 @@ The following recommendations apply to documents that register new Prefixes.
   for preparation, enforcement and comparison of the strings.
   Such identifiers are not URL-safe and need percent-encoding when embedded in a URI.
 
-# GLUE URIs {#glue-uris}
-
-A URI {{RFC3986}} can be used as a GLUE Identifier.
-Because the URI scheme is already globally unique,
-no Prefix registration is needed.
-This specification does not define a new URI scheme.
-
-Existing identifier systems that already have a URI form,
-for example LEIs in the "urn:lei" namespace {{LEI-IANA}},
-can be used directly as GLUE URIs.
-See {{equivalence}} for the relationship between such URIs and GLUE Strings.
-
 # Initial GLUE Prefixes {#prefixes}
 
 This section defines the GLUE Prefixes listed in {{glue-def}}.
-Each is compatible with an existing, globally unique identifier system.
+Prefixes for existing identifier systems that already have a globally unique form
+are registered as the leading portion of that form.
 
-| Organization     | Prefix  | Example GLUE String         |
-|:-----------------|:--------|:----------------------------|
-| GLEIF            | lei     | glue_lei_7ltwfzyicnsx8d621k86 |
-| Dun & Bradstreet | duns    | glue_duns_123456789         |
-| Private Enterprise Numbers | pen | glue_pen_32473    |
-| ISO/IEC 6523     | iso6523 | glue_iso6523_0060.123456789 |
+| Organization     | Prefix                | Example GLUE Identifier                    |
+|:-----------------|:----------------------|:-------------------------------------------|
+| GLEIF            | urn:lei:              | urn:lei:7ltwfzyicnsx8d621k86               |
+| Private Enterprise Numbers | urn:oid:1.3.6.1.4.1. | urn:oid:1.3.6.1.4.1.32473      |
+| Dun & Bradstreet | glue_duns_            | glue_duns_123456789                        |
+| ISO/IEC 6523     | glue_iso6523_         | glue_iso6523_0060.123456789                |
 {: #glue-def title='Defined GLUE Prefixes'}
 
 These are registered in the GLUE Prefix Registry
 established in {{GLUE-Prefix-Reg}}.
-Other Prefixes can be registered as described there,
-including Prefixes that are not tied to an existing identifier system.
-
-## Equivalence to Similar Identifiers {#equivalence}
-
-A GLUE String is an identifier in its own namespace. By default, a GLUE String
-is not equivalent to any other identifier, including a URI defined by the referenced
-authority's own namespace. Equivalence between a GLUE String and a URI
-exists only when explicitly specified for a given Prefix.
-Implementations and relying parties MUST NOT assume equivalence between GLUE
-Strings and URIs unless such equivalence is explicitly defined by the
-authority and the party understands that particular Prefix
-and the specified equivalence.
-
-### LEI URNs
-
-[LEI-IANA] registers a URN namespace for Legal Entity Identifiers (LEIs).
-This means that LEIs can be
-represented in at least two ways. Therefore there is an equivalence
-between a GLUE String with an "lei" Prefix and an LEI URN, provided
-the 20-character LEI Code of the LEI URN is identical to the External Identifier
-of the GLUE String, after converting uppercase letters to lowercase.
-For example, "urn:lei:7ltwfzyicnsx8d621k86" is equivalent to
-"glue_lei_7ltwfzyicnsx8d621k86".
-The LEI Code used in this example is the one given as an example
+The LEI Code in the first example is the one given as an example
 in the LEI URN namespace registration {{LEI-IANA}};
 no LEI Code is reserved for use in examples.
+The second example uses the Enterprise Number "32473" reserved for documentation in {{?RFC5612}}.
+
+## Related Identifiers {#related}
+
+The specification that registers a Prefix can mention related identifiers,
+including URIs, URNs, IRIs and other strings.
+Establishing equivalence between those identifiers
+is out of scope for this specification.
+Implementations and relying parties MUST NOT assume equivalence between
+GLUE Identifiers and other identifiers
+unless such equivalence is explicitly defined by the specification
+referenced from the registration of the Prefix.
 
 # Security Considerations
 
-The security considerations inherent to using URIs apply to GLUE URIs.
+The security considerations inherent to using URIs apply to GLUE Identifiers that are URIs.
 Security considerations for URIs can be found in {{RFC3986}}.
 
 The global uniqueness of GLUE Identifiers prevents situations in which
@@ -344,13 +347,13 @@ the same identifier is allocated in different local namespaces
 and cannot be disambiguated when used.
 For instance both Canadian and Singaporean organization registries might use
 the local identifier "42", but with these referring to different organizations.
-Embedding these local identifiers in GLUE Strings with distinct Prefixes enables disambiguation.
+Embedding these local identifiers in GLUE Identifiers with distinct Prefixes enables disambiguation.
 
 A Prefix identifies the namespace, not the party presenting an identifier.
 A GLUE Identifier on its own does not authenticate that the presenter is the organization it names.
 Relying parties need to establish that by other means.
 
-A DNS name used as a Prefix can change hands when the domain registration lapses or is transferred.
+A DNS name used in a Prefix can change hands when the domain registration lapses or is transferred.
 Registrations of such Prefixes are subject to the review described in {{GLUE-Prefix-Reg}}.
 Registered Prefixes remain bound to the registrant of record in the registry,
 whatever later happens to the domain.
@@ -384,11 +387,11 @@ IANA "GLUE Prefix" registry
 of Prefixes for
 GLobal Unique Enterprise (GLUE) Identifiers.
 
-Each entry registers a Prefix for use in GLUE Strings.
+Each entry registers a Prefix for use in GLUE Identifiers.
 The organization responsible for the Prefix is recorded.
-Registered Prefixes can be compatible with existing organizational identifier systems
-(such as the Legal Entity Identifier),
-or can be new Prefixes that are not tied to an existing URI scheme or URN namespace.
+A registered Prefix is either the leading portion of an identifier
+in an existing organizational identifier system (such as "urn:lei:"),
+or a new Prefix of the form "glue_name_" as defined in {{new-prefixes}}.
 
 IANA is requested to create the
 "GLobal Unique Enterprise (GLUE) Identifiers"
@@ -414,7 +417,10 @@ an appropriate subject
 Within the review period, the Designated Experts will either approve or deny
 the registration request, communicating this decision to the review list and IANA.
 The Designated Experts verify that a specification exists
-and that the proposed Prefix conforms to the syntax in {{glue-strings}}. Experts are
+and that the proposed Prefix is unique,
+is not a leading substring of a registered Prefix,
+and does not have a registered Prefix as a leading substring.
+A new Prefix also has to conform to the syntax in {{new-prefixes}}. Experts are
 encouraged to be biased towards approving registrations unless they are abusive,
 frivolous, or actively harmful (not merely aesthetically displeasing or
 architecturally dubious).
@@ -428,12 +434,17 @@ Criteria that should be applied by the Designated Experts includes
 determining whether the proposed registration duplicates existing functionality,
 determining whether it is likely to be of general applicability
 or whether it is useful only for a single application,
-whether the Prefix is globally unique and does not collide with or
-easily confuse with an existing registration,
-and, for a Prefix that represents an existing identifier system,
-whether the registration references an existing organizational registry
-operated by an External Authority identified by the proposed Prefix.
-For a Prefix that is a DNS name, the Designated Experts should
+and whether the Prefix is distinct enough to avoid confusion
+with an existing registration.
+For a Prefix for an existing identifier system,
+the Designated Experts check that the registration references
+the specification of those identifiers, operated by an External Authority,
+and that the Prefix contains enough of the identifier to be globally unique,
+as described in {{existing-prefixes}}.
+Equivalent forms of an identifier system that already have a registered Prefix
+should not be registered under a new Prefix;
+the existing identifiers are used instead.
+Where a Prefix contains a DNS name, the Designated Experts should
 check that the requester controls that DNS name.
 For a new Prefix that is not tied to an existing identifier system,
 the specification needs to describe how External Identifiers are allocated
@@ -465,24 +476,20 @@ before publication of the final specification.
 
 Prefix:
 : The Prefix to be registered.
-It is not case sensitive and any letters MUST be expressed in lowercase characters.
-It MUST conform to the "prefix" syntax in {{glue-strings}},
-which is a sequence of characters with a maximum length of 253,
-beginning with a letter or digit and followed by any combination of
-letters, digits, period ("."), or hyphen ("-").
+For a Prefix for an existing identifier system,
+it is the leading portion of the identifier, as described in {{existing-prefixes}}.
+For a new Prefix, it MUST conform to the "new-prefix" syntax in {{new-prefixes}}
+and any letters MUST be expressed in lowercase characters.
+The registration states whether comparison of the Prefix is case-insensitive.
 
 Example:
-: An example GLUE String using the Prefix.
-
-Equivalent URI Form:
-: If the identifier system has a URI form with a defined equivalence
-to GLUE Strings with this Prefix, that URI form (e.g., "urn:lei:"), else "N/A".
+: An example GLUE Identifier using the Prefix.
 
 Organization:
 : The organization responsible for the Prefix.
 
 Transformation Rules:
-: Syntactic transformations applied to the original External Identifiers when creating the GLUE String, or "N/A" if none.
+: Syntactic transformations applied to the original External Identifiers when creating the GLUE Identifier, or "N/A" if none.
 
 Change Controller:
 : For IETF stream RFCs, use "IETF".
@@ -490,29 +497,26 @@ For others, give the name of the responsible party.
 Other details (e.g., postal address, e-mail address, or home page URL) may also be included.
 
 Specification Document(s):
-: Reference to the document or documents that specify the Prefix to be registered,
+: Reference to the document or documents that specify the identifiers for the Prefix to be registered,
 preferably including URLs that can be used to retrieve the documents.
 An indication of the relevant sections may also be included, but is not required.
 
 ### Initial Registry Contents
 
-#### lei
+#### urn:lei:
 
 {:compact}
 Prefix:
-: lei
+: urn:lei: (case-insensitive)
 
 Example:
-: glue_lei_7ltwfzyicnsx8d621k86
-
-Equivalent URI Form:
-: urn:lei:
+: urn:lei:7ltwfzyicnsx8d621k86
 
 Organization:
 : GLEIF
 
 Transformation Rules:
-: Convert uppercase characters to lowercase.
+: N/A
 
 Change Controller:
 : IETF
@@ -521,17 +525,36 @@ Specification Document(s):
 : {{prefixes}} of \[\[ this specification ]], [LEI], [LEI-IANA]
 
 
-#### duns
+#### urn:oid:1.3.6.1.4.1.
 
 {:compact}
 Prefix:
-: duns
+: urn:oid:1.3.6.1.4.1. (case-insensitive)
+
+Example:
+: urn:oid:1.3.6.1.4.1.32473
+
+Organization:
+: Private Enterprise Numbers
+
+Transformation Rules:
+: N/A
+
+Change Controller:
+: IETF
+
+Specification Document(s):
+: {{prefixes}} of \[\[ this specification ]], [PEN], [RFC9371], [RFC3061]
+
+
+#### glue_duns_
+
+{:compact}
+Prefix:
+: glue_duns_
 
 Example:
 : glue_duns_123456789
-
-Equivalent URI Form:
-: N/A
 
 Organization:
 : Dun & Bradstreet
@@ -546,42 +569,14 @@ Specification Document(s):
 : {{prefixes}} of \[\[ this specification ]], [DUNS]
 
 
-#### pen
+#### glue_iso6523_
 
 {:compact}
 Prefix:
-: pen
-
-Example:
-: glue_pen_32473
-
-Equivalent URI Form:
-: N/A
-
-Organization:
-: Private Enterprise Numbers
-
-Transformation Rules:
-: N/A
-
-Change Controller:
-: IETF
-
-Specification Document(s):
-: {{prefixes}} of \[\[ this specification ]], [PEN], [RFC9371]
-
-
-#### iso6523
-
-{:compact}
-Prefix:
-: iso6523
+: glue_iso6523_
 
 Example:
 : glue_iso6523_0060.123456789
-
-Equivalent URI Form:
-: N/A
 
 Organization:
 : ISO/IEC 6523
@@ -628,16 +623,16 @@ contributed to this specification.
 
 -11
 
-* Defined GLUE Identifiers as either GLUE Strings or URIs,
-  each carrying a prefix that makes it globally unique.
-* Replaced the "glue:" URI scheme with GLUE Strings of the form `glue_prefix_id`
-  and removed the URI scheme registration.
-* Renamed "Authority Identifier" to "Prefix", and allowed DNS-name-compatible Prefixes.
+* Defined GLUE Identifiers as strings that begin with a registered Prefix,
+  which makes them globally unique.
+* Prefixes for existing identifier systems are the leading portion of the existing identifier,
+  such as "urn:lei:", and no new identifiers are defined for them.
+* Added new Prefixes of the form "glue_name_" for identifier systems without an existing globally unique form.
+* Removed the "glue:" URI scheme and its registration.
+* Renamed "Authority Identifier" to "Prefix".
 * Added recommendations for new Prefixes:
-  DNS names for Prefixes, UUIDs for External Identifiers,
-  URL-safe characters, and RFC 9839 and PRECIS for non-ASCII identifiers.
-* Updated the registry template and initial entries
-  to include examples and equivalent URI forms, such as urn:lei.
+  DNS names, UUIDs, URL-safe characters, and RFC 9839 and PRECIS for non-ASCII identifiers.
+* Stated that equivalence between identifiers is out of scope.
 * Replaced the example LEI, and corrected "20-digit" to "20-character".
 * Updated the D-U-N-S reference.
 

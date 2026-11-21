@@ -445,10 +445,17 @@ However, if the specification is not completed and published
 in a timely manner, as determined by the Designated Experts,
 the Designated Experts may request that IANA withdraw the registration.
 
-Registration requests sent to the mailing list for review should use
-an appropriate subject
+As is done for media type registrations,
+registration requests are sent to the review mailing list,
+and the review takes place on that list.
+Requests should use an appropriate subject
 (e.g., "Request to register GLUE Prefix example").
 
+During the review period, the Designated Experts provide their feedback on the review list,
+and the applicant responds there.
+This keeps the review a public discussion
+among the applicant, the Designated Experts, and other interested parties,
+rather than a discussion only between the applicant, the Designated Experts, and IANA.
 Within the review period, the Designated Experts will either approve or deny
 the registration request, communicating this decision to the review list and IANA.
 The Designated Experts verify that a specification exists
@@ -462,8 +469,9 @@ architecturally dubious).
 
 Denials should include an explanation and, if applicable,
 suggestions as to how to make the request successful.
-If the designated experts are not responsive,
-the registration requesters should contact IANA to escalate the process.
+If the Designated Experts are not responsive,
+the registration requesters can raise this on the review list
+and with the IESG, which appoints the Designated Experts.
 
 Criteria that should be applied by the Designated Experts includes
 determining whether the proposed registration duplicates existing functionality,
@@ -694,6 +702,8 @@ contributed to this specification.
 * Registered the Wikidata entity URI prefix as an example of a general-purpose identifier.
 * Encouraged specifications that register Prefixes to state how identifiers behave
   through mergers, dissolution, reuse, and relationships between organizations.
+* Adopted a media-type-style review process in which Designated Experts
+  give feedback on the review list, and replaced the IANA escalation text.
 * Stated that equivalence between identifiers, and establishing whether multiple identifiers
   refer to the same organization, are out of scope.
 * Replaced the example LEI, and corrected "20-digit" to "20-character".

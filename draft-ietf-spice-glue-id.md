@@ -101,7 +101,7 @@ It also establishes an IANA registry for managing how existing organizational en
 identification mechanisms relate to this namespace.
 
 Any organizational entity identifier whose identification mechanism has been registered
-as an Authority Identifier in the registry may be represented as a GLUE URI.
+as a Prefix in the registry may be represented as a GLUE URI.
 
 ## Requirements Notation and Conventions
 
@@ -114,21 +114,21 @@ This specification uses the following terms:
 GLUE URI:
 : a URI that uses the GLUE URI scheme established in this specification.
 
-Authority Identifier:
+Prefix:
 : identifier for the External Authority responsible for assigning the External Identifiers used in GLUE URIs over which it has jurisdiction.
 
 External Identifier:
-: identifier assigned by an External Authority to identify a particular organization within GLUE URIs with Authority Identifier(s) over which it has jurisdiction.
+: identifier assigned by an External Authority to identify a particular organization within GLUE URIs with Prefix(es) over which it has jurisdiction.
 
 External Authority:
-: an organization that allocates External Identifiers over which it has jurisdiction that are used in GLUE URIs with its Authority Identifier(s).
+: an organization that allocates External Identifiers over which it has jurisdiction that are used in GLUE URIs with its Prefix(es).
 
 # Core Concepts
 
 Every GLUE URI MUST
 contain the following components:
 
-- The Authority Identifier
+- The Prefix
 
 - The External Identifier
 
@@ -139,15 +139,15 @@ An organization can be identified by multiple GLUE URIs,
 but each distinct GLUE URI can only refer to a single organization.
 If multiple External Authorities have issued identifiers for the same organization
 (e.g., the organization has both a Dun & Bradstreet number and a Private Enterprise Number),
-then the same organization can be identified by GLUE URIs differentiated by the Authority Identifier.
+then the same organization can be identified by GLUE URIs differentiated by the Prefix.
 
 It is assumed that most registered organizational entity identification schemes
 already handle any namespacing necessary to achieve uniqueness as part of the External Identifier.
 However, if collisions are possible within the set of possible external
-identifiers for an Authority Identifier scheme, then further namespacing is
+identifiers for a Prefix scheme, then further namespacing is
 necessary at the GLUE URI level.
-Such namespacing could be done by allocating multiple Authority Identifiers.
-The combination of the Authority Identifier and the External Identifier
+Such namespacing could be done by allocating multiple Prefixes.
+The combination of the Prefix and the External Identifier
 MUST result in a unique GLUE URI.
 
 For example, assume there is an External Authority FEA that provides identifiers
@@ -155,31 +155,31 @@ for organizations in Singapore and South Korea. The identifiers issued in
 Singapore are unique within Singapore, and the identifiers issued in South Korea
 are unique within South Korea, but there is no guarantee that an organization in
 Singapore will not be assigned the same identifier as an organization in South
-Korea. Upon registration of FEA as an Authority Identifier, it would be
-necessary to separately register two different Authority Identifiers (e.g.,
+Korea. Upon registration of FEA as a Prefix, it would be
+necessary to separately register two different Prefixes (e.g.,
 FEA-SG and FEA-KR) to provide differentiation between the two sets of External
 Identifiers.
 
 # GLUE URIs {#glue-uris}
 
 GLUE URIs comply with [RFC7595].
-They begin with "glue:" and are followed by an Authority Identifier,
+They begin with "glue:" and are followed by a Prefix,
 a colon character (":"), and the External Identifier allocated by the authority.
 
-Authority Identifiers consist of a sequence of characters beginning with a
+Prefixes consist of a sequence of characters beginning with a
 letter or digit and followed by any combination of letters, digits, plus ("+"),
 hyphen ("-"), or period (".").
-Although Authority Identifiers are case-insensitive, the canonical form is
-lowercase and documents that specify Authority Identifiers must do so with
+Although Prefixes are case-insensitive, the canonical form is
+lowercase and documents that specify Prefixes must do so with
 lowercase letters. An implementation should accept uppercase letters as
-equivalent to lowercase in Authority Identifier names (e.g., allow "EXAMPLE" as
+equivalent to lowercase in Prefix names (e.g., allow "EXAMPLE" as
 well as "example") for the sake of robustness but should only produce lowercase
-Authority Identifier names for consistency. There is a limit of 50 characters
-for the length of an Authority Identifier.
-The ABNF [RFC5234] for Authority Identifiers is:
+Prefix names for consistency. There is a limit of 50 characters
+for the length of a Prefix.
+The ABNF [RFC5234] for Prefixes is:
 
 ```
-authority-identifier = (ALPHA/DIGIT) *49( ALPHA / DIGIT / "+" / "-" / "." )
+prefix = (ALPHA/DIGIT) *49( ALPHA / DIGIT / "+" / "-" / "." )
 ```
 
 External Identifiers consist of a sequence of characters beginning with a letter
@@ -187,7 +187,7 @@ or digit or hyphen ("-") and followed by any combination of letters, digits,
 plus ("+"), hyphen ("-"), or period (".").
 A digit or hyphen is allowed as the first character to permit the case where the
 External Identifier is the representation of a number. It is specific to the
-Authority Identifier whether the External Identifiers are case-insensitive or
+Prefix whether the External Identifiers are case-insensitive or
 case-sensitive. When they are case-insensitive, the canonical form is lowercase
 and documents that specify External Identifiers MUST do so with lowercase letters.
 Always using the canonical form of these URIs means that code performing comparisons
@@ -203,13 +203,13 @@ The DUNS numbers 12-345-6789 and 123456789 are considered to be equivalent.
 The latter form without the ignored characters MUST be used
 as the External Identifier in GLUE URIs.
 
-Finally, documents that define a new Authority Identifier type
+Finally, documents that define a new Prefix type
 MUST NOT allow the representation of an External Identifier
 to contain the colon character.
 Specifications MUST define a substitute character,
 such as period, that is used in place of a colon in External Identifiers.
 Any substitution can be specified in the Transformation Rules
-in the IANA registration for an Authority Identifier; see {{GLUE-Authority-Reg}}.
+in the IANA registration for a Prefix; see {{GLUE-Authority-Reg}}.
 
 There is a limit of 1000 characters for an External Identifier.
 The ABNF [RFC5234] for External Identifiers is:
@@ -221,10 +221,10 @@ external-identifier = ( ALPHA / DIGIT / "-" ) *999( ALPHA / DIGIT / "+" / "-" / 
 Combining these, the ABNF [RFC5234] for a GLUE URI is:
 
 ```
-glue-uri = "glue:" authority-identifier ":" external-identifier
+glue-uri = "glue:" prefix ":" external-identifier
 ```
 
-For example, the following is a GLUE URI using the Authority Identifier "pen"
+For example, the following is a GLUE URI using the Prefix "pen"
 and the External Identifier "32473". This example uses the Enterprise Number "32473" reserved for documentation in {{?RFC5612}}.
 
 ```
@@ -237,24 +237,24 @@ support representation of External Identifiers that use
 non-ASCII characters. This specification is therefore limited to identifier
 systems whose representations can be expressed fully within the permitted character set.
 
-The Authority Identifier MUST be registered in the GLUE URI Authority Identifier registry
+The Prefix MUST be registered in the GLUE URI Prefix registry
 established in {{GLUE-Authority-Reg}}.
 The External Identifier MUST be the identifier assigned to the organization
 by the External Authority.
 
-# GLUE Authority Identifiers {#authority-identifiers}
+# GLUE Prefixes {#prefixes}
 
-This section defines the GLUE Authority Identifiers listed in {{glue-def}}.
+This section defines the GLUE Prefixes listed in {{glue-def}}.
 
-| Organization     | Authority Identifier | External Authority Specification |
+| Organization     | Prefix | External Authority Specification |
 |:-----------------|:-------|:------------------------------------------|
 | GLEIF            |  lei   | https://www.iso.org/standard/78829.html   |
 | Dun & Bradstreet |  duns  | https://www.dnb.com/en-us/smb/duns/what-is-a-duns-number.html             |
 | Private Enterprise Numbers | pen | https://www.iana.org/assignments/enterprise-numbers |
 | ISO/IEC 6523 | iso6523 | https://www.iso.org/standard/82246.html |
-{: #glue-def title='Defined GLUE Authority Identifiers'}
+{: #glue-def title='Defined GLUE Prefixes'}
 
-These are registered in the GLUE Authority Identifier URI Registry
+These are registered in the GLUE Prefix URI Registry
 established in {{GLUE-Authority-Reg}}.
 
 ## Equivalence to Similar URIs
@@ -262,10 +262,10 @@ established in {{GLUE-Authority-Reg}}.
 A GLUE URI is an identifier in a distinct URI scheme. By default, a GLUE URI
 is not equivalent to any other URI, including a URI defined by the referenced
 authority's own namespace. Equivalence between a GLUE URI and a non-GLUE URI
-exists only when explicitly specified for a given Authority Identifier.
+exists only when explicitly specified for a given Prefix.
 Implementations and relying parties MUST NOT assume equivalence between GLUE
 URIs and non-GLUE URIs unless such equivalence is explicitly defined by the
-authority and the party understands that particular Authority Identifier
+authority and the party understands that particular Prefix
 and the specified equivalance.
 
 ### LEI URNs
@@ -273,7 +273,7 @@ and the specified equivalance.
 [LEI-IANA] registers a URN namespace for Legal Entity Identifiers (LEIs).
 This means that LEIs can be
 represented in at least two ways. Therefore there is an equivalence
-between a GLUE URI with an "lei" Authority Identifier and an LEI URN, provided
+between a GLUE URI with an "lei" Prefix and an LEI URN, provided
 the 20-character LEI Code of the LEI URN is identical to the External Identifier
 of the GLUE URI, after converting uppercase letters to lowercase.
 For example, "urn:lei:7ltwfzyicnsx8d621k86" is equivalent to
@@ -311,21 +311,21 @@ taken with the GLUE URI representation as with the original identifier.
 
 Implementers storing or evaluating GLUE URIs are encouraged to be aware the
 privacy characteristics of each identification scheme represented by an
-Authority Identifier and to appropriately handle any GLUE URI that violates
+Prefix and to appropriately handle any GLUE URI that violates
 privacy policies.
 
 # IANA Considerations
 
-## GLUE Authority Identifier Registry {#GLUE-Authority-Reg}
+## GLUE Prefix Registry {#GLUE-Authority-Reg}
 
 This specification establishes the
-IANA "GLUE Authority Identifier" registry
-creating a URI namespace for Authority Identifiers for
+IANA "GLUE Prefix" registry
+creating a URI namespace for Prefixes for
 GLobal Unique Enterprise (GLUE) Identifiers.
 
-Each entry registers an Authority Identifier within the
+Each entry registers a Prefix within the
 "glue:" namespace.
-The organization responsible for the Authority Identifier is recorded.
+The organization responsible for the Prefix is recorded.
 
 IANA is requested to create the
 "GLobal Unique Enterprise (GLUE) Identifiers"
@@ -365,7 +365,7 @@ determining whether the proposed registration duplicates existing functionality,
 determining whether it is likely to be of general applicability
 or whether it is useful only for a single application,
 and whether the registration references an existing organizational registry
-operated by an External Authority identified by the proposed Authority Identifier.
+operated by an External Authority identified by the proposed Prefix.
 
 IANA must only accept registry updates from the Designated Experts and should direct
 all requests for registration to the review mailing list.
@@ -390,7 +390,7 @@ before publication of the final specification.
 
 ### Registration Template
 
-Authority Identifier:
+Prefix:
 : Identifier for the External Authority responsible for assigning the External Identifier used in GLUE URIs.
 This identifier
 is not case sensitive and any letters MUST be expressed in lowercase characters.
@@ -401,10 +401,10 @@ letters, digits, plus ("+"), period ("."), or hyphen ("-").
 URI:
 : The URI within the "glue:" namespace
 consisting of "glue:" followed by
-the Authority Identifier.
+the Prefix.
 
 Organization:
-: The organization responsible for the Authority Identifier.
+: The organization responsible for the Prefix.
 
 Transformation Rules:
 : Syntactic transformations applied to the original External Identifiers when creating the GLUE URI, or "N/A" if none.
@@ -415,7 +415,7 @@ For others, give the name of the responsible party.
 Other details (e.g., postal address, e-mail address, or home page URL) may also be included.
 
 Specification Document(s):
-: Reference to the document or documents that specify the Authority Identifier to be registered,
+: Reference to the document or documents that specify the Prefix to be registered,
 preferably including URLs that can be used to retrieve the documents.
 An indication of the relevant sections may also be included, but is not required.
 
@@ -424,7 +424,7 @@ An indication of the relevant sections may also be included, but is not required
 #### lei
 
 {:compact}
-Authority Identifier:
+Prefix:
 : lei
 
 URI:
@@ -440,13 +440,13 @@ Change Controller:
 : IETF
 
 Specification Document(s):
-: {{authority-identifiers}} of \[\[ this specification ]], [LEI], [LEI-IANA]
+: {{prefixes}} of \[\[ this specification ]], [LEI], [LEI-IANA]
 
 
 #### duns
 
 {:compact}
-Authority Identifier:
+Prefix:
 : duns
 
 URI:
@@ -462,13 +462,13 @@ Change Controller:
 : IETF
 
 Specification Document(s):
-: {{authority-identifiers}} of \[\[ this specification ]], [DUNS]
+: {{prefixes}} of \[\[ this specification ]], [DUNS]
 
 
 #### pen
 
 {:compact}
-Authority Identifier:
+Prefix:
 : pen
 
 URI:
@@ -484,13 +484,13 @@ Change Controller:
 : IETF
 
 Specification Document(s):
-: {{authority-identifiers}} of \[\[ this specification ]], [PEN], [RFC9371]
+: {{prefixes}} of \[\[ this specification ]], [PEN], [RFC9371]
 
 
 #### iso6523
 
 {:compact}
-Authority Identifier:
+Prefix:
 : iso6523
 
 URI:
@@ -506,7 +506,7 @@ Change Controller:
 : IETF
 
 Specification Document(s):
-: {{authority-identifiers}} of \[\[ this specification ]], [ISO6523]
+: {{prefixes}} of \[\[ this specification ]], [ISO6523]
 
 
 ## URI Scheme Registration

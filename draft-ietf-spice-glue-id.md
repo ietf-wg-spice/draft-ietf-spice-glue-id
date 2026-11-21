@@ -165,6 +165,8 @@ but each distinct GLUE Identifier can only refer to a single organization.
 If multiple External Authorities have issued identifiers for the same organization
 (e.g., the organization has both a Dun & Bradstreet number and a Private Enterprise Number),
 then the same organization can be identified by GLUE Identifiers differentiated by the Prefix.
+Establishing whether multiple GLUE Identifiers
+refer to the same organization is out of scope for this specification.
 
 It is assumed that most registered organizational entity identification schemes
 already handle any namespacing necessary to achieve uniqueness as part of the External Identifier.
@@ -336,7 +338,8 @@ The second example uses the Enterprise Number "32473" reserved for documentation
 
 The specification that registers a Prefix can mention related identifiers,
 including URIs, URNs, IRIs and other strings.
-Establishing equivalence between those identifiers
+Establishing equivalence between those identifiers,
+or whether multiple identifiers refer to the same organization,
 is out of scope for this specification.
 Implementations and relying parties MUST NOT assume equivalence between
 GLUE Identifiers and other identifiers
@@ -661,7 +664,8 @@ contributed to this specification.
 * Added recommendations for new Prefixes:
   DNS names, UUIDs, URL-safe characters, and RFC 9839 and PRECIS for non-ASCII identifiers.
 * Registered the Wikidata entity URI prefix as an example of a general-purpose identifier.
-* Stated that equivalence between identifiers is out of scope.
+* Stated that equivalence between identifiers, and establishing whether multiple identifiers
+  refer to the same organization, are out of scope.
 * Replaced the example LEI, and corrected "20-digit" to "20-character".
 * Updated the D-U-N-S reference.
 

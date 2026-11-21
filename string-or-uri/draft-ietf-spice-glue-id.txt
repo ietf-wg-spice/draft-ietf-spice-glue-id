@@ -280,6 +280,15 @@ Table of Contents
    specified in the Transformation Rules in the IANA registration for
    the Prefix; see Section 7.1.
 
+   GLUE Identifiers with a new Prefix are defined over the restricted
+   US-ASCII syntax specified in this section.  Percent-encoding is not
+   permitted.  Consequently, such GLUE Identifiers do not support
+   representation of External Identifiers that use non-ASCII characters.
+   New Prefixes are therefore limited to identifier systems whose
+   representations can be expressed fully within the permitted character
+   set.  This character set is a subset of the Unicode Assignables
+   subset defined in [RFC9839].
+
    There is a limit of 1000 characters for an External Identifier
    following a new Prefix.  The ABNF [RFC5234] for such GLUE Identifiers
    is:
@@ -311,14 +320,6 @@ Table of Contents
 
    *  Restrict both the name and the External Identifier to URL-safe
       characters, as defined by this section.
-
-   *  If a Prefix registration needs External Identifiers that contain
-      non-ASCII characters, the registration specifies the permitted
-      repertoire.  That repertoire SHOULD be the Unicode Assignables
-      subset defined in [RFC9839], and the registration SHOULD consider
-      applying the PRECIS framework [RFC8264] for preparation,
-      enforcement and comparison of the strings.  Such identifiers are
-      not URL-safe and need percent-encoding when embedded in a URI.
 
 4.  Initial GLUE Prefixes
 
@@ -582,6 +583,27 @@ Table of Contents
 
 8.1.  Normative References
 
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/rfc/rfc2119>.
+
+   [RFC3986]  Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
+              Resource Identifier (URI): Generic Syntax", STD 66,
+              RFC 3986, DOI 10.17487/RFC3986, January 2005,
+              <https://www.rfc-editor.org/rfc/rfc3986>.
+
+   [RFC5234]  Crocker, D., Ed. and P. Overell, "Augmented BNF for Syntax
+              Specifications: ABNF", STD 68, RFC 5234,
+              DOI 10.17487/RFC5234, January 2008,
+              <https://www.rfc-editor.org/rfc/rfc5234>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+
+8.2.  Informative References
+
    [DUNS]     "D-U-N-S Numbers", n.d., <https://www.dnb.com/en-
               us/smb/duns/what-is-a-duns-number.html>.
 
@@ -600,26 +622,6 @@ Table of Contents
    [PEN]      "Private Enterprise Numbers", n.d.,
               <https://www.iana.org/assignments/enterprise-numbers>.
 
-   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
-              Requirement Levels", BCP 14, RFC 2119,
-              DOI 10.17487/RFC2119, March 1997,
-              <https://www.rfc-editor.org/rfc/rfc2119>.
-
-   [RFC5234]  Crocker, D., Ed. and P. Overell, "Augmented BNF for Syntax
-              Specifications: ABNF", STD 68, RFC 5234,
-              DOI 10.17487/RFC5234, January 2008,
-              <https://www.rfc-editor.org/rfc/rfc5234>.
-
-   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
-              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
-              May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
-
-   [WIKIDATA] Wikimedia Foundation, "Wikidata:Identifiers", n.d.,
-              <https://www.wikidata.org/w/
-              index.php?title=Wikidata:Identifiers&oldid=2327606992>.
-
-8.2.  Informative References
-
    [RFC1034]  Mockapetris, P., "Domain names - concepts and facilities",
               STD 13, RFC 1034, DOI 10.17487/RFC1034, November 1987,
               <https://www.rfc-editor.org/rfc/rfc1034>.
@@ -627,11 +629,6 @@ Table of Contents
    [RFC3061]  Mealling, M., "A URN Namespace of Object Identifiers",
               RFC 3061, DOI 10.17487/RFC3061, February 2001,
               <https://www.rfc-editor.org/rfc/rfc3061>.
-
-   [RFC3986]  Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
-              Resource Identifier (URI): Generic Syntax", STD 66,
-              RFC 3986, DOI 10.17487/RFC3986, January 2005,
-              <https://www.rfc-editor.org/rfc/rfc3986>.
 
    [RFC5612]  Eronen, P. and D. Harrington, "Enterprise Number for
               Documentation Use", RFC 5612, DOI 10.17487/RFC5612, August
@@ -641,12 +638,6 @@ Table of Contents
               Writing an IANA Considerations Section in RFCs", BCP 26,
               RFC 8126, DOI 10.17487/RFC8126, June 2017,
               <https://www.rfc-editor.org/rfc/rfc8126>.
-
-   [RFC8264]  Saint-Andre, P. and M. Blanchet, "PRECIS Framework:
-              Preparation, Enforcement, and Comparison of
-              Internationalized Strings in Application Protocols",
-              RFC 8264, DOI 10.17487/RFC8264, October 2017,
-              <https://www.rfc-editor.org/rfc/rfc8264>.
 
    [RFC9371]  Baber, A. and P. Hoffman, "Registration Procedures for
               Private Enterprise Numbers (PENs)", RFC 9371,
@@ -660,6 +651,10 @@ Table of Contents
    [RFC9839]  Bray, T. and P. Hoffman, "Unicode Character Repertoire
               Subsets", RFC 9839, DOI 10.17487/RFC9839, August 2025,
               <https://www.rfc-editor.org/rfc/rfc9839>.
+
+   [WIKIDATA] Wikimedia Foundation, "Wikidata:Identifiers", n.d.,
+              <https://www.wikidata.org/w/
+              index.php?title=Wikidata:Identifiers&oldid=2327606992>.
 
 Acknowledgments
 
@@ -687,8 +682,8 @@ Document History
 
    *  Renamed "Authority Identifier" to "Prefix".
 
-   *  Added recommendations for new Prefixes: DNS names, UUIDs, URL-safe
-      characters, and RFC 9839 and PRECIS for non-ASCII identifiers.
+   *  Added recommendations for new Prefixes: DNS names, UUIDs, and URL-
+      safe characters.
 
    *  Registered the Wikidata entity URI prefix as an example of a
       general-purpose identifier.

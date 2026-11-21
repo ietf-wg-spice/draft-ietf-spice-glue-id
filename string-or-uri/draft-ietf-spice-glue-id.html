@@ -19,8 +19,8 @@ such as "urn:lei:",
 or can be new simple string prefixes of the form "glue_name_". 
     ' name="description">
 <meta content="xml2rfc 3.35.0" name="generator">
-<meta content="URI" name="keyword">
-<meta content="Scheme" name="keyword">
+<meta content="Prefix" name="keyword">
+<meta content="Registry" name="keyword">
 <meta content="Enterprise" name="keyword">
 <meta content="Entity Identifiers" name="keyword">
 <meta content="draft-ietf-spice-glue-id-latest" name="ietf.draft">
@@ -1474,17 +1474,23 @@ Specifications <span class="bcp14">MUST</span> define a substitute character,
 such as period, that is used in place of any such character in External Identifiers.
 Any substitution can be specified in the Transformation Rules
 in the IANA registration for the Prefix; see <a href="#GLUE-Prefix-Reg" class="auto internal xref">Section 7.1</a>.<a href="#section-3.2-5" class="pilcrow">¶</a></p>
-<p id="section-3.2-6">There is a limit of 1000 characters for an External Identifier following a new Prefix.
-The ABNF <span>[<a href="#RFC5234" class="cite xref">RFC5234</a>]</span> for such GLUE Identifiers is:<a href="#section-3.2-6" class="pilcrow">¶</a></p>
-<p id="section-3.2-7"><code>
+<p id="section-3.2-6">GLUE Identifiers with a new Prefix are defined over the restricted US-ASCII syntax specified in this
+section. Percent-encoding is not permitted. Consequently, such GLUE Identifiers do not
+support representation of External Identifiers that use
+non-ASCII characters. New Prefixes are therefore limited to identifier
+systems whose representations can be expressed fully within the permitted character set.
+This character set is a subset of the Unicode Assignables subset defined in <span>[<a href="#RFC9839" class="cite xref">RFC9839</a>]</span>.<a href="#section-3.2-6" class="pilcrow">¶</a></p>
+<p id="section-3.2-7">There is a limit of 1000 characters for an External Identifier following a new Prefix.
+The ABNF <span>[<a href="#RFC5234" class="cite xref">RFC5234</a>]</span> for such GLUE Identifiers is:<a href="#section-3.2-7" class="pilcrow">¶</a></p>
+<p id="section-3.2-8"><code>
 glue-identifier = new-prefix external-identifier
 external-identifier = 1*1000( ALPHA / DIGIT / "-" / "." / "_" / "~" )
-</code><a href="#section-3.2-7" class="pilcrow">¶</a></p>
-<p id="section-3.2-8">For example, the following is a GLUE Identifier using the Prefix "glue_duns_"
-and the External Identifier "123456789".<a href="#section-3.2-8" class="pilcrow">¶</a></p>
-<p id="section-3.2-9"><code>
+</code><a href="#section-3.2-8" class="pilcrow">¶</a></p>
+<p id="section-3.2-9">For example, the following is a GLUE Identifier using the Prefix "glue_duns_"
+and the External Identifier "123456789".<a href="#section-3.2-9" class="pilcrow">¶</a></p>
+<p id="section-3.2-10"><code>
 glue_duns_123456789
-</code><a href="#section-3.2-9" class="pilcrow">¶</a></p>
+</code><a href="#section-3.2-10" class="pilcrow">¶</a></p>
 <div id="recommendations">
 <section id="section-3.2.1">
           <h4 id="name-recommendations-for-new-pre">
@@ -1507,14 +1513,6 @@ For example, "glue_business-registry.example_3f2504e0-4f89-41d3-9a0c-0305e82c330
             <li class="normal" id="section-3.2.1-2.3">
               <p id="section-3.2.1-2.3.1">Restrict both the name and the External Identifier to URL-safe characters,
 as defined by this section.<a href="#section-3.2.1-2.3.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-3.2.1-2.4">
-              <p id="section-3.2.1-2.4.1">If a Prefix registration needs External Identifiers that contain
-non-ASCII characters, the registration specifies the permitted repertoire.
-That repertoire <span class="bcp14">SHOULD</span> be the Unicode Assignables subset defined in <span>[<a href="#RFC9839" class="cite xref">RFC9839</a>]</span>,
-and the registration <span class="bcp14">SHOULD</span> consider applying the PRECIS framework <span>[<a href="#RFC8264" class="cite xref">RFC8264</a>]</span>
-for preparation, enforcement and comparison of the strings.
-Such identifiers are not URL-safe and need percent-encoding when embedded in a URI.<a href="#section-3.2.1-2.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </section>
@@ -1994,6 +1992,31 @@ An indication of the relevant sections may also be included, but is not required
 <a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
+<dt id="RFC2119">[RFC2119]</dt>
+        <dd>
+<span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC3986">[RFC3986]</dt>
+        <dd>
+<span class="refAuthor">Berners-Lee, T.</span>, <span class="refAuthor">Fielding, R.</span>, and <span class="refAuthor">L. Masinter</span>, <span class="refTitle">"Uniform Resource Identifier (URI): Generic Syntax"</span>, <span class="seriesInfo">STD 66</span>, <span class="seriesInfo">RFC 3986</span>, <span class="seriesInfo">DOI 10.17487/RFC3986</span>, <time datetime="2005-01" class="refDate">January 2005</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc3986">https://www.rfc-editor.org/rfc/rfc3986</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC5234">[RFC5234]</dt>
+        <dd>
+<span class="refAuthor">Crocker, D., Ed.</span> and <span class="refAuthor">P. Overell</span>, <span class="refTitle">"Augmented BNF for Syntax Specifications: ABNF"</span>, <span class="seriesInfo">STD 68</span>, <span class="seriesInfo">RFC 5234</span>, <span class="seriesInfo">DOI 10.17487/RFC5234</span>, <time datetime="2008-01" class="refDate">January 2008</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5234">https://www.rfc-editor.org/rfc/rfc5234</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8174">[RFC8174]</dt>
+      <dd>
+<span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+</div>
+<div id="sec-informative-references">
+<section id="section-8.2">
+        <h3 id="name-informative-references">
+<a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+        </h3>
+<dl class="references">
 <dt id="DUNS">[DUNS]</dt>
         <dd>
 <span class="refTitle">"D-U-N-S Numbers"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.dnb.com/en-us/smb/duns/what-is-a-duns-number.html">https://www.dnb.com/en-us/smb/duns/what-is-a-duns-number.html</a>&gt;</span>. </dd>
@@ -2014,31 +2037,6 @@ An indication of the relevant sections may also be included, but is not required
         <dd>
 <span class="refTitle">"Private Enterprise Numbers"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.iana.org/assignments/enterprise-numbers">https://www.iana.org/assignments/enterprise-numbers</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="RFC2119">[RFC2119]</dt>
-        <dd>
-<span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC5234">[RFC5234]</dt>
-        <dd>
-<span class="refAuthor">Crocker, D., Ed.</span> and <span class="refAuthor">P. Overell</span>, <span class="refTitle">"Augmented BNF for Syntax Specifications: ABNF"</span>, <span class="seriesInfo">STD 68</span>, <span class="seriesInfo">RFC 5234</span>, <span class="seriesInfo">DOI 10.17487/RFC5234</span>, <time datetime="2008-01" class="refDate">January 2008</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5234">https://www.rfc-editor.org/rfc/rfc5234</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC8174">[RFC8174]</dt>
-        <dd>
-<span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="WIKIDATA">[WIKIDATA]</dt>
-      <dd>
-<span class="refAuthor">Wikimedia Foundation</span>, <span class="refTitle">"Wikidata:Identifiers"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.wikidata.org/w/index.php?title=Wikidata:Identifiers&amp;oldid=2327606992">https://www.wikidata.org/w/index.php?title=Wikidata:Identifiers&amp;oldid=2327606992</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-</dl>
-</section>
-</div>
-<div id="sec-informative-references">
-<section id="section-8.2">
-        <h3 id="name-informative-references">
-<a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
-        </h3>
-<dl class="references">
 <dt id="RFC1034">[RFC1034]</dt>
         <dd>
 <span class="refAuthor">Mockapetris, P.</span>, <span class="refTitle">"Domain names - concepts and facilities"</span>, <span class="seriesInfo">STD 13</span>, <span class="seriesInfo">RFC 1034</span>, <span class="seriesInfo">DOI 10.17487/RFC1034</span>, <time datetime="1987-11" class="refDate">November 1987</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc1034">https://www.rfc-editor.org/rfc/rfc1034</a>&gt;</span>. </dd>
@@ -2047,10 +2045,6 @@ An indication of the relevant sections may also be included, but is not required
         <dd>
 <span class="refAuthor">Mealling, M.</span>, <span class="refTitle">"A URN Namespace of Object Identifiers"</span>, <span class="seriesInfo">RFC 3061</span>, <span class="seriesInfo">DOI 10.17487/RFC3061</span>, <time datetime="2001-02" class="refDate">February 2001</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc3061">https://www.rfc-editor.org/rfc/rfc3061</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="RFC3986">[RFC3986]</dt>
-        <dd>
-<span class="refAuthor">Berners-Lee, T.</span>, <span class="refAuthor">Fielding, R.</span>, and <span class="refAuthor">L. Masinter</span>, <span class="refTitle">"Uniform Resource Identifier (URI): Generic Syntax"</span>, <span class="seriesInfo">STD 66</span>, <span class="seriesInfo">RFC 3986</span>, <span class="seriesInfo">DOI 10.17487/RFC3986</span>, <time datetime="2005-01" class="refDate">January 2005</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc3986">https://www.rfc-editor.org/rfc/rfc3986</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="RFC5612">[RFC5612]</dt>
         <dd>
 <span class="refAuthor">Eronen, P.</span> and <span class="refAuthor">D. Harrington</span>, <span class="refTitle">"Enterprise Number for Documentation Use"</span>, <span class="seriesInfo">RFC 5612</span>, <span class="seriesInfo">DOI 10.17487/RFC5612</span>, <time datetime="2009-08" class="refDate">August 2009</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5612">https://www.rfc-editor.org/rfc/rfc5612</a>&gt;</span>. </dd>
@@ -2058,10 +2052,6 @@ An indication of the relevant sections may also be included, but is not required
 <dt id="RFC8126">[RFC8126]</dt>
         <dd>
 <span class="refAuthor">Cotton, M.</span>, <span class="refAuthor">Leiba, B.</span>, and <span class="refAuthor">T. Narten</span>, <span class="refTitle">"Guidelines for Writing an IANA Considerations Section in RFCs"</span>, <span class="seriesInfo">BCP 26</span>, <span class="seriesInfo">RFC 8126</span>, <span class="seriesInfo">DOI 10.17487/RFC8126</span>, <time datetime="2017-06" class="refDate">June 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8126">https://www.rfc-editor.org/rfc/rfc8126</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC8264">[RFC8264]</dt>
-        <dd>
-<span class="refAuthor">Saint-Andre, P.</span> and <span class="refAuthor">M. Blanchet</span>, <span class="refTitle">"PRECIS Framework: Preparation, Enforcement, and Comparison of Internationalized Strings in Application Protocols"</span>, <span class="seriesInfo">RFC 8264</span>, <span class="seriesInfo">DOI 10.17487/RFC8264</span>, <time datetime="2017-10" class="refDate">October 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8264">https://www.rfc-editor.org/rfc/rfc8264</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC9371">[RFC9371]</dt>
         <dd>
@@ -2072,8 +2062,12 @@ An indication of the relevant sections may also be included, but is not required
 <span class="refAuthor">Davis, K.</span>, <span class="refAuthor">Peabody, B.</span>, and <span class="refAuthor">P. Leach</span>, <span class="refTitle">"Universally Unique IDentifiers (UUIDs)"</span>, <span class="seriesInfo">RFC 9562</span>, <span class="seriesInfo">DOI 10.17487/RFC9562</span>, <time datetime="2024-05" class="refDate">May 2024</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9562">https://www.rfc-editor.org/rfc/rfc9562</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC9839">[RFC9839]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Bray, T.</span> and <span class="refAuthor">P. Hoffman</span>, <span class="refTitle">"Unicode Character Repertoire Subsets"</span>, <span class="seriesInfo">RFC 9839</span>, <span class="seriesInfo">DOI 10.17487/RFC9839</span>, <time datetime="2025-08" class="refDate">August 2025</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9839">https://www.rfc-editor.org/rfc/rfc9839</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="WIKIDATA">[WIKIDATA]</dt>
+      <dd>
+<span class="refAuthor">Wikimedia Foundation</span>, <span class="refTitle">"Wikidata:Identifiers"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.wikidata.org/w/index.php?title=Wikidata:Identifiers&amp;oldid=2327606992">https://www.wikidata.org/w/index.php?title=Wikidata:Identifiers&amp;oldid=2327606992</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -2134,7 +2128,7 @@ such as "urn:lei:", and no new identifiers are defined for them.<a href="#append
 </li>
         <li class="normal" id="appendix-B-2.6">
           <p id="appendix-B-2.6.1">Added recommendations for new Prefixes:
-DNS names, UUIDs, URL-safe characters, and RFC 9839 and PRECIS for non-ASCII identifiers.<a href="#appendix-B-2.6.1" class="pilcrow">¶</a></p>
+DNS names, UUIDs, and URL-safe characters.<a href="#appendix-B-2.6.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="appendix-B-2.7">
           <p id="appendix-B-2.7.1">Registered the Wikidata entity URI prefix as an example of a general-purpose identifier.<a href="#appendix-B-2.7.1" class="pilcrow">¶</a></p>

@@ -186,6 +186,33 @@ necessary to separately register two different Prefixes (e.g.,
 glue_fea-sg_ and glue_fea-kr_) to provide differentiation between the two sets of External
 Identifiers.
 
+## Lifecycle of Identifiers {#lifecycle}
+
+Organizations merge, split, are acquired, are renamed, and are dissolved or go bankrupt,
+and some identifier systems record relationships between organizations, such as
+parent and subsidiary.
+This specification does not define how identifiers behave through such events,
+and it does not define relationships or aliases between organizations.
+Each External Authority handles these in its own way,
+and the resulting identifier behavior differs between systems.
+
+Specifications that register Prefixes SHOULD make the following clear to their readers,
+for the identifiers they reference:
+
+- whether an External Identifier is permanent, or can change,
+  for example when organizations merge or split;
+- whether an External Identifier can ever be reused for a different organization,
+  after its organization is dissolved or goes bankrupt, or for any other reason;
+- how the status of an identifier is conveyed,
+  such as an organization that is no longer active; and
+- whether and how the External Authority expresses relationships between organizations,
+  or alternative identifiers for one organization, if it does.
+
+Relying parties need this information to know whether a GLUE Identifier
+can be assumed to refer to the same organization over time.
+An identifier that can be reassigned to a different organization
+weakens the global uniqueness that GLUE Identifiers are intended to provide.
+
 # GLUE Identifiers {#glue-identifiers}
 
 A GLUE Identifier is a string that begins with a Prefix registered
@@ -457,6 +484,8 @@ check that the requester controls that DNS name.
 For a new Prefix that is not tied to an existing identifier system,
 the specification needs to describe how External Identifiers are allocated
 and how their uniqueness within the Prefix is ensured.
+The Designated Experts should also check that the specification
+addresses the topics in {{lifecycle}}.
 The recommendations in {{recommendations}} apply.
 
 IANA must only accept registry updates from the Designated Experts and should direct
@@ -663,6 +692,8 @@ contributed to this specification.
 * Added recommendations for new Prefixes:
   DNS names, UUIDs, and URL-safe characters.
 * Registered the Wikidata entity URI prefix as an example of a general-purpose identifier.
+* Encouraged specifications that register Prefixes to state how identifiers behave
+  through mergers, dissolution, reuse, and relationships between organizations.
 * Stated that equivalence between identifiers, and establishing whether multiple identifiers
   refer to the same organization, are out of scope.
 * Replaced the example LEI, and corrected "20-digit" to "20-character".

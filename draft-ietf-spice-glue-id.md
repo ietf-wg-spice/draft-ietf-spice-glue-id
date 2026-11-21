@@ -51,7 +51,6 @@ author:
 
 normative:
   RFC5234:
-  RFC7595:
   DUNS:
     title: D-U-N-S Numbers
     target: https://www.dnb.com/en-us/smb/duns/what-is-a-duns-number.html
@@ -78,9 +77,6 @@ informative:
   RFC9562:
   RFC9839:
   RFC9371:
-  IANA.URISchemes:
-    title: Uniform Resource Identifier (URI) Schemes
-    target: https://www.iana.org/assignments/uri-schemes
 
 ---
 
@@ -300,12 +296,12 @@ See {{equivalence}} for the relationship between such URIs and GLUE Strings.
 This section defines the GLUE Prefixes listed in {{glue-def}}.
 Each is compatible with an existing, globally unique identifier system.
 
-| Organization     | Prefix | Example GLUE String | External Authority Specification |
-|:-----------------|:-------|:--------------------|:---------------------|
-| GLEIF            |  lei   | glue_lei_7ltwfzyicnsx8d621k86 | https://www.iso.org/standard/78829.html |
-| Dun & Bradstreet |  duns  | glue_duns_123456789 | https://www.dnb.com/en-us/smb/duns/what-is-a-duns-number.html |
-| Private Enterprise Numbers | pen | glue_pen_32473 | https://www.iana.org/assignments/enterprise-numbers |
-| ISO/IEC 6523 | iso6523 | glue_iso6523_0060.123456789 | https://www.iso.org/standard/82246.html |
+| Organization     | Prefix  | Example GLUE String         |
+|:-----------------|:--------|:----------------------------|
+| GLEIF            | lei     | glue_lei_7ltwfzyicnsx8d621k86 |
+| Dun & Bradstreet | duns    | glue_duns_123456789         |
+| Private Enterprise Numbers | pen | glue_pen_32473    |
+| ISO/IEC 6523     | iso6523 | glue_iso6523_0060.123456789 |
 {: #glue-def title='Defined GLUE Prefixes'}
 
 These are registered in the GLUE Prefix Registry
@@ -385,12 +381,14 @@ privacy policies.
 
 This specification establishes the
 IANA "GLUE Prefix" registry
-creating a URI namespace for Prefixes for
+of Prefixes for
 GLobal Unique Enterprise (GLUE) Identifiers.
 
-Each entry registers a Prefix within the
-"glue:" namespace.
+Each entry registers a Prefix for use in GLUE Strings.
 The organization responsible for the Prefix is recorded.
+Registered Prefixes can be compatible with existing organizational identifier systems
+(such as the Legal Entity Identifier),
+or can be new Prefixes that are not tied to an existing URI scheme or URN namespace.
 
 IANA is requested to create the
 "GLobal Unique Enterprise (GLUE) Identifiers"
@@ -411,11 +409,12 @@ the Designated Experts may request that IANA withdraw the registration.
 
 Registration requests sent to the mailing list for review should use
 an appropriate subject
-(e.g., "Request to register URI glue:example").
+(e.g., "Request to register GLUE Prefix example").
 
 Within the review period, the Designated Experts will either approve or deny
 the registration request, communicating this decision to the review list and IANA.
-The Designated Experts verify that a specification exists. Experts are
+The Designated Experts verify that a specification exists
+and that the proposed Prefix conforms to the syntax in {{glue-strings}}. Experts are
 encouraged to be biased towards approving registrations unless they are abusive,
 frivolous, or actively harmful (not merely aesthetically displeasing or
 architecturally dubious).
@@ -429,8 +428,17 @@ Criteria that should be applied by the Designated Experts includes
 determining whether the proposed registration duplicates existing functionality,
 determining whether it is likely to be of general applicability
 or whether it is useful only for a single application,
-and whether the registration references an existing organizational registry
+whether the Prefix is globally unique and does not collide with or
+easily confuse with an existing registration,
+and, for a Prefix that represents an existing identifier system,
+whether the registration references an existing organizational registry
 operated by an External Authority identified by the proposed Prefix.
+For a Prefix that is a DNS name, the Designated Experts should
+check that the requester controls that DNS name.
+For a new Prefix that is not tied to an existing identifier system,
+the specification needs to describe how External Identifiers are allocated
+and how their uniqueness within the Prefix is ensured.
+The recommendations in {{recommendations}} apply.
 
 IANA must only accept registry updates from the Designated Experts and should direct
 all requests for registration to the review mailing list.
@@ -456,23 +464,25 @@ before publication of the final specification.
 ### Registration Template
 
 Prefix:
-: Identifier for the External Authority responsible for assigning the External Identifier used in GLUE URIs.
-This identifier
-is not case sensitive and any letters MUST be expressed in lowercase characters.
-It MUST consist of a sequence of characters with a mazimum length of 50,
+: The Prefix to be registered.
+It is not case sensitive and any letters MUST be expressed in lowercase characters.
+It MUST conform to the "prefix" syntax in {{glue-strings}},
+which is a sequence of characters with a maximum length of 253,
 beginning with a letter or digit and followed by any combination of
-letters, digits, plus ("+"), period ("."), or hyphen ("-").
+letters, digits, period ("."), or hyphen ("-").
 
-URI:
-: The URI within the "glue:" namespace
-consisting of "glue:" followed by
-the Prefix.
+Example:
+: An example GLUE String using the Prefix.
+
+Equivalent URI Form:
+: If the identifier system has a URI form with a defined equivalence
+to GLUE Strings with this Prefix, that URI form (e.g., "urn:lei:"), else "N/A".
 
 Organization:
 : The organization responsible for the Prefix.
 
 Transformation Rules:
-: Syntactic transformations applied to the original External Identifiers when creating the GLUE URI, or "N/A" if none.
+: Syntactic transformations applied to the original External Identifiers when creating the GLUE String, or "N/A" if none.
 
 Change Controller:
 : For IETF stream RFCs, use "IETF".
@@ -492,8 +502,11 @@ An indication of the relevant sections may also be included, but is not required
 Prefix:
 : lei
 
-URI:
-: glue:lei
+Example:
+: glue_lei_7ltwfzyicnsx8d621k86
+
+Equivalent URI Form:
+: urn:lei:
 
 Organization:
 : GLEIF
@@ -514,8 +527,11 @@ Specification Document(s):
 Prefix:
 : duns
 
-URI:
-: glue:duns
+Example:
+: glue_duns_123456789
+
+Equivalent URI Form:
+: N/A
 
 Organization:
 : Dun & Bradstreet
@@ -536,8 +552,11 @@ Specification Document(s):
 Prefix:
 : pen
 
-URI:
-: glue:pen
+Example:
+: glue_pen_32473
+
+Equivalent URI Form:
+: N/A
 
 Organization:
 : Private Enterprise Numbers
@@ -558,8 +577,11 @@ Specification Document(s):
 Prefix:
 : iso6523
 
-URI:
-: glue:iso6523
+Example:
+: glue_iso6523_0060.123456789
+
+Equivalent URI Form:
+: N/A
 
 Organization:
 : ISO/IEC 6523
@@ -572,34 +594,6 @@ Change Controller:
 
 Specification Document(s):
 : {{prefixes}} of \[\[ this specification ]], [ISO6523]
-
-
-## URI Scheme Registration
-
-This specification registers the following URI scheme in the
-IANA "Uniform Resource Identifier (URI) Schemes" registry {{IANA.URISchemes}}
-established by {{RFC7595}}.
-
-### glue
-
-{:compact}
-Scheme Name:
-: glue
-
-Status:
-: Permanent
-
-Applications/protocols that use this scheme name:
-: Systems that need to refer to organizational entities utilizing interoperable identifiers derived from existing organizational identifier systems
-
-Contact:
-: Michael B. Jones - michael_b_jones@hotmail.com
-
-Change Controller:
-: IETF
-
-References:
-: \[\[ this specification ]]
 
 
 --- back
@@ -631,6 +625,21 @@ contributed to this specification.
 
 # Document History
 {: numbered="false"}
+
+-11
+
+* Defined GLUE Identifiers as either GLUE Strings or URIs,
+  each carrying a prefix that makes it globally unique.
+* Replaced the "glue:" URI scheme with GLUE Strings of the form "glue_<prefix>_<id>"
+  and removed the URI scheme registration.
+* Renamed "Authority Identifier" to "Prefix", and allowed DNS-name-compatible Prefixes.
+* Added recommendations for new Prefixes:
+  DNS names for Prefixes, UUIDs for External Identifiers,
+  URL-safe characters, and RFC 9839 and PRECIS for non-ASCII identifiers.
+* Updated the registry template and initial entries
+  to include examples and equivalent URI forms, such as urn:lei.
+* Replaced the example LEI, and corrected "20-digit" to "20-character".
+* Updated the D-U-N-S reference.
 
 -10
 

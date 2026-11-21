@@ -630,7 +630,7 @@ contributed to this specification.
 
 * Defined GLUE Identifiers as either GLUE Strings or URIs,
   each carrying a prefix that makes it globally unique.
-* Replaced the "glue:" URI scheme with GLUE Strings of the form "glue_<prefix>_<id>"
+* Replaced the "glue:" URI scheme with GLUE Strings of the form `glue_prefix_id`
   and removed the URI scheme registration.
 * Renamed "Authority Identifier" to "Prefix", and allowed DNS-name-compatible Prefixes.
 * Added recommendations for new Prefixes:

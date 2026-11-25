@@ -204,7 +204,9 @@ for the identifiers they reference:
 - whether an External Identifier can ever be reused for a different organization,
   after its organization is dissolved or goes bankrupt, or for any other reason;
 - how the status of an identifier is conveyed,
-  such as an organization that is no longer active; and
+  such as an organization that is no longer active,
+  and the longest time from the event (dissolution, merger, strike-off)
+  to the change of that status; and
 - whether and how the External Authority expresses relationships between organizations,
   or alternative identifiers for one organization, if it does.
 
@@ -263,6 +265,8 @@ equivalent to lowercase in names (e.g., allow "EXAMPLE" as
 well as "example") for the sake of robustness but should only produce lowercase
 names for consistency. There is a limit of 253 characters
 for the length of a name.
+In the form "glue_" name "_", the strings "glue_" and "_" are literal,
+and name is a placeholder for the registered name.
 The ABNF [RFC5234] for new Prefixes is:
 
 ```
@@ -340,7 +344,8 @@ The following recommendations apply to documents that register new Prefixes.
 
 # Initial GLUE Prefixes {#prefixes}
 
-This section defines the GLUE Prefixes listed in {{glue-def}}.
+This section defines the initial GLUE Prefixes listed in {{glue-def}}.
+These registrations are normative.
 Prefixes for existing identifier systems that already have a globally unique form
 are registered as the leading portion of that form.
 
@@ -354,11 +359,19 @@ are registered as the leading portion of that form.
 {: #glue-def title='Defined GLUE Prefixes'}
 
 These are registered in the GLUE Prefix Registry
-established in {{GLUE-Prefix-Reg}}, which gives an example of each.
+established in {{GLUE-Prefix-Reg}}.
+Each registration includes an illustrative example identifier,
+which is not normative.
 The LEI Code in the first example is the one given as an example
 in the LEI URN namespace registration {{LEI-IANA}};
 no LEI Code is reserved for use in examples.
 The second example uses the Enterprise Number "32473" reserved for documentation in {{?RFC5612}}.
+
+The Prefix "urn:oid:1.3.6.1.4.1." is the OID arc
+iso.org.dod.internet.private.enterprise (1.3.6.1.4.1),
+under which IANA allocates Private Enterprise Numbers (PEN) [PEN]
+to organizations {{RFC9371}}.
+Its URN form is defined in {{RFC3061}}.
 
 ## Related Identifiers {#related}
 
@@ -386,7 +399,7 @@ Embedding these local identifiers in GLUE Identifiers with distinct Prefixes ena
 
 A Prefix identifies the namespace, not the party presenting an identifier.
 A GLUE Identifier on its own does not authenticate that the presenter is the organization it names.
-Relying parties need to establish that by other means.
+If needed, relying parties need to establish that by other means.
 
 A DNS name used in a Prefix can change hands when the domain registration lapses or is transferred.
 Registrations of such Prefixes are subject to the review described in {{GLUE-Prefix-Reg}}.
